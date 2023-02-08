@@ -507,7 +507,7 @@ The benefits of a public repository include:
         # 6a: Change this to your user and repo names
         url: ssh://git@github.com/$user/$repo
         ref:
-          branch: main
+          branch: master
         secretRef:
           name: github-deploy-key
       ```
