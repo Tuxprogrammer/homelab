@@ -9,8 +9,10 @@ spec:
   calicoNetwork:
     # https://projectcalico.docs.tigera.io/networking/ip-autodetection
     nodeAddressAutodetectionV4:
-      cidrs:
-        - "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.utils.ipaddr('network/prefix') }}"
+      # cidrs:
+      #   - "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.utils.ipaddr('network/prefix') }}"
+      interface: "eth.*"
+    nodeAddressAutodetectionV6: {}
     # Note: The ipPools section cannot be modified post-install.
     ipPools:
       - blockSize: 26
