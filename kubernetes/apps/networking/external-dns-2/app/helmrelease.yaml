@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: external-dns-2
+  namespace: networking
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: external-dns
+      version: 1.12.0
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    interval: 2m
+    # logLevel: debug
+    provider: rfc2136
+    extraArgs:
+      - --annotation-filter=external-dns.alpha.kubernetes.io/target
+    policy: sync
+    sources: ["ingress"]
+    txtPrefix: k8s.
+    txtOwnerId: default
+    domainFilters: ["${SECRET_DOMAIN_2}"]
+    rfc2136:
+      zone: "${SECRET_DOMAIN_2}"
+    serviceMonitor:
+      enabled: true
+    podAnnotations:
+      secret.reloader.stakater.com/reload: external-dns-2-secret
+  valuesFrom:
+    - targetPath: rfc2136.host
+      kind: Secret
+      name: external-dns-2-secret
+      valuesKey: rfc2136_host
+    - targetPath: rfc2136.tsigKeyname
+      kind: Secret
+      name: external-dns-2-secret
+      valuesKey: rfc2136_tsigKeyname
+    - targetPath: rfc2136.tsigSecretAlg
+      kind: Secret
+      name: external-dns-2-secret
+      valuesKey: rfc2136_tsigSecretAlg
+    - targetPath: rfc2136.tsigSecret
+      kind: Secret
+      name: external-dns-2-secret
+      valuesKey: rfc2136_tsigSecret
