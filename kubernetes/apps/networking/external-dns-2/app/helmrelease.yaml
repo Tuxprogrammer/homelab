@@ -38,24 +38,21 @@ spec:
     domainFilters: ["${SECRET_DOMAIN_2}"]
     rfc2136:
       zone: "${SECRET_DOMAIN_2}"
+      tsigSecretAlg: hmac-sha512
     serviceMonitor:
       enabled: true
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-2-secret
   valuesFrom:
-    - targetPath: rfc2136.host
-      kind: Secret
+    - kind: Secret
       name: external-dns-2-secret
+      targetPath: rfc2136.host
       valuesKey: rfc2136_host
-    - targetPath: rfc2136.tsigKeyname
-      kind: Secret
+    - kind: Secret
       name: external-dns-2-secret
+      targetPath: rfc2136.tsigKeyname
       valuesKey: rfc2136_tsigKeyname
-    - targetPath: rfc2136.tsigSecretAlg
-      kind: Secret
+    - kind: Secret
       name: external-dns-2-secret
-      valuesKey: rfc2136_tsigSecretAlg
-    - targetPath: rfc2136.tsigSecret
-      kind: Secret
-      name: external-dns-2-secret
+      targetPath: rfc2136.tsigSecret
       valuesKey: rfc2136_tsigSecret
