@@ -79,7 +79,7 @@ spec:
         tag: 2.20.0
       extraEnvs:
         - name: TEMPLATE_NAME
-          value: lost-in-space
+          value: shuffle
         - name: SHOW_DETAILS
           value: "false"
   valuesFrom:
