@@ -37,10 +37,21 @@ spec:
     domainFilters: ["${SECRET_DOMAIN_2}"]
     rfc2136:
       zone: "${SECRET_DOMAIN_2}"
-      host: "ipa01.${SECRET_DOMAIN_2}"
       tsigSecretAlg: hmac-sha512
-      secretName: dhcp-ddns-tsig
     serviceMonitor:
       enabled: true
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-2-secret
+  valuesFrom:
+    - kind: Secret
+      name: external-dns-2-secret
+      targetPath: rfc2136.host
+      valuesKey: rfc2136_host
+    - kind: Secret
+      name: external-dns-2-secret
+      targetPath: rfc2136.tsigKeyname
+      valuesKey: rfc2136_tsigKeyname
+    - kind: Secret
+      name: external-dns-2-secret
+      targetPath: rfc2136.tsigSecret
+      valuesKey: rfc2136_tsigSecret
