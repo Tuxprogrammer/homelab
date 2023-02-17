@@ -52,16 +52,16 @@ spec:
       name: letsencrypt-production-2
     solvers:
       - dns01:
-        webhook:
-          groupName: acme.namecheap.com
-          solverName: namecheap
-          config:
-            apiKeySecretRef:
-              name: namecheap-api
-              key: apiKey
-            apiUserSecretRef:
-              name: namecheap-api
-              key: apiUser
+          webhook:
+            groupName: acme.namecheap.com
+            solverName: namecheap
+            config:
+              apiKeySecretRef:
+                name: namecheap-api
+                key: apiKey
+              apiUserSecretRef:
+                name: namecheap-api
+                key: apiUser
         selector:
           dnsZones:
             - "${SECRET_DOMAIN_2}"
@@ -78,16 +78,16 @@ spec:
       name: letsencrypt-staging-2
     solvers:
       - dns01:
-        webhook:
-          groupName: acme.namecheap.com
-          solverName: namecheap
-          config:
-            apiKeySecretRef:
-              name: namecheap-api
-              key: apiKey
-            apiUserSecretRef:
-              name: namecheap-api
-              key: apiUser
+          webhook:
+            groupName: acme.namecheap.com
+            solverName: namecheap
+            config:
+              apiKeySecretRef:
+                name: namecheap-api
+                key: apiKey
+              apiUserSecretRef:
+                name: namecheap-api
+                key: apiUser
         selector:
           dnsZones:
             - "${SECRET_DOMAIN_2}"
