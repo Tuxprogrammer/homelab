@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host pve.${SECRET_DOMAIN_2}
+    - host: &host pve.${SECRET_DOMAIN}
       http:
         paths:
           - path: /

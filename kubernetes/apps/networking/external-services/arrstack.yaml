@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host1 plex.${SECRET_DOMAIN_2}
+    - host: &host1 plex.${SECRET_DOMAIN}
       http:
         paths:
           - path: /
@@ -40,7 +40,7 @@ spec:
                 name: *app
                 port:
                   number: 443
-    - host: &host2 overseerr.${SECRET_DOMAIN_2}
+    - host: &host2 overseerr.${SECRET_DOMAIN}
       http:
         paths:
           - path: /

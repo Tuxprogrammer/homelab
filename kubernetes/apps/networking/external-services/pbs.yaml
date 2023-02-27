@@ -9,10 +9,10 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: pbs.${SECRET_DOMAIN_2}
+  externalName: node10.${SECRET_DOMAIN_2}
   ports:
     - name: http
-      port: &port 443
+      port: &port 8007
       protocol: TCP
       targetPort: *port
 ---
@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host pbs.${SECRET_DOMAIN_2}
+    - host: &host pbs.${SECRET_DOMAIN}
       http:
         paths:
           - path: /
