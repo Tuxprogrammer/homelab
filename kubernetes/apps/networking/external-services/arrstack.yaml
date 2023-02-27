@@ -22,7 +22,7 @@ metadata:
   name: &app arrstack-plex
   namespace: networking
   annotations:
-    nginx.ingress.kubernetes.io/upstream-vhost: &host "plex.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/icon: mdi:pirate
@@ -32,7 +32,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: *host
+    - host: &host "plex.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
@@ -62,7 +62,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: *host
+    - host: &host "overseerr.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
