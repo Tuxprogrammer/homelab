@@ -52,7 +52,7 @@ metadata:
   name: &app arrstack-overseerr
   namespace: networking
   annotations:
-    nginx.ingress.kubernetes.io/upstream-vhost: &host "overseerr.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/icon: mdi:play-box
