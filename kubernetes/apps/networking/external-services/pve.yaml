@@ -22,6 +22,7 @@ metadata:
   name: &app proxmox-virtualization-env
   namespace: networking
   annotations:
+    nginx.ingress.kubernetes.io/upstream-vhost: "pve.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/icon: mdi:computer
