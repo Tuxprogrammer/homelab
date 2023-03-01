@@ -16,7 +16,7 @@ metadata:
   namespace: rook-ceph-external # namespace:cluster
   annotations:
     meta.helm.sh/release-name: rook-ceph-cluster
-    meta.helm.sh/release-namespace: rook-ceph
+    meta.helm.sh/release-namespace: rook-ceph-external
   labels:
     app.kubernetes.io/managed-by: Helm
 spec:

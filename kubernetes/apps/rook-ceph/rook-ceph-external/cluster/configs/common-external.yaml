@@ -23,6 +23,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rook-ceph-cluster-mgmt
   namespace: rook-ceph-external # namespace:cluster
+  annotations:
+    meta.helm.sh/release-name: rook-ceph-cluster-external
+    meta.helm.sh/release-namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -37,6 +42,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rook-ceph-cmd-reporter
   namespace: rook-ceph-external # namespace:cluster
+  annotations:
+    meta.helm.sh/release-name: rook-ceph-cluster-external
+    meta.helm.sh/release-namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -51,12 +61,22 @@ kind: ServiceAccount
 metadata:
   name: rook-ceph-cmd-reporter
   namespace: rook-ceph-external # namespace:cluster
+  annotations:
+    meta.helm.sh/release-name: rook-ceph-cluster-external
+    meta.helm.sh/release-namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/managed-by: Helm
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rook-ceph-cmd-reporter
   namespace: rook-ceph-external # namespace:cluster
+  annotations:
+    meta.helm.sh/release-name: rook-ceph-cluster-external
+    meta.helm.sh/release-namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/managed-by: Helm
 rules:
   - apiGroups:
       - ""
