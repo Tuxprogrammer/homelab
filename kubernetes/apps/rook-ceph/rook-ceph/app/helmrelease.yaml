@@ -20,12 +20,15 @@ spec:
     createNamespace: true
     remediation:
       retries: 3
+    timeout: 60m
   upgrade:
     cleanupOnFail: true
     remediation:
       retries: 3
+    timeout: 60m
   uninstall:
     keepHistory: false
+    timeout: 5m
   values:
     crds:
       enabled: true
