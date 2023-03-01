@@ -5,8 +5,5 @@ data:
   maxMonId: "2"
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2023-03-01T06:05:03Z"
   name: rook-ceph-mon-endpoints
   namespace: rook-ceph-external
-  resourceVersion: "5334874"
-  uid: 8f4e2fc9-1729-4946-96fc-7608dcc65598

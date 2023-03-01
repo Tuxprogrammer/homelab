@@ -2,10 +2,7 @@ allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  creationTimestamp: "2023-03-01T06:05:05Z"
   name: ceph-rbd-ext
-  resourceVersion: "5334893"
-  uid: 4edb35a0-5fdd-4fdf-8e78-4884f9ed7e72
 parameters:
   clusterID: rook-ceph-external
   csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
