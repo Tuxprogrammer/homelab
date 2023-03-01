@@ -29,6 +29,9 @@ spec:
       mon:
         disabled: false
         interval: 45s
+  dataDirHostPath: /var/lib/rook-ext
+  cephVersion:
+    image: quay.io/ceph/ceph:v17.2.5
   # optionally, the ceph-mgr IP address can be passed to gather metric from the prometheus exporter
   # monitoring:
   #   enabled: true
