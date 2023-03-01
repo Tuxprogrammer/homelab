@@ -101,7 +101,7 @@ spec:
             size: 3
         storageClass:
           enabled: true
-          name: ceph-block
+          name: ceph-block-internal
           isDefault: true
           reclaimPolicy: Delete
           allowVolumeExpansion: true
@@ -138,7 +138,7 @@ spec:
         storageClass:
           enabled: true
           isDefault: false
-          name: ceph-filesystem
+          name: ceph-filesystem-internal
           pool: data0
           reclaimPolicy: Delete
           allowVolumeExpansion: true
@@ -177,7 +177,7 @@ spec:
               interval: 60s
         storageClass:
           enabled: true
-          name: ceph-bucket
+          name: ceph-bucket-internal
           reclaimPolicy: Delete
           parameters:
             region: us-east-1
