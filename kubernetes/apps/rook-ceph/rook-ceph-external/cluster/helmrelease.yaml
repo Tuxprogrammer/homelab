@@ -40,10 +40,10 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/appName: "Rook"
+          hajimari.io/appName: "Rook External"
           hajimari.io/icon: mdi:chess-rook
         host:
-          name: &host rook.${SECRET_DOMAIN}
+          name: &host rook-external.${SECRET_DOMAIN}
           path: /
         tls:
           - hosts:
@@ -65,14 +65,14 @@ spec:
             disabled: false
             interval: 45s
     cephBlockPools:
-      - name: ceph-blockpool
+      - name: ceph-blockpool-ext
         spec:
           failureDomain: host
           replicated:
             size: 3
         storageClass:
           enabled: true
-          name: ceph-block
+          name: ceph-block-ext
           isDefault: true
           reclaimPolicy: Delete
           allowVolumeExpansion: true
@@ -87,7 +87,7 @@ spec:
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
     cephFileSystems:
-      - name: ceph-filesystem
+      - name: ceph-filesystem-ext
         spec:
           metadataPool:
             replicated:
@@ -109,7 +109,7 @@ spec:
         storageClass:
           enabled: true
           isDefault: false
-          name: ceph-filesystem
+          name: ceph-filesystem-ext
           pool: data0
           reclaimPolicy: Delete
           allowVolumeExpansion: true
@@ -122,7 +122,7 @@ spec:
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
     cephObjectStores:
-      - name: ceph-objectstore
+      - name: ceph-objectstore-ext
         spec:
           metadataPool:
             failureDomain: host
@@ -148,7 +148,7 @@ spec:
               interval: 60s
         storageClass:
           enabled: true
-          name: ceph-bucket
+          name: ceph-bucket-ext
           reclaimPolicy: Delete
           parameters:
             region: us-east-1
