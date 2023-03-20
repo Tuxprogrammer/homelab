@@ -72,30 +72,21 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: k8s-w11
+          - name: k8s-w1
             devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w21
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
+          - name: k8s-w2
             devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w31
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLGYJX
+          - name: k8s-w3
             devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w41
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9KVBG
+          - name: k8s-w4
             devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w51
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9JR2G
+          - name: k8s-w5
             devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w61
-            devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w71
-            devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
-          - name: k8s-w81
-            devices:
-              - name: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GDW2JX
     cephBlockPools:
       - name: ceph-blockpool
         spec:
