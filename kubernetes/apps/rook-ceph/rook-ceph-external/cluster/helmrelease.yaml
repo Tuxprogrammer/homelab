@@ -53,6 +53,7 @@ spec:
               - *host
     toolbox:
       enabled: true
+    pspEnable: false
     configOverride: |
       [global]
       bdev_enable_discard = true
