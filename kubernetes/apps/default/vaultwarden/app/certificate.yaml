@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
-    name: letsencrypt-production-2
+    name: letsencrypt-production
     kind: ClusterIssuer
   commonName: "bitwarden.${SECRET_DOMAIN_2}"
   dnsNames:
