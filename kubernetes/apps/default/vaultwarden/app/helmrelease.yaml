@@ -33,7 +33,7 @@ spec:
       DATA_FOLDER: "data"
       ICON_CACHE_FOLDER: "data/icon_cache"
       ATTACHMENTS_FOLDER: "data/attachments"
-      DOMAIN: &host "https://bitwarden.${SECRET_DOMAIN_2}"
+      DOMAIN: "https://bitwarden.${SECRET_DOMAIN_2}"
       TZ: "${TIMEZONE}"
       WEBSOCKET_ENABLED: "true"
       WEBSOCKET_ADDRESS: 0.0.0.0
@@ -61,7 +61,7 @@ spec:
           external-dns.home.arpa/enabled: "true"
           hajimari.io/icon: mdi:lock
         hosts:
-          - host: *host
+          - host: &host "bitwarden.${SECRET_DOMAIN_2}"
             paths:
               - path: /
                 pathType: Prefix
