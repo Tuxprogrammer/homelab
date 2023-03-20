@@ -78,6 +78,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
     resources:
       requests:
         cpu: 100m
