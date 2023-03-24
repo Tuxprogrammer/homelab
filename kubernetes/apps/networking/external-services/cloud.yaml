@@ -24,7 +24,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "cloud.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    external-dns.alpha.kubernetes.io/target: "@.${SECRET_DOMAIN_2}"
+    external-dns.alpha.kubernetes.io/target: "${SECRET_DOMAIN_2}"
     hajimari.io/icon: mdi:harddisk
   labels:
     app.kubernetes.io/name: *app
