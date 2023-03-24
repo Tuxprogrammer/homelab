@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: &app nextcloud-webui
+  namespace: networking
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  type: ExternalName
+  externalName: store.${SECRET_DOMAIN_2}
+  ports:
+    - name: http
+      port: &port 9001
+      protocol: TCP
+      targetPort: *port
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &app nextcloud-webui
+  namespace: networking
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-vhost: "cloud.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    external-dns.alpha.kubernetes.io/target: "@.${SECRET_DOMAIN_2}"
+    hajimari.io/icon: mdi:harddisk
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: &host cloud.${SECRET_DOMAIN_2}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: *app
+                port:
+                  number: 9001
+  tls:
+    - hosts:
+        - *host

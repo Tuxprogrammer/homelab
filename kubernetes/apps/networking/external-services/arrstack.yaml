@@ -25,6 +25,7 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    nginx.ingress.kubernetes.io/rewrite-target: /web$1$2
     hajimari.io/icon: mdi:pirate
   labels:
     app.kubernetes.io/name: *app
@@ -35,7 +36,7 @@ spec:
     - host: &host "plex.${SECRET_DOMAIN}"
       http:
         paths:
-          - path: /
+          - path: (/|$)(.*)
             pathType: Prefix
             backend:
               service:
