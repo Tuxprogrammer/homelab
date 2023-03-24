@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: networking
 resources:
   - ./certificates.yaml
+  - ./cloud.yaml
   - ./arrstack.yaml
   - ./pve.yaml
   - ./pbs.yaml
