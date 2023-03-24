@@ -24,6 +24,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "cloud.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/\.well-known/carddav https://cloud.${SECRET_DOMAIN_2}/remote.php/dav/ redirect;
+      rewrite ^/\.well-known/caldav https://cloud.${SECRET_DOMAIN_2}/remote.php/dav/ redirect;
     external-dns.alpha.kubernetes.io/target: "${SECRET_DOMAIN_2}"
     hajimari.io/icon: mdi:harddisk
   labels:
