@@ -26,7 +26,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^$ https://plex.${SECRET_DOMAIN}/web$1 permanent;
+      rewrite ^$ https://plex.${SECRET_DOMAIN}/web$request_uri permanent;
     hajimari.io/icon: mdi:pirate
   labels:
     app.kubernetes.io/name: *app
