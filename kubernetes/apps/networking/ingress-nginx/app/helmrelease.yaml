@@ -38,6 +38,8 @@ spec:
         enabled: true
       ingressClassResource:
         default: true
+      replicaCount: 5
+      minAvailable: 3
       config:
         client-header-timeout: 120
         client-body-buffer-size: "100M"
