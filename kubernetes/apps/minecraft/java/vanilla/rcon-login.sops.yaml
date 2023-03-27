@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: rcon-login
+data:
+    rcon-password: ENC[AES256_GCM,data:HOk++dDrJGEqsAL2uAaMYQ==,iv:q0lz5DMruIZL+wRRCZ+RwPTya/ntAJHdykiH3I1xVMk=,tag:3ItaNS/LdW2HVeUblj5jZw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1ghk42c28xewulhvzwnuch55axjfw477ntg8feggyhrx5mlv2y5lqfgfu2q
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSArU0lRZ3lMOWtnQWV2NVQx
+            RmlJY01qKzVNZ0MvamFydnYyUUdXNmN2U0JZCk1ZV3hnY3d0bUxUaHBmMVlwclh3
+            NjV3WEt5U0d6YmdROE9tUWhndDVtSUUKLS0tIFhEcUYwNDlvRFBka2hxUnVYeWh0
+            M3MyaWhHdXRWSlZjVDNvMUQ2TUk1NGMKqNg4J7FF7hPBOq0zRPIYSBp0aqr0ffRk
+            5LJ7zv3+ohdPqQBl4xR7gBoaT4TCeak+sbM7NktfeQIpjgKDygEsRw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-03-27T23:59:11Z"
+    mac: ENC[AES256_GCM,data:5x/x+twdczX5E6BC7hSVqg9a36ccQlDypzkYAv0VnqZeiUg0018ITKy2M6xTta/SDmpACdoNPuW/QuDTvCigNPluvkREHCl6eRt1JiTwxj13o1dRhoSq6699mwbWGcIkT+SNkUggkoa5sgEoNtY64cAI/35z6ETlvH55/wFC9sA=,iv:udz8g+2HirRq2FrEMgWUPb6XZT4tz2GmubDHw4pfCZ4=,tag:uSLJ2kHtVcjLcMaOixCd+A==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
