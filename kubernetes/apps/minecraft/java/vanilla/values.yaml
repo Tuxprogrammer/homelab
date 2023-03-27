@@ -1,0 +1,124 @@
+---
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+resources:
+  requests:
+    memory: 8192Mi
+    cpu: 2000m
+
+extraVolumes:
+  - volumeMounts:
+      - mountPath: /data/plugins/DiscordSRV/config.yml
+        name: discordsrv-config
+        subPath: discordsrv.yaml
+    volumes:
+      - secret:
+          items:
+            - key: en.yaml
+              path: discordsrv.yaml
+          name: vanilla-discordsrv
+        name: discordsrv-config
+
+minecraftServer:
+  serviceType: LoadBalancer
+  loadBalancerIP: 10.2.0.125
+
+  # This must be overridden, since we can't accept this for the user.
+  eula: "TRUE"
+  # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+  version: "LATEST"
+  # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
+  type: "PAPER"
+  # One of: peaceful, easy, normal, and hard
+  difficulty: hard
+  # A comma-separated list of player names to whitelist.
+  whitelist:
+  # A comma-separated list of player names who should be admins.
+  ops: afbcf84e-5dbd-4592-95cb-14627752423c,f4bb0245-670a-4fd0-9b1a-bf3321b60911
+  # A server icon URL for server listings. Auto-scaled and transcoded.
+  icon: https://avatars.githubusercontent.com/u/8989940?s=64
+  # Max connected players.
+  maxPlayers: 40
+  # Sets the area that non-ops can not edit (0 to disable)
+  spawnProtection: 32
+  # Max view distance (in chunks).
+  viewDistance: 12
+  # Define this if you want a specific map generation seed.
+  levelSeed: '-494460667990824802'
+  # One of: creative, survival, adventure, spectator
+  gameMode: survival
+  # Message of the Day
+  motd: "Welcome to TuxMine.net!"
+  # If true, enable player-vs-player damage.
+  pvp: true
+  # One of: DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED, CUSTOMIZED
+  levelType: minecraft:normal
+  # When levelType == FLAT or CUSTOMIZED, this can be used to further customize map generation.
+  # ref: https://hub.docker.com/r/itzg/minecraft-server/
+  generatorSettings:
+  worldSaveName: vanilla-1.19.2-2
+  # Optional URI to a resource pack. The player may choose to use it.
+  resourcePackUrl: https://dokucraft.co.uk/dl/1.18.2-Dokucraft-High.zip
+  # Optional SHA-1 digest of the resource pack, in lowercase hexadecimal.
+  # It is recommended to specify this, because it is used to verify the integrity of the resource pack.
+  resourcePackSha: ee578a908e3ebb9f2abeb3556d29000e91c8535a
+  # When true, players will be prompted for a response and will be disconnected if they decline the required pack
+  resourcePackEnforce: true
+  # If you adjust this, you may need to adjust resources.requests above to match.
+  memory: 8192M
+  # A list of Spigot resources/plugins IDs to download.
+  spigetResources:
+    # worldedit
+    - 18494
+  rcon:
+    # If you enable this, make SURE to change your password below.
+    enabled: true
+    password:
+    existingSecret: rcon-login
+    secretKey: rcon-password
+
+serviceAnnotations:
+  external-dns.alpha.kubernetes.io/hostname: mc.${SECRET_DOMAIN_2}
+  metallb.universe.tf/allow-shared-ip: minecraft-java-server
+
+rconServiceAnnotations:
+  metallb.universe.tf/allow-shared-ip: minecraft-java-server
+
+## Additional minecraft container environment variables
+## Values can be either variable values or `valueFrom` yaml
+##
+extraEnv:
+  MODS: https://mediafiles.forgecdn.net/files/3922/624/worldedit-bukkit-7.2.12.jar
+
+persistence:
+  ## minecraft data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  storageClass: "ceph-filesystem"
+  dataDir:
+    # Set this to false if you don't care to persist state between restarts.
+    enabled: true
+    Size: 10Gi
+
+# PLEASE NOTE! rcon must be enabled above!  It does NOT require a nodePort or loadBalancerIP
+mcbackup:
+  enabled: true
+  persistence:
+    ## minecraft data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    storageClass: "ceph-filesystem"
+    backupDir:
+      # Set this to false if you don't care to persist state between restarts.
+      enabled: true
+      # existingClaim: nil
+      Size: 50Gi

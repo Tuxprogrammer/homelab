@@ -1,0 +1,20 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bedrock-vanilla
+  namespace: minecraft
+spec:
+  chart:
+    spec:
+      chart: minecraft-bedrock
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft-server-charts
+        namespace: flux-system
+  targetNamespace: minecraft
+  interval: 10m0s
+  valuesFrom:
+    - kind: ConfigMap
+      name: bedrock-vanilla-values

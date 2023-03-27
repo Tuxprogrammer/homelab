@@ -1,0 +1,6 @@
+---
+minecraftServer:
+  serviceType: LoadBalancer
+  loadBalancerIP: 10.2.0.124
+serviceAnnotations:
+  external-dns.alpha.kubernetes.io/hostname: bedrock.${SECRET_DOMAIN_2}
