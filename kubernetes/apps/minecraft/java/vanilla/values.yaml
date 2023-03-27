@@ -13,12 +13,12 @@ extraVolumes:
         name: discordsrv-config
         subPath: discordsrv.yaml
     volumes:
-      - secret:
+      - name: discordsrv-config
+        secret:
+          secretName: vanilla-discordsrv
           items:
             - key: en.yaml
               path: discordsrv.yaml
-          name: vanilla-discordsrv
-        name: discordsrv-config
 
 minecraftServer:
   serviceType: LoadBalancer
