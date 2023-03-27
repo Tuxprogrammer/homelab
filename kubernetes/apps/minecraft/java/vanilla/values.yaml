@@ -99,7 +99,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "ceph-filesystem"
+  storageClass: "ceph-filesystem-internal"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
     enabled: true
@@ -116,7 +116,7 @@ mcbackup:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: "ceph-filesystem"
+    storageClass: "ceph-filesystem-internal"
     backupDir:
       # Set this to false if you don't care to persist state between restarts.
       enabled: true
