@@ -40,6 +40,10 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - flux-system
+          - monitoring
+          - networking
+          - rook-ceph
     ingress:
       main:
         enabled: true
