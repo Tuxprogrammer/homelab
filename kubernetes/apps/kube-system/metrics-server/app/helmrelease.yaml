@@ -35,3 +35,7 @@ spec:
       enabled: true
     serviceMonitor:
       enabled: true
+    livenessProbe:
+      failureThreshold: 30
+    readinessProbe:
+      failureThreshold: 30
