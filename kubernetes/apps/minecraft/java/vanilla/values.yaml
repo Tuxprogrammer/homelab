@@ -7,12 +7,23 @@ resources:
     memory: 8192Mi
     cpu: 2000m
 
-extraVolumes:
-  - volumeMounts:
-      - mountPath: /data/plugins/DiscordSRV/config.yml
-        name: discordsrv-config
+initContainers:
+  - name: copy
+    image: busybox:latest
+    command: [
+      "/bin/sh",
+      "-c",
+      "mkdir -vp /data/plugins/DiscordSRV && cp -v /config.yml /data/plugins/DiscordSRV/config.yml && chown 1000:1000 -vR /data/plugins/DiscordSRV && chmod 444 -v /data/plugins/DiscordSRV/config.yml"
+    ]
+    volumeMounts:
+      - name: discordsrv-config
+        mountPath: /config.yml
         subPath: discordsrv.yaml
-    volumes:
+      - name: datadir
+        mountPath: /data
+
+extraVolumes:
+  - volumes:
       - name: discordsrv-config
         secret:
           secretName: vanilla-discordsrv
@@ -109,7 +120,6 @@ persistence:
     # Set this to false if you don't care to persist state between restarts.
     enabled: true
     Size: 10Gi
-    subPath: java-vanilla
 
 # PLEASE NOTE! rcon must be enabled above!  It does NOT require a nodePort or loadBalancerIP
 mcbackup:
