@@ -108,7 +108,7 @@ persistence:
 
 # PLEASE NOTE! rcon must be enabled above!  It does NOT require a nodePort or loadBalancerIP
 mcbackup:
-  enabled: true
+  enabled: false
   persistence:
     ## minecraft data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
