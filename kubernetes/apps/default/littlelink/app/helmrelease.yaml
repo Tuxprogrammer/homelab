@@ -1,0 +1,84 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: littlelink
+  namespace: default
+spec:
+  interval: 5m
+  releaseName: littlelink
+  chart:
+    spec:
+      # renovate: registryUrl=https://bjw-s.github.io/helm-charts
+      chart: app-template
+      version: 1.3.2
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: ghcr.io/techno-tim/littlelink-server
+      tag: latest@sha256:5b7235f874416043b45b9a7b530f4a53c98f58826efa8137427764ee252d87fa
+      pullPolicy: Always
+    env:
+      TZ: "America/Chicago"
+      META_TITLE: Spencer Callicott
+      META_DESCRIPTION: Spencer Callicott (Tuxprogrammer)
+      META_AUTHOR: Spencer Callicott
+      THEME: Dark
+      FAVICON_URL: https://avatars.githubusercontent.com/u/8989940
+      AVATAR_URL: https://avatars.githubusercontent.com/u/8989940
+      AVATAR_2X_URL: https://avatars.githubusercontent.com/u/8989940
+      AVATAR_ALT: Spencer Callicott
+      NAME: Spencer Callicott
+      BIO: "i like computers"
+      BUTTON_ORDER: DISCORD,STEAM,YOUTUBE,FACEBOOK,INSTAGRAM,TWITTER,LINKED_IN,GITHUB,GITLAB,EMAIL
+      DISCORD: https://discord.com/users/204414182886473737
+      STEAM: https://steamcommunity.com/id/tuxp
+      YOUTUBE: https://www.youtube.com/channel/UC2WA4RMrvZosm7xRLnhTPBA
+      FACEBOOK: https://www.facebook.com/b1nary.v01d
+      INSTAGRAM: https://www.instagram.com/spencer.callicott/
+      TWITTER: https://twitter.com/@whizkid1111
+      LINKED_IN: https://www.linkedin.com/in/spencercallicott/
+      GITHUB: https://github.com/Tuxprogrammer
+      GITLAB: https://gitlab.com/tuxprogrammer
+      EMAIL: spencer@tuxhpc.net
+      EMAIL_TEXT: Email me!
+      # CUSTOM_BUTTON_ALT_TEXT: Donation link,Website link
+      # CUSTOM_BUTTON_ICON: fas fa-donate,fa-solid fa-globe
+      # CUSTOM_BUTTON_NAME: Donate,Website
+      # CUSTOM_BUTTON_COLOR: "#ffffff,#ffffff"
+      # CUSTOM_BUTTON_TEXT: Buy me a coffee,Main website
+      # CUSTOM_BUTTON_TEXT_COLOR: "#ED2756,#00000"
+      # CUSTOM_BUTTON_URL: https://www.buymeacoffee.com/skykrypt,https://skym.fi
+      # BUTTON_TARGET: _blank
+      FOOTER: BOTTOM TEXT
+    service:
+      main:
+        ports:
+          http:
+            enabled: true
+            port: 80
+            targetPort: 3000
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          hajimari.io/icon: account
+        hosts:
+          - host: &host "${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    resources:
+      requests:
+        memory: 64M
+      limits:
+        memory: 95M
