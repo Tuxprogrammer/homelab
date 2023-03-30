@@ -5,8 +5,7 @@ metadata:
   name: littlelink
   namespace: default
 spec:
-  interval: 5m
-  releaseName: littlelink
+  interval: 15m
   chart:
     spec:
       # renovate: registryUrl=https://bjw-s.github.io/helm-charts
@@ -17,6 +16,17 @@ spec:
         name: bjw-s
         namespace: flux-system
       interval: 5m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     image:
       repository: ghcr.io/techno-tim/littlelink-server
