@@ -45,7 +45,7 @@ spec:
       GITHUB: https://github.com/Tuxprogrammer
       GITLAB: https://gitlab.com/tuxprogrammer
       EMAIL: spencer@tuxhpc.net
-      EMAIL_TEXT: Email me!
+      EMAIL_TEXT: Email
       # CUSTOM_BUTTON_ALT_TEXT: Donation link,Website link
       # CUSTOM_BUTTON_ICON: fas fa-donate,fa-solid fa-globe
       # CUSTOM_BUTTON_NAME: Donate,Website
