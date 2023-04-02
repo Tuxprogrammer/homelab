@@ -7,3 +7,4 @@ resources:
   - ./hajimari/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./littlelink/ks.yaml
+  - ./cloudnative-pg/ks.yaml
