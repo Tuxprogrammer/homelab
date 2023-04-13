@@ -25,8 +25,10 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^$ https://plex.${SECRET_DOMAIN}/web$request_uri permanent;
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location = / {
+        return 301 https://plex.${SECRET_DOMAIN_2}/web/index.html;
+      }
     hajimari.io/icon: mdi:pirate
   labels:
     app.kubernetes.io/name: *app
@@ -65,6 +67,68 @@ spec:
   ingressClassName: nginx
   rules:
     - host: &host "overseerr.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arrstack
+                port:
+                  number: 443
+  tls:
+    - hosts:
+        - *host
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &app arrstack-plex
+  namespace: networking
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^$ https://plex.${SECRET_DOMAIN_2}/web$request_uri permanent;
+    hajimari.io/icon: mdi:pirate
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: &host "plex.${SECRET_DOMAIN_2}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arrstack
+                port:
+                  number: 443
+  tls:
+    - hosts:
+        - *host
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &app arrstack-overseerr
+  namespace: networking
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
+    hajimari.io/icon: mdi:play-box
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: &host "overseerr.${SECRET_DOMAIN_2}"
       http:
         paths:
           - path: /
