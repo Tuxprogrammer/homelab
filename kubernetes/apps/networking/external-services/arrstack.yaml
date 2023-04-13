@@ -83,7 +83,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: &app arrstack-plex
+  name: &app arrstack-plex-2
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
@@ -115,7 +115,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: &app arrstack-overseerr
+  name: &app arrstack-overseerr-2
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
