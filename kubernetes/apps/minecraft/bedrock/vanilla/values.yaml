@@ -1,5 +1,6 @@
 ---
 minecraftServer:
+  eula: true
   serviceType: LoadBalancer
   loadBalancerIP: 10.2.0.124
 serviceAnnotations:
