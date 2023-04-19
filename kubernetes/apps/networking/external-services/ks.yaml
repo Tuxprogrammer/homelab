@@ -2,12 +2,12 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: cluster-apps-vaultwarden
+  name: cluster-apps-external-services
   namespace: flux-system
 spec:
   dependsOn:
     - name: cluster-apps-cert-manager-issuers
-  path: ./kubernetes/apps/default/vaultwarden/app
+  path: ./kubernetes/apps/networking/external-services/endpoints
   prune: true
   sourceRef:
     kind: GitRepository
@@ -15,8 +15,8 @@ spec:
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: vaultwarden
-      namespace: default
+      name: cert-manager
+      namespace: cert-manager
   interval: 30m
   retryInterval: 1m
   timeout: 3m
