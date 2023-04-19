@@ -26,6 +26,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    initContainers:
+      - name: init-db
+        image: ghcr.io/onedr0p/postgres-initdb:14.7
+        imagePullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+              name: vaultwarden-postgres
     image:
       repository: vaultwarden/server
       tag: 1.28.1
@@ -38,6 +45,9 @@ spec:
       WEBSOCKET_ENABLED: "true"
       WEBSOCKET_ADDRESS: 0.0.0.0
       WEBSOCKET_PORT: 3012
+    envFrom:
+      - secretRef:
+          name: vaultwarden-postgres
     service:
       main:
         ports:
@@ -46,13 +56,13 @@ spec:
           websocket:
             enabled: true
             port: &websocket-port 3012
-    persistence:
-      data:
-        enabled: true
-        type: pvc
-        accessMode: ReadWriteOnce
-        size: 1Gi
-        mountPath: /data
+    # persistence:
+    #   data:
+    #     enabled: true
+    #     type: pvc
+    #     accessMode: ReadWriteOnce
+    #     size: 1Gi
+    #     mountPath: /data
     ingress:
       main:
         enabled: true
