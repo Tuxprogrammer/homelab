@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-cert-manager-issuers
   path: ./kubernetes/apps/default/vaultwarden/app
   prune: true
