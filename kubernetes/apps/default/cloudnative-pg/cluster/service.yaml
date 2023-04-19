@@ -6,10 +6,10 @@ metadata:
   namespace: default
   annotations:
     coredns.io/hostname: postgres.${SECRET_DOMAIN}
+    metallb.universe.tf/loadBalancerIPs: "10.2.0.120"
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
-  externalIPs: ["10.1.0.120"]
   ports:
     - name: postgres
       port: 5432
