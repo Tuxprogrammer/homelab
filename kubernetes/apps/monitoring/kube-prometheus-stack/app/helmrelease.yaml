@@ -75,26 +75,26 @@ spec:
           #             {{- end }}
           #           {{- end }}
           #         {{- end }}
-        route:
-          group_by: ["alertname", "job"]
-          group_wait: 45s
-          group_interval: 10m
-          repeat_interval: 12h
-          receiver: pushover
-          routes:
-            - receiver: heartbeat
-              group_wait: 0s
-              group_interval: 2m
-              repeat_interval: 2m
-              matchers:
-                - alertname =~ "Watchdog"
-            - receiver: "null" # quote
-              matchers:
-                - alertname =~ "InfoInhibitor"
-            - receiver: pushover
-              matchers:
-                - severity = "critical"
-              continue: true
+        # route:
+        #   group_by: ["alertname", "job"]
+        #   group_wait: 45s
+        #   group_interval: 10m
+        #   repeat_interval: 12h
+        #   receiver: pushover
+        #   routes:
+        #     - receiver: heartbeat
+        #       group_wait: 0s
+        #       group_interval: 2m
+        #       repeat_interval: 2m
+        #       matchers:
+        #         - alertname =~ "Watchdog"
+        #     - receiver: "null" # quote
+        #       matchers:
+        #         - alertname =~ "InfoInhibitor"
+        #     - receiver: pushover
+        #       matchers:
+        #         - severity = "critical"
+        #       continue: true
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
