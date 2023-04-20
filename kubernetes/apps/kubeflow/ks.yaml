@@ -11,6 +11,5 @@ spec:
   sourceRef:
     kind: GitRepository
     name: kubeflow-manifests
-  postBuild:
-    substitute:
-      var_substitution_enabled: "false"
+patchesStrategicMerge:
+  - dex-config-map.yaml
