@@ -16,3 +16,4 @@ spec:
     !/example
     !/apps
     !/common
+    !/contrib
