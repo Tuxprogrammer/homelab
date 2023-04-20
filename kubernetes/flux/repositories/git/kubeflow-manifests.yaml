@@ -6,19 +6,13 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://github.com/kubeflow/manifests
+  url: https://github.com/Tuxprogrammer/kubeflow-manifests
   ref:
-    tag: v1.7.0
+    branch: master
   ignore: |
     # exclude all
     /*
     # include kubernetes directory
+    !/example
     !/apps
-    !/common/dex
-    !/common/istio-1-16
-    !/common/istio
-    !/common/knative
-    !/common/kubeflow-namespace
-    !/common/kubeflow-roles
-    !/common/oidc-authservice
-    !/common/user-namespace
+    !/common
