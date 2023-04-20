@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     initContainers:
-      - name: init-db
+      init-db:
         image: ghcr.io/onedr0p/postgres-initdb:14.7
         imagePullPolicy: IfNotPresent
         envFrom:
