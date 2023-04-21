@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 data:
   TIMEZONE: "America/Chicago"
-  KUBE_VIP_ADDR: "10.2.0.18"
+  #KUBE_VIP_ADDR: "10.2.0.18"
   METALLB_LB_RANGE: "10.2.0.100-10.2.0.125"
   METALLB_K8S_GATEWAY_ADDR: "10.2.0.100"
   METALLB_INGRESS_ADDR: "10.2.0.101"
