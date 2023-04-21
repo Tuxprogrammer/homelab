@@ -73,12 +73,12 @@ spec:
         default-ssl-certificate: "networking/${SECRET_DOMAIN/./-}-production-tls"
       #podAnnotations:
       #  configmap.reloader.stakater.com/reload: cloudflare-networks
-      resources:
-        requests:
-          cpu: 150m
-          memory: 1024Mi
-        limits:
-          memory: 2048Mi
+      # resources:
+      #   requests:
+      #     cpu: 150m
+      #     memory: 1024Mi
+      #   limits:
+      #     memory: 2048Mi
     defaultBackend:
       enabled: true
       image:
