@@ -69,7 +69,7 @@ spec:
             disabled: false
             interval: 45s
     cephBlockPools:
-      - name: ceph-blockpool-ext
+      - name: ceph-k8s
         spec:
           failureDomain: host
           replicated:
