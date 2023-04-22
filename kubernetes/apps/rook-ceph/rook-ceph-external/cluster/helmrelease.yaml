@@ -36,7 +36,7 @@ spec:
       rulesNamespaceOverride: rook-ceph
       externalMgrEndpoints:
         - ip: 10.1.2.11
-          externalMgrPrometheusPort: 9283
+      externalMgrPrometheusPort: 9283
     ingress:
       dashboard:
         ingressClassName: nginx
@@ -61,6 +61,8 @@ spec:
     cephClusterSpec:
       external:
         enable: true
+      cephVersion:
+        image: quay.io/ceph/ceph:v17.2.5
       crashCollector:
         disable: true
       healthCheck:
@@ -100,7 +102,7 @@ spec:
             - failureDomain: host
               replicated:
                 size: 3
-              name: data0
+              name: ceph-k8s
           metadataServer:
             activeCount: 1
             activeStandby: true
@@ -114,7 +116,7 @@ spec:
           enabled: true
           isDefault: false
           name: ceph-filesystem-ext
-          pool: data0
+          pool: ceph-k8s
           reclaimPolicy: Delete
           allowVolumeExpansion: true
           parameters:
