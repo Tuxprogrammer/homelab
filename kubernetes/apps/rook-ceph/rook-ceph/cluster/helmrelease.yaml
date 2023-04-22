@@ -61,8 +61,11 @@ spec:
           compression:
             # TODO: Test out enabling this on next cluster rebuild
             enabled: false
+      cephVersion:
+        image: quay.io/ceph/ceph:v17.2.5
       crashCollector:
-        disable: false
+        disable: true
+      dataDirHostPath: /var/lib/rook
       dashboard:
         enabled: true
         urlPrefix: /
