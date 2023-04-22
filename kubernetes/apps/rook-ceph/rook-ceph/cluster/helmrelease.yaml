@@ -19,7 +19,7 @@ spec:
   install:
     createNamespace: true
     remediation:
-      retries: 1
+      retries: 3
     timeout: 60m
   upgrade:
     cleanupOnFail: true
@@ -171,8 +171,6 @@ spec:
               requests:
                 cpu: 1000m
                 memory: 1Gi
-              limits:
-                memory: 2Gi
             instances: 1
           healthCheck:
             bucket:
