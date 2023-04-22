@@ -65,6 +65,7 @@ spec:
         image: quay.io/ceph/ceph:v17.2.5
       crashCollector:
         disable: true
+      dataDirHostPath: /var/lib/rook-external
       healthCheck:
         daemonHealth:
           mon:
