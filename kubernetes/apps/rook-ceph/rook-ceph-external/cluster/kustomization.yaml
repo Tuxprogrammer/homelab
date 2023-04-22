@@ -10,7 +10,7 @@ resources:
   - secrets/rook-csi-cephfs-node.sops.yaml
   - secrets/rook-csi-cephfs-provisioner.sops.yaml
   - secrets/rgw-admin-ops-user.sops.yaml
-  - ./helmrelease.yaml
+  #- ./helmrelease.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: rook-ceph-cluster-external

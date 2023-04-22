@@ -36,21 +36,7 @@ spec:
       rulesNamespaceOverride: rook-ceph
       externalMgrEndpoints:
         - ip: 10.1.2.11
-      externalMgrPrometheusPort: 9283
-    ingress:
-      dashboard:
-        ingressClassName: nginx
-        annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: |
-            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/appName: "Rook External"
-          hajimari.io/icon: mdi:chess-rook
-        host:
-          name: &host rook-external.${SECRET_DOMAIN}
-          path: /
-        tls:
-          - hosts:
-              - *host
+          externalMgrPrometheusPort: 9283
     toolbox:
       enabled: true
     pspEnable: false
@@ -96,24 +82,6 @@ spec:
             csi.storage.k8s.io/fstype: ext4
     cephFileSystems:
       - name: ceph-filesystem-ext
-        spec:
-          metadataPool:
-            replicated:
-              size: 3
-          dataPools:
-            - failureDomain: host
-              replicated:
-                size: 3
-              name: ceph-k8s
-          metadataServer:
-            activeCount: 1
-            activeStandby: true
-            resources:
-              requests:
-                cpu: 1000m
-                memory: 4Gi
-              limits:
-                memory: 4Gi
         storageClass:
           enabled: true
           isDefault: false
@@ -131,29 +99,6 @@ spec:
             csi.storage.k8s.io/fstype: ext4
     cephObjectStores:
       - name: ceph-objectstore-ext
-        spec:
-          metadataPool:
-            failureDomain: host
-            replicated:
-              size: 3
-          dataPool:
-            failureDomain: host
-            erasureCoded:
-              dataChunks: 2
-              codingChunks: 1
-          preservePoolsOnDelete: true
-          gateway:
-            port: 80
-            resources:
-              requests:
-                cpu: 1000m
-                memory: 1Gi
-              limits:
-                memory: 2Gi
-            instances: 1
-          healthCheck:
-            bucket:
-              interval: 60s
         storageClass:
           enabled: true
           name: ceph-bucket-ext
