@@ -17,6 +17,7 @@ monitoring:
   rulesNamespaceOverride: rook-ceph-external
   externalMgrEndpoints:
     - ip: "${MONITORING_ENDPOINT}"
+  externalMgrPrometheusPort: 9283
 
 # Run the ceph-toolbox pod
 toolbox:
