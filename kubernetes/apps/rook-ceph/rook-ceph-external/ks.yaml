@@ -23,6 +23,6 @@ spec:
   timeout: 5m
   postBuild:
     substituteFrom:
-      - kind: ConfigMap
+      - kind: Secret
         name: rook-vars
         namespace: rook-ceph-external

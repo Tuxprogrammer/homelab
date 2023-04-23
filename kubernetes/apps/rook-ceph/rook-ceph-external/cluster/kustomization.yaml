@@ -9,7 +9,6 @@ configMapGenerator:
     files:
       - values.yaml
 resources:
-  - ./rook-vars.sops.yaml
   - configs/rook-ceph-mon-endpoints.yaml
   - secrets/rook-ceph-mon.yaml
   - secrets/rook-csi-rbd-node.yaml
