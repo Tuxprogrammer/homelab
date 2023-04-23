@@ -5,6 +5,8 @@ kind: Kustomization
 metadata:
   name: cluster-apps-rook-ceph-cluster-external
   namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/disabled: true
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph
@@ -25,4 +27,3 @@ spec:
     substituteFrom:
       - kind: Secret
         name: rook-vars
-        namespace: rook-ceph-external
