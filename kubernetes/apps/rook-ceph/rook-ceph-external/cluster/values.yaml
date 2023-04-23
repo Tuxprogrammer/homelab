@@ -1,8 +1,7 @@
 ---
-dataDirHostPath: /var/lib/rook-external
-
 # Create an external cluster
 cephClusterSpec:
+  dataDirHostPath: /var/lib/rook-external
   external:
     enable: true
   crashCollector:
