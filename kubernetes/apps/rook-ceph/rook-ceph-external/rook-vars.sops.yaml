@@ -7,7 +7,7 @@ stringData:
     CEPHFS_FS_NAME: ENC[AES256_GCM,data:4N4UEiTaDmzzog==,iv:38Vxvuc3hL3opOttAhlxFrAN0gVNm7EDPQg1Np4SlLk=,tag:hh/R8Pks/PYeC2tY8Q4J7g==,type:str]
     CEPHFS_METADATA_POOL_NAME: ENC[AES256_GCM,data:lkEsB+4NXWNIHIvdIXWb99ZGvA==,iv:HdRZ47nItNZJPCPiHlO/H9jANYzcNAkTZxoZNvyTIIg=,tag:4C2lRLwGYYA3gEbdxkB9ZQ==,type:str]
     CEPHFS_POOL_NAME: ENC[AES256_GCM,data:FRiEhr2YFQgb8vQhv+cs,iv:nx9Bxd7vtXVsdLr4WnESXK0SGSKkA/2qf322xnc7fzw=,tag:gpog6atPerSjFPOFLJ8btQ==,type:str]
-    CEPHFS_PROVISIONER: ENC[AES256_GCM,data:U2Qaw0d8SCdPOjA0AABm5zVisXljkpmNGJRp8671cCG353XMsrY=,iv:bji+uZH6aLAmygKiKcNZ1/c4tr/Wh3RQbcd987BbikE=,tag:bFKqTelMA9ykBPu24FKmQw==,type:str]
+    CEPHFS_PROVISIONER: ENC[AES256_GCM,data:10Ny1kgji3YUdn/g9CuJtJ6K7a7UQaz9FD1mrCQ=,iv:87kUojtdFNg5hvnPWerxdJNIGXEbHXW3aWA5gpOr0i8=,tag:VjZN0Z5ic959EkZIdZTGtA==,type:str]
     CEPHFS_STORAGE_CLASS_NAME: ENC[AES256_GCM,data:n7dFFT53,iv:9rtkkyeHeubERE3t7Q5lVxHKPYUj6QQuSXdORUaOaXw=,tag:UDfADusenhPFxQwPA9qZDQ==,type:str]
     CLUSTER_ID_CEPHFS: ENC[AES256_GCM,data:eYhFAQn3MM8OIFiN4m0o8X8P,iv:x7epAu9tp5OTZYS09DXMBPyXcFnXhD2zfhrQemEaE4A=,tag:cKEvg1K9Ci8LDyVAjFRSPA==,type:str]
     CLUSTER_ID_RBD: ENC[AES256_GCM,data:lIsfGV0nSmpNuCM4TsBBp8+X,iv:CVPB5oSmy99J/kZH8dMwyh8Hcqp8BgCR19Nj+i+jbFo=,tag:mUDuZqwbpKmE7uxLmP10cw==,type:str]
@@ -32,7 +32,7 @@ stringData:
     MONITORING_ENDPOINT: ENC[AES256_GCM,data:pj99Hl3fupWE,iv:Ui0HJYdmdzBobFD3+exiqYT0Q88cqQu3uYQa29uyzis=,tag:XwasZoyXSZ3+a7AnQTcuHg==,type:str]
     OPERATOR_NAMESPACE: ENC[AES256_GCM,data:ZpjOJTHtWbMS,iv:JmTKsl/vaOZh32q/RwAKvDV0bolYl5Ht55RG43XMbJM=,tag:1uMwPKVNXAWhebAc/z2CZA==,type:str]
     RBD_POOL_NAME: ENC[AES256_GCM,data:X778Jpaq3CI=,iv:gCAQIsSTWDf1bO5zUoUKDvw2+2I9hRG/nSOD03tx7E8=,tag:ZavQUeji3baNCat2xMuu0A==,type:str]
-    RBD_PROVISIONER: ENC[AES256_GCM,data:Ak7JtEKZQ0/kAOvtgB8iGW6sT4Mevda3IklOk/9xTWrcJTU=,iv:vTIKMpQckN0BJImdKqoCrMrU+HcbKpftCZxxMNPy+Ug=,tag:pVdBwhevyG7Ql6SxmwFcJQ==,type:str]
+    RBD_PROVISIONER: ENC[AES256_GCM,data:XOxkE+HEOhC0FdxPAw9To2GWtDDcSqtIIgg=,iv:nedjdkBXpWEToQmN5So6lp/Y4wf9C6FFMH7nmD1ts28=,tag:fc65tENqVYIpafeF0lcp5A==,type:str]
     RBD_STORAGE_CLASS_NAME: ENC[AES256_GCM,data:1Y2qHhqSvy4=,iv:oUICorKydVGLbLwgljJaK+ZmOL9Swelr1FtjJBbPKqM=,tag:YZyFToUuyFZEZD/zhitQGQ==,type:str]
     RGW_ADMIN_OPS_USER_ACCESS_KEY: ENC[AES256_GCM,data:RM0MB+s64QMO5tvvqYQR1ugG5EY=,iv:el5q3YMj5rXcjOVdzOZiTfAX8ZlBzob8ysru0szW/MA=,tag:6iadx7crfez9jcE712yCbg==,type:str]
     RGW_ADMIN_OPS_USER_SECRET_KEY: ENC[AES256_GCM,data:o2huJPvPvuRBqd9QzTzo8S5xrPW/aPoZiiUdZahpoErRhJlSMqxnlw==,iv:Vz5811VdWqMN0zEVEyihK2zdiGShUAowE71G4984Klc=,tag:bPU+mgoRDtnhGy+ddX1vIQ==,type:str]
@@ -64,8 +64,8 @@ sops:
             emZaM05GeUFoelI5QlFqYVlURFQrZ0UK8nhRN7XV4AvHUHM4+ba8ner+moc/0gWz
             Ac7nivNUQylZuQGgh/2631bNLXDFzn2bq3bhMmpyWXZcAhZw8F8bpw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-23T21:24:35Z"
-    mac: ENC[AES256_GCM,data:+uvHte1rT11koc6RghV7geNcwE+xqR5+ZIZtynB7WpP7ZMPfp2xYGOVrotvsjV86MBWuKoxOhNaL+ukE4RaJxKwDH8Y/L8yyG3PS7mFFcoJu+F2VPSMVLRwuinMCeRlVFEwbevRNrxDN0qNRShdgf3Uco8aM6pR4HI3/DQOPaBY=,iv:SUPWCfMXx5nuJ4xrK+sTAgzWL9eFjOPO10Eeo9Dm5UY=,tag:f2pf/1BYno2S6cQ8ab5pFQ==,type:str]
+    lastmodified: "2023-04-23T22:21:30Z"
+    mac: ENC[AES256_GCM,data:w1aBPad/xIsiBN/2tvCBBTSGJ+Zlw3kA0wi1foE0LKWkleENKH+tn30MwgecVt07uc8JHEgzXegYYd5iPDTBppcjGkrfnfX7v+ew5IH8LvP9CULNuUBSEeGaUZMmZyLYuSasCgqPvIhB/Q1Yrpm4zHYq2Sh0BjvFR2jbccukZ0Q=,iv:iXkorRHSJ140Vq3uLU3bAZ/pG//gxV5nZgiXVDTTxPE=,tag:BtFP/cw/iPkjP7WiIRQzbQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
