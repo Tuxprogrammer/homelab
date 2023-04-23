@@ -1,6 +1,9 @@
 ---
 # Create an external cluster
 cephClusterSpec:
+  # Need an empty key here so that it doesn't try to specify a cluster version to check against or
+  # block pools will fail.
+  cephVersion: {}
   dataDirHostPath: /var/lib/rook-external
   external:
     enable: true
@@ -48,7 +51,7 @@ cephBlockPools:
         csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph-external
         csi.storage.k8s.io/fstype: ext4
 
-cephFileSystems:
+cephFileSystems: []
 ### CANNOT ADD ANY CEPHFILESYSTEMS IN THIS HELM CHART. STORAGE CLASS WILL BE ADDED INSTEAD. ###
 
 cephObjectStores:

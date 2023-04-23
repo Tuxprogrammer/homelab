@@ -13,7 +13,7 @@ spec:
   primaryUpdateStrategy: unsupervised
   storage:
     size: 20Gi
-    storageClass: local-path
+    storageClass: ceph-filesystem-internal
   enableSuperuserAccess: true
   superuserSecret:
     name: cloudnative-pg-secret
