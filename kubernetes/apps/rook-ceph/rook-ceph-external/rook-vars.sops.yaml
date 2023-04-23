@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: rook-vars
-    namespace: rook-ceph-external
+    namespace: flux-system
 stringData:
     CEPHFS_FS_NAME: ENC[AES256_GCM,data:4N4UEiTaDmzzog==,iv:38Vxvuc3hL3opOttAhlxFrAN0gVNm7EDPQg1Np4SlLk=,tag:hh/R8Pks/PYeC2tY8Q4J7g==,type:str]
     CEPHFS_METADATA_POOL_NAME: ENC[AES256_GCM,data:lkEsB+4NXWNIHIvdIXWb99ZGvA==,iv:HdRZ47nItNZJPCPiHlO/H9jANYzcNAkTZxoZNvyTIIg=,tag:4C2lRLwGYYA3gEbdxkB9ZQ==,type:str]
@@ -61,8 +61,8 @@ sops:
             emZaM05GeUFoelI5QlFqYVlURFQrZ0UK8nhRN7XV4AvHUHM4+ba8ner+moc/0gWz
             Ac7nivNUQylZuQGgh/2631bNLXDFzn2bq3bhMmpyWXZcAhZw8F8bpw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-23T21:16:20Z"
-    mac: ENC[AES256_GCM,data:nfBxY51PW0+Vbn0cEQYtXEuOZU1fhEVnqTue9AOL5vIGp25daeLCZvG0JE74kkITpXiF/5Nv5vw++brdryx/Psac5pE4tReIOuXBOi1oh3Kv4w8giMm9ZfYQzhDh2v7jtbMB+FLF6bP+4SuEr77QSkLewL6+xiliHZ11lhGMGWU=,iv:6y1DpaM5QeK0wspuhDpUPiCSIpr/2C1F/+RuxjrYelE=,tag:MkE84OQMnp7+80wttzFmtQ==,type:str]
+    lastmodified: "2023-04-23T21:17:38Z"
+    mac: ENC[AES256_GCM,data:ShcFPbbRilCV/Hy/MvG6tZJo3x7I/QK+//3QfKGh6hr9Y5vLqZReF+/HAma/a8DGoowrO4s5GYkz0EExjxmSHaBG5mD0a9zUmD6CPH1cUME2JqcLTxo9raJLikBCG+jVw1gdZM20bg7lAkZh/ZqZXb9wPB2KSjYrrSM+YsuVOe8=,iv:S1b2RNZBYDnohax/N9CKqbvzz2snKaXFCq2e/FTZ+JA=,tag:0/ojf3gE4K35IzHXtlDtoQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
