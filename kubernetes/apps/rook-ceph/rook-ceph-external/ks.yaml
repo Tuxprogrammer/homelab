@@ -27,3 +27,4 @@ spec:
     substituteFrom:
       - kind: Secret
         name: rook-vars
+        namespace: rook-ceph-cluster-external
