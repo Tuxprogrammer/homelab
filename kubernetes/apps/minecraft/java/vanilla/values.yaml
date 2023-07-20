@@ -13,7 +13,7 @@ initContainers:
     command: [
       "/bin/sh",
       "-c",
-      "mkdir -vp /data/plugins/DiscordSRV && cp -v /config.yml /data/plugins/DiscordSRV/config.yml && chown 1000:1000 -vR /data/plugins/DiscordSRV && chmod 444 -v /data/plugins/DiscordSRV/config.yml"
+      "mkdir -vp /data/plugins/DiscordSRV && cp -v /config.yml /data/plugins/DiscordSRV/config.yml && chown 1000:1000 -vR /data/plugins/DiscordSRV && chmod 444 -v /data/plugins/DiscordSRV/config.yml || true"
     ]
     volumeMounts:
       - name: discordsrv-config
