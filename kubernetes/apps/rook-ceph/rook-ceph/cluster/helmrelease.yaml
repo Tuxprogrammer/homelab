@@ -62,7 +62,7 @@ spec:
             # TODO: Test out enabling this on next cluster rebuild
             enabled: false
       cephVersion:
-        image: quay.io/ceph/ceph:v17.2.6
+        image: quay.io/ceph/ceph:v18.2.0
       crashCollector:
         disable: true
       dataDirHostPath: /var/lib/rook-internal
