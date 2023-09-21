@@ -18,7 +18,8 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 3m
-  substituteFrom:
-    - kind: Secret
-      name: cluster-secrets
-      namespace: flux-system
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: cluster-secrets
+        namespace: flux-system
