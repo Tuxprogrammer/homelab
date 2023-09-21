@@ -17,5 +17,5 @@ spec:
       kind: HelmRelease
       name: cloudflare-ddns
       namespace: networking
-  interval: 30m
+  interval: 10m
   timeout: 5m

@@ -5,7 +5,7 @@ metadata:
   name: littlelink
   namespace: default
 spec:
-  interval: 15m
+  interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://bjw-s.github.io/helm-charts

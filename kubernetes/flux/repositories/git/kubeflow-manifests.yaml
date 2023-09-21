@@ -5,7 +5,7 @@ metadata:
   name: kubeflow-manifests
   namespace: flux-system
 spec:
-  interval: 30m
+  interval: 10m
   url: https://github.com/Tuxprogrammer/kubeflow-manifests
   ref:
     branch: v1.7-branch
