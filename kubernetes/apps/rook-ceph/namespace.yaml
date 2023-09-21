@@ -6,11 +6,3 @@ metadata:
   labels:
     #goldilocks.fairwinds.com/enabled: "true"
     kustomize.toolkit.fluxcd.io/prune: disabled
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rook-ceph-external
-  labels:
-    #goldilocks.fairwinds.com/enabled: "true"
-    kustomize.toolkit.fluxcd.io/prune: disabled

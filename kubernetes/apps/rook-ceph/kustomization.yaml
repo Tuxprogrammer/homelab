@@ -5,7 +5,5 @@ kind: Kustomization
 resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
-  - ./rook-ceph-external/rook-vars.sops.yaml
   # Flux-Kustomizations
   - ./rook-ceph/ks.yaml
-  - ./rook-ceph-external/ks.yaml
