@@ -1,0 +1,28 @@
+---
+# CN = elk-elasticsearch-ingest
+# DNS:*.elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local
+# DNS:elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local
+# DNS:elk-elasticsearch-ingest
+# DNS:127.0.0.1
+# DNS:localhost
+# DNS:elk-elasticsearch-ingest
+# DNS:elk-elasticsearch-ingest.monitoring.svc.cluster.local
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: elk-elasticsearch-ingest-cert
+  namespace: monitoring
+spec:
+  secretName: elk-elasticsearch-ingest-tls
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  commonName: elk-elasticsearch-ingest
+  dnsNames:
+    - "*.elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local"
+    - elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local
+    - elk-elasticsearch-ingest
+    - "127.0.0.1"
+    - localhost
+    - elk-elasticsearch-ingest
+    - elk-elasticsearch-ingest.monitoring.svc.cluster.local
