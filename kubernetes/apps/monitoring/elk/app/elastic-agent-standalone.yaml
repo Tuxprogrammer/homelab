@@ -839,7 +839,7 @@ spec:
             type: DirectoryOrCreate
         - name: elastic-ca-certs
           secret:
-            secretName: "elk-elasticsearch-coordinating-crt"
+            secretName: "elk-elasticsearch-master-tls"
             items:
               - key: ca.crt
                 path: es-ca.crt
