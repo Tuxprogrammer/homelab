@@ -9,7 +9,7 @@ configMapGenerator:
       - values.yaml
 resources:
   - ./secret.sops.yaml
-  # - ./helmrelease.yaml
+  - ./helmrelease.yaml
   - ./elastic-agent-standalone.yaml
 labels:
   - pairs:
