@@ -8,7 +8,7 @@ configMapGenerator:
     files:
       - values.yaml
 resources:
-  - ./secret.sops.yml
+  - ./secrets.sops.yml
   # - ./helmrelease.yaml
   - ./elastic-agent-standalone.yaml
 labels:
