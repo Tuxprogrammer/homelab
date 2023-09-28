@@ -13,6 +13,7 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
+  releaseName: elk
   targetNamespace: monitoring
   interval: 10m0s
   maxHistory: 3
