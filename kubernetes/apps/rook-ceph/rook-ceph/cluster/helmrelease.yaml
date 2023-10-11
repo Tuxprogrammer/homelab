@@ -79,18 +79,48 @@ spec:
           - name: k8s-w1
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M06JHE
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PCXR
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNPQ
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QWZ8
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R3M5
           - name: k8s-w2
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLGYJX
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PXL6
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PYN1
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PYY8
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q1ZH
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2BZ
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QWYA
           - name: k8s-w3
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9KVBG
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0MVGD
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNK5
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNNM
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q0YW
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q22S
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M17DG2
           - name: k8s-w4
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9JR2G
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0NSNP
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNM2
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZDG
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZGJ
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2VT
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R2WK
           - name: k8s-w5
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GDW2JX
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNAV
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PRGZ
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PYH5
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZTA
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M174JB
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M4MQ3J
     cephBlockPools:
       - name: ceph-blockpool
         spec:
