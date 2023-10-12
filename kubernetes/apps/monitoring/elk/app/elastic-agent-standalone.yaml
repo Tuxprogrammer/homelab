@@ -722,7 +722,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: elk-secrets
-                  key: elastic-password
+                  key: elasticsearch-password
             # The Elasticsearch host to communicate with
             - name: ES_HOST
               value: "https://elk-elasticsearch:9200"
