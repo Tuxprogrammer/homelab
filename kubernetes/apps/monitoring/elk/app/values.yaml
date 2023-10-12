@@ -147,18 +147,18 @@ master:
   ##
   resources:
     limits:
-      cpu: 2000m
-      memory: 20Gi
+      cpu: 4000m
+      memory: 32Gi
     requests:
       cpu: 250m
-      memory: 2048Mi
+      memory: 8192Mi
   ## @param master.heapSize Elasticsearch master-eligible node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 1024m
+  heapSize: 4096m
 
   persistence:
     ## @param master.persistence.enabled Enable persistence using a `PersistentVolumeClaim`
@@ -188,14 +188,14 @@ data:
     limits: {}
     requests:
       cpu: 25m
-      memory: 2048Mi
+      memory: 8192Mi
   ## @param data.heapSize Elasticsearch data node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 1024m
+  heapSize: 4096m
 
   ## Enable persistence using Persistent Volume Claims
   ## ref: https://kubernetes.io/docs/user-guide/persistent-volumes/
@@ -228,14 +228,14 @@ coordinating:
     limits: {}
     requests:
       cpu: 25m
-      memory: 2048Mi
+      memory: 8192Mi
   ## @param coordinating.heapSize Elasticsearch coordinating node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 1024m
+  heapSize: 4096m
 
 ## @section Ingest-only nodes parameters
 
@@ -249,14 +249,14 @@ ingest:
     limits: {}
     requests:
       cpu: 25m
-      memory: 2048Mi
+      memory: 8192Mi
   ## @param ingest.heapSize Elasticsearch ingest-only node heap size.
   ## Note: The recommended heapSize is half of the container's memory.
   ## If omitted, it will be automatically set.
   ## Example:
   ##   heapSize: 128m
   ##
-  heapSize: 1024m
+  heapSize: 4096m
 
   ## Elasticsearch Ingest-only Service
   ## Recommended for heavy ingestion, improves performance by sending ingest traffic directly into the ingest nodes.
