@@ -208,3 +208,11 @@ spec:
           reclaimPolicy: Delete
           parameters:
             region: us-east-1
+        ingress:
+          enabled: true
+          host:
+            name: s3.${SECRET_DOMAIN}
+            path: /
+          tls:
+            - hosts:
+                - s3.${SECRET_DOMAIN}
