@@ -174,7 +174,7 @@ master:
     storageClass: ceph-block-internal
     ## @param master.persistence.size Persistent Volume Size
     ##
-    size: 20Gi
+    size: 50Gi
 
 ## @section Data-only nodes parameters
 
@@ -214,7 +214,7 @@ data:
     storageClass: ceph-block-internal
     ## @param data.persistence.size Persistent Volume Size
     ##
-    size: 20Gi
+    size: 500Gi
 
 ## @section Coordinating-only nodes parameters
 
