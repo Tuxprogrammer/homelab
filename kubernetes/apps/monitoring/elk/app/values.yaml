@@ -293,6 +293,23 @@ metrics:
   ##
   args:
     - "--es.uri=https://elk-elasticsearch:9200/"
+    - "--es.ca=/usr/share/ca-certificates/es-ca.crt"
+  ## @param metrics.extraVolumes Optionally specify extra list of additional volumes for the Elasticsearch metrics exporter pod(s)
+  ##
+  extraVolumes:
+    - name: elastic-ca-cert
+      secret:
+        secretName: "elk-elasticsearch-master-tls"
+        items:
+          - key: ca.crt
+            path: es-ca.crt
+  ## @param metrics.extraVolumeMounts Optionally specify extra list of additional volumeMounts for the Elasticsearch metrics exporter container(s)
+  ##
+  extraVolumeMounts:
+    - name: elastic-ca-cert
+      mountPath: /usr/local/share/ca-certificates/es-ca.crt
+      subPath: es-ca.crt
+      readOnly: true
   ## Prometheus Operator ServiceMonitor configuration
   ##
   serviceMonitor:
