@@ -13,7 +13,7 @@ spec:
     kind: GitRepository
     name: home-kubernetes
   wait: true
-  interval: 10m
+  interval: 20m
   retryInterval: 1m
   timeout: 3m
 ---
@@ -36,6 +36,6 @@ spec:
       kind: HelmRelease
       name: ingress-nginx
       namespace: networking
-  interval: 10m
+  interval: 20m
   retryInterval: 1m
   timeout: 3m

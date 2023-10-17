@@ -15,7 +15,7 @@ spec:
         namespace: flux-system
   releaseName: elk
   targetNamespace: monitoring
-  interval: 10m0s
+  interval: 20m0s
   maxHistory: 3
   install:
     createNamespace: true

@@ -503,7 +503,7 @@ The benefits of a public repository include:
         name: home-kubernetes
         namespace: flux-system
       spec:
-        interval: 10m
+        interval: 20m
         # 6a: Change this to your user and repo names
         url: ssh://git@github.com/$user/$repo
         ref:

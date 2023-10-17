@@ -5,7 +5,7 @@ metadata:
   name: ingress-nginx
   namespace: networking
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
       chart: ingress-nginx
@@ -77,8 +77,8 @@ spec:
         requests:
           cpu: 100m
           memory: 1024Mi
-#        limits:
-#          memory: 2048Mi
+        # limits:
+        #   memory: 2048Mi
     defaultBackend:
       enabled: true
       image:
