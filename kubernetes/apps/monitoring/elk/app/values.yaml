@@ -19,7 +19,7 @@ global:
   ## imagePullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  storageClass: local-path
+  storageClass: ceph-block-internal
   kibanaEnabled: true
 
 ## @section Elasticsearch cluster Parameters
@@ -171,7 +171,7 @@ master:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: local-path
+    storageClass: ceph-block-internal
     ## @param master.persistence.size Persistent Volume Size
     ##
     size: 20Gi
@@ -211,7 +211,7 @@ data:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: local-path
+    storageClass: ceph-block-internal
     ## @param data.persistence.size Persistent Volume Size
     ##
     size: 20Gi

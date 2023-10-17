@@ -121,7 +121,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: local-path
+              storageClassName: ceph-block-internal
               resources:
                 requests:
                   storage: 1Gi
@@ -211,7 +211,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: local-path
+              storageClassName: ceph-block-internal
               resources:
                 requests:
                   storage: 20Gi
