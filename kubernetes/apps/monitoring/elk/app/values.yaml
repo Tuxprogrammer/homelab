@@ -269,6 +269,10 @@ ingest:
     ## @param ingest.service.type Elasticsearch ingest-only service type
     ##
     type: LoadBalancer
+    ## @param ingest.service.loadBalancerIP Elasticsearch ingest-only service Load Balancer IP
+    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+    ##
+    loadBalancerIP: "${ES_INGEST_IP}"
     ## @param ingest.service.ports.restAPI Elasticsearch service REST API port
     ## @param ingest.service.ports.transport Elasticsearch service transport port
     ##
