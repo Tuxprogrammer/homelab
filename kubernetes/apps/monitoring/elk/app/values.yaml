@@ -292,7 +292,7 @@ metrics:
   ## @param metrics.args Override default container args (useful when using custom images)
   ##
   args:
-    - "--es.uri=https://elk-elasticsearch-ingest:9200/"
+    - "--es.uri=https://elk-elasticsearch:9200/"
   ## Prometheus Operator ServiceMonitor configuration
   ##
   serviceMonitor:
