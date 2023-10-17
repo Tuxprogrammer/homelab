@@ -63,6 +63,11 @@ spec:
             enabled: false
       cephVersion:
         image: quay.io/ceph/ceph:v18.2.0
+      placement:
+        all:
+          tolerations:
+            - effect: NoSchedule
+              key: node-role.kubernetes.io/master
       crashCollector:
         disable: true
       dataDirHostPath: /var/lib/rook-internal
