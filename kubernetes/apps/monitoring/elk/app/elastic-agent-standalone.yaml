@@ -683,7 +683,7 @@ spec:
         # command: ["/bin/sh", "-c"]
         # args: ["apt -qq update && apt -qq install -y ca-certificates && update-ca-certificates && cp -r /etc/ssl/certs/* /artifact/"]
         # # alternative image with preinstalled ca-certificates utilities
-        image: docker.elastic.co/beats/elastic-agent:8.10.2
+        image: docker.elastic.co/beats/elastic-agent:8.10.4
         command: ["/bin/sh", "-c"]
         #args: ["sleep 3600"]
         args: ["update-ca-certificates && cp -rv /etc/ssl/certs/* /artifact/"]
@@ -710,7 +710,7 @@ spec:
       #        mountPath: /etc/elastic-agent/inputs.d
       containers:
         - name: elastic-agent-standalone
-          image: docker.elastic.co/beats/elastic-agent:8.10.2
+          image: docker.elastic.co/beats/elastic-agent:8.10.4
           args: ["-c", "/etc/elastic-agent/agent.yml", "-e"]
           env:
             # The basic authentication username used to connect to Elasticsearch
