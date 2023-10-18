@@ -31,7 +31,6 @@ spec:
     ttl: 1
     service:
       type: LoadBalancer
-      loadBalancerIP: "${K8S_INGRESS_IP}"
       port: 53
       annotations:
         metallb.universe.tf/loadBalancerIPs: "${METALLB_K8S_GATEWAY_ADDR}"
