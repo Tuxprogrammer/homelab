@@ -1077,7 +1077,7 @@ persistence:
 backup:
   ## @param backup.enabled Enable the logical dump of the database "regularly"
   ##
-  enabled: true
+  enabled: false
   ## Fine tuning cronjob's config
   ##
   cronjob:
