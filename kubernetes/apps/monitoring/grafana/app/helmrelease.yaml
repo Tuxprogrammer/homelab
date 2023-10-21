@@ -142,11 +142,6 @@ spec:
           gnetId: 1860
           revision: 29
           datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/763-redis-dashboard-for-prometheus-redis-exporter-1-x/
-        redis:
-          gnetId: 763
-          revision: 4
-          datasource: Prometheus
         # Ref: https://grafana.com/grafana/dashboards/5342-ceph-pools/
         ceph-pools:
           gnetId: 5342
@@ -171,6 +166,11 @@ spec:
         mariadb:
           gnetId: 13106
           revision: 3
+          datasource: Prometheus
+        # Ref: https://grafana.com/grafana/dashboards/763-redis-dashboard-for-prometheus-redis-exporter-1-x/
+        redis:
+          gnetId: 763
+          revision: 5
           datasource: Prometheus
         cert-manager:
           url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
