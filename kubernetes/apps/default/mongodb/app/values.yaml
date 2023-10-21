@@ -155,7 +155,7 @@ auth:
   ## @param auth.enabled Enable authentication
   ## ref: https://docs.mongodb.com/manual/tutorial/enable-authentication/
   ##
-  enabled: true
+  enabled: false
   ## @param auth.rootUser MongoDB(&reg;) root user
   ##
   rootUser: root
@@ -268,7 +268,7 @@ tls:
   extraDnsNames: []
   ## @param tls.mode Allows to set the tls mode which should be used when tls is enabled (options: `allowTLS`, `preferTLS`, `requireTLS`)
   ##
-  mode: requireTLS
+  mode: preferTLS
   ## Init Container resource requests and limits
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ## We usually recommend not to specify default resources and to leave this as a conscious
