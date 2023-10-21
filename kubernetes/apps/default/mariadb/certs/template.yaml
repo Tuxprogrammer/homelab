@@ -1,0 +1,24 @@
+---
+# CN = mariadb
+# DNS:*.mariadb.default.svc.cluster.local
+# DNS:mariadb.default.svc.cluster.local
+# DNS:mariadb
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mariadb-cert
+  namespace: default
+spec:
+  secretName: mariadb-tls
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  commonName: mariadb
+  dnsNames:
+    - "*.mariadb.default.svc.cluster.local"
+    - mariadb.default.svc.cluster.local
+    - mariadb
+    - "127.0.0.1"
+    - localhost
