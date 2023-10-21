@@ -162,9 +162,15 @@ spec:
           gnetId: 2842
           revision: 16
           datasource: Prometheus
+        # Ref: https://grafana.com/grafana/dashboards/7353-mongodb-overview/
         mongodb:
           gnetId: 7353
           revision: 1
+          datasource: Prometheus
+        # Ref: https://grafana.com/grafana/dashboards/13106-galera-mariadb-overview/
+        mariadb:
+          gnetId: 13106
+          revision: 3
           datasource: Prometheus
         cert-manager:
           url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
