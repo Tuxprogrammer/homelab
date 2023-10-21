@@ -24,5 +24,6 @@ spec:
     - "*.elk-elasticsearch-coordinating-hl.monitoring.svc.cluster.local"
     - elk-elasticsearch-coordinating-hl.monitoring.svc.cluster.local
     - elk-elasticsearch-coordinating
-    - "127.0.0.1"
     - localhost
+  ipAddresses:
+    - 127.0.0.1

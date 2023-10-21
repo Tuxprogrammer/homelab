@@ -20,5 +20,6 @@ spec:
     - "*.elk-elasticsearch-master-hl.monitoring.svc.cluster.local"
     - elk-elasticsearch-master-hl.monitoring.svc.cluster.local
     - elk-elasticsearch-master
-    - "127.0.0.1"
     - localhost
+  ipAddresses:
+    - 127.0.0.1

@@ -21,6 +21,7 @@ spec:
     - mongodb-0
     - mongodb-headless
     - localhost
+  ipAddresses:
     - 127.0.0.1
 ---
 # CN = mongodb-1
@@ -45,6 +46,7 @@ spec:
     - mongodb-1
     - mongodb-headless
     - localhost
+  ipAddresses:
     - 127.0.0.1
 ---
 # CN = mongodb-2
@@ -69,4 +71,5 @@ spec:
     - mongodb-2
     - mongodb-headless
     - localhost
+  ipAddresses:
     - 127.0.0.1

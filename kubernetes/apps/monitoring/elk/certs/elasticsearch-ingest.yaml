@@ -22,8 +22,9 @@ spec:
     - "*.elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local"
     - elk-elasticsearch-ingest-hl.monitoring.svc.cluster.local
     - elk-elasticsearch-ingest
-    - "127.0.0.1"
     - localhost
     - elk-elasticsearch-ingest
     - elk-elasticsearch-ingest.monitoring.svc.cluster.local
     - elasticsearch-ingest.tuxhpc.net
+  ipAddresses:
+    - 127.0.0.1
