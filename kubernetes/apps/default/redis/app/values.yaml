@@ -1506,13 +1506,13 @@ tls:
   certificatesSecret: ""
   ## @param tls.certFilename Certificate filename
   ##
-  certFilename: ""
+  certFilename: "tls.crt"
   ## @param tls.certKeyFilename Certificate Key filename
   ##
-  certKeyFilename: ""
+  certKeyFilename: "tls.key"
   ## @param tls.certCAFilename CA Certificate filename
   ##
-  certCAFilename: ""
+  certCAFilename: "ca.crt"
   ## @param tls.dhParamsFilename File containing DH params (in order to support DH based ciphers)
   ##
   dhParamsFilename: ""
