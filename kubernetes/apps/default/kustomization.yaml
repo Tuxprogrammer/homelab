@@ -7,7 +7,7 @@ resources:
   - ./hajimari/ks.yaml
   - ./mongodb/ks.yaml
   - ./mariadb/ks.yaml
-  #- ./redis/ks.yaml
+  - ./redis/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./littlelink/ks.yaml
   - ./cloudnative-pg/ks.yaml
