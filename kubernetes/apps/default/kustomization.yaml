@@ -5,7 +5,7 @@ resources:
   - ./namespace.yaml
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
-  - ./mongodb/ks.yaml
+  #- ./mongodb/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./littlelink/ks.yaml
   - ./cloudnative-pg/ks.yaml
