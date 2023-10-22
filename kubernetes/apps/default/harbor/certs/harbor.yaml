@@ -2,6 +2,7 @@
 # CN = harbor
 # DNS:*.harbor.default.svc.cluster.local
 # DNS:harbor.default.svc.cluster.local
+# DNS:harbor.${SECRET_DOMAIN_2}
 # DNS:harbor
 # DNS:127.0.0.1
 # DNS:localhost
@@ -19,6 +20,7 @@ spec:
   dnsNames:
     - "*.harbor.default.svc.cluster.local"
     - harbor.default.svc.cluster.local
+    - harbor.${SECRET_DOMAIN_2}
     - harbor
     - localhost
   ipAddresses:
