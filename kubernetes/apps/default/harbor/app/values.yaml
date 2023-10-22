@@ -1544,7 +1544,7 @@ jobservice:
   ## The secret must contain the keys:
   ## `secret` (required),
   ##
-  existingSecret: ""
+  existingSecret: "harbor-secrets"
   ## Use TLS in the container
   ##
   tls:
@@ -2579,6 +2579,10 @@ exporter:
     ## Enable debug mode
     ##
     debug: false
+  ## UNDOCUMENTED:
+  ## .Values.exporter.existingEnvVarsSecret
+  ## Provides secret values in environment variables to the exporter pods.
+  existingEnvVarsSecret: "harbor-secrets"
   ## @param exporter.command Override default container command (useful when using custom images)
   ##
   command: []
