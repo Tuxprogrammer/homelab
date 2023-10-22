@@ -383,9 +383,9 @@ persistence:
     ## @param persistence.persistentVolumeClaim.trivy.selector Selector to match an existing Persistent Volume
     ##
     trivy:
-      storageClass: ""
+      storageClass: "ceph-filesystem-internal"
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
       size: 5Gi
       annotations: {}
       selector: {}
