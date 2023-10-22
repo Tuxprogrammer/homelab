@@ -2044,7 +2044,7 @@ registry:
     ## @param registry.server.startupProbe.successThreshold Success threshold for startupProbe
     ##
     startupProbe:
-      enabled: true
+      enabled: false
       initialDelaySeconds: 5
       periodSeconds: 10
       timeoutSeconds: 1
@@ -2187,7 +2187,7 @@ registry:
     ## @param registry.controller.startupProbe.successThreshold Success threshold for startupProbe
     ##
     startupProbe:
-      enabled: true
+      enabled: false
       initialDelaySeconds: 5
       periodSeconds: 10
       timeoutSeconds: 1
