@@ -1250,7 +1250,7 @@ core:
   ##   As a EnvVars secret, this secret also store redis config urls
   ##   The HARBOR_ADMIN_PASSWORD is only required at initial deployment, once the password is set in database, it is not used anymore
   ##
-  existingEnvVarsSecret: ""
+  existingEnvVarsSecret: "harbor-secrets"
   ## @param core.csrfKey The CSRF key. Will be generated automatically if it isn't specified
   ##
   csrfKey: ""
