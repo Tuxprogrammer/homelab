@@ -25,6 +25,6 @@ spec:
     - localhost
     - elk-elasticsearch-ingest
     - elk-elasticsearch-ingest.monitoring.svc.cluster.local
-    - elasticsearch-ingest.tuxhpc.net
+    - elasticsearch-ingest.${SECRET_DOMAIN_2}
   ipAddresses:
     - 127.0.0.1
