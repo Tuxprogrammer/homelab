@@ -5,11 +5,11 @@ resources:
   - ./namespace.yaml
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
-  #- ./influxdb/ks.yaml
+  - ./influxdb/ks.yaml
   - ./mongodb/ks.yaml
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
-  #- ./harbor/ks.yaml
+  - ./harbor/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./littlelink/ks.yaml
   - ./cloudnative-pg/ks.yaml
