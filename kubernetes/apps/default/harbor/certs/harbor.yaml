@@ -1,0 +1,25 @@
+---
+# CN = harbor
+# DNS:*.harbor.default.svc.cluster.local
+# DNS:harbor.default.svc.cluster.local
+# DNS:harbor
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: harbor-cert
+  namespace: default
+spec:
+  secretName: harbor-tls
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  commonName: harbor
+  dnsNames:
+    - "*.harbor.default.svc.cluster.local"
+    - harbor.default.svc.cluster.local
+    - harbor
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
