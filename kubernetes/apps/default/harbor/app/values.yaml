@@ -19,7 +19,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: ceph-block-internal
+  storageClass: ""
 
 ## @section Common Parameters
 ##
@@ -350,7 +350,7 @@ persistence:
     ##
     jobservice:
       existingClaim: ""
-      storageClass: ""
+      storageClass: "ceph-block-internal"
       subPath: ""
       accessModes:
         - ReadWriteOnce
@@ -368,7 +368,7 @@ persistence:
       ##
       scanData:
         existingClaim: ""
-        storageClass: ""
+        storageClass: "ceph-block-internal"
         subPath: ""
         accessModes:
           - ReadWriteOnce
