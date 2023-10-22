@@ -1,0 +1,25 @@
+---
+# CN = influxdb
+# DNS:*.influxdb.default.svc.cluster.local
+# DNS:influxdb.default.svc.cluster.local
+# DNS:influxdb
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: influxdb-cert
+  namespace: default
+spec:
+  secretName: influxdb-tls
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  commonName: influxdb
+  dnsNames:
+    - "*.influxdb.default.svc.cluster.local"
+    - influxdb.default.svc.cluster.local
+    - influxdb
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
