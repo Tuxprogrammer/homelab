@@ -170,7 +170,7 @@ service:
   ## @param service.loadBalancerIP NGINX proxy service Load Balancer IP
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
   ##
-  loadBalancerIP: ""
+  loadBalancerIP: "${HARBOR_IP}"
   ## @param service.loadBalancerSourceRanges NGINX proxy service Load Balancer sources
   ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
   ## e.g:
@@ -213,7 +213,7 @@ ingress:
     controller: default
     ## @param ingress.core.hostname Default host for the ingress record
     ##
-    hostname: *host
+    hostname: harbor.${SECRET_DOMAIN}
     ## @param ingress.core.annotations [object] Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## Use this parameter to set the required annotations for cert-manager, see
     ## ref: https://cert-manager.io/docs/usage/ingress/#supported-annotations
@@ -244,9 +244,7 @@ ingress:
     ##   - name: core.harbor.domain
     ##     path: /
     ##
-    extraHosts:
-      - name: core.${SECRET_DOMAIN}
-        path: /
+    extraHosts: []
     ## @param ingress.core.extraPaths An array with additional arbitrary paths that may need to be added to the ingress under the main host
     ## e.g:
     ## extraPaths:
@@ -695,7 +693,7 @@ nginx:
     ## `ca.crt` - CA certificate (optional)
     ## Self-signed TLS certificates will be used otherwise.
     ##
-    existingSecret: ""
+    existingSecret: "harbor-tls"
     ## @param nginx.tls.commonName The common name used to generate the self-signed TLS certificates
     ##
     commonName: *host
