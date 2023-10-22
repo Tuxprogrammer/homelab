@@ -2815,7 +2815,7 @@ postgresql:
   auth:
     enablePostgresUser: true
     postgresPassword: not-secure-database-password
-    existingSecret: ""
+    existingSecret: "harbor-secrets"
   architecture: standalone
   primary:
     extendedConfiguration: |
@@ -2867,7 +2867,7 @@ redis:
     ## The password value is ignored if existingSecret is set
     ##
     password: ""
-    existingSecret: ""
+    existingSecret: "harbor-secrets"
   architecture: standalone
   sentinel:
     enabled: false
