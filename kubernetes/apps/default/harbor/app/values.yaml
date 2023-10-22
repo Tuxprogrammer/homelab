@@ -19,7 +19,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: ceph-filesystem-internal
+  storageClass: ceph-block-internal
 
 ## @section Common Parameters
 ##
@@ -332,11 +332,11 @@ persistence:
     ##
     registry:
       existingClaim: ""
-      storageClass: ""
+      storageClass: "ceph-filesystem-internal"
       subPath: ""
       accessModes:
-        - ReadWriteOnce
-      size: 5Gi
+        - ReadWriteMany
+      size: 50Gi
       annotations: {}
       selector: {}
     ## @param persistence.persistentVolumeClaim.jobservice.existingClaim Name of an existing PVC to use

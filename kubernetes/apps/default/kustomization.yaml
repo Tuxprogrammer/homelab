@@ -9,7 +9,7 @@ resources:
   - ./mongodb/ks.yaml
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
-  - ./harbor/ks.yaml
+  #- ./harbor/ks.yaml
   - ./vaultwarden/ks.yaml
   - ./littlelink/ks.yaml
   - ./cloudnative-pg/ks.yaml
