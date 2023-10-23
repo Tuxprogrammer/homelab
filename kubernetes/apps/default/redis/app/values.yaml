@@ -316,7 +316,7 @@ master:
     ## StrategyType
     ## Can be set to RollingUpdate, OnDelete (statefulset), Recreate (deployment)
     ##
-    type: RollingUpdate
+    type: OnDelete
   ## @param master.minReadySeconds How many seconds a pod needs to be ready before killing the next, during update
   ##
   minReadySeconds: 0
@@ -496,7 +496,7 @@ master:
   ## @param master.persistentVolumeClaimRetentionPolicy.whenDeleted Volume retention behavior that applies when the StatefulSet is deleted
   ##
   persistentVolumeClaimRetentionPolicy:
-    enabled: false
+    enabled: true
     whenScaled: Retain
     whenDeleted: Retain
   ## Redis&reg; master service parameters
@@ -755,7 +755,7 @@ replica:
     ## StrategyType
     ## Can be set to RollingUpdate, OnDelete (statefulset), Recreate (deployment)
     ##
-    type: RollingUpdate
+    type: OnDelete
   ## @param replica.minReadySeconds How many seconds a pod needs to be ready before killing the next, during update
   ##
   minReadySeconds: 0
@@ -939,7 +939,7 @@ replica:
   ## @param replica.persistentVolumeClaimRetentionPolicy.whenDeleted Volume retention behavior that applies when the StatefulSet is deleted
   ##
   persistentVolumeClaimRetentionPolicy:
-    enabled: false
+    enabled: true
     whenScaled: Retain
     whenDeleted: Retain
   ## Redis&reg; replicas service parameters
