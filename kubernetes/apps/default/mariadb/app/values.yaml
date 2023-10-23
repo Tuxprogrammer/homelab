@@ -471,7 +471,7 @@ primary:
     ## @param primary.persistence.accessModes MariaDB primary persistent volume access Modes
     ##
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     ## @param primary.persistence.size MariaDB primary persistent volume size
     ##
     size: 8Gi
@@ -863,7 +863,7 @@ secondary:
     ## @param secondary.persistence.accessModes MariaDB secondary persistent volume access Modes
     ##
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     ## @param secondary.persistence.size MariaDB secondary persistent volume size
     ##
     size: 8Gi
