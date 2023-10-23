@@ -774,11 +774,11 @@ persistence:
   ## If undefined (the default) or set to null, no storageClassName spec is
   ## set, choosing the default provisioner.
   ##
-  storageClass: ""
+  storageClass: ceph-filesystem-internal
   ## @param persistence.accessModes Access mode of data volume
   ##
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   ## @param persistence.size Size of data volume
   ##
   size: 8Gi
