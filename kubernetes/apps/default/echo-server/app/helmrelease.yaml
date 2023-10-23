@@ -70,10 +70,10 @@ spec:
         enabled: true
         className: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: "ipv4.tuxprogrammer.net"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           hajimari.io/icon: video-input-antenna
         hosts:
-          - host: &host "echo-server.tuxprogrammer.net"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
