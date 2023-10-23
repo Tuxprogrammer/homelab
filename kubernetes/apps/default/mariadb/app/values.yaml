@@ -461,7 +461,7 @@ primary:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ceph-filesystem-internal
+    storageClass: ceph-block-internal
     ## @param primary.persistence.labels Labels for the PVC
     ##
     labels: {}
@@ -471,7 +471,7 @@ primary:
     ## @param primary.persistence.accessModes MariaDB primary persistent volume access Modes
     ##
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     ## @param primary.persistence.size MariaDB primary persistent volume size
     ##
     size: 8Gi
@@ -853,7 +853,7 @@ secondary:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ceph-filesystem-internal
+    storageClass: ceph-block-internal
     ## @param secondary.persistence.labels Labels for the PVC
     ##
     labels: {}
@@ -863,7 +863,7 @@ secondary:
     ## @param secondary.persistence.accessModes MariaDB secondary persistent volume access Modes
     ##
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     ## @param secondary.persistence.size MariaDB secondary persistent volume size
     ##
     size: 8Gi
