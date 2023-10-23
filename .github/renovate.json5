@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     "docker:enableMajor",
@@ -14,8 +15,6 @@
     "github>Tuxprogrammer/homelab//.github/renovate/semanticCommits.json5",
     "helpers:pinGitHubActionDigests"
   ],
-  "username": "Lucyna[bot]",
-  "gitAuthor": "Lucyna Kushinada <35748184+Lucyna[bot]@users.noreply.github.com>",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prIgnoreNotification"],
