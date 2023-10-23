@@ -28,54 +28,83 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    image:
-      repository: ghcr.io/techno-tim/littlelink-server
-      tag: latest@sha256:d69a58a5a0b84ab8310a9de9cf8c9e93827a5b0bce14d689287ee7bdbc10d8c5
-      pullPolicy: Always
-    env:
-      TZ: "America/Chicago"
-      META_TITLE: Spencer Callicott
-      META_DESCRIPTION: Spencer Callicott (Tuxprogrammer)
-      META_AUTHOR: Spencer Callicott
-      THEME: Dark
-      FAVICON_URL: https://avatars.githubusercontent.com/u/8989940
-      AVATAR_URL: https://avatars.githubusercontent.com/u/8989940
-      AVATAR_2X_URL: https://avatars.githubusercontent.com/u/8989940
-      AVATAR_ALT: Spencer Callicott
-      NAME: Spencer Callicott
-      BIO: "i like computers"
-      BUTTON_ORDER: DISCORD,STEAM,YOUTUBE,FACEBOOK,INSTAGRAM,TWITTER,LINKED_IN,GITHUB,GITLAB,EMAIL
-      DISCORD: https://discord.com/users/204414182886473737
-      STEAM: https://steamcommunity.com/id/tuxp
-      YOUTUBE: https://www.youtube.com/channel/UC2WA4RMrvZosm7xRLnhTPBA
-      FACEBOOK: https://www.facebook.com/b1nary.v01d
-      INSTAGRAM: https://www.instagram.com/spencer.callicott/
-      TWITTER: https://twitter.com/@whizkid1111
-      LINKED_IN: https://www.linkedin.com/in/spencercallicott/
-      GITHUB: https://github.com/Tuxprogrammer
-      GITLAB: https://gitlab.com/tuxprogrammer
-      EMAIL: spencer@tuxhpc.net
-      EMAIL_TEXT: Email
-      # CUSTOM_BUTTON_ALT_TEXT: Donation link,Website link
-      # CUSTOM_BUTTON_ICON: fas fa-donate,fa-solid fa-globe
-      # CUSTOM_BUTTON_NAME: Donate,Website
-      # CUSTOM_BUTTON_COLOR: "#ffffff,#ffffff"
-      # CUSTOM_BUTTON_TEXT: Buy me a coffee,Main website
-      # CUSTOM_BUTTON_TEXT_COLOR: "#ED2756,#00000"
-      # CUSTOM_BUTTON_URL: https://www.buymeacoffee.com/skykrypt,https://skym.fi
-      # BUTTON_TARGET: _blank
-      FOOTER: BOTTOM TEXT
+    controllers:
+      main:
+        replicas: 2
+        strategy: RollingUpdate
+        containers:
+          main:
+            image:
+              repository: ghcr.io/techno-tim/littlelink-server
+              tag: latest@sha256:d69a58a5a0b84ab8310a9de9cf8c9e93827a5b0bce14d689287ee7bdbc10d8c5
+              pullPolicy: Always
+
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /
+                    port: &port 3000
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: false
+
+            env:
+              TZ: "America/Chicago"
+              META_TITLE: Spencer Callicott
+              META_DESCRIPTION: Spencer Callicott (Tuxprogrammer)
+              META_AUTHOR: Spencer Callicott
+              THEME: Dark
+              FAVICON_URL: https://avatars.githubusercontent.com/u/8989940
+              AVATAR_URL: https://avatars.githubusercontent.com/u/8989940
+              AVATAR_2X_URL: https://avatars.githubusercontent.com/u/8989940
+              AVATAR_ALT: Spencer Callicott
+              NAME: Spencer Callicott
+              BIO: "i like computers"
+              BUTTON_ORDER: DISCORD,STEAM,YOUTUBE,FACEBOOK,INSTAGRAM,TWITTER,LINKED_IN,GITHUB,GITLAB,EMAIL
+              DISCORD: https://discord.com/users/204414182886473737
+              STEAM: https://steamcommunity.com/id/tuxp
+              YOUTUBE: https://www.youtube.com/channel/UC2WA4RMrvZosm7xRLnhTPBA
+              FACEBOOK: https://www.facebook.com/b1nary.v01d
+              INSTAGRAM: https://www.instagram.com/spencer.callicott/
+              TWITTER: https://twitter.com/@whizkid1111
+              LINKED_IN: https://www.linkedin.com/in/spencercallicott/
+              GITHUB: https://github.com/Tuxprogrammer
+              GITLAB: https://gitlab.com/tuxprogrammer
+              EMAIL: spencer@tuxhpc.net
+              EMAIL_TEXT: Email
+              # CUSTOM_BUTTON_ALT_TEXT: Donation link,Website link
+              # CUSTOM_BUTTON_ICON: fas fa-donate,fa-solid fa-globe
+              # CUSTOM_BUTTON_NAME: Donate,Website
+              # CUSTOM_BUTTON_COLOR: "#ffffff,#ffffff"
+              # CUSTOM_BUTTON_TEXT: Buy me a coffee,Main website
+              # CUSTOM_BUTTON_TEXT_COLOR: "#ED2756,#00000"
+              # CUSTOM_BUTTON_URL: https://www.buymeacoffee.com/skykrypt,https://skym.fi
+              # BUTTON_TARGET: _blank
+              FOOTER: BOTTOM TEXT
+
+            resources:
+              requests:
+                memory: 64M
+              limits:
+                memory: 95M
+
     service:
       main:
         ports:
           http:
-            enabled: true
-            port: 80
-            targetPort: 3000
+            port: *port
+
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        className: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           hajimari.io/icon: account
@@ -84,11 +113,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
-    resources:
-      requests:
-        memory: 64M
-      limits:
-        memory: 95M
