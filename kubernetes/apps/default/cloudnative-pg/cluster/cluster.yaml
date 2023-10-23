@@ -32,15 +32,14 @@ spec:
       wal:
         compression: bzip2
         maxParallel: 8
-      destinationPath: s3://postgresql/
-      endpointURL: http://s3.${SECRET_DOMAIN}
-      serverName: postgres
+      destinationPath: s3://pg-backups
+      endpointURL: http://rook-ceph-rgw-ceph-objectstore.rook-ceph.svc
       s3Credentials:
         accessKeyId:
-          name: cloudnative-pg-secret
+          name: pg-backups
           key: AWS_ACCESS_KEY_ID
         secretAccessKey:
-          name: cloudnative-pg-secret
+          name: pg-backups
           key: AWS_SECRET_ACCESS_KEY
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   # externalClusters:
