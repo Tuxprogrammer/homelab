@@ -26,72 +26,102 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    initContainers:
-      01-init-db:
-        image: ghcr.io/onedr0p/postgres-init:14.9
-        imagePullPolicy: IfNotPresent
-        envFrom:
-          - secretRef:
-              name: vaultwarden-postgres
-    image:
-      repository: vaultwarden/server
-      tag: 1.29.2
-    env:
-      DATA_FOLDER: "data"
-      ICON_CACHE_FOLDER: "data/icon_cache"
-      ATTACHMENTS_FOLDER: "data/attachments"
-      DOMAIN: "https://bitwarden.${SECRET_DOMAIN_2}"
-      TZ: "${TIMEZONE}"
-      WEBSOCKET_ENABLED: "true"
-      WEBSOCKET_ADDRESS: 0.0.0.0
-      WEBSOCKET_PORT: 3012
-    envFrom:
-      - secretRef:
-          name: vaultwarden-postgres
+    controllers:
+      main:
+        strategy: Recreate
+
+        initContainers:
+          01-init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 14.9
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: vaultwarden-postgres
+
+        containers:
+          main:
+            image:
+              repository: vaultwarden/server
+              tag: 1.29.2
+
+            env:
+              ATTACHMENTS_FOLDER: data/attachments
+              DATA_FOLDER: data
+              DOMAIN: "https://bitwarden.${SECRET_DOMAIN_2}"
+              ICON_CACHE_FOLDER: data/icon_cache
+              TZ: America/Chicago
+              WEBSOCKET_ADDRESS: 0.0.0.0
+              WEBSOCKET_ENABLED: "true"
+              WEBSOCKET_PORT: 3012
+
+            envFrom:
+              - secretRef:
+                  name: vaultwarden-postgres
+
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /
+                    port: &port 80
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: false
+
+            resources:
+              limits:
+                memory: 2Gi
+              requests:
+                cpu: 100m
+                memory: 100Mi
+
     service:
       main:
         ports:
           http:
-            port: &port 80
+            port: *port
           websocket:
             enabled: true
-            port: &websocket-port 3012
-    # persistence:
-    #   data:
-    #     enabled: true
-    #     type: pvc
-    #     accessMode: ReadWriteOnce
-    #     size: 1Gi
-    #     mountPath: /data
+            port: 3012
+
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        className: nginx
         annotations:
           external-dns.home.arpa/enabled: "true"
-          hajimari.io/icon: mdi:lock
+          hajimari.io/enable: "true"
+          hajimari.io/group: Security
+          hajimari.io/icon: "simple-icons:vaultwarden"
+          hajimari.io/appName: Vaultwarden
+          hajimari.io/info: Password Manager
         hosts:
           - host: &host "bitwarden.${SECRET_DOMAIN_2}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  port: *port
+                  name: main
+                  port: http
               - path: /notifications/hub/negotiate
                 pathType: Prefix
                 service:
-                  port: *port
+                  name: main
+                  port: http
               - path: /notifications/hub
                 pathType: Prefix
                 service:
-                  port: *websocket-port
+                  name: main
+                  port: websocket
         tls:
           - hosts:
               - *host
             secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
-    resources:
-      requests:
-        cpu: 100m
-        memory: 100Mi
-      limits:
-        memory: 2Gi
