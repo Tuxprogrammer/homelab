@@ -461,7 +461,7 @@ primary:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: ceph-filesystem-internal
     ## @param primary.persistence.labels Labels for the PVC
     ##
     labels: {}
@@ -853,7 +853,7 @@ secondary:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: ceph-filesystem-internal
     ## @param secondary.persistence.labels Labels for the PVC
     ##
     labels: {}
