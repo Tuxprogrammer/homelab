@@ -56,7 +56,7 @@ spec:
                 enabled: false
 
             env:
-              TZ: "America/Chicago"
+              TZ: "${TIMEZONE}"
               META_TITLE: Spencer Callicott
               META_DESCRIPTION: Spencer Callicott (Tuxprogrammer)
               META_AUTHOR: Spencer Callicott
