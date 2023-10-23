@@ -353,10 +353,10 @@ persistence:
     ##
     jobservice:
       existingClaim: ""
-      storageClass: "ceph-block-internal"
+      storageClass: "ceph-filesystem-internal"
       subPath: ""
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
       size: 1Gi
       annotations: {}
       selector: {}
@@ -371,10 +371,10 @@ persistence:
       ##
       scanData:
         existingClaim: ""
-        storageClass: "ceph-block-internal"
+        storageClass: "ceph-filesystem-internal"
         subPath: ""
         accessModes:
-          - ReadWriteOnce
+          - ReadWriteMany
         size: 1Gi
         annotations: {}
         selector: {}
