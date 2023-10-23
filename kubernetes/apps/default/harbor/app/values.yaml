@@ -1237,7 +1237,7 @@ core:
   ## `secret` (required),
   ## `secretKey` (required),
   ##
-  existingSecret: "harbor-secrets"
+  existingSecret: ""
   ## @param core.existingEnvVarsSecret Existing secret for core envvars
   ## The secret must contain the keys:
   ## `CSRF_KEY` (required),
@@ -1253,7 +1253,7 @@ core:
   ##   As a EnvVars secret, this secret also store redis config urls
   ##   The HARBOR_ADMIN_PASSWORD is only required at initial deployment, once the password is set in database, it is not used anymore
   ##
-  existingEnvVarsSecret: "harbor-secrets"
+  existingEnvVarsSecret: ""
   ## @param core.csrfKey The CSRF key. Will be generated automatically if it isn't specified
   ##
   csrfKey: ""
@@ -1547,7 +1547,7 @@ jobservice:
   ## The secret must contain the keys:
   ## `secret` (required),
   ##
-  existingSecret: "harbor-secrets"
+  existingSecret: ""
   ## Use TLS in the container
   ##
   tls:
@@ -1796,7 +1796,7 @@ registry:
   ## `REGISTRY_HTTP_SECRET` (required),
   ## `REGISTRY_REDIS_PASSWORD` (optional),
   ##
-  existingSecret: "harbor-secrets"
+  existingSecret: ""
   ## @param registry.relativeurls Make the registry return relative URLs in Location headers. The client is responsible for resolving the correct URL.
   ##
   relativeurls: false
@@ -2585,7 +2585,7 @@ exporter:
   ## UNDOCUMENTED:
   ## .Values.exporter.existingEnvVarsSecret
   ## Provides secret values in environment variables to the exporter pods.
-  existingEnvVarsSecret: "harbor-secrets"
+  existingEnvVarsSecret: ""
   ## @param exporter.command Override default container command (useful when using custom images)
   ##
   command: []
@@ -2822,7 +2822,7 @@ postgresql:
   auth:
     enablePostgresUser: true
     postgresPassword: not-secure-database-password
-    existingSecret: "harbor-secrets"
+    existingSecret: ""
   architecture: standalone
   primary:
     extendedConfiguration: |
@@ -2867,14 +2867,14 @@ externalDatabase:
 redis:
   enabled: true
   auth:
-    enabled: false
+    enabled: true
     ## Redis&reg; password (both master and slave). Defaults to a random 10-character alphanumeric string if not set and auth.enabled is true.
     ## It should always be set using the password value or in the existingSecret to avoid issues
     ## with Harbor.
     ## The password value is ignored if existingSecret is set
     ##
     password: ""
-    existingSecret: "harbor-secrets"
+    existingSecret: ""
   architecture: standalone
   sentinel:
     enabled: false

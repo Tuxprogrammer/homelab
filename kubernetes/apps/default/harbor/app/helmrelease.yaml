@@ -30,3 +30,19 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: harbor-values
+    - targetPath: adminPassword
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: HARBOR_ADMIN_PASSWORD
+    - targetPath: registry.credentials.password
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: HARBOR_REGISTRY_PASSWORD
+    - targetPath: postgresql.auth.postgresPassword
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: POSTGRESQL_PASSWORD
+    - targetPath: redis.auth.password
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: REGISTRY_REDIS_PASSWORD
