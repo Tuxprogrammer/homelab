@@ -38,6 +38,10 @@ spec:
       kind: Secret
       name: harbor-secrets
       valuesKey: REGISTRY_CREDENTIAL_PASSWORD
+    - targetPath: registry.credentials.htpasswd
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: REGISTRY_CREDENTIAL_HTPASSWD
     - targetPath: postgresql.auth.postgresPassword
       kind: Secret
       name: harbor-secrets
