@@ -1,0 +1,33 @@
+controllers:
+  main:
+    type: cronjob
+
+    cronjob:
+      concurrencyPolicy: Forbid
+      schedule: "@hourly"
+
+    pod:
+      restartPolicy: OnFailure
+
+    containers:
+      main:
+        image:
+          repository: ghcr.io/onedr0p/kubernetes-kubectl
+          tag: 1.28.3@sha256:6b68063623c22be538727998ccc1bf0433ea71c7a73f73e3f2250896a390901a
+        command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
+        envFrom:
+          - secretRef:
+              name: cloudflare-ddns-secret
+service:
+  main:
+    enabled: false
+
+persistence:
+  config:
+    name: cloudflare-ddns-configmap
+    type: configMap
+    defaultMode: 0775
+    globalMounts:
+      - path: /app/cloudflare-ddns.sh
+        subPath: cloudflare-ddns.sh
+        readOnly: true
