@@ -17,9 +17,6 @@ spec:
   enableSuperuserAccess: true
   superuserSecret:
     name: cloudnative-pg-secret
-  # bootstrap:
-  #   recovery:
-  #     source: &previous-cluster postgres-v2
   postgresql:
     parameters:
       max_connections: "300"
@@ -32,6 +29,7 @@ spec:
       wal:
         compression: bzip2
         maxParallel: 8
+      serverName: postgres-0
       destinationPath: s3://pg-backups
       endpointURL: http://rook-ceph-rgw-ceph-objectstore.rook-ceph.svc
       s3Credentials:
@@ -42,18 +40,21 @@ spec:
           name: pg-backups
           key: AWS_SECRET_ACCESS_KEY
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
+  # bootstrap:
+  #   recovery:
+  #     source: &previous-cluster postgres
   # externalClusters:
   #   - name: *previous-cluster
   #     barmanObjectStore:
   #       wal:
   #         compression: bzip2
   #         maxParallel: 8
-  #       destinationPath: s3://postgresql/
-  #       endpointURL: http://s3.{SECRET_DOMAIN}
+  #       destinationPath: s3://pg-backups
+  #       endpointURL: http://rook-ceph-rgw-ceph-objectstore.rook-ceph.svc
   #       s3Credentials:
   #         accessKeyId:
-  #           name: cloudnative-pg-secret
-  #           key: aws-access-key-id
+  #           name: pg-backups
+  #           key: AWS_ACCESS_KEY_ID
   #         secretAccessKey:
-  #           name: cloudnative-pg-secret
-  #           key: aws-secret-access-key
+  #           name: pg-backups
+  #           key: AWS_SECRET_ACCESS_KEY
