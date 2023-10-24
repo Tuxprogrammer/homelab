@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "username": "Lucyna[bot]",
+  "username": "lucyna-bot[bot]",
   "gitAuthor": "Lucyna Kushinada <129113918+Lucyna[bot]@users.noreply.github.com>",
   "extends": [
     "config:recommended",
