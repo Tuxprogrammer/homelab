@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: elasticsearch
-      version: 19.11.3
+      version: 19.13.5
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -21,12 +21,12 @@ spec:
     createNamespace: true
     remediation:
       retries: 3
-    timeout: 15m
+    timeout: 60m
   upgrade:
     cleanupOnFail: true
     remediation:
       retries: 3
-    timeout: 15m
+    timeout: 60m
   uninstall:
     keepHistory: false
   valuesFrom:
