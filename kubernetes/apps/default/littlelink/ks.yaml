@@ -5,6 +5,10 @@ metadata:
   name: cluster-apps-littlelink
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
   path: ./kubernetes/apps/default/littlelink/app
   prune: true
   sourceRef:

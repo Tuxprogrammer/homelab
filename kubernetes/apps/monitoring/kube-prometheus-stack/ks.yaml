@@ -7,9 +7,9 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-local-path-provisioner
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-thanos
+    - name: cluster-apps-loki
   path: ./kubernetes/apps/monitoring/kube-prometheus-stack/app
   prune: true
   sourceRef:

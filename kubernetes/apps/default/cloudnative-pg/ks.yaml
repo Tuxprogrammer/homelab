@@ -33,8 +33,9 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-cloudnative-pg
-    - name: cluster-apps-local-path-provisioner
   path: ./kubernetes/apps/default/cloudnative-pg/cluster
   prune: true
   sourceRef:

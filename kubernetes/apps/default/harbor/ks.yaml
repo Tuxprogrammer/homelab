@@ -6,9 +6,11 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-local-path-provisioner
-    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
     - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/apps/default/harbor/certs
   prune: true

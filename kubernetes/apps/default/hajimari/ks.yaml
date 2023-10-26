@@ -5,6 +5,10 @@ metadata:
   name: cluster-apps-hajimari
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
   path: ./kubernetes/apps/default/hajimari/app
   prune: true
   sourceRef:

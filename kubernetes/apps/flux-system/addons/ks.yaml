@@ -5,6 +5,10 @@ metadata:
   name: cluster-apps-flux-webhooks
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
   path: ./kubernetes/apps/flux-system/addons/webhooks
   prune: true
   sourceRef:
