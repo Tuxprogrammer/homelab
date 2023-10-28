@@ -160,7 +160,7 @@ nextcloud:
   ## Extra environment variables
   extraEnv:
     - name: REDIS_HOST
-      value: redis-lb.default.svc.cluster.local
+      value: redis-headless.default.svc.cluster.local
     - name: REDIS_HOST_PORT
       value: "6379"
 
