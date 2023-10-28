@@ -7,13 +7,13 @@ spec:
   capacity:
     storage: 1Mi
   accessModes: ["ReadWriteMany"]
-  storageClassName: nextcloud-nfs
+  storageClassName: manual
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: expanse.turbo.ac
-    path: /eros/Apps/Nextcloud
-  # Note: The first two options are strictly for NFSv4.2
-  mountOptions: ["nfsvers=4.2", "nconnect=8", "hard", "noatime"]
+    server: archive.${SECRET_DOMAIN_2}
+    path: /mnt/archive0/nextcloud
+  # Note: The first two options are strictly for NFSv3
+  mountOptions: ["nfsvers=3", "nconnect=16", "hard", "noatime"]
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,7 +22,7 @@ metadata:
   namespace: default
 spec:
   accessModes: ["ReadWriteMany"]
-  storageClassName: nextcloud-nfs
+  storageClassName: manual
   resources:
     requests:
       storage: 1Mi
