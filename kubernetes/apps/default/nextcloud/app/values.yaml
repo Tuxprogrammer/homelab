@@ -263,6 +263,31 @@ nginx:
   #   runAsNonRoot: true
   #   readOnlyRootFilesystem: true
 
+  ## Liveness and readiness probe values
+  ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+  ##
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 420
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 18
+    successThreshold: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 420
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 18
+    successThreshold: 1
+  startupProbe:
+    enabled: false
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 30
+    successThreshold: 1
+
 internalDatabase:
   enabled: false
   name: nextcloud
