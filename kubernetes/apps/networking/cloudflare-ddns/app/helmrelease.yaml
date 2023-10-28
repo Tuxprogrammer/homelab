@@ -51,7 +51,7 @@ spec:
         enabled: false
 
     persistence:
-      config:
+      script:
         name: cloudflare-ddns-configmap
         type: configMap
         defaultMode: 0775
