@@ -32,9 +32,9 @@ spec:
       name: nextcloud-values
     - targetPath: externalDatabase.user
       kind: Secret
-      name: nextcloud
+      name: nextcloud-secrets
       valuesKey: database-username
     - targetPath: externalDatabase.password
       kind: Secret
-      name: nextcloud
+      name: nextcloud-secrets
       valuesKey: database-password
