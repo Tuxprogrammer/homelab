@@ -178,9 +178,9 @@ nextcloud:
         - sh
         - -c
         - |
-          mysql -h mariadb-primary -u root -p"$MYSQL_ROOT_PASSWORD" -e "
-          CREATE DATABASE IF NOT EXISTS $NEXTCLOUD_DB;
-          CREATE USER IF NOT EXISTS '$NEXTCLOUD_DBUSER'@'%' IDENTIFIED BY '$NEXTCLOUD_DBPASSWORD';
+          mariadb -v -h mariadb-primary -u root -p"$MYSQL_ROOT_PASSWORD" -e " \
+          CREATE DATABASE IF NOT EXISTS $NEXTCLOUD_DB; \
+          CREATE USER IF NOT EXISTS '$NEXTCLOUD_DBUSER'@'%' IDENTIFIED BY '$NEXTCLOUD_DBPASSWORD'; \
           GRANT ALL PRIVILEGES ON $NEXTCLOUD_DB.* TO '$NEXTCLOUD_DBUSER'@'%';"
       env:
         - name: MYSQL_ROOT_PASSWORD
