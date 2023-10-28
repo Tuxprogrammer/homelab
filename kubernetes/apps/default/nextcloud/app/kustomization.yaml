@@ -8,7 +8,7 @@ configMapGenerator:
 generatorOptions:
   disableNameSuffixHash: true
 resources:
-  - secrets.sops.yaml
+  - secret.sops.yaml
   - nfs-pvc.yaml
   - helmrelease.yaml
 labels:
