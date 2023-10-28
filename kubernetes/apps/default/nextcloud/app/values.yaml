@@ -72,8 +72,8 @@ phpClientHttpsFix:
 
 nextcloud:
   host: *host
-  #username: admin
-  #password: changeme
+  # username: admin
+  # password: changeme
   ## Use an existing secret
   existingSecret:
     enabled: true
@@ -99,8 +99,8 @@ nextcloud:
       secure: ssl
       port: 465
       authtype: LOGIN
-      #name: user
-      #password: pass
+      # name: user
+      # password: pass
   # PHP Configuration files
   # Will be injected in /usr/local/etc/php/conf.d for apache image and in /usr/local/etc/php-fpm.d when nginx.enabled: true
   phpConfigs: {}
@@ -203,13 +203,13 @@ nextcloud:
   #    command: ['do', 'something']
 
   # Extra sidecar containers.
-  extraSidecarContainers: []
-  #  - name: nextcloud-logger
-  #    image: busybox
-  #    command: [/bin/sh, -c, 'while ! test -f "/run/nextcloud/data/nextcloud.log"; do sleep 1; done; tail -n+1 -f /run/nextcloud/data/nextcloud.log']
-  #    volumeMounts:
-  #    - name: nextcloud-data
-  #      mountPath: /run/nextcloud/data
+  extraSidecarContainers:
+    - name: nextcloud-logger
+      image: busybox
+      command: [/bin/sh, -c, 'while ! test -f "/run/nextcloud/data/nextcloud.log"; do sleep 1; done; tail -n+1 -f /run/nextcloud/data/nextcloud.log']
+      volumeMounts:
+        - name: nextcloud-data
+          mountPath: /run/nextcloud/data
 
   # Extra mounts for the pods. Example shown is for connecting a legacy NFS volume
   # to NextCloud pods in Kubernetes. This can then be configured in External Storage
