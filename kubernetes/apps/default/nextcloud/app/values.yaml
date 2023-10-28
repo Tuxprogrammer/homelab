@@ -169,7 +169,7 @@ nextcloud:
           name: redis-secrets
           key: redis-password
 
-  # Extra init containers that runs before pods start.
+## Extra init containers that runs before pods start.
   extraInitContainers:
     - name: init-mysql
       image: bitnami/mariadb
@@ -177,10 +177,43 @@ nextcloud:
       command:
         - sh
         - -c
-        - mariadb -h mariadb-primary -u root -p"$MYSQL_ROOT_PASSWORD" -e "
-        - CREATE DATABASE IF NOT EXISTS $NEXTCLOUD_DB;
-        - CREATE USER IF NOT EXISTS '$NEXTCLOUD_DBUSER'@'%' IDENTIFIED BY '$NEXTCLOUD_DBPASSWORD';
-        - GRANT ALL PRIVILEGES ON $NEXTCLOUD_DB.* TO '$NEXTCLOUD_DBUSER'@'%';"
+        - |
+          mysql -h mariadb-primary -u root -p"$MYSQL_ROOT_PASSWORD" -e "
+          CREATE DATABASE IF NOT EXISTS $NEXTCLOUD_DB;
+          CREATE USER IF NOT EXISTS '$NEXTCLOUD_DBUSER'@'%' IDENTIFIED BY '$NEXTCLOUD_DBPASSWORD';
+          GRANT ALL PRIVILEGES ON $NEXTCLOUD_DB.* TO '$NEXTCLOUD_DBUSER'@'%';"
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secrets
+              key: mariadb-root-password
+        - name: NEXTCLOUD_DB
+          valueFrom:
+            configMapKeyRef:
+              name: nextcloud-config
+              key: db-name
+        - name: NEXTCLOUD_DBUSER
+          valueFrom:
+            secretKeyRef:
+              name: nextcloud-secrets
+              key: db-username
+        - name: NEXTCLOUD_DBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: nextcloud-secrets
+              key: db-password
+    - name: init-mysql
+      image: bitnami/mariadb
+      tag: 11.1.2-debian-11-r0
+      command:
+        - sh
+        - -c
+        - |
+          mysql -h mariadb-primary -u root -p"$MYSQL_ROOT_PASSWORD" -e "
+          CREATE DATABASE IF NOT EXISTS $NEXTCLOUD_DB;
+          CREATE USER IF NOT EXISTS '$NEXTCLOUD_DBUSER'@'%' IDENTIFIED BY '$NEXTCLOUD_DBPASSWORD';
+          GRANT ALL PRIVILEGES ON $NEXTCLOUD_DB.* TO '$NEXTCLOUD_DBUSER'@'%';"
       env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
