@@ -124,7 +124,7 @@ architecture: replication
 auth:
   ## @param auth.enabled Enable password authentication
   ##
-  enabled: true
+  enabled: false
   ## @param auth.sentinel Enable password authentication on sentinels too
   ##
   sentinel: true
@@ -1491,7 +1491,7 @@ pdb:
 tls:
   ## @param tls.enabled Enable TLS traffic
   ##
-  enabled: true
+  enabled: false
   ## @param tls.authClients Require clients to authenticate
   ##
   authClients: false

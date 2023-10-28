@@ -163,11 +163,6 @@ nextcloud:
       value: redis-lb.default.svc.cluster.local
     - name: REDIS_HOST_PORT
       value: "6379"
-    - name: REDIS_HOST_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: redis-secrets
-          key: redis-password
 
   # Extra init containers that runs before pods start.
   extraInitContainers:
