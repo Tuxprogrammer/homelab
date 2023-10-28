@@ -11,7 +11,7 @@ generatorOptions:
 resources:
   - secret.sops.yaml
   - nfs-pvc.yaml
-  - helmrelease.yaml
+  #- helmrelease.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: nextcloud
