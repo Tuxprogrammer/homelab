@@ -102,9 +102,12 @@ nextcloud:
     fromAddress: nextcloud
     domain: ${SECRET_DOMAIN_2}
     smtp:
+      host: mail.${SECRET_DOMAIN_2}
       secure: starttls
       port: 587
       authtype: LOGIN
+      name: _nextcloud
+      password: ""
   # PHP Configuration files
   # Will be injected in /usr/local/etc/php/conf.d for apache image and in /usr/local/etc/php-fpm.d when nginx.enabled: true
   phpConfigs: {}
@@ -293,6 +296,18 @@ externalDatabase:
 
   ## Supported database engines: mysql or postgresql
   type: mysql
+
+  ## Database host
+  host: mariadb-primary.default.svc.cluster.local
+
+  ## Database user
+  user: ""
+
+  ## Database password
+  password: ""
+
+  ## Database name
+  database: nextcloud
 
   ## Use a existing secret
   existingSecret:
