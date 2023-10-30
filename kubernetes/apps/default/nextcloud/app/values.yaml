@@ -144,6 +144,7 @@ nextcloud:
         ),
         'overwriteprotocol' => 'https',
         'overwrite.cli.url' => 'https://nextcloud.${SECRET_DOMAIN}',
+        'skeletondirectory' => '',
         'filelocking.enabled' => 'true',
         'loglevel' => '2',
         'enable_previews' => true,
