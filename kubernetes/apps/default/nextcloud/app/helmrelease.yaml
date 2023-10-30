@@ -30,11 +30,3 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: nextcloud-values
-    - targetPath: externalDatabase.user
-      kind: Secret
-      name: nextcloud-secrets
-      valuesKey: db-username
-    - targetPath: externalDatabase.password
-      kind: Secret
-      name: nextcloud-secrets
-      valuesKey: db-password
