@@ -298,7 +298,7 @@ externalDatabase:
   type: mysql
 
   ## Database host
-  host: ""
+  host: mariadb-primary.default.svc.cluster.local
 
   ## Database user
   user: ""
@@ -307,7 +307,7 @@ externalDatabase:
   password: ""
 
   ## Database name
-  database: ""
+  database: nextcloud
 
   ## Use a existing secret
   existingSecret:
