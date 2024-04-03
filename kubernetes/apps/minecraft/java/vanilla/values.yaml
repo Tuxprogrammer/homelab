@@ -61,7 +61,7 @@ minecraftServer:
   # Max view distance (in chunks).
   viewDistance: 12
   # Define this if you want a specific map generation seed.
-  levelSeed: '-494460667990824802'
+  levelSeed: '69420020036756093'
   # One of: creative, survival, adventure, spectator
   gameMode: survival
   # Message of the Day
@@ -73,12 +73,12 @@ minecraftServer:
   # When levelType == FLAT or CUSTOMIZED, this can be used to further customize map generation.
   # ref: https://hub.docker.com/r/itzg/minecraft-server/
   generatorSettings:
-  worldSaveName: vanilla-1.19.2-2
+  worldSaveName: vanilla-1.20.2
   # Optional URI to a resource pack. The player may choose to use it.
-  resourcePackUrl: https://dokucraft.co.uk/dl/1.18.2-Dokucraft-High.zip
+  resourcePackUrl: https://dokucraft.co.uk/dl/1.20.2-Dokucraft-High.zip
   # Optional SHA-1 digest of the resource pack, in lowercase hexadecimal.
   # It is recommended to specify this, because it is used to verify the integrity of the resource pack.
-  resourcePackSha: ee578a908e3ebb9f2abeb3556d29000e91c8535a
+  resourcePackSha: 08fde64d499a8309df678da914fb65cdc81198a8
   # When true, players will be prompted for a response and will be disconnected if they decline the required pack
   resourcePackEnforce: true
   # If you adjust this, you may need to adjust resources.requests above to match.

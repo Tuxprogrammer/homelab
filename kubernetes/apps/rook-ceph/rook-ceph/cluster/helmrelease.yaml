@@ -56,7 +56,8 @@ spec:
     pspEnable: false
     cephClusterSpec:
       network:
-        provider: host
+        # Disabled 4/3/2023 due to Rancher Federal CIS: 5.2.4
+        # provider: host
         connections:
           compression:
             # TODO: Test out enabling this on next cluster rebuild
@@ -88,7 +89,6 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PCXR
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNPQ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX
-              # DEAD - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QWZ8
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PND7
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R3M5
           - name: k8s-w2
