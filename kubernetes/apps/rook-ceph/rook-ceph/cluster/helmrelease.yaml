@@ -56,8 +56,7 @@ spec:
     pspEnable: false
     cephClusterSpec:
       network:
-        # Disabled 4/3/2023 due to Rancher Federal CIS: 5.2.4
-        # provider: host
+        provider: host
         connections:
           compression:
             # TODO: Test out enabling this on next cluster rebuild
