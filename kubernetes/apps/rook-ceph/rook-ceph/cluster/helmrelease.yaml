@@ -81,7 +81,7 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: k8s-w1
+          - name: k8s-w1.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLU3BX
@@ -91,7 +91,7 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PND7
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R3M5
-          - name: k8s-w2
+          - name: k8s-w2.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLGYJX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PXL6
@@ -100,7 +100,7 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q1ZH
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2BZ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QWYA
-          - name: k8s-w3
+          - name: k8s-w3.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9KVBG
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0MVGD
@@ -109,7 +109,7 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q0YW
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q22S
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M17DG2
-          - name: k8s-w4
+          - name: k8s-w4.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9JR2G
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0NSNP
@@ -118,7 +118,7 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZGJ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2VT
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R2WK
-          - name: k8s-w5
+          - name: k8s-w5.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GDW2JX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNAV
