@@ -71,3 +71,13 @@ spec:
       requests:
         cpu: 100m
         memory: 128M
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      allowPrivilegeEscalation: false
+      runasNonRoot: true
+      seccompprofile: runtime/default
+      capabilities:
+        drop:
+          - ALL

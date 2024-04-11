@@ -30,6 +30,16 @@ spec:
       main:
         strategy: Recreate
 
+        pod:
+          securityContext:
+            runasNonRoot: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+
         initContainers:
           01-init-db:
             image:

@@ -32,6 +32,15 @@ spec:
       main:
         replicas: 2
         strategy: RollingUpdate
+        pod:
+          securityContext:
+            runasNonRoot: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
         containers:
           main:
             image:
