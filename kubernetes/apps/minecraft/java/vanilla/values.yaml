@@ -31,10 +31,17 @@ extraVolumes:
             - key: en.yaml
               path: discordsrv.yaml
 
-securityContext:
+podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
   fsGroup: 1000
+  runasNonRoot: true
+  allowPrivilegeEscalation: false
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop:
+      - ALL
 
 minecraftServer:
   serviceType: LoadBalancer

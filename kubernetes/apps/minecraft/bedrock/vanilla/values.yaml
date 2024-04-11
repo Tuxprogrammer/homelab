@@ -5,3 +5,14 @@ minecraftServer:
   loadBalancerIP: 10.2.0.124
 serviceAnnotations:
   external-dns.alpha.kubernetes.io/hostname: bedrock.${SECRET_DOMAIN_2}
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 3000
+  fsGroup: 2000
+  runasNonRoot: true
+  allowPrivilegeEscalation: false
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop:
+      - ALL
