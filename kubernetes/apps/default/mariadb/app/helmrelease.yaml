@@ -15,16 +15,18 @@ spec:
         namespace: flux-system
   releaseName: mariadb
   targetNamespace: default
-  interval: 20m0s
+  interval: 30m0s
   maxHistory: 3
   install:
     createNamespace: true
     remediation:
       retries: 3
+    timeout: 15m
   upgrade:
     cleanupOnFail: true
     remediation:
       retries: 3
+    timeout: 15m
   uninstall:
     keepHistory: false
   valuesFrom:
