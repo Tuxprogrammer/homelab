@@ -4,6 +4,3 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./network-policy.yaml
-  - ./local-path-provisioner/ks.yaml
-  - ./metrics-server/ks.yaml
-  - ./reloader/ks.yaml
