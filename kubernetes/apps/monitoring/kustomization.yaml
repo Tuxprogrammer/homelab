@@ -8,4 +8,4 @@ resources:
   - ./loki/ks.yaml
   - ./thanos/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
-  - ./elk/ks.yaml
+  #- ./elk/ks.yaml
