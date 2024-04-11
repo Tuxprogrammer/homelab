@@ -292,7 +292,7 @@ tls:
     ##
     requests: {}
 
-  containerSecurityContext:
+  securityContext:
     enabled: true
     runAsUser: 1001
     runAsGroup: 0
