@@ -84,8 +84,7 @@ spec:
           - name: k8s-w1.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
-              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLU3BX
-              #- name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M06JHE -- the install went on the wrong disk -- oops
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M06JHE
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PCXR
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNPQ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX

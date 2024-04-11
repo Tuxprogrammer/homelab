@@ -214,6 +214,10 @@ The cluster application [external-dns](https://github.com/kubernetes-sigs/extern
 3. Install Flux and sync the cluster to the Git repository
 
     ```sh
+
+    ssh localadmin@k8s-w1.DOMAIN "sudo /var/lib/rancher/rke2/bin/kubectl --kubeconfig /etc/rancher/rke2/rke2.yaml config view --flatten" > ~/.kube/config
+    task cluster:verify
+    task cluster:installCRDs
     task cluster:install
     # namespace/flux-system configured
     # customresourcedefinition.apiextensions.k8s.io/alerts.notification.toolkit.fluxcd.io created
