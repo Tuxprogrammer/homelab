@@ -1125,8 +1125,9 @@ metrics:
   ##     readOnlyRootFilesystem: true
   ##
   containerSecurityContext:
-    enabled: false
+    enabled: true
     privileged: false
+    runAsNonRoot: true
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
