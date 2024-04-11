@@ -800,6 +800,7 @@ nginx:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure NGINX containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param nginx.containerSecurityContext.enabled Enabled NGINX containers' Security Context
@@ -1049,6 +1050,7 @@ portal:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure Harbor Portal containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param portal.containerSecurityContext.enabled Enabled Harbor Portal containers' Security Context
@@ -1368,6 +1370,7 @@ core:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure Harbor Core containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param core.containerSecurityContext.enabled Enabled Harbor Core containers' Security Context
@@ -1651,6 +1654,7 @@ jobservice:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure Harbor Jobservice containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param jobservice.containerSecurityContext.enabled Enabled Harbor Jobservice containers' Security Context
@@ -1852,6 +1856,7 @@ registry:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## @param registry.updateStrategy.type Harbor Registry deployment strategy type - only really applicable for deployments with RWO PVs attached
   ## If replicas = 1, an update can get "stuck", as the previous pod remains attached to the
   ## PV, and the "incoming" pod can never start. Changing the strategy to "Recreate" will
@@ -2423,6 +2428,7 @@ trivy:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure Trivy containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param trivy.containerSecurityContext.enabled Enabled Trivy containers' Security Context
@@ -2682,6 +2688,7 @@ exporter:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    fsGroupChangePolicy: OnRootMismatch
   ## Configure Exporter containers (only main one) Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param exporter.containerSecurityContext.enabled Enabled Exporter containers' Security Context
