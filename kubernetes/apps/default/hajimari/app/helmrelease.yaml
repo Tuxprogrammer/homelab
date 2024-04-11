@@ -76,7 +76,7 @@ spec:
       runAsGroup: 1000
       fsGroup: 1000
       allowPrivilegeEscalation: false
-      runasNonRoot: true
+      runAsNonRoot: true
       seccompprofile: runtime/default
       capabilities:
         drop:

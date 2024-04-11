@@ -9,7 +9,7 @@ podSecurityContext:
   runAsUser: 1000
   runAsGroup: 3000
   fsGroup: 2000
-  runasNonRoot: true
+  runAsNonRoot: true
   allowPrivilegeEscalation: false
   seccompProfile:
     type: RuntimeDefault

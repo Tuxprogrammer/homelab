@@ -28,7 +28,7 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runasNonRoot: true
+        runAsNonRoot: true
         allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
