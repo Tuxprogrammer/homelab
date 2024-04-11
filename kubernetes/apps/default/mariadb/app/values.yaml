@@ -721,6 +721,8 @@ secondary:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    seccompProfile:
+      type: RuntimeDefault
   ## MariaDB secondary container security context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param secondary.containerSecurityContext.enabled MariaDB secondary container securityContext
@@ -735,6 +737,8 @@ secondary:
     runAsNonRoot: true
     privileged: false
     allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
   ## MariaDB secondary container's resource requests and limits
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ## We usually recommend not to specify default resources and to leave this as a conscious
@@ -1124,6 +1128,8 @@ metrics:
     enabled: false
     privileged: false
     allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
   ## Mysqld Prometheus exporter resource requests and limits
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ## We usually recommend not to specify default resources and to leave this as a conscious
