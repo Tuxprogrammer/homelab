@@ -29,12 +29,9 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
-        capabilities:
-          drop:
-            - ALL
+
     controllers:
       main:
         strategy: Recreate
@@ -48,6 +45,11 @@ spec:
             envFrom:
               - secretRef:
                   name: vaultwarden-postgres
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
 
         containers:
           main:
@@ -91,6 +93,12 @@ spec:
               requests:
                 cpu: 100m
                 memory: 100Mi
+
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
 
     service:
       main:

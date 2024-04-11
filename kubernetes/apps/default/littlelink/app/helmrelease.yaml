@@ -31,12 +31,8 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
-        capabilities:
-          drop:
-            - ALL
 
     controllers:
       main:
@@ -104,6 +100,11 @@ spec:
                 memory: 64M
               limits:
                 memory: 95M
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
 
     service:
       main:

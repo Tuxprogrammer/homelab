@@ -29,12 +29,8 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
-        capabilities:
-          drop:
-            - ALL
     controllers:
       main:
         strategy: RollingUpdate
@@ -67,6 +63,11 @@ spec:
                 memory: 10Mi
               limits:
                 memory: 50Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
 
     service:
       main:
