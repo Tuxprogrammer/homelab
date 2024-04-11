@@ -291,6 +291,18 @@ tls:
     ##   memory: 128Mi
     ##
     requests: {}
+
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 1001
+    runAsGroup: 0
+    runAsNonRoot: true
+    allowPrivilegeEscalation: false
+    seccompProfile:
+      type: RuntimeDefault
+    capabilities:
+      drop:
+        - ALL
 ## @param hostAliases Add deployment host aliases
 ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
 ##
@@ -1113,6 +1125,7 @@ backup:
     ## @param backup.cronjob.containerSecurityContext.capabilities.drop Set backup container's Security Context capabilities to drop
     ##
     containerSecurityContext:
+      enabled: true
       runAsUser: 1001
       runAsGroup: 0
       runAsNonRoot: true
