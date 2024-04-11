@@ -293,7 +293,6 @@ tls:
     requests: {}
 
   securityContext:
-    enabled: true
     runAsUser: 1001
     runAsGroup: 0
     runAsNonRoot: true
