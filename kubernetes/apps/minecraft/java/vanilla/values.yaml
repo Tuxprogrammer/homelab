@@ -21,6 +21,18 @@ initContainers:
         subPath: discordsrv.yaml
       - name: datadir
         mountPath: /data
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
+      fsGroupChangePolicy: OnRootMismatch
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      seccompProfile:
+        type: RuntimeDefault
+      capabilities:
+        drop:
+          - ALL
 
 extraVolumes:
   - volumes:

@@ -146,3 +146,11 @@ spec:
           - hosts:
               - *host
             secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
+
+    persistence:
+      data:
+        type: persistentVolumeClaim
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        globalMounts:
+          - path: /data
