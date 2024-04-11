@@ -25,7 +25,6 @@ initContainers:
       runAsUser: 0
       runAsGroup: 0
       fsGroup: 0
-      fsGroupChangePolicy: OnRootMismatch
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       seccompProfile:
