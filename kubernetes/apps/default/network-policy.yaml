@@ -16,5 +16,12 @@ spec:
           namespaceSelector:
             matchLabels:
               kubernetes.io/metadata.name: networking
+        # Allow ingress from grafana for database
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: grafana
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
   policyTypes:
     - Ingress
