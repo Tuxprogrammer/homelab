@@ -8,7 +8,6 @@ configMapGenerator:
       - values.yaml
 resources:
   - discordsrv.sops.yaml
-  - rcon-login.sops.yaml
   - helmrelease.yaml
 configurations:
   - kustomizeconfig.yaml
