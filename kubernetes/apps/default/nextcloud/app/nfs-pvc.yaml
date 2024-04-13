@@ -7,7 +7,6 @@ spec:
   capacity:
     storage: 1Mi
   accessModes: ["ReadWriteMany"]
-  storageClassName: manual
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: archive.${SECRET_DOMAIN_2}
@@ -22,7 +21,7 @@ metadata:
   namespace: default
 spec:
   accessModes: ["ReadWriteMany"]
-  storageClassName: manual
+  storageClassName: ""
   resources:
     requests:
       storage: 1Mi
