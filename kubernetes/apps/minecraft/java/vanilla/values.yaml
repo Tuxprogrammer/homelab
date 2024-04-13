@@ -22,9 +22,9 @@ initContainers:
       - name: datadir
         mountPath: /data
     securityContext:
-      runAsUser: 0
-      runAsGroup: 0
-      fsGroup: 0
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       seccompProfile:
