@@ -431,7 +431,23 @@ redis:
     existingSecret: nextcloud-secrets
     # Password key to be retrieved from existing secret
     existingSecretPasswordKey: redis-pw
-
+  master:
+    podSecurityContext: &redis_psc
+      fsGroup: 1001
+      runAsNonRoot: true
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext: &redis_csc
+      runAsUser: 1001
+      runAsGroup: 1001
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+  replica:
+    podSecurityContext: *redis_psc
+    containerSecurityContext: *redis_csc
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#cron
