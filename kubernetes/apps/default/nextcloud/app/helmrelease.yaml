@@ -49,6 +49,8 @@ spec:
               - op: add
                 path: /spec/template/spec/containers/0/securityContext
                 value:
+                  runAsUser: 1000
+                  runAsNonRoot: true
                   allowPrivilegeEscalation: false
                   capabilities:
                     drop:
