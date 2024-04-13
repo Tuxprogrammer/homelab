@@ -109,7 +109,7 @@ minecraftServer:
     # If you enable this, make SURE to change your password below.
     enabled: true
     password:
-    existingSecret: rcon-login
+    existingSecret: minecraft-secrets
     secretKey: rcon-password
 
 serviceAnnotations:
@@ -125,6 +125,11 @@ rconServiceAnnotations:
 extraEnv:
   # Worldedit
   CURSEFORGE_FILES: 225608
+
+autoCurseForge:
+  apiKey:
+    existingSecret: minecraft-secrets
+    secretKey: curseforge-api-key
 
 persistence:
   ## minecraft data Persistent Volume Storage Class

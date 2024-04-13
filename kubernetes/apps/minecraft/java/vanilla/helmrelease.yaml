@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: minecraft
+      version: 4.15.0
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
