@@ -112,6 +112,12 @@ minecraftServer:
     existingSecret: minecraft-secrets
     secretKey: rcon-password
 
+  # This is required to download files from CurseForge.
+  autoCurseForge:
+    apiKey:
+      existingSecret: minecraft-secrets
+      secretKey: curseforge-api-key
+
 serviceAnnotations:
   external-dns.alpha.kubernetes.io/hostname: mc.${SECRET_DOMAIN_2}
   metallb.universe.tf/allow-shared-ip: minecraft-java-server
@@ -125,11 +131,6 @@ rconServiceAnnotations:
 extraEnv:
   # Worldedit
   CURSEFORGE_FILES: 225608
-
-autoCurseForge:
-  apiKey:
-    existingSecret: minecraft-secrets
-    secretKey: curseforge-api-key
 
 persistence:
   ## minecraft data Persistent Volume Storage Class
