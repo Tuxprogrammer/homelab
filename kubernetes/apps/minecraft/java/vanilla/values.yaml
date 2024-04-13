@@ -103,7 +103,7 @@ minecraftServer:
   memory: 8192M
   # A list of Spigot resources/plugins IDs to download.
   spigetResources:
-    # worldedit
+    # DiscordSRV
     - 18494
   rcon:
     # If you enable this, make SURE to change your password below.
@@ -123,7 +123,8 @@ rconServiceAnnotations:
 ## Values can be either variable values or `valueFrom` yaml
 ##
 extraEnv:
-  MODS: https://mediafiles.forgecdn.net/files/3922/624/worldedit-bukkit-7.2.12.jar
+  # Worldedit
+  CURSEFORGE_FILES: 225608
 
 persistence:
   ## minecraft data Persistent Volume Storage Class
