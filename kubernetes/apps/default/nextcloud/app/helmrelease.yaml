@@ -30,7 +30,7 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: nextcloud-values
-  postrenderers:
+  postRenderers:
     - kustomize:
         patches:
           - target:
