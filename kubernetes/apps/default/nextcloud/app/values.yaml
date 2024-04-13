@@ -607,4 +607,4 @@ rbac:
     annotations: {}
 
 ## @param securityContext for nextcloud pod @deprecated Use `nextcloud.podSecurityContext` instead
-securityContext: {}
+#securityContext: {}
