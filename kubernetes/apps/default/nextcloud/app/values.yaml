@@ -220,6 +220,15 @@ nextcloud:
             secretKeyRef:
               name: nextcloud-secrets
               key: db-name
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 33
+        runAsGroup: 33
+        runAsNonRoot: true
+        readOnlyRootFilesystem: false
+        allowPrivilegeEscalation: false
   #  - name: do-something
   #    image: busybox
   #    command: ['do', 'something']
@@ -232,6 +241,15 @@ nextcloud:
       volumeMounts:
         - name: nextcloud-data
           mountPath: /run/nextcloud
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 33
+        runAsGroup: 33
+        runAsNonRoot: true
+        readOnlyRootFilesystem: false
+        allowPrivilegeEscalation: false
 
   # Extra mounts for the pods. Example shown is for connecting a legacy NFS volume
   # to NextCloud pods in Kubernetes. This can then be configured in External Storage
@@ -241,9 +259,13 @@ nextcloud:
   #      server: "10.0.0.1"
   #      path: "/nextcloud_data"
   #      readOnly: false
+    - name: redis-config
+      emptyDir: {}
   extraVolumeMounts:
   #  - name: nfs
   #    mountPath: "/legacy_data"
+    - name: redis-config
+      mountPath: "/usr/local/etc/php/conf.d/redis-session.ini"
 
   # Set securityContext parameters for the nextcloud CONTAINER only (will not affect nginx container).
   # For example, you may need to define runAsNonRoot directive
