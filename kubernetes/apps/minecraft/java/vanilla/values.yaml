@@ -13,7 +13,7 @@ initContainers:
     command: [
       "/bin/sh",
       "-c",
-      "mkdir -vp /data/plugins/DiscordSRV && cp -v /config.yml /data/plugins/DiscordSRV/config.yml && chown 1000:1000 -vR /data/plugins/DiscordSRV && chmod 444 -v /data/plugins/DiscordSRV/config.yml || true"
+      "mkdir -vp /data/plugins/DiscordSRV && cp -v /config.yml /data/plugins/DiscordSRV/config.yml && chown 1000:1000 -vR /data/plugins/DiscordSRV && chmod 444 -v /data/plugins/DiscordSRV/config.yml && cp -vf /data/mods/* /data/plugins/ || true"
     ]
     volumeMounts:
       - name: discordsrv-config
@@ -129,8 +129,8 @@ rconServiceAnnotations:
 ## Values can be either variable values or `valueFrom` yaml
 ##
 extraEnv:
-  # Worldedit
-  CURSEFORGE_FILES: 225608
+  # Worldedit for Bukkit
+  CURSEFORGE_FILES: 31043
 
 persistence:
   ## minecraft data Persistent Volume Storage Class
