@@ -261,17 +261,12 @@ nextcloud:
   #      readOnly: false
     - name: redis-config
       emptyDir: {}
-    - name: nextcloud-init-sync-lock
-      emptyDir: {}
   extraVolumeMounts:
   #  - name: nfs
   #    mountPath: "/legacy_data"
     - name: redis-config
       mountPath: /usr/local/etc/php/conf.d
       subPath: redis-session.ini
-    - name: nextcloud-init-sync-lock
-      mountPath: /var/www/html
-      subPath: nextcloud-init-sync.lock
 
   # Set securityContext parameters for the nextcloud CONTAINER only (will not affect nginx container).
   # For example, you may need to define runAsNonRoot directive
