@@ -30,3 +30,26 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: nextcloud-values
+  postrenderers:
+    - kustomize:
+        patches:
+          - target:
+              version: v1
+              kind: Deployment
+              name: nextcloud-metrics
+            patch: |
+              # Fix the securityContext for nextcloud-metrics pod
+              - op: add
+                path: /spec/template/spec/securityContext
+                value:
+                  runAsNonRoot: true
+                  seccompProfile:
+                    type: RuntimeDefault
+              # Fix the securityContext for nextcloud-metrics container 0
+              - op: add
+                path: /spec/template/spec/containers/0/securityContext
+                value:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                      - ALL
