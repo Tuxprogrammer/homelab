@@ -17,4 +17,3 @@ resources:
   # Web Apps
   - ./vaultwarden/ks.yaml
   - ./harbor/ks.yaml
-  - ./nextcloud/ks.yaml

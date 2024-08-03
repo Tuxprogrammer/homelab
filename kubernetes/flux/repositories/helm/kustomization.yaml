@@ -16,7 +16,6 @@ resources:
   - ./metrics-server.yaml
   - ./minecraft-server-charts.yaml
   - ./minio.yaml
-  - ./nextcloud.yaml
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
