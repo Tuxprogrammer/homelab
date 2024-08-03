@@ -2,13 +2,27 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "cloud-${SECRET_DOMAIN_2/./-}-production"
+  name: "nextcloud-${SECRET_DOMAIN_2/./-}-production"
   namespace: networking
 spec:
-  secretName: "cloud-${SECRET_DOMAIN_2/./-}-production-tls"
+  secretName: "nextcloud-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "cloud.${SECRET_DOMAIN_2}"
+  commonName: "nextcloud.${SECRET_DOMAIN_2}"
   dnsNames:
-    - "cloud.${SECRET_DOMAIN_2}"
+    - "nextcloud.${SECRET_DOMAIN_2}"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "office-${SECRET_DOMAIN_2/./-}-production"
+  namespace: networking
+spec:
+  secretName: "office-${SECRET_DOMAIN_2/./-}-production-tls"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "office.${SECRET_DOMAIN_2}"
+  dnsNames:
+    - "office.${SECRET_DOMAIN_2}"
