@@ -85,7 +85,7 @@ spec:
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M06JHE
-              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PCXR
+              - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M186H0
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNPQ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PND7
