@@ -23,7 +23,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "archive.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/server-snippet: |
       location /.well-known/carddav {
           return 301 $scheme://$host/remote.php/dav;
