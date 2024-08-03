@@ -40,7 +40,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host archive.${SECRET_DOMAIN_2}
+    - host: &host nextcloud.${SECRET_DOMAIN_2}
       http:
         paths:
           - path: /
@@ -53,4 +53,4 @@ spec:
   tls:
     - hosts:
         - *host
-      secretName: "archive-${SECRET_DOMAIN_2/./-}-production-tls"
+      secretName: "nextcloud-${SECRET_DOMAIN_2/./-}-production-tls"
