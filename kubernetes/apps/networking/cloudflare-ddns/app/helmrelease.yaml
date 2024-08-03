@@ -41,7 +41,7 @@ spec:
           main:
             image:
               repository: registry.k8s.io/kubectl
-              tag: v1.29.2
+              tag: v1.30.3
             command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
             envFrom:
               - secretRef:
