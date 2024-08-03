@@ -40,8 +40,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/kubernetes-kubectl
-              tag: 1.29.0@sha256:e7705753c1a0b8c47e50a045f6aef50415949771be110adcfb137b33609c2921
+              repository: registry.k8s.io/kubectl
+              tag: v1.29.2
             command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
             envFrom:
               - secretRef:
