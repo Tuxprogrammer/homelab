@@ -62,7 +62,7 @@ spec:
             # TODO: Test out enabling this on next cluster rebuild
             enabled: false
       cephVersion:
-        image: quay.io/ceph/ceph:v18.2.1
+        image: quay.io/ceph/ceph:v19.1.1
       placement:
         all:
           tolerations:
