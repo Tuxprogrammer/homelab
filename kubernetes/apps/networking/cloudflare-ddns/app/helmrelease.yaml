@@ -41,7 +41,7 @@ spec:
           main:
             image:
               repository: ubuntu
-              tag: 24.04
+              tag: 25.04
             command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
             envFrom:
               - secretRef:
