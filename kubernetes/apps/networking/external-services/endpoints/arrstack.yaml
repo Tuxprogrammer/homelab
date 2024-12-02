@@ -57,6 +57,7 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -87,6 +88,7 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -117,6 +119,7 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
 #############################################################################################
 ---
 apiVersion: networking.k8s.io/v1
@@ -150,6 +153,7 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -180,6 +184,7 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -210,3 +215,4 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
