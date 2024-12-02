@@ -33,10 +33,10 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-    nginx.ingress.kubernetes.io/server-snippet: |
-      location = / {
-        return 301 https://plex.${SECRET_DOMAIN_2}/web/index.html;
-      }
+    #nginx.ingress.kubernetes.io/server-snippet: |
+    #  location = / {
+    #    return 301 https://plex.${SECRET_DOMAIN_2}/web/index.html;
+    #  }
     hajimari.io/icon: mdi:pirate
   labels:
     app.kubernetes.io/name: *app
@@ -131,8 +131,8 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^$ https://plex.${SECRET_DOMAIN_2}/web$request_uri permanent;
+    #nginx.ingress.kubernetes.io/configuration-snippet: |
+    #  rewrite ^$ https://plex.${SECRET_DOMAIN_2}/web$request_uri permanent;
     hajimari.io/icon: mdi:pirate
   labels:
     app.kubernetes.io/name: *app
