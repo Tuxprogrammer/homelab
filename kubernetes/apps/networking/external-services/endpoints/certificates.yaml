@@ -11,6 +11,7 @@ spec:
     kind: ClusterIssuer
   commonName: "media-services.${SECRET_DOMAIN_2}"
   dnsNames:
+    - "media-services.${SECRET_DOMAIN_2}"
     - "plex.${SECRET_DOMAIN_2}"
     - "overseerr.${SECRET_DOMAIN_2}"
     - "desktop.${SECRET_DOMAIN_2}"
