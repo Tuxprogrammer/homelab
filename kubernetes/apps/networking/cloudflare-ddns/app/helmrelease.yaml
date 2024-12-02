@@ -40,8 +40,8 @@ spec:
         containers:
           main:
             image:
-              repository: registry.k8s.io/kubectl
-              tag: v1.29.2
+              repository: bitnami/kubectl
+              tag: 1.29.2
             command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
             envFrom:
               - secretRef:
