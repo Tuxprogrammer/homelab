@@ -40,8 +40,8 @@ spec:
         containers:
           main:
             image:
-              repository: bitnami/kubectl
-              tag: 1.29.2
+              repository: ubuntu
+              tag: 24.04
             command: ["/bin/bash", "/app/cloudflare-ddns.sh"]
             envFrom:
               - secretRef:
