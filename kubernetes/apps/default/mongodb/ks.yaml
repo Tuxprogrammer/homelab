@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-cert-manager-issuers
-    - name: cluster-apps-kube-prometheus-stack
+    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/apps/default/mongodb/certs
   prune: true
   sourceRef:
@@ -40,7 +40,7 @@ spec:
   dependsOn:
     - name: cluster-apps-local-path-provisioner
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-kube-prometheus-stack
+    #- name: cluster-apps-kube-prometheus-stack
     - name: cluster-apps-mongodb-certs
   path: ./kubernetes/apps/default/mongodb/app
   prune: true

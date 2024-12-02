@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-cert-manager-issuers
-    - name: cluster-apps-kube-prometheus-stack
+    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/apps/default/mariadb/certs
   prune: true
   sourceRef:
@@ -32,7 +32,7 @@ spec:
   dependsOn:
     - name: cluster-apps-local-path-provisioner
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-kube-prometheus-stack
+    #- name: cluster-apps-kube-prometheus-stack
     - name: cluster-apps-mariadb-certs
   path: ./kubernetes/apps/default/mariadb/app
   prune: true
