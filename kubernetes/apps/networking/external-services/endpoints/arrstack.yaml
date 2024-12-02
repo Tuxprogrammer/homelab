@@ -11,10 +11,18 @@ spec:
   type: ExternalName
   externalName: media-services.${SECRET_DOMAIN_2}
   ports:
-    - name: http
-      port: &port 443
+    - name: plex
+      port: &plex 32400
       protocol: TCP
-      targetPort: *port
+      targetPort: *plex
+    - name: overseerr
+      port: &overseerr 5055
+      protocol: TCP
+      targetPort: *overseerr
+    - name: guacamole
+      port: &guacamole 8086
+      protocol: TCP
+      targetPort: *guacamole
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -23,7 +31,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     nginx.ingress.kubernetes.io/server-snippet: |
       location = / {
@@ -45,7 +53,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: plex
   tls:
     - hosts:
         - *host
@@ -57,7 +65,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/icon: mdi:play-box
   labels:
@@ -75,7 +83,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: overseerr
   tls:
     - hosts:
         - *host
@@ -87,7 +95,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "desktop.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hajimari.io/icon: mdi:monitor
   labels:
@@ -105,7 +113,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: guacamole
   tls:
     - hosts:
         - *host
@@ -118,7 +126,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "plex.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       rewrite ^$ https://plex.${SECRET_DOMAIN_2}/web$request_uri permanent;
@@ -138,7 +146,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: plex
   tls:
     - hosts:
         - *host
@@ -150,7 +158,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
     hajimari.io/icon: mdi:play-box
   labels:
@@ -168,7 +176,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: overseerr
   tls:
     - hosts:
         - *host
@@ -180,7 +188,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "desktop.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
     hajimari.io/icon: mdi:play-box
   labels:
@@ -198,7 +206,7 @@ spec:
               service:
                 name: arrstack
                 port:
-                  number: 443
+                  name: guacamole
   tls:
     - hosts:
         - *host
