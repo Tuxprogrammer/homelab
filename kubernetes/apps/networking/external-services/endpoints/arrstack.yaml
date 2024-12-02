@@ -99,6 +99,8 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "desktop.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
     hajimari.io/icon: mdi:monitor
   labels:
     app.kubernetes.io/name: *app
@@ -199,7 +201,7 @@ metadata:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
     nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
-    hajimari.io/icon: mdi:play-box
+    hajimari.io/icon: mdi:monitor
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
