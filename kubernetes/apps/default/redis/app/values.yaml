@@ -279,6 +279,9 @@ master:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    sysctls:
+      - name: net.core.somaxconn
+        value: "10000"
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param master.containerSecurityContext.enabled Enabled Redis&reg; master containers' Security Context
@@ -722,6 +725,9 @@ replica:
   podSecurityContext:
     enabled: true
     fsGroup: 1001
+    sysctls:
+      - name: net.core.somaxconn
+        value: "10000"
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param replica.containerSecurityContext.enabled Enabled Redis&reg; replicas containers' Security Context
