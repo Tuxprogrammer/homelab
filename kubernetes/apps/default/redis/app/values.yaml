@@ -1880,7 +1880,7 @@ sysctl:
   command: []
   ## @param sysctl.mountHostSys Mount the host `/sys` folder to `/host-sys`
   ##
-  mountHostSys: true
+  mountHostSys: false
   ## Init container's resource requests and limits
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ## @param sysctl.resources.limits The resources limits for the init container
