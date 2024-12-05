@@ -1845,7 +1845,7 @@ volumePermissions:
 sysctl:
   ## @param sysctl.enabled Enable init container to modify Kernel settings
   ##
-  enabled: true
+  enabled: false
   ## OS Shell + Utility image
   ## ref: https://hub.docker.com/r/bitnami/os-shell/tags/
   ## @param sysctl.image.registry OS Shell + Utility image registry
