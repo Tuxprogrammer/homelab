@@ -4,12 +4,12 @@
   value:
     name: ssl-certs
     hostPath:
-      path: /etc/pki/tls/certs
-      type: Directory
+      path: initramfs-5.14.0-503.22.1.el9_5.x86_64.img
+      type: File
 
 - op: add
   path: /spec/template/spec/containers/0/volumeMounts/-
   value:
     name: ssl-certs
-    mountPath: /etc/ssl/certs
+    mountPath: /etc/ssl/certs/ca-certificates.crt
     readOnly: true
