@@ -1,0 +1,15 @@
+---
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: ssl-certs
+    hostPath:
+      path: /var/lib/ca-certificates/pem/
+      type: Directory
+
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value:
+    name: ssl-certs
+    mountPath: /etc/ssl/certs
+    readOnly: true
