@@ -4,7 +4,7 @@
   value:
     name: ssl-certs
     hostPath:
-      path: /var/lib/ca-certificates/pem/
+      path: /etc/pki/tls/certs
       type: Directory
 
 - op: add
