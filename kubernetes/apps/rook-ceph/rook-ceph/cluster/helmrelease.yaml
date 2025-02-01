@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: rook-ceph-cluster
-      version: v1.13.0
+      version: v1.14.9
       sourceRef:
         kind: HelmRepository
         name: rook-ceph
@@ -62,7 +62,7 @@ spec:
             # TODO: Test out enabling this on next cluster rebuild
             enabled: false
       cephVersion:
-        image: quay.io/ceph/ceph:v18.2.4
+        image: quay.io/ceph/ceph:v19.2.0-20240927
       placement:
         all:
           tolerations:
