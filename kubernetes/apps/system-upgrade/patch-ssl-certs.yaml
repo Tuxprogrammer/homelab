@@ -11,6 +11,5 @@
   path: /spec/template/spec/containers/0/volumeMounts/-
   value:
     name: ssl-certs
-    mountPath: /etc/ssl/certs
-    subPath: ca-certificates.crt
+    mountPath: /etc/ssl/certs/ca-certificates.crt
     readOnly: true
