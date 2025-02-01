@@ -8,3 +8,12 @@ resources:
   - https://github.com/rancher/system-upgrade-controller/releases/latest/download/crd.yaml
   - ./server-plan.yaml
   - ./agent-plan.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: system-upgrade-controller
+    patch: |-
+      - op: replace
+      path: /spec/template/spec/containers/0/securityContext
+      value:
+        privileged: true
