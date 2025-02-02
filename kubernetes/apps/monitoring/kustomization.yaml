@@ -5,3 +5,5 @@ resources:
   - ./namespace.yaml
   - ./network-policy.yaml
   - ./kubernetes-dashboard/ks.yaml
+  - ./loki/ks.yaml
+  - ./kube-prometheus-stack/ks.yaml
