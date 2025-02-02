@@ -130,20 +130,12 @@ spec:
     grafana:
       enabled: false
       forceDeployDashboards: true
-      sidecar:
-        dashboards:
-          multicluster:
-            etcd:
-              enabled: true
-    kubelet:
-      enabled: true
-      serviceMonitor:
-        metricRelabelings:
-          - action: replace
-            sourceLabels: ["node"]
-            targetLabel: instance
     kube-state-metrics:
-      metricLabelsAllowlist: ["persistentvolumeclaims=[*]"]
+      fullnameOverride: kube-state-metrics
+      metricLabelsAllowlist:
+        - pods=[*]
+        - deployments=[*]
+        - persistentvolumeclaims=[*]
       prometheus:
         monitor:
           enabled: true
@@ -154,23 +146,27 @@ spec:
               sourceLabels: ["__meta_kubernetes_pod_node_name"]
               targetLabel: kubernetes_node
     kubeApiServer:
-      enabled: true
-    kubeControllerManager:
-      enabled: true
-      endpoints: ["10.1.2.2", "10.1.2.3", "10.1.2.4"]
+      serviceMonitor:
+        selector:
+          matchLabels:
+            component: kube-apiserver
     kubeScheduler:
-      enabled: true
-      endpoints: ["10.1.2.2", "10.1.2.3", "10.1.2.4"]
-    kubeProxy:
-      enabled: false # Enable if not using eBPF
-      # endpoints: ["10.1.2.2", "10.1.2.3", "10.1.2.4"]
-    kubeEtcd:
-      enabled: true
-      endpoints: ["10.1.2.2", "10.1.2.3", "10.1.2.4"]
       service:
-        enabled: true
-        port: 2381
-        targetPort: 2381
+        selector:
+          matchLabels:
+            component: kube-scheduler
+    kubeControllerManager: &kubeControllerManager
+      service:
+        selector:
+          matchLabels:
+            component: cloud-controller-manager
+    kubeEtcd:
+      service:
+        selector:
+          matchLabels:
+            component: etcd
+    kubeProxy:
+      enabled: false
     prometheus:
       ingress:
         enabled: true
@@ -186,51 +182,27 @@ spec:
         tls:
           - hosts:
               - *host
-      thanosService:
-        enabled: true
-      thanosServiceMonitor:
-        enabled: true
       prometheusSpec:
-        replicas: 3
-        replicaExternalLabelName: __replica__ # must match with thanos value `.query.replicaLabel[0]`
-        # Breaks any metric that has an existing "cluster" label on a metric
-        # externalLabels:
-        #   cluster: home # must match with thanos value `.ruler.clusterName`
-        thanos:
-          image: quay.io/thanos/thanos:v0.33.0
-          objectStorageConfig:
-            name: thanos-objstore-secret
-            key: objstore.yml
-        podAntiAffinity: hard
-        ruleSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
-        retention: 2d
-        retentionSize: 6GB
+        ruleSelectorNilUsesHelmValues: false
+        scrapeConfigSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
         enableAdminAPI: true
         walCompression: true
+        enableFeatures:
+          - memory-snapshot-on-shutdown
+        retention: 14d
+        retentionSize: 50GB
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            memory: 2000Mi
         storageSpec:
           volumeClaimTemplate:
             spec:
               storageClassName: ceph-block-internal
               resources:
                 requests:
-                  storage: 20Gi
-        resources:
-          requests:
-            cpu: 150m
-            memory: 2000Mi
-          limits:
-            memory: 7000Mi
-        # additionalScrapeConfigs:
-        #   - job_name: pikvm
-        #     scrape_interval: 1m
-        #     scrape_timeout: 10s
-        #     metrics_path: /api/export/prometheus/metrics
-        #     basic_auth:
-        #       username: admin
-        #       password: 1nternalUseOnly
-        #     honor_timestamps: true
-        #     static_configs:
-        #       - targets: ["pikvm.turbo.ac"]
+                  storage: 50Gi
