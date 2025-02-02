@@ -14,6 +14,6 @@ patches:
       name: system-upgrade-controller
     patch: |-
       - op: replace
-      path: /spec/template/spec/containers/0/securityContext
-      value:
-        privileged: true
+        path: /spec/template/spec/containers/0/securityContext
+        value:
+          privileged: true
