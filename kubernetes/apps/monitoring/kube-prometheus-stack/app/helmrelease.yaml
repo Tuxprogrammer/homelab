@@ -17,17 +17,18 @@ spec:
         namespace: flux-system
   maxHistory: 3
   install:
-    createNamespace: true
     crds: CreateReplace
     remediation:
       retries: 3
-    timeout: 15m
   upgrade:
     cleanupOnFail: true
     crds: CreateReplace
     remediation:
+      strategy: rollback
       retries: 3
-    timeout: 15m
+  dependsOn:
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
   uninstall:
     keepHistory: false
   values:
