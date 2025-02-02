@@ -12,7 +12,7 @@ spec:
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
-  duration: 730d
+  duration: 17520h
   commonName: archive
   dnsNames:
     - archive.${SECRET_DOMAIN_2}
