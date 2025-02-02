@@ -9,6 +9,7 @@ spec:
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
+  duration: 730d
   commonName: media-services
   dnsNames:
     - bazarr.${SECRET_DOMAIN_2}
