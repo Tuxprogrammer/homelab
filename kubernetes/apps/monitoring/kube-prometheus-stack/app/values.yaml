@@ -1832,9 +1832,9 @@ coreDns:
     port: http-metrics
 
     jobLabel: jobLabel
-    selector: {}
-    #  matchLabels:
-    #    k8s-app: kube-dns
+    selector:
+      matchLabels:
+        k8s-app: kube-dns
 
     ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#relabelconfig
@@ -2857,7 +2857,7 @@ prometheusOperator:
   networkPolicy:
     ## Enable creation of NetworkPolicy resources.
     ##
-    enabled: false
+    enabled: true
 
     ## Flavor of the network policy to use.
     #  Can be:
@@ -3237,7 +3237,7 @@ prometheus:
 
   ## Configure network policy for the prometheus
   networkPolicy:
-    enabled: false
+    enabled: true
 
     ## Flavor of the network policy to use.
     #  Can be:
