@@ -5,6 +5,12 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ./helmrelease.yaml
+configMapGenerator:
+  - name: kube-prometheus-stack-values
+    files:
+      - values.yaml
+generatorOptions:
+  disableNameSuffixHash: true
 labels:
   - pairs:
       app.kubernetes.io/name: kube-prometheus-stack
