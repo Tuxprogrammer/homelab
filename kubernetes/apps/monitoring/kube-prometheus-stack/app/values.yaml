@@ -539,7 +539,7 @@ alertmanager:
     ## Hosts must be provided if Ingress is enabled.
     ##
     hosts:
-      - &host alertmanager.${SECRET_DOMAIN}
+      - &host alert-manager.${SECRET_DOMAIN}
 
     ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
     ##
