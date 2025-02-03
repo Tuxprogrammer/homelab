@@ -16,3 +16,4 @@ resources:
   - ./minio.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
+  - ./grafana.yaml
