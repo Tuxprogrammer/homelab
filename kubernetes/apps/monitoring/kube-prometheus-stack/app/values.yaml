@@ -3559,7 +3559,8 @@ prometheus:
     ##
     # hosts:
     #   - prometheus.domain.com
-    hosts: &host prometheus.${SECRET_DOMAIN}
+    hosts:
+      - &host prometheus.${SECRET_DOMAIN}
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
     ##
