@@ -6,6 +6,10 @@ namespace: monitoring
 resources:
   - ./secret.sops.yaml
   - ./helmrelease.yaml
+configMapGenerator:
+  - name: grafana-values
+    files:
+      - values.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: grafana
