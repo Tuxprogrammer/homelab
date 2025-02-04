@@ -1145,7 +1145,7 @@ grafana:
   ## Timezone for the default dashboards
   ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
   ##
-  defaultDashboardsTimezone: utc
+  defaultDashboardsTimezone: America/Chicago
 
   ## Editable flag for the default dashboards
   ##

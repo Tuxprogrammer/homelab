@@ -9,6 +9,7 @@ spec:
   ingress:
     - from:
         - podSelector: {}
+          namespaceSelector: {}
         # Allow ingress from pods in networking namespace that are part of ingress-nginx
         - podSelector:
             matchLabels:
