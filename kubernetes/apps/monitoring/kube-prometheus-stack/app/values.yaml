@@ -316,13 +316,27 @@ defaultRules:
 
 ## Provide custom recording or alerting rules to be deployed into the cluster.
 ##
-additionalPrometheusRulesMap: {}
-#  rule-name:
-#    groups:
-#    - name: my_group
-#      rules:
-#      - record: my_record
-#        expr: 100 * my_record
+additionalPrometheusRulesMap:
+  dockerhub-rules:
+    groups:
+      - name: dockerhub
+        rules:
+          - alert: DockerhubRateLimitRisk
+            annotations:
+              summary: Kubernetes cluster Dockerhub rate limit risk
+            expr: count(time() - container_last_seen{image=~"(docker.io).*",container!=""} < 30) > 100
+            labels:
+              severity: critical
+  oom-rules:
+    groups:
+      - name: oom
+        rules:
+          - alert: OomKilled
+            annotations:
+              summary: Container {{ $labels.container }} in pod {{ $labels.namespace }}/{{ $labels.pod }} has been OOMKilled {{ $value }} times in the last 10 minutes.
+            expr: (kube_pod_container_status_restarts_total - kube_pod_container_status_restarts_total offset 10m >= 1) and ignoring (reason) min_over_time(kube_pod_container_status_last_terminated_reason{reason="OOMKilled"}[10m]) == 1
+            labels:
+              severity: critical
 
 ##
 global:
@@ -2377,6 +2391,7 @@ nodeExporter:
 ##
 prometheus-node-exporter:
   namespaceOverride: ""
+  fullnameOverride: node-exporter
   podLabels:
     ## Add the 'node-exporter' label to be used by serviceMonitor to match standard common usage in rules and grafana dashboards
     ##
@@ -2445,13 +2460,12 @@ prometheus-node-exporter:
       ## RelabelConfigs to apply to samples before scraping
       ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#relabelconfig
       ##
-      relabelings: []
-      # - sourceLabels: [__meta_kubernetes_pod_node_name]
-      #   separator: ;
-      #   regex: ^(.*)$
-      #   targetLabel: nodename
-      #   replacement: $1
-      #   action: replace
+      relabelings:
+        - action: replace
+          regex: (.*)
+          replacement: $1
+          sourceLabels: ["__meta_kubernetes_pod_node_name"]
+          targetLabel: kubernetes_node
 
       ## Attach node metadata to discovered targets. Requires Prometheus v2.35.0 and above.
       ##
