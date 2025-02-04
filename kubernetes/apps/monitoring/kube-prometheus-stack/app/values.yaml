@@ -2871,7 +2871,7 @@ prometheusOperator:
   networkPolicy:
     ## Enable creation of NetworkPolicy resources.
     ##
-    enabled: true
+    enabled: false
 
     ## Flavor of the network policy to use.
     #  Can be:
