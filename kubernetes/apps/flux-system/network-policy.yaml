@@ -16,5 +16,10 @@ spec:
           namespaceSelector:
             matchLabels:
               kubernetes.io/metadata.name: networking
+        # Allow ingress from pods in monitoring namespace
+        - podSelector: {}
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: monitoring
   policyTypes:
     - Ingress
