@@ -2477,6 +2477,9 @@ prometheus-node-exporter:
     ##
     pspEnabled: false
 
+  containerSecurityContext:
+    privileged: true
+
 ## Manages Prometheus and Alertmanager components
 ##
 prometheusOperator:
