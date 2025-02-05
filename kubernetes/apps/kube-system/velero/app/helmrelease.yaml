@@ -44,7 +44,6 @@ spec:
             s3Url: https://archive.tuxhpc.net:9000
             s3ForcePathStyle: true
             insecureSkipTLSVerify: true
-      uploaderType: restic
       extraEnvVars:
         TZ: America/Chicago
       defaultVolumesToFsBackup: true
