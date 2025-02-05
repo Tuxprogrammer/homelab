@@ -8,8 +8,9 @@ spec:
   interval: 15m
   chart:
     spec:
+      # renovate: registryUrl=https://bjw-s.github.io/helm-charts
       chart: app-template
-      version: 2.6.0
+      version: 3.6.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -35,11 +36,11 @@ spec:
         seccompProfile:
           type: RuntimeDefault
     controllers:
-      main:
+      echo-server:
         strategy: RollingUpdate
 
         containers:
-          main:
+          echo-server:
             image:
               repository: docker.io/jmalloc/echo-server
               tag: v0.3.7
@@ -73,24 +74,24 @@ spec:
                   - ALL
 
     service:
-      main:
+      echo-server:
         ports:
           http:
             port: *port
 
     ingress:
-      main:
+      echo-server:
         className: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOecho-server}"
           hajimari.io/icon: video-input-antenna
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOecho-server}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  name: main
+                  name: echo-server
                   port: http
         tls:
           - hosts:

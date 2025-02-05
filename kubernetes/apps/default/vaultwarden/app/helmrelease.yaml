@@ -8,8 +8,9 @@ spec:
   interval: 15m
   chart:
     spec:
+      # renovate: registryUrl=https://bjw-s.github.io/helm-charts
       chart: app-template
-      version: 2.6.0
+      version: 3.6.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -36,7 +37,7 @@ spec:
           type: RuntimeDefault
 
     controllers:
-      main:
+      vaultwarden:
         strategy: Recreate
 
         initContainers:
@@ -55,7 +56,7 @@ spec:
                   - ALL
 
         containers:
-          main:
+          vaultwarden:
             image:
               repository: vaultwarden/server
               tag: 1.33.1
@@ -104,7 +105,7 @@ spec:
                   - ALL
 
     service:
-      main:
+      vaultwarden:
         ports:
           http:
             port: *port
@@ -113,7 +114,7 @@ spec:
             port: 3012
 
     ingress:
-      main:
+      vaultwarden:
         enabled: true
         className: nginx
         annotations:
