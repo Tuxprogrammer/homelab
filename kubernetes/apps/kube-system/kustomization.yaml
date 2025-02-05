@@ -6,3 +6,4 @@ resources:
   - ./network-policy.yaml
   - ./local-path-provisioner/ks.yaml
   - ./reloader/ks.yaml
+  - ./velero/ks.yaml
