@@ -3682,6 +3682,9 @@ prometheus:
     allowedHostPaths: []
     volumes: []
 
+  containerSecurityContext:
+    privileged: true
+
   serviceMonitor:
     ## If true, create a serviceMonitor for prometheus
     ##
