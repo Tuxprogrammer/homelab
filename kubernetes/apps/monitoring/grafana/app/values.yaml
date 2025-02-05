@@ -968,6 +968,11 @@ dashboards:
       revision: 5
       datasource:
         - { name: DS_PROMETHEUS, value: Prometheus }
+    opnsense_exporter:
+      gnetId: 21113
+      revision: 1
+      datasource:
+        - { name: DS_PROMETHEUS-K0, value: Prometheus }
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfigMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
