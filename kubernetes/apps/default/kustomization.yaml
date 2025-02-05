@@ -16,4 +16,3 @@ resources:
   - ./influxdb/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
-  - ./harbor/ks.yaml
