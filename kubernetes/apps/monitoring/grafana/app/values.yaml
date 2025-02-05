@@ -1,3 +1,4 @@
+---
 global:
   # -- Overrides the Docker registry globally for all images
   imageRegistry: null
@@ -962,6 +963,10 @@ dashboards:
       gnetId: 7845
       revision: 4
       datasource: Prometheus
+    opnsense:
+      gnetId: 19366
+      revision: 5
+      datasource: Prometheus
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfigMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
@@ -1654,7 +1659,7 @@ networkPolicy:
     ## to:
     ##  - namespaceSelector:
     ##    matchExpressions:
-  ##    - {key: role, operator: In, values: [grafana]}
+    ##  - {key: role, operator: In, values: [grafana]}
   ##
   ##
   ##
