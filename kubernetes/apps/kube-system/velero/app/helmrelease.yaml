@@ -56,6 +56,11 @@ spec:
     backupsEnabled: true
     snapshotsEnabled: false
     deployNodeAgent: true
+    nodeAgent:
+      containerSecurityContext:
+        runAsUser: 0
+        runAsNonRoot: false
+        privileged: true
     schedules:
       weekly:
         schedule: "0 3 * * 0"
