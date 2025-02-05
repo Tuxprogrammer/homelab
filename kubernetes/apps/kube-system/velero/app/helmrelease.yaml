@@ -61,6 +61,5 @@ spec:
   valuesFrom:
     - targetPath: configuration.backupStorageLocation[0].caCert
       kind: Secret
-      name: internal-ca-cert
-      namespace: cert-manager
-      valuesKey: "tls.crt"
+      name: velero-secrets
+      valuesKey: caCert
