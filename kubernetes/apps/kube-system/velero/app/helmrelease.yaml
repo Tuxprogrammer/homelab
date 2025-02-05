@@ -38,10 +38,12 @@ spec:
           provider: aws
           bucket: k8s-backups
           prefix: velero
+          caCert: ""
           config:
             region: minio
             s3Url: https://archive.tuxhpc.net:9000
             s3ForcePathStyle: true
+            insecureSkipTLSVerify: true
       uploaderType: restic
       extraEnvVars:
         TZ: America/Chicago
@@ -56,3 +58,9 @@ spec:
         template:
           includedNamespaces:
             - "*"
+  valuesFrom:
+    - targetPath: configuration.backupStorageLocation[0].caCert
+      kind: Secret
+      name: internal-ca-cert
+      namespace: cert-manager
+      valuesKey: "tls.crt"
