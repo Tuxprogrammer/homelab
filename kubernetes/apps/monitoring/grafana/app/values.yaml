@@ -862,19 +862,10 @@ dashboards:
       gnetId: 20842
       revision: 3
       datasource: Prometheus
-    cloudflared:
-      # renovate: depName="Cloudflare Tunnels (cloudflared)"
-      gnetId: 17457
-      revision: 6
-      datasource:
-        - { name: DS_PROMETHEUS, value: Prometheus }
     external-dns:
       # renovate: depName="External-dns"
       gnetId: 15038
       revision: 3
-      datasource: Prometheus
-    external-secrets:
-      url: https://raw.githubusercontent.com/external-secrets/external-secrets/main/docs/snippets/dashboard.json
       datasource: Prometheus
     flux-cluster:
       url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/cluster.json
@@ -917,9 +908,6 @@ dashboards:
       gnetId: 11454
       revision: 14
       datasource: Prometheus
-    miniflux:
-      url: https://raw.githubusercontent.com/miniflux/v2/main/contrib/grafana/dashboard.json
-      datasource: Prometheus
     nginx:
       url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/grafana/dashboards/nginx.json
       datasource: Prometheus
@@ -945,34 +933,16 @@ dashboards:
       revision: 2
       datasource:
         - { name: DS_PROMETHEUS, value: Prometheus }
-    unpackerr:
-      # renovate: depName="Unpackerr"
-      gnetId: 18817
-      revision: 1
-      datasource:
-        - { name: DS_PROMETHEUS, value: Prometheus }
-    volsync:
-      # renovate: depName="VolSync Dashboard"
-      gnetId: 21356
-      revision: 3
-      datasource:
-        - { name: DS_PROMETHEUS, value: Prometheus }
-        - { name: VAR_REPLICATIONDESTNAME, value: .*-dst }
-    zfs:
-      # renovate: depName="ZFS"
-      gnetId: 7845
-      revision: 4
-      datasource: Prometheus
+    # zfs:
+    #   # renovate: depName="ZFS"
+    #   gnetId: 7845
+    #   revision: 4
+    #   datasource: Prometheus
     opnsense:
       gnetId: 19366
       revision: 5
       datasource:
         - { name: DS_PROMETHEUS, value: Prometheus }
-    opnsense_exporter:
-      gnetId: 21113
-      revision: 1
-      datasource:
-        - { name: DS_PROMETHEUS-K0, value: Prometheus }
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfigMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
