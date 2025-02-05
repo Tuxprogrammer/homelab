@@ -32,6 +32,10 @@ spec:
         volumeMounts:
           - mountPath: /target
             name: plugins
+    containerSecurityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+      privileged: true
     configuration:
       backupStorageLocation:
         - name: default
