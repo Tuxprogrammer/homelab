@@ -10,9 +10,5 @@ resources:
   - ./hajimari/ks.yaml
   # Databases
   - ./cloudnative-pg/ks.yaml
-  - ./mongodb/ks.yaml
-  - ./mariadb/ks.yaml
-  - ./redis/ks.yaml
-  - ./influxdb/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
