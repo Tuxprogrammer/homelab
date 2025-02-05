@@ -2658,7 +2658,7 @@ prometheusOperator:
       # logFormat: logfmt
 
       ## Decrease log verbosity to errors only
-      # logLevel: error
+      logLevel: debug
 
       ## Prometheus-operator webhook image
       ##
@@ -2965,7 +2965,7 @@ prometheusOperator:
   # logFormat: logfmt
 
   ## Decrease log verbosity to errors only
-  # logLevel: error
+  logLevel: debug
 
   kubeletService:
     ## If true, the operator will create and maintain a service for scraping kubelets
@@ -4088,7 +4088,7 @@ prometheus:
 
     ## Log level for Prometheus be configured in
     ##
-    logLevel: info
+    logLevel: debug
 
     ## Log format for Prometheus be configured in
     ##
@@ -4939,7 +4939,7 @@ thanosRuler:
 
     ## Log level for ThanosRuler to be configured with.
     ##
-    logLevel: info
+    logLevel: debug
 
     ## Size is the expected size of the thanosRuler cluster. The controller will eventually make the size of the
     ## running cluster equal to the expected size.
