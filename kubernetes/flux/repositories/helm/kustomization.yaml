@@ -6,6 +6,7 @@ resources:
   - ./bjw-s.yaml
   - ./cloudnative-pg.yaml
   - ./external-dns.yaml
+  - ./grafana.yaml
   - ./hajimari.yaml
   - ./ingress-nginx.yaml
   - ./jetstack.yaml
@@ -14,5 +15,7 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./minio.yaml
+  - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
+  - ./vmware-tanzu.yaml

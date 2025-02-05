@@ -1,0 +1,22 @@
+---
+# CN = archive
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: archive-cert
+  namespace: default
+spec:
+  secretName: archive-tls
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: archive
+  dnsNames:
+    - archive.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.7

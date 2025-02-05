@@ -1,0 +1,74 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: velero
+  namespace: kube-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: velero
+      version: 8.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: vmware-tanzu
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    initContainers:
+      - name: velero-plugin-for-aws
+        image: velero/velero-plugin-for-aws:latest
+        volumeMounts:
+          - mountPath: /target
+            name: plugins
+    containerSecurityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+      privileged: true
+    configuration:
+      backupStorageLocation:
+        - name: default
+          provider: aws
+          bucket: k8s-backups
+          prefix: velero
+          caCert: ""
+          config:
+            region: minio
+            s3Url: https://archive.tuxhpc.net:9000
+            s3ForcePathStyle: true
+            insecureSkipTLSVerify: true
+      extraEnvVars:
+        TZ: America/Chicago
+      defaultVolumesToFsBackup: true
+    credentials:
+      existingSecret: velero-secrets
+    backupsEnabled: true
+    snapshotsEnabled: false
+    deployNodeAgent: true
+    nodeAgent:
+      containerSecurityContext:
+        runAsUser: 0
+        runAsNonRoot: false
+        privileged: true
+    schedules:
+      weekly:
+        schedule: "0 3 * * 0"
+        template:
+          includedNamespaces:
+            - "*"
+  valuesFrom:
+    - targetPath: configuration.backupStorageLocation[0].caCert
+      kind: Secret
+      name: velero-secrets
+      valuesKey: caCert
