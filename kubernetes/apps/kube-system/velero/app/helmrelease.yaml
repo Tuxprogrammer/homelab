@@ -47,6 +47,7 @@ spec:
       uploaderType: restic
       extraEnvVars:
         TZ: America/Chicago
+      defaultVolumesToFsBackup: true
     credentials:
       existingSecret: velero-secrets
     backupsEnabled: true
