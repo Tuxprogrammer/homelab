@@ -78,7 +78,10 @@ spec:
         insecureSkipVerify: "true"
     #    selector:
     #       k8s-app: kube-controller-manager
-    # kubeEtcd:
+    coreDns:
+      serviceMonitor:
+        selector:
+          k8s-app: rke2-coredns
     kubeProxy:
       enabled: false
     prometheus:
