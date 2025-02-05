@@ -34,7 +34,7 @@ spec:
             name: plugins
     configuration:
       backupStorageLocation:
-        - name: archive
+        - name: default
           provider: aws
           bucket: k8s-backups
           prefix: velero
