@@ -130,17 +130,17 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: main
+                  name: vaultwarden
                   port: http
               - path: /notifications/hub/negotiate
                 pathType: Prefix
                 service:
-                  name: main
+                  name: vaultwarden
                   port: http
               - path: /notifications/hub
                 pathType: Prefix
                 service:
-                  name: main
+                  name: vaultwarden
                   port: websocket
         tls:
           - hosts:

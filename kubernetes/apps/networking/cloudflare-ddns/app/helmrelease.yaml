@@ -47,9 +47,9 @@ spec:
             envFrom:
               - secretRef:
                   name: cloudflare-ddns-secret
-    service:
-      cf_ddns:
-        enabled: false
+    # service:
+    #   cf_ddns:
+    #     enabled: false
 
     persistence:
       script:
