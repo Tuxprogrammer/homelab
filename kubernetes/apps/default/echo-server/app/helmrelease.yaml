@@ -75,6 +75,7 @@ spec:
 
     service:
       echo-server:
+        controller: echo-server
         ports:
           http:
             port: *port
@@ -92,7 +93,7 @@ spec:
                 pathType: Prefix
                 service:
                   name: echo-server
-                  port: http
+                  port: *port
         tls:
           - hosts:
               - *host

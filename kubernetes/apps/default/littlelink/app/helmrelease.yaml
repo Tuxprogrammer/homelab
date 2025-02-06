@@ -109,6 +109,7 @@ spec:
 
     service:
       littlelink:
+        controller: littlelink
         ports:
           http:
             port: *port
@@ -127,7 +128,7 @@ spec:
                 pathType: Prefix
                 service:
                   name: littlelink
-                  port: http
+                  port: 80
         tls:
           - hosts:
               - *host
