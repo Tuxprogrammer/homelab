@@ -131,17 +131,17 @@ spec:
                 pathType: Prefix
                 service:
                   name: vaultwarden
-                  port: http
+                  port: 80
               - path: /notifications/hub/negotiate
                 pathType: Prefix
                 service:
                   name: vaultwarden
-                  port: http
+                  port: 80
               - path: /notifications/hub
                 pathType: Prefix
                 service:
                   name: vaultwarden
-                  port: websocket
+                  port: 3012
         tls:
           - hosts:
               - *host
