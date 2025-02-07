@@ -85,6 +85,7 @@ spec:
           - name: k8s-w1.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKPWUBX
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLU3BX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M06JHE
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M186H0
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNPQ
@@ -94,6 +95,7 @@ spec:
           - name: k8s-w2.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLGYJX
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GDNDAX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PXL6
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PYN1
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PYY8
@@ -103,6 +105,7 @@ spec:
           - name: k8s-w3.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9KVBG
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWK99TWX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0MVGD
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNK5
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNNM
@@ -112,6 +115,7 @@ spec:
           - name: k8s-w4.${SECRET_DOMAIN_2}
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9JR2G
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWKE62DX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0NSNP
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNM2
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZDG
@@ -120,6 +124,7 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R2WK
           - name: k8s-w5.${SECRET_DOMAIN_2}
             devices:
+              - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWHEYAPN
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GDW2JX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PNAV
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PRGZ
