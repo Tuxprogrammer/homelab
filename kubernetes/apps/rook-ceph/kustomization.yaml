@@ -5,6 +5,5 @@ kind: Kustomization
 resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
-  - ./network-policy.yaml
   # Flux-Kustomizations
   - ./rook-ceph/ks.yaml
