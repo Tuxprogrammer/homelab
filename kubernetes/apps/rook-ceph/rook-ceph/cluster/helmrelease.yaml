@@ -141,7 +141,7 @@ spec:
         storageClass:
           enabled: true
           name: ceph-block-internal
-          isDefault: false
+          isDefault: true
           reclaimPolicy: Delete
           allowVolumeExpansion: true
           parameters:
@@ -176,7 +176,7 @@ spec:
                 memory: 4Gi
         storageClass:
           enabled: true
-          isDefault: true
+          isDefault: false
           name: ceph-filesystem-internal
           pool: data0
           reclaimPolicy: Delete
