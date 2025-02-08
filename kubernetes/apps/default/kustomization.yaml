@@ -7,7 +7,5 @@ resources:
   - ./echo-server/ks.yaml
   - ./littlelink/ks.yaml
   - ./hajimari/ks.yaml
-  # Databases
-  - ./cloudnative-pg/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
