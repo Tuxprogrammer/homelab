@@ -32,6 +32,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    crds:
+      enabled: true
+      upgradeJob:
+        enabled: true
+        forceConflicts: true
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       ingress:
