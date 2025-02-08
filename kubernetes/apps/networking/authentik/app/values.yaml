@@ -1,0 +1,67 @@
+---
+global:
+  envFrom:
+    - secretRef:
+        name: authentik-env-secrets
+authentik:
+  error_reporting:
+    enabled: false
+    send_pii: false
+    environment: "nanabooboo"
+  postgresql:
+    enabled: true
+server:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+  pdb:
+    enabled: true
+    minAvailable: 1
+    maxUnavailable: 1
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    hosts: &hosts
+      - "auth.tuxprogrammer.net"
+      - "auth.tuxhpc.net"
+    tls:
+      - hosts: *hosts
+
+worker:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 50
+  pdb:
+    enabled: true
+    minAvailable: 1
+    maxUnavailable: 1
+
+postgresql:
+  enabled: true
+  auth:
+    existingSecret: "authentik-postgres-secrets"
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "ceph-block-internal"
+      size: 8Gi
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+redis:
+  enabled: true
+  master:
+    persistence:
+      enabled: true
+      storageClass: "ceph-block-internal"
+      size: 8Gi
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true

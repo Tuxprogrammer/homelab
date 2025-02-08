@@ -1,0 +1,48 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: authentik
+  namespace: networking
+spec:
+  chart:
+    spec:
+      chart: authentik
+      version: 1.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  dependsOn:
+    - name: rook-ceph-operator
+      namespace: rook-ceph
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
+    - name: cert-manager
+      namespace: cert-manager
+    - name: ingress-nginx
+      namespace: networking
+  releaseName: authentik
+  targetNamespace: networking
+  interval: 15m
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  valuesFrom:
+    - kind: ConfigMap
+      name: authentik-values
+    - kind: Secret
+      name: authentik-secrets
+      valuesKey: AUTHENTIK_SECRET_KEY
+      targetPath: authentik.secretKey
+    - kind: Secret
+      name: authentik-postgres-secrets
+      valuesKey: password
+      targetPath: authentik.postgresql.password
