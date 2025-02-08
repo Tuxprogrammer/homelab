@@ -17,64 +17,47 @@ spec:
         namespace: flux-system
   maxHistory: 3
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
     cleanupOnFail: true
     remediation:
+      strategy: rollback
       retries: 3
-  uninstall:
-    keepHistory: false
   values:
-    defaultPodOptions:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        runAsNonRoot: true
-        seccompProfile:
-          type: RuntimeDefault
-
     controllers:
       vaultwarden:
         strategy: Recreate
-
-        initContainers:
-          01-init-db:
-            image:
-              repository: ghcr.io/onedr0p/postgres-init
-              tag: 16.6
-              pullPolicy: IfNotPresent
-            envFrom:
-              - secretRef:
-                  name: vaultwarden-postgres
-            securityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                  - ALL
-
+        annotations:
+          reloader.stakater.com/auto: "true"
+        pod:
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            fsGroupChangePolicy: OnRootMismatch
+            seccompProfile: { type: RuntimeDefault }
         containers:
-          vaultwarden:
+          app:
             image:
               repository: vaultwarden/server
-              tag: 1.33.1
-
+              tag: 1.33.1@sha256:24aa90c2424f2f6b10862ba84dc9141d09c1df2b7025f111c9b2bbc4c078894b
             env:
-              ATTACHMENTS_FOLDER: data/attachments
-              DATA_FOLDER: data
               DOMAIN: "https://bitwarden.${SECRET_DOMAIN_2}"
+              DATA_FOLDER: data
+              ATTACHMENTS_FOLDER: data/attachments
               ICON_CACHE_FOLDER: data/icon_cache
-              TZ: ${TIMEZONE}
+              TZ:
               WEBSOCKET_ADDRESS: 0.0.0.0
               WEBSOCKET_ENABLED: "true"
               WEBSOCKET_PORT: 3012
-
+              SIGNUPS_ALLOWED: "false"
+              SMTP_ACCEPT_INVALID_CERTS: true
+              SMTP_ACCEPT_INVALID_HOSTNAMES: true
             envFrom:
               - secretRef:
-                  name: vaultwarden-postgres
-
+                  name: vaultwarden
             probes:
               liveness: &probes
                 enabled: true
@@ -90,35 +73,34 @@ spec:
               readiness: *probes
               startup:
                 enabled: false
-
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
             resources:
               limits:
                 memory: 2Gi
               requests:
                 cpu: 100m
                 memory: 100Mi
-
-            securityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop:
-                  - ALL
-
     service:
-      vaultwarden:
+      app:
+        enabled: true
         controller: vaultwarden
         ports:
           http:
             port: *port
           websocket:
-            enabled: true
             port: &ws-port 3012
 
     ingress:
-      vaultwarden:
-        enabled: true
+      app:
         className: nginx
         annotations:
+          # disabled for 40x because it is used for the API
+          nginx.ingress.kubernetes.io/custom-http-errors: 500,501,502,503,504,505,506,510
           external-dns.home.arpa/enabled: "true"
           hajimari.io/enable: "true"
           hajimari.io/group: Security
@@ -147,7 +129,6 @@ spec:
           - hosts:
               - *host
             secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
-
     persistence:
       data:
         enabled: true
