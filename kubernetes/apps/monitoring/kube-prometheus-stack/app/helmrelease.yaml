@@ -37,9 +37,10 @@ spec:
       upgradeJob:
         enabled: true
         forceConflicts: true
-        kubectl:
-          # Do not upgrade until the cluster has been updated
-          tag: v1.31.5
+        image:
+          kubectl:
+            # Do not upgrade until the cluster has been updated
+            tag: v1.31.5
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       ingress:
