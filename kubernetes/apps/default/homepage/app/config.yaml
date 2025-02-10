@@ -11,39 +11,50 @@ data:
         - Discord:
             - icon: discord.png
               href: "https://discord.com/app"
+              target: _self
         - Gmail:
             - icon: gmail.png
               href: "http://gmail.com"
+              target: _self
         - Google Calendar:
             - icon: google-calendar.png
               href: "https://calendar.google.com"
+              target: _self
     - Media:
         - YouTube:
             - icon: youtube.png
               href: "https://youtube.com/feed/subscriptions"
+              target: _self
     - Reading:
         - Reddit:
             - icon: reddit.png
               href: "https://reddit.com"
+              target: _self
     - Git:
         - kubesearch:
             - icon: kubernetes-dashboard.png
               href: "https://kubesearch.dev/"
+              target: _self
         - homelab:
             - icon: github.png
               href: "https://github.com/tuxprogrammer/homelab"
+              target: _self
         - containers:
             - icon: docker.png
               href: "https://hub.docker.com"
+              target: _self
         - onedr0p-home-ops:
             - icon: github.png
               href: "https://github.com/onedr0p/home-ops"
+              target: _self
         - bjw-s-home-ops:
             - icon: github.png
               href: "https://github.com/bjw-s/home-ops"
+              target: _self
         - bjw-s-helm-charts:
             - icon: github.png
               href: "https://github.com/bjw-s/helm-charts"
+              target: _self
   docker.yaml: ""
   kubernetes.yaml: |
     mode: cluster
@@ -51,6 +62,7 @@ data:
     - Network:
       - OPNSense:
             href: https://gw.${SECRET_DOMAIN_2}
+            target: _self
             description: OPNSense
             widget:
               type: opnsense
@@ -61,6 +73,7 @@ data:
     - Infrastructure:
       - TrueNAS:
           href: https://archive.${SECRET_DOMAIN_2}
+          target: _self
           icon: truenas.png
           description: TrueNAS Scale
           widget:
@@ -70,6 +83,7 @@ data:
             enablePools: true
       - Proxmox:
           href: https://node10.${SECRET_DOMAIN_2}:8006
+          target: _self
           icon: https://www.45drives.com/solutions/proxmox/img/proxmox_Logo.png
           description: Virtualized Router
           widget:
