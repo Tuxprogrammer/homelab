@@ -60,11 +60,8 @@ spec:
                     mon_endpoints=$(echo "${endpoints}"| sed 's/[a-z0-9_-]\+=//g')
 
                     DATE=$(date)
-
                     echo "$DATE"
-
-                    echo "writing mon endpoints to ${CEPH_CONFIG}: ${endpoints}"
-
+                    echo "Writing mon endpoints to ${CEPH_CONFIG}: ${endpoints}"
                       cat <<EOF > ${CEPH_CONFIG}
                   [global]
 
@@ -77,6 +74,27 @@ spec:
 
                   EOF
 
+                  }
+
+
+                  # watch the endpoints config file and update if the mon endpoints ever
+                  change
+
+                  watch_endpoints() {
+                    # get the timestamp for the target of the soft link
+                    real_path=$(realpath ${MON_CONFIG})
+                    initial_time=$(stat -c %Z "${real_path}")
+                    while true; do
+                      real_path=$(realpath ${MON_CONFIG})
+                      latest_time=$(stat -c %Z "${real_path}")
+
+                      if [[ "${latest_time}" != "${initial_time}" ]]; then
+                        write_endpoints
+                        initial_time=${latest_time}
+                      fi
+
+                      sleep 10
+                    done
                   }
 
 
@@ -105,7 +123,7 @@ spec:
 
                   write_endpoints
 
-                  echo "Executing reweight-by-utilization"
+                  echo "Running ceph osd reweight-by-utilization"
 
                   ceph osd reweight-by-utilization
               env:
