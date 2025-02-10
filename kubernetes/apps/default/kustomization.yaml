@@ -9,4 +9,4 @@ resources:
   - ./homepage/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
-  - ./arrstack/ks.yaml
+  #- ./arrstack/ks.yaml
