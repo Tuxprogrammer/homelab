@@ -108,6 +108,7 @@ data:
       hideInternetSearch: true
       showSearchSuggestions: true
       hideVisitURL: true
+    target: _self
     layout:
       Network:
         style: row
