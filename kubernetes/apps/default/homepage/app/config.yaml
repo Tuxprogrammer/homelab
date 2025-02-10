@@ -69,7 +69,7 @@ data:
               url: https://10.0.0.1
               username: {{HOMEPAGE_VAR_OPNSENSE_USERNAME}}
               password: {{HOMEPAGE_VAR_OPNSENSE_PASSWORD}}
-              wan: WAN
+              wan: wan
     - Infrastructure:
       - TrueNAS:
           href: https://archive.${SECRET_DOMAIN_2}
