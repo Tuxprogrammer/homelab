@@ -6,6 +6,7 @@ resources:
   # Stateless Webservers
   - ./echo-server/ks.yaml
   - ./littlelink/ks.yaml
-  - ./hajimari/ks.yaml
+  - ./homepage/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
+  - ./arrstack/ks.yaml
