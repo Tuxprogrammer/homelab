@@ -60,8 +60,11 @@ spec:
                     mon_endpoints=$(echo "${endpoints}"| sed 's/[a-z0-9_-]\+=//g')
 
                     DATE=$(date)
+
                     echo "$DATE"
+
                     echo "writing mon endpoints to ${CEPH_CONFIG}: ${endpoints}"
+
                       cat <<EOF > ${CEPH_CONFIG}
                   [global]
 
