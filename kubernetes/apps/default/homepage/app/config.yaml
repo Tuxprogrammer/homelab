@@ -29,7 +29,7 @@ data:
         - kubesearch:
             - icon: kubernetes-dashboard.png
               href: "https://kubesearch.dev/"
-        - home-ops:
+        - homelab:
             - icon: github.png
               href: "https://github.com/tuxprogrammer/homelab"
         - containers:
