@@ -9,7 +9,13 @@ configMapGenerator:
       - values.yaml
   - name: authentik-assets
     files:
+      - assets/base_full.html
+      - assets/custom.css
       - assets/flow_background.jpg
+      - assets/montserratalt1/MontserratAlt1-Regular.ttf
+      - assets/montserratalt1/MontserratAlt1-Regular.woff
+      - assets/montserratalt1/MontserratAlt1-Regular.woff2
+      - assets/theme-dark.css
 generatorOptions:
   disableNameSuffixHash: true
 resources:
