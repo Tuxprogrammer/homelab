@@ -102,7 +102,7 @@ spec:
     coreDns:
       serviceMonitor:
         selector:
-          k8s-app: rke2-coredns
+          k8s-app: kube-dns
     kubeProxy:
       enabled: false
     prometheus:
