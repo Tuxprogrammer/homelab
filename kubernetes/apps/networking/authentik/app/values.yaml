@@ -24,7 +24,7 @@ server:
     enabled: true
     ingressClassName: "nginx"
     hosts: &hosts
-      - "authentik.${SECRET_DOMAIN}"
+      - "auth.${SECRET_DOMAIN}"
     tls:
       - hosts: *hosts
 
