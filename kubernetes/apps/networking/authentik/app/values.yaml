@@ -32,7 +32,7 @@ server:
       gethomepage.dev/widget.type: authentik
       gethomepage.dev/widget.url: http://authentik-server.networking.svc.cluster.local
       gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_AUTHENTIK_TOKEN}}"
-      external-dns.alpha.kubernetes.io/hostname: "ipv4.${SECRET_DOMAIN}"
+      external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
     hosts: &hosts
       - "auth.${SECRET_DOMAIN}"
     tls:
