@@ -52,25 +52,25 @@ spec:
                   # without specifying any arguments
 
                   write_endpoints() {
-                    endpoints=$(cat ${MON_CONFIG})
+                    endpoints=$(cat $${MON_CONFIG})
 
                     # filter out the mon names
                     # external cluster can have numbers or hyphens in mon names, handling them in regex
                     # shellcheck disable=SC2001
-                    mon_endpoints=$(echo "${endpoints}"| sed 's/[a-z0-9_-]\+=//g')
+                    mon_endpoints=$(echo "$${endpoints}"| sed 's/[a-z0-9_-]\+=//g')
 
                     DATE=$(date)
                     echo "$DATE"
-                    echo "Writing mon endpoints to ${CEPH_CONFIG}: ${endpoints}"
-                      cat <<EOF > ${CEPH_CONFIG}
+                    echo "Writing mon endpoints to $${CEPH_CONFIG}: $${endpoints}"
+                      cat <<EOF > $${CEPH_CONFIG}
                   [global]
 
-                  mon_host = ${mon_endpoints}
+                  mon_host = $${mon_endpoints}
 
 
                   [client.admin]
 
-                  keyring = ${KEYRING_FILE}
+                  keyring = $${KEYRING_FILE}
 
                   EOF
 
@@ -82,15 +82,15 @@ spec:
 
                   watch_endpoints() {
                     # get the timestamp for the target of the soft link
-                    real_path=$(realpath ${MON_CONFIG})
-                    initial_time=$(stat -c %Z "${real_path}")
+                    real_path=$(realpath $${MON_CONFIG})
+                    initial_time=$(stat -c %Z "$${real_path}")
                     while true; do
-                      real_path=$(realpath ${MON_CONFIG})
-                      latest_time=$(stat -c %Z "${real_path}")
+                      real_path=$(realpath $${MON_CONFIG})
+                      latest_time=$(stat -c %Z "$${real_path}")
 
-                      if [[ "${latest_time}" != "${initial_time}" ]]; then
+                      if [[ "$${latest_time}" != "$${initial_time}" ]]; then
                         write_endpoints
-                        initial_time=${latest_time}
+                        initial_time=$${latest_time}
                       fi
 
                       sleep 10
@@ -101,7 +101,7 @@ spec:
                   # read the secret from an env var (for backward compatibility), or
                   from the secret file
 
-                  ceph_secret=${ROOK_CEPH_SECRET}
+                  ceph_secret=$${ROOK_CEPH_SECRET}
 
                   if [[ "$ceph_secret" == "" ]]; then
                     ceph_secret=$(cat /var/lib/rook-ceph-mon/secret.keyring)
@@ -110,11 +110,11 @@ spec:
 
                   # create the keyring file
 
-                  cat <<EOF > ${KEYRING_FILE}
+                  cat <<EOF > $${KEYRING_FILE}
 
-                  [${ROOK_CEPH_USERNAME}]
+                  [$${ROOK_CEPH_USERNAME}]
 
-                  key = ${ceph_secret}
+                  key = $${ceph_secret}
 
                   EOF
 
