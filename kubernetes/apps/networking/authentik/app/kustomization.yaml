@@ -12,6 +12,7 @@ generatorOptions:
 resources:
   - ./secret.sops.yaml
   - ./helmrelease.yaml
+  - ./outpost-ingress.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: authentik
