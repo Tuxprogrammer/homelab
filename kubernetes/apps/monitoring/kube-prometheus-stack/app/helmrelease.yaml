@@ -49,8 +49,20 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/appName: "Alert Manager"
-          hajimari.io/icon: mdi:alert-decagram-outline
+          nginx.ingress.kubernetes.io/auth-url: |-
+            http://ak-outpost-authentik-embedded-outpost.security.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+          nginx.ingress.kubernetes.io/auth-signin: |-
+            https://who.skylab.fi/outpost.goauthentik.io/start?rd=$escaped_request_uri
+          nginx.ingress.kubernetes.io/auth-response-headers: |-
+            Set-Cookie,X-authentik-username,X-authentik-uid,X-authentik-email
+          nginx.ingress.kubernetes.io/auth-snippet: |
+            proxy_set_header X-Forwarded-Host $http_host;
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/icon: prometheus.png
+          gethomepage.dev/name: Alert Manager
+          gethomepage.dev/group: Monitoring
+          gethomepage.dev/description: Prometheus Alert Manager
+          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
         hosts:
           - &host "alert-manager.${SECRET_DOMAIN}"
         tls:
@@ -100,8 +112,22 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/appName: Prometheus
-          hajimari.io/icon: simple-icons:prometheus
+          nginx.ingress.kubernetes.io/auth-url: |-
+            http://ak-outpost-authentik-embedded-outpost.security.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+          nginx.ingress.kubernetes.io/auth-signin: |-
+            https://who.skylab.fi/outpost.goauthentik.io/start?rd=$escaped_request_uri
+          nginx.ingress.kubernetes.io/auth-response-headers: |-
+            Set-Cookie,X-authentik-username,X-authentik-uid,X-authentik-email
+          nginx.ingress.kubernetes.io/auth-snippet: |
+            proxy_set_header X-Forwarded-Host $http_host;
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/icon: prometheus.png
+          gethomepage.dev/name: Prometheus
+          gethomepage.dev/group: Monitoring
+          gethomepage.dev/description: Monitoring Scrape Service
+          gethomepage.dev/widget.type: prometheus
+          gethomepage.dev/widget.url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
         hosts:
           - &host "prometheus.${SECRET_DOMAIN}"
         tls:
