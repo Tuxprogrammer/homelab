@@ -293,7 +293,7 @@ ingress:
     gethomepage.dev/icon: grafana.png
     gethomepage.dev/description: Grafana Dashboards
     gethomepage.dev/widget.type: grafana
-    gethomepage.dev/widget.url: https://grafana.${SECRET_DOMAIN}
+    gethomepage.dev/widget.url: http://grafana.monitoring.svc.cluster.local:3000
     gethomepage.dev/widget.username: '{{`{{HOMEPAGE_VAR_GRAFANA_USERNAME}}`}}'
     gethomepage.dev/widget.password: '{{`{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}`}}'
     nginx.ingress.kubernetes.io/auth-url: http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
