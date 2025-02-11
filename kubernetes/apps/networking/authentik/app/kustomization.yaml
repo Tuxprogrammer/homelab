@@ -7,6 +7,9 @@ configMapGenerator:
   - name: authentik-values
     files:
       - values.yaml
+  - name: authentik-assets
+    files:
+      - assets/flow_background.jpg
 generatorOptions:
   disableNameSuffixHash: true
 resources:

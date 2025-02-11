@@ -48,6 +48,15 @@ worker:
     enabled: true
     minAvailable: 1
     maxUnavailable: 1
+  volumeMounts:
+    - name: assets-flow-background
+      mountPath: /web/dist/assets/images/flow_background.jpg
+      subPath: flow_background.jpg
+      readOnly: true
+  volumes:
+    - name: assets-flow-background
+      configMap:
+        name: authentik-assets
 
 postgresql:
   enabled: true
