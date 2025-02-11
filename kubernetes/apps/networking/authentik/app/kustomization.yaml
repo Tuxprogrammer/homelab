@@ -7,7 +7,7 @@ configMapGenerator:
   - name: authentik-values
     files:
       - values.yaml
-  - name: authentik-assets-base_full-html
+  - name: authentik-assets-base-full-html
     files:
       - assets/base_full.html
   - name: authentik-assets-custom-css

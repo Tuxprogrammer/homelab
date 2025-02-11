@@ -11,7 +11,7 @@ global:
       subPath: flow_background.jpg
       readOnly: true
     # assets/base_full.html -> /authentik/core/templates/login/base_full.html
-    - name: custom-assets-base_full-html
+    - name: custom-assets-base-full-html
       mountPath: /authentik/core/templates/login/base_full.html
       subPath: base_full.html
       readOnly: true
