@@ -50,9 +50,9 @@ spec:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           nginx.ingress.kubernetes.io/auth-url: |-
-            http://ak-outpost-authentik-embedded-outpost.security.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+            http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
           nginx.ingress.kubernetes.io/auth-signin: |-
-            https://who.skylab.fi/outpost.goauthentik.io/start?rd=$escaped_request_uri
+            https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$escaped_request_uri
           nginx.ingress.kubernetes.io/auth-response-headers: |-
             Set-Cookie,X-authentik-username,X-authentik-uid,X-authentik-email
           nginx.ingress.kubernetes.io/auth-snippet: |
@@ -113,9 +113,9 @@ spec:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           nginx.ingress.kubernetes.io/auth-url: |-
-            http://ak-outpost-authentik-embedded-outpost.security.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+            http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
           nginx.ingress.kubernetes.io/auth-signin: |-
-            https://who.skylab.fi/outpost.goauthentik.io/start?rd=$escaped_request_uri
+            https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$escaped_request_uri
           nginx.ingress.kubernetes.io/auth-response-headers: |-
             Set-Cookie,X-authentik-username,X-authentik-uid,X-authentik-email
           nginx.ingress.kubernetes.io/auth-snippet: |
