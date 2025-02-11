@@ -3297,29 +3297,6 @@
         "refresh": 1,
         "regex": "/^[a-zA-Z]{1,7}[0-9]$/",
         "type": "query"
-      },
-      {
-        "current": {
-          "text": "",
-          "value": ""
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "Prometheus"
-        },
-        "definition": "label_values({fstype=\"zfs\"},fstype)",
-        "includeAll": false,
-        "label": "Filesystem Type",
-        "name": "fs_type",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values({fstype=\"zfs\"},fstype)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
       }
     ]
   },
@@ -3331,6 +3308,6 @@
   "timezone": "browser",
   "title": "OPNSense",
   "uid": "a88e6c5d-c5ea-4acc-b079-47c3fc6467f1",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
