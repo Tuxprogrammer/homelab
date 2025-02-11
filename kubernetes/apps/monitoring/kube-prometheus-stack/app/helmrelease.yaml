@@ -57,6 +57,7 @@ spec:
           gethomepage.dev/icon: prometheus.png
           gethomepage.dev/name: Alert Manager
           gethomepage.dev/app: alertmanager
+          gethomepage.dev/pod-selector: app.kubernetes.io/name=alertmanager
           gethomepage.dev/group: Monitoring
           gethomepage.dev/description: Prometheus Alert Manager
           external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
@@ -117,6 +118,7 @@ spec:
           gethomepage.dev/icon: prometheus.png
           gethomepage.dev/name: Prometheus
           gethomepage.dev/app: prometheus
+          gethomepage.dev/pod-selector: app.kubernetes.io/name=prometheus
           gethomepage.dev/group: Monitoring
           gethomepage.dev/description: Monitoring Scrape Service
           gethomepage.dev/widget.type: prometheus
