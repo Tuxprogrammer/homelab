@@ -6,37 +6,37 @@ global:
   volumeMounts:
     # Mappings:
     # assets/flow_background.jpg -> /web/dist/assets/images/flow_background.jpg
-    - name: custom-assets
+    - name: custom-assets-flow-background-jpg
       mountPath: /web/dist/assets/images/flow_background.jpg
       subPath: flow_background.jpg
       readOnly: true
     # assets/base_full.html -> /authentik/core/templates/login/base_full.html
-    - name: custom-assets
+    - name: custom-assets-base_full-html
       mountPath: /authentik/core/templates/login/base_full.html
       subPath: base_full.html
       readOnly: true
     # assets/custom.css -> /web/dist/custom.css
-    - name: custom-assets
+    - name: custom-assets-custom-css
       mountPath: /web/dist/custom.css
       subPath: custom.css
       readOnly: true
     # assets/theme-dark.css -> /web/dist/theme-dark.css
-    - name: custom-assets
+    - name: custom-assets-theme-dark-css
       mountPath: /web/dist/theme-dark.css
       subPath: theme-dark.css
       readOnly: true
     # MontserratAlt1-Regular.ttf -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.ttf
-    - name: custom-assets
+    - name: custom-assets-montserrat-alt1-regular-ttf
       mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.ttf
       subPath: MontserratAlt1-Regular.ttf
       readOnly: true
     # MontserratAlt1-Regular.woff -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff
-    - name: custom-assets
+    - name: custom-assets-montserrat-alt1-regular-woff
       mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff
       subPath: MontserratAlt1-Regular.woff
       readOnly: true
     # MontserratAlt1-Regular.woff2 -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff2
-    - name: custom-assets
+    - name: custom-assets-montserrat-alt1-regular-woff2
       mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff2
       subPath: MontserratAlt1-Regular.woff2
       readOnly: true
