@@ -47,8 +47,6 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: |
-            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           nginx.ingress.kubernetes.io/auth-url: http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
           nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
           nginx.ingress.kubernetes.io/auth-response-headers: |-
@@ -95,12 +93,12 @@ spec:
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
-    #    selector:
-    #       k8s-app: kube-controller-manager
     coreDns:
       serviceMonitor:
         selector:
-          k8s-app: kube-dns
+          matchLabels:
+            app: kube-prometheus-stack-coredns
+            release: kube-prometheus-stack
     kubeProxy:
       enabled: false
     prometheus:
@@ -108,8 +106,6 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: |
-            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           nginx.ingress.kubernetes.io/auth-url: http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
           nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
           nginx.ingress.kubernetes.io/auth-response-headers: |-
