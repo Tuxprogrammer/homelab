@@ -24,8 +24,7 @@ server:
     enabled: true
     ingressClassName: "nginx"
     hosts: &hosts
-      - "auth.tuxprogrammer.net"
-      - "auth.tuxhpc.net"
+      - "auth.${SECRET_DOMAIN}"
     tls:
       - hosts: *hosts
 
