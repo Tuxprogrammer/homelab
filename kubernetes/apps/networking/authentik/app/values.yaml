@@ -25,12 +25,12 @@ server:
     ingressClassName: "nginx"
     annotations:
       gethomepage.dev/enabled: "true"
-      gethomepage.dev/group: Security
+      gethomepage.dev/group: Networking
       gethomepage.dev/name: Authentik
       gethomepage.dev/icon: authentik.png
       gethomepage.dev/pod-selector: app.kubernetes.io/name=authentik
       gethomepage.dev/widget.type: authentik
-      gethomepage.dev/widget.url: http://authentik-server.security
+      gethomepage.dev/widget.url: http://authentik-server.networking.svc.cluster.local
       gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_AUTHENTIK_TOKEN}}"
       external-dns.alpha.kubernetes.io/hostname: "ipv4.${SECRET_DOMAIN}"
     hosts: &hosts
