@@ -3,16 +3,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: monitoring
-resources:
-  - ./dashboards
-  - ./secret.sops.yaml
-  - ./helmrelease.yaml
 configMapGenerator:
-  - name: grafana-values
+  - name: custom-dashboards
     files:
-      - values.yaml
+      - opnsense-custom.json
 generatorOptions:
   disableNameSuffixHash: true
+  labels:
+    grafana_dashboard: "1"
 labels:
   - pairs:
       app.kubernetes.io/name: grafana
