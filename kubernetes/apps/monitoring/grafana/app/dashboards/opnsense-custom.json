@@ -1173,7 +1173,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_bytes_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "In: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -1187,7 +1187,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "-irate(node_network_transmit_bytes_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "-irate(node_network_transmit_bytes_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Out: {{ device }}",
@@ -1197,7 +1197,7 @@
           "step": 1
         }
       ],
-      "title": "WAN 2 In/Out",
+      "title": "VPN 1 In/Out",
       "type": "timeseries"
     },
     {
@@ -1405,7 +1405,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_bytes_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "In: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -1419,7 +1419,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "-irate(node_network_transmit_bytes_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "-irate(node_network_transmit_bytes_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Out: {{ device }}",
@@ -1429,7 +1429,7 @@
           "step": 1
         }
       ],
-      "title": "LAN 2 In/Out",
+      "title": "VPN 2 In/Out",
       "type": "timeseries"
     },
     {
@@ -1665,7 +1665,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_packets_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_packets_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "Receive: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -1679,7 +1679,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_multicast_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_multicast_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Multicasts: {{ device }}",
@@ -1694,7 +1694,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_drop_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_drop_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Drops: {{ device }}",
@@ -1709,7 +1709,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_errs_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_errs_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Errors: {{ device }}",
@@ -1719,7 +1719,7 @@
           "step": 1
         }
       ],
-      "title": "WAN 2 Receive Packets",
+      "title": "VPN 1 Receive Packets",
       "type": "timeseries"
     },
     {
@@ -1955,7 +1955,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_packets_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_packets_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "Receive: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -1969,7 +1969,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_multicast_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_multicast_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Multicasts: {{ device }}",
@@ -1984,7 +1984,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_drop_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_drop_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Drops: {{ device }}",
@@ -1999,7 +1999,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_errs_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_receive_errs_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Errors: {{ device }}",
@@ -2009,7 +2009,7 @@
           "step": 1
         }
       ],
-      "title": "LAN 2 Receive Packets",
+      "title": "VPN 2 Receive Packets",
       "type": "timeseries"
     },
     {
@@ -2245,7 +2245,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_packets_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_packets_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "Receive: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -2259,7 +2259,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_multicast_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_multicast_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Multicasts: {{ device }}",
@@ -2274,7 +2274,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_drop_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_drop_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Drops: {{ device }}",
@@ -2289,7 +2289,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_errs_total{job=\"$job\",device=\"$wan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_errs_total{job=\"$job\",device=\"$vpn_interface_1\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Errors: {{ device }}",
@@ -2299,7 +2299,7 @@
           "step": 1
         }
       ],
-      "title": "WAN 2 Transmit Packets",
+      "title": "VPN 1 Transmit Packets",
       "type": "timeseries"
     },
     {
@@ -2535,7 +2535,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_packets_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_packets_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "intervalFactor": 1,
           "legendFormat": "Receive: {{ device }}",
           "metric": "node_network_receive_bytes_total",
@@ -2549,7 +2549,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_multicast_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_multicast_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Multicasts: {{ device }}",
@@ -2564,7 +2564,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_drop_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_drop_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Drops: {{ device }}",
@@ -2579,7 +2579,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_errs_total{job=\"$job\",device=\"$lan_interface_2\"}[1m])",
+          "expr": "irate(node_network_transmit_errs_total{job=\"$job\",device=\"$vpn_interface_2\"}[1m])",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "Errors: {{ device }}",
@@ -2589,7 +2589,7 @@
           "step": 1
         }
       ],
-      "title": "LAN 2 Transmit Packets",
+      "title": "VPN 2 Transmit Packets",
       "type": "timeseries"
     },
     {
@@ -3241,7 +3241,7 @@
         "definition": "label_values(node_network_receive_packets_total,device)",
         "includeAll": false,
         "label": "WAN Interface 2",
-        "name": "wan_interface_2",
+        "name": "vpn_interface_1",
         "options": [],
         "query": {
           "qryType": 1,
@@ -3287,7 +3287,7 @@
         "definition": "label_values(node_network_receive_packets_total,device)",
         "includeAll": false,
         "label": "LAN Interface 2",
-        "name": "lan_interface_2",
+        "name": "vpn_interface_2",
         "options": [],
         "query": {
           "qryType": 1,
