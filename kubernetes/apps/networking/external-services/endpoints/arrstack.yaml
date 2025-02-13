@@ -149,7 +149,7 @@ metadata:
     gethomepage.dev/description: Plex Media Player
     gethomepage.dev/widget.type: plex
     gethomepage.dev/widget.url: http://plex.${SECRET_DOMAIN_2}:32400
-    gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_PLEX_TOKEN}}`}}"
+    gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -187,7 +187,7 @@ metadata:
     gethomepage.dev/description: Media Request Management
     gethomepage.dev/widget.type: overseerr
     gethomepage.dev/widget.url: http://overseerr.${SECRET_DOMAIN_2}:5055
-    gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_OVERSEERR_API_KEY}}`}}"
+    gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_OVERSEERR_API_KEY}}"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
