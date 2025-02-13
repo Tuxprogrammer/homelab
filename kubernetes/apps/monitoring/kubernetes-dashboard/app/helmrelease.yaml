@@ -60,7 +60,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: Monitoring
           gethomepage.dev/name: Kubernetes Dashboard
-          gethomepage.dev/icon: mdi-kubernetes
+          gethomepage.dev/icon: kubernetes
         hosts:
           - &host "kubernetes.${SECRET_DOMAIN}"
         tls:
