@@ -63,7 +63,7 @@
 - Work:
     - te:
         - icon: https://play-lh.googleusercontent.com/DJntClnN5bSV9XAqvY6ZOS2-jvvWIVRXHWtu2bp3psWZ3a6i62LvRV0N4mby0H6Qu6LH
-          href: "https://te.{{HOME_VAR_WORK_DOMAIN}}"
+          href: "https://te.${HOME_VAR_WORK_DOMAIN}"
           target: _self
     - portal:
         - icon: https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/brand-icons/product/png/outlook_96x1.png
