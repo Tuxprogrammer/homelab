@@ -16,10 +16,23 @@ quicklaunch:
   hideVisitURL: true
 target: _self
 layout:
+  Quick Access:
+    style: row
+    columns: 4
+    icon: mdi-run-fast
+    Updates:
+      style: row
+      icon: mdi-update
+    Networking:
+      style: row
+      icon: mdi-console-network-outline
+    Monitoring:
+      style: row
+      icon: mdi-monitor-dashboard
   Network:
     style: row
     columns: 1
-    icon: mdi-network
+    icon: mdi-lan
   Calendar:
     style: column
     icon: mdi-calendar
@@ -34,10 +47,6 @@ layout:
     style: row
     columns: 4
     icon: mdi-server
-  Observability:
-    style: row
-    columns: 2
-    icon: mdi-chart-line
   Home:
     style: row
     columns: 3
