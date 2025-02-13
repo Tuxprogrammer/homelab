@@ -87,17 +87,11 @@ spec:
         send_pii: false
         environment: "nanabooboo"
       email:
-        host: ${AUTHENTIK_EMAIL_HOST}
-        port: ${AUTHENTIK_EMAIL_PORT}
-        username: ${AUTHENTIK_EMAIL_USERNAME}
-        password: ${AUTHENTIK_EMAIL_PASSWORD}
         use_tls: true
         use_ssl: false
         timeout: 30
-        from: ${AUTHENTIK_EMAIL_FROM}
       postgresql:
         enabled: true
-      secret_key: ${AUTHENTIK_SECRET_KEY}
 
     server:
       autoscaling:
@@ -182,7 +176,31 @@ spec:
           enabled: true
 
   valuesFrom:
-    - kind: Secret
+    - targetPath: authentik.postgresql.password
+      kind: Secret
       name: authentik-postgres-secrets
       valuesKey: password
-      targetPath: authentik.postgresql.password
+    - targetPath: authentik.secret_key
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_SECRET_KEY
+    - targetPath: authentik.email.host
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_EMAIL_HOST
+    - targetPath: authentik.email.port
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_EMAIL_PORT
+    - targetPath: authentik.email.username
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_EMAIL_USERNAME
+    - targetPath: authentik.email.password
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_EMAIL_PASSWORD
+    - targetPath: authentik.email.from
+      kind: Secret
+      name: authentik-sub-secrets
+      valuesKey: AUTHENTIK_EMAIL_FROM

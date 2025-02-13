@@ -10,10 +10,6 @@ spec:
     - name: cluster-apps-ingress-nginx-certificates
     - name: cluster-apps-cert-manager-issuers
   path: ./kubernetes/apps/default/homepage/app
-  postBuild:
-    substituteFrom:
-      - kind: Secret
-        name: homepage-sub-secrets
   prune: true
   sourceRef:
     kind: GitRepository
