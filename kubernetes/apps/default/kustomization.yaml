@@ -7,7 +7,8 @@ resources:
   - ./echo-server/ks.yaml
   - ./littlelink/ks.yaml
   - ./freshrss/ks.yaml
+  - ./homepage/pre-secret.sops.yaml
   - ./homepage/ks.yaml
   # Web Apps
   - ./vaultwarden/ks.yaml
-  #- ./arrstack/ks.yaml
+  # - ./arrstack/ks.yaml

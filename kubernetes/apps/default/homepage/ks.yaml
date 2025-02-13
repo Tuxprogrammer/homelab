@@ -13,7 +13,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: homepage-secrets
+        name: homepage-sub-secrets
         namespace: default
   prune: true
   sourceRef:
