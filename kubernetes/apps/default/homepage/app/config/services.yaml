@@ -32,3 +32,58 @@
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node10
+    - node11:
+        href: https://node11.${SECRET_DOMAIN_2}:8006
+        target: _self
+        icon: proxmox
+        description: Virtualization Platform
+        widget:
+          type: proxmox
+          url: https://node11.${SECRET_DOMAIN_2}:8006
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: node11
+    - node12:
+        href: https://node12.${SECRET_DOMAIN_2}:8006
+        target: _self
+        icon: proxmox
+        description: Virtualization Platform
+        widget:
+          type: proxmox
+          url: https://node12.${SECRET_DOMAIN_2}:8006
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: node12
+    - node13:
+        href: https://node13.${SECRET_DOMAIN_2}:8006
+        target: _self
+        icon: proxmox
+        description: Virtualization Platform
+        widget:
+          type: proxmox
+          url: https://node13.${SECRET_DOMAIN_2}:8006
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: node13
+    - node14:
+        href: https://node14.${SECRET_DOMAIN_2}:8006
+        target: _self
+        icon: proxmox
+        description: Virtualization Platform
+        widget:
+          type: proxmox
+          url: https://node14.${SECRET_DOMAIN_2}:8006
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: node14
+    - seeker:
+        href: https://seeker.${SECRET_DOMAIN_2}:8006
+        target: _self
+        icon: proxmox
+        description: Virtualization Platform
+        widget:
+          type: proxmox
+          url: https://seeker.${SECRET_DOMAIN_2}:8006
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: seeker
