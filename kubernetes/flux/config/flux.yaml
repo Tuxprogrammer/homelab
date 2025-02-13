@@ -122,3 +122,13 @@ spec:
       target:
         kind: ClusterRole
         name: crd-controller-flux-system
+    - patch: |
+        apiVersion: helm.toolkit.fluxcd.io/v2
+        kind: HelmRelease
+        metadata:
+          name: all
+        spec:
+          driftDetection:
+            mode: warn
+      target:
+        kind: HelmRelease
