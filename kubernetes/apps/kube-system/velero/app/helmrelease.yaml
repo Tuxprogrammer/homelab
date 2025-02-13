@@ -67,6 +67,20 @@ spec:
         template:
           includedNamespaces:
             - "*"
+          ttl: 720h # 30 days
+      daily:
+        schedule: "0 3 * * 1-6"
+        template:
+          includedNamespaces:
+            - "*"
+          ttl: 360h # 15 days
+      hourly:
+        schedule: "0 0-2,4-23 * * *"
+        template:
+          includedNamespaces:
+            - "*"
+          ttl: 72h # 3 days
+          defaultVolumesToFsBackup: false # don't backup pod filesystems for the hourly schedule
   valuesFrom:
     - targetPath: configuration.backupStorageLocation[0].caCert
       kind: Secret
