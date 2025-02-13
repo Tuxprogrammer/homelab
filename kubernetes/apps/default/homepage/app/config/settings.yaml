@@ -16,19 +16,15 @@ quicklaunch:
   hideVisitURL: true
 target: _self
 layout:
-  Quick Access:
-    style: row
-    columns: 4
-    icon: mdi-run-fast
-    Updates:
-      style: row
-      icon: mdi-update
-    Networking:
-      style: row
-      icon: mdi-console-network-outline
-    Monitoring:
-      style: row
-      icon: mdi-monitor-dashboard
+  Updates:
+    style: column
+    icon: mdi-update
+  Networking:
+    style: column
+    icon: mdi-console-network-outline
+  Monitoring:
+    style: column
+    icon: mdi-monitor-dashboard
   Network:
     style: row
     columns: 1
