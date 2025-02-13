@@ -1,4 +1,18 @@
 ---
+- Quick Access:
+    - Updates:
+        - freshrss:
+            href: https://freshrss.${SECRET_DOMAIN}
+            target: _self
+            icon: freshrss
+            description: FreshRSS Feed Aggregator
+            widget:
+              type: freshrss
+              url: "http://freshrss.default.svc.cluster.local:80"
+              username: "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}"
+              password: "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}"
+    - Networking:
+    - Monitoring:
 - Network:
     - OPNSense:
         href: https://gw.${SECRET_DOMAIN_2}
@@ -105,14 +119,3 @@
           username: "{{HOMEPAGE_VAR_PROXMOXBACKUP_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOXBACKUP_API_KEY}}"
           node: pbs
-- Updates:
-    - freshrss:
-        href: https://freshrss.${SECRET_DOMAIN}
-        target: _self
-        icon: freshrss
-        description: FreshRSS Feed Aggregator
-        widget:
-          type: freshrss
-          url: "http://freshrss.default.svc.cluster.local:80"
-          username: "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}"
