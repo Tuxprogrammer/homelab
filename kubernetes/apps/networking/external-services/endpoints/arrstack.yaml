@@ -186,7 +186,7 @@ metadata:
     gethomepage.dev/icon: overseerr
     gethomepage.dev/description: Media Request Management
     gethomepage.dev/widget.type: overseerr
-    gethomepage.dev/widget.url: https://overseerr.${SECRET_DOMAIN_2}
+    gethomepage.dev/widget.url: http://overseerr.${SECRET_DOMAIN_2}:5055
     gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_OVERSEERR_API_KEY}}`}}"
   labels:
     app.kubernetes.io/name: *app
