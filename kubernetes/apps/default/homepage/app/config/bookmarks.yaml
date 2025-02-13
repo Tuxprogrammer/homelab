@@ -17,6 +17,19 @@
         - icon: youtube.png
           href: "https://youtube.com/feed/subscriptions"
           target: _self
+- Gaming:
+    - World of Tanks:
+        - icon: https://eu-wotp.wgcdn.co/dcont/fb/image/world_of_tanks_logo_png_440x440.png
+          href: "https://worldoftanks.com"
+          target: _self
+    - Skill4LTU:
+        - icon: https://skill4ltu.eu/images/skill4ltu-logo-icon.png
+          href: "https://skill4ltu.eu"
+          target: _self
+    - Tanks.gg:
+        - icon: https://tanks.gg/img/icons/regions/wg-only.png
+          href: "https://tanks.gg"
+          target: _self
 - Reading:
     - Reddit:
         - icon: reddit.png
@@ -46,4 +59,13 @@
     - bjw-s-helm-charts:
         - icon: github.png
           href: "https://github.com/bjw-s/helm-charts"
+          target: _self
+- Work:
+    - te:
+        - icon: https://play-lh.googleusercontent.com/DJntClnN5bSV9XAqvY6ZOS2-jvvWIVRXHWtu2bp3psWZ3a6i62LvRV0N4mby0H6Qu6LH
+          href: "https://te.{{HOME_VAR_WORK_DOMAIN}}"
+          target: _self
+    - portal:
+        - icon: https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/brand-icons/product/png/outlook_96x1.png
+          href: "https://portal.office365.us"
           target: _self
