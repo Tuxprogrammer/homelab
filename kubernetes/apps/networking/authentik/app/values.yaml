@@ -49,6 +49,15 @@ authentik:
     enabled: false
     send_pii: false
     environment: "nanabooboo"
+  email:
+    host: "${AUTHENTIK_EMAIL_HOST}"
+    port: "${AUTHENTIK_EMAIL_PORT}"
+    username: "${AUTHENTIK_EMAIL_USERNAME}"
+    password: "${AUTHENTIK_EMAIL_PASSWORD}"
+    use_tls: true
+    use_ssl: false
+    timeout: 30
+    from: "${AUTHENTIK_EMAIL_FROM}"
   postgresql:
     enabled: true
 server:
