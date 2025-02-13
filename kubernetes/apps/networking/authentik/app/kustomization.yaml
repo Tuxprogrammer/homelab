@@ -7,24 +7,12 @@ configMapGenerator:
   - name: authentik-values
     files:
       - values.yaml
-  - name: authentik-assets-base-full-html
-    files:
-      - assets/base_full.html
   - name: authentik-assets-custom-css
     files:
       - assets/custom.css
   - name: authentik-assets-flow-background-jpg
     files:
       - assets/flow_background.jpg
-  - name: authentik-assets-montserrat-alt1-regular-ttf
-    files:
-      - assets/MontserratAlt1-Regular.ttf
-  - name: authentik-assets-montserrat-alt1-regular-woff
-    files:
-      - assets/MontserratAlt1-Regular.woff
-  - name: authentik-assets-montserrat-alt1-regular-woff2
-    files:
-      - assets/MontserratAlt1-Regular.woff2
   - name: authentik-assets-theme-dark-css
     files:
       - assets/theme-dark.css
