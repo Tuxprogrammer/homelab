@@ -123,7 +123,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: Self-hosted Linktree Socials
           gethomepage.dev/group: Networking
-          gethomepage.dev/icon: mdi-account-details
+          gethomepage.dev/icon: littlelink-custom
           gethomepage.dev/name: Littlelink
         hosts:
           - host: &host "${SECRET_DOMAIN}"
