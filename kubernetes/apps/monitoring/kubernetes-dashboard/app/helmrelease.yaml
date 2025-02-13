@@ -38,7 +38,10 @@ spec:
       className: nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
-        hajimari.io/icon: mdi:kubernetes
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/group: Monitoring
+        gethomepage.dev/name: Kubernetes Dashboard
+        gethomepage.dev/icon: mdi-kubernetes
       hosts:
         - &host "kubernetes.${SECRET_DOMAIN}"
       tls:
