@@ -96,6 +96,14 @@ spec:
       target:
         kind: Deployment
         name: helm-controller
+    # Enable Substitution error messages
+    - patch: |
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --feature-gates=StrictPostBuildSubstitutions=true
+      target:
+        kind: Deployment
+        name: kustomize-controller
     # Enable notifications for 3rd party Flux controllers such as tf-controller
     # https://fluxcd.io/flux/cheatsheets/bootstrap/#enable-notifications-for-third-party-controllers
     - patch: |
