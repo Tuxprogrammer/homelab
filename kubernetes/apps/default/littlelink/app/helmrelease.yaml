@@ -122,7 +122,7 @@ spec:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: Self-hosted Linktree Socials
-          gethomepage.dev/group: Networking
+          gethomepage.dev/group: Services
           gethomepage.dev/icon: littlelink-custom
           gethomepage.dev/name: Littlelink
         hosts:

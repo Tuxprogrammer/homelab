@@ -115,7 +115,7 @@ spec:
           gethomepage.dev/name: Bitwarden
           gethomepage.dev/icon: bitwarden.png
           gethomepage.dev/description: Bitwarden Password Manager
-          gethomepage.dev/group: Networking
+          gethomepage.dev/group: Services
         hosts:
           - host: &host "bitwarden.${SECRET_DOMAIN_2}"
             paths:

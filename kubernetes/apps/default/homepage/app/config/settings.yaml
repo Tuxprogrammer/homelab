@@ -19,6 +19,11 @@ layout:
   Updates:
     style: column
     icon: mdi-update
+  Services:
+    style: column
+    columns: 4
+    icon: mdi-tools
+    iconsOnly: true
   Networking:
     style: column
     icon: mdi-console-network-outline
@@ -51,10 +56,7 @@ layout:
     style: row
     columns: 3
     icon: mdi-download-circle
-  Services:
-    style: row
-    columns: 5
-    icon: mdi-tools
+
   Media:
     style: row
     columns: 3

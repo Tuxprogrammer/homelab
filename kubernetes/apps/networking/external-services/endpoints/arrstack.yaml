@@ -226,7 +226,7 @@ metadata:
       proxy_set_header Connection $connection_upgrade;
       error_page 405 =200 $uri;
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Networking
+    gethomepage.dev/group: Services
     gethomepage.dev/name: Guacamole
     gethomepage.dev/icon: guacamole
     gethomepage.dev/description: Remote Desktop Gateway
