@@ -92,8 +92,8 @@ spec:
           gethomepage.dev/group: Updates
           gethomepage.dev/widget.type: freshrss
           gethomepage.dev/widget.url: "http://freshrss.default.svc.cluster.local:80"
-          gethomepage.dev/widget.username: "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}"
-          gethomepage.dev/widget.password: "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}"
+          gethomepage.dev/widget.username: "{{`{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}`}}"
+          gethomepage.dev/widget.password: "{{`{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}`}}"
         hosts:
           - host: &host "freshrss.${SECRET_DOMAIN}"
             paths:
