@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: vaultwarden
+  name: freshrss
   namespace: default
 spec:
   interval: 15m
@@ -10,17 +10,13 @@ spec:
     spec:
       # renovate: registryUrl=https://bjw-s.github.io/helm-charts
       chart: app-template
-      version: 3.6.1
+      version: 3.7.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   maxHistory: 3
   dependsOn:
-    - name: rook-ceph-operator
-      namespace: rook-ceph
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
     - name: cert-manager
       namespace: cert-manager
     - name: ingress-nginx
@@ -35,8 +31,7 @@ spec:
       retries: 3
   values:
     controllers:
-      vaultwarden:
-        strategy: Recreate
+      freshrss:
         annotations:
           reloader.stakater.com/auto: "true"
         pod:
@@ -50,23 +45,20 @@ spec:
         containers:
           app:
             image:
-              repository: vaultwarden/server
-              tag: 1.33.2@sha256:87edb99945da91bd7504ac1435495595af2e89ad2c7adc151ae5bf091ec8baf2
+              repository: freshrss/freshrss
+              tag: 1.25.0@sha256:e7897e90c1e0ab4a68cb643ff509dec4e3b85bbe42e2688ed9f95eb190bcb2b1
             env:
-              DOMAIN: "https://bitwarden.${SECRET_DOMAIN_2}"
-              DATA_FOLDER: data
-              ATTACHMENTS_FOLDER: data/attachments
-              ICON_CACHE_FOLDER: data/icon_cache
               TZ: ${TIMEZONE}
-              WEBSOCKET_ADDRESS: 0.0.0.0
-              WEBSOCKET_ENABLED: "true"
-              WEBSOCKET_PORT: 3012
-              SIGNUPS_ALLOWED: "false"
-              SMTP_ACCEPT_INVALID_CERTS: true
-              SMTP_ACCEPT_INVALID_HOSTNAMES: true
+              DOMAIN: https://freshrss.${SECRET_DOMAIN}
+              CRON_MIN: "*/15"
+              OIDC_ENABLED: "1"
+              OIDC_PROVIDER_METADATA_URL: https://auth.${SECRET_DOMAIN}/application/o/freshrss/.well-known/openid-configuration
+              OIDC_REMOTE_USER_CLAIM: preferred_username
+              OIDC_SCOPES: openid profile
+              OIDC_X_FORWARDED_HEADERS: X-Forwarded-Host X-Forwarded-Port X-Forwarded-Proto
             envFrom:
               - secretRef:
-                  name: vaultwarden
+                  name: freshrss-secrets
             probes:
               liveness: &probes
                 enabled: true
@@ -90,54 +82,39 @@ spec:
                   - ALL
             resources:
               limits:
-                memory: 2Gi
+                memory: 300Mi
               requests:
-                cpu: 100m
+                cpu: 10m
                 memory: 100Mi
     service:
       app:
         enabled: true
-        controller: vaultwarden
+        controller: freshrss
         ports:
           http:
             port: *port
-          websocket:
-            port: &ws-port 3012
 
     ingress:
       app:
         className: nginx
         annotations:
-          # disabled for 40x because it is used for the API
-          nginx.ingress.kubernetes.io/custom-http-errors: 500,501,502,503,504,505,506,510
           external-dns.home.arpa/enabled: "true"
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: Bitwarden
-          gethomepage.dev/icon: bitwarden.png
-          gethomepage.dev/description: Bitwarden Password Manager
-          gethomepage.dev/group: Networking
+          gethomepage.dev/name: Freshrss
+          gethomepage.dev/icon: freshrss.png
+          gethomepage.dev/description: Freshrss Feed Aggregator
+          gethomepage.dev/group: Monitoring
         hosts:
-          - host: &host "bitwarden.${SECRET_DOMAIN_2}"
+          - host: &host "freshrss.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  name: vaultwarden
+                  name: freshrss
                   port: *port
-              - path: /notifications/hub/negotiate
-                pathType: Prefix
-                service:
-                  name: vaultwarden
-                  port: *port
-              - path: /notifications/hub
-                pathType: Prefix
-                service:
-                  name: vaultwarden
-                  port: *ws-port
         tls:
           - hosts:
               - *host
-            secretName: "bitwarden-${SECRET_DOMAIN_2/./-}-production-tls"
     persistence:
       data:
         enabled: true
@@ -145,4 +122,4 @@ spec:
         accessMode: ReadWriteOnce
         size: 100Mi
         globalMounts:
-          - path: /data
+          - path: /var/www/FreshRSS/data
