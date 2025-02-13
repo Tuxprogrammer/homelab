@@ -120,7 +120,11 @@ spec:
         className: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          hajimari.io/icon: account
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Self-hosted Linktree Socials
+          gethomepage.dev/group: Networking
+          gethomepage.dev/icon: mdi-account-details
+          gethomepage.dev/name: Littlelink
         hosts:
           - host: &host "${SECRET_DOMAIN}"
             paths:
