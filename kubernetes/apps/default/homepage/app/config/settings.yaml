@@ -24,9 +24,9 @@ layout:
     columns: 4
     icon: mdi-tools
     iconsOnly: true
-  Networking:
+  Media:
     style: column
-    icon: mdi-console-network-outline
+    icon: mdi-television-play
   Monitoring:
     style: column
     icon: mdi-monitor-dashboard
@@ -56,8 +56,7 @@ layout:
     style: row
     columns: 3
     icon: mdi-download-circle
-
-  Media:
+  Networking:
     style: row
     columns: 3
-    icon: mdi-television-play
+    icon: mdi-console-network-outline
