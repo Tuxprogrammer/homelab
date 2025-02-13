@@ -32,7 +32,7 @@ layout:
     icon: mdi-book
   Infrastructure:
     style: row
-    columns: 2
+    columns: 4
     icon: mdi-server
   Observability:
     style: row
