@@ -12,7 +12,7 @@ configMapGenerator:
     files:
       - config/bookmarks.yaml
       - config/docker.yaml
-      - config/external-services.yaml
+      - config/services.yaml
       - config/kubernetes.yaml
       - config/settings.yaml
       - config/widgets.yaml
