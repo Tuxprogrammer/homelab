@@ -78,6 +78,13 @@ server:
       - "auth.${SECRET_DOMAIN}"
     tls:
       - hosts: *hosts
+    resources:
+      requests:
+        cpu: 100m
+        memory: 1Gi
+      limits:
+        cpu: 500m
+        memory: 2Gi
 
 worker:
   autoscaling:
@@ -89,7 +96,13 @@ worker:
     enabled: true
     minAvailable: 1
     maxUnavailable: 1
-
+  resources:
+    requests:
+      cpu: 50m
+      memory: 750Mi
+    limits:
+      cpu: 200m
+      memory: 2Gi
 postgresql:
   enabled: true
   auth:
