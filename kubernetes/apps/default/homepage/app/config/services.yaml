@@ -1,15 +1,4 @@
 ---
-- Updates:
-    - freshrss:
-        href: https://freshrss.${SECRET_DOMAIN}
-        target: _self
-        icon: freshrss
-        description: FreshRSS Feed Aggregator
-        widget:
-          type: freshrss
-          url: "http://freshrss.default.svc.cluster.local:80"
-          username: "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}"
-          password: "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}"
 - Network:
     - OPNSense:
         href: https://gw.${SECRET_DOMAIN_2}
