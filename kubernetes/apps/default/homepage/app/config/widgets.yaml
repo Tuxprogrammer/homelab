@@ -12,7 +12,7 @@
     cluster:
       cpu: true
       memory: true
-      show: true
+      show: false
       showLabel: true
     nodes:
       cpu: true
