@@ -17,7 +17,7 @@
     nodes:
       cpu: true
       memory: true
-      show: false
+      show: true
       showLabel: true
 - openmeteo:
     label: Madison
