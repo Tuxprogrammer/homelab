@@ -7,8 +7,8 @@
         widget:
           type: opnsense
           url: https://10.0.0.1
-          username: "{{`{{HOMEPAGE_VAR_OPNSENSE_USERNAME}}`}}"
-          password: "{{`{{HOMEPAGE_VAR_OPNSENSE_PASSWORD}}`}}"
+          username: "{{HOMEPAGE_VAR_OPNSENSE_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_OPNSENSE_PASSWORD}}"
           wan: wan
 - Infrastructure:
     - Archive:
@@ -19,16 +19,16 @@
         widget:
           type: truenas
           url: https://archive.${SECRET_DOMAIN_2}
-          key: "{{`{{HOMEPAGE_VAR_TRUENAS_APIKEY}}`}}"
+          key: "{{HOMEPAGE_VAR_TRUENAS_APIKEY}}"
           enablePools: true
     - node10:
         href: https://node10.${SECRET_DOMAIN_2}:8006
         target: _self
-        icon: https://www.45drives.com/solutions/proxmox/img/proxmox_Logo.png
+        icon: proxmox
         description: Virtualization Platform
         widget:
           type: proxmox
           url: https://node10.${SECRET_DOMAIN_2}:8006
-          username: "{{`{{HOMEPAGE_VAR_PROXMOX_API_USER}}`}}"
-          password: "{{`{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}`}}"
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node10
