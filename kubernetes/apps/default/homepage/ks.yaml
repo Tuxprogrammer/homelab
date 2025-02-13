@@ -14,7 +14,6 @@ spec:
     substituteFrom:
       - kind: Secret
         name: homepage-sub-secrets
-        namespace: default
   prune: true
   sourceRef:
     kind: GitRepository

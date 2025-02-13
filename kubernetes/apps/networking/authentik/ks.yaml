@@ -13,8 +13,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: authentik-secrets
-        namespace: networking
+        name: authentik-sub-secrets
   prune: true
   sourceRef:
     kind: GitRepository
