@@ -10,6 +10,10 @@ spec:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/apps/networking/authentik/app
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: authentik-secrets
   prune: true
   sourceRef:
     kind: GitRepository
