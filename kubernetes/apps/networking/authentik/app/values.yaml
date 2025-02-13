@@ -55,7 +55,7 @@ server:
   autoscaling:
     enabled: true
     minReplicas: 1
-    maxReplicas: 4
+    maxReplicas: 3
     targetCPUUtilizationPercentage: 50
   pdb:
     enabled: true
@@ -78,18 +78,20 @@ server:
       - "auth.${SECRET_DOMAIN}"
     tls:
       - hosts: *hosts
-    resources:
-      requests:
-        cpu: 100m
-        memory: 1Gi
-      limits:
-        cpu: 500m
-        memory: 2Gi
+  startupProbe:
+    initialDelaySeconds: 120
+  resources:
+    requests:
+      cpu: 100m
+      memory: 1Gi
+    limits:
+      cpu: 500m
+      memory: 2Gi
 
 worker:
   autoscaling:
     enabled: true
-    minReplicas: 1
+    minReplicas: 2
     maxReplicas: 4
     targetCPUUtilizationPercentage: 50
   pdb:
