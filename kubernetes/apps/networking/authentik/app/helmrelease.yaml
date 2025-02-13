@@ -35,9 +35,153 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    global:
+      envFrom:
+        - secretRef:
+            name: authentik-env-secrets
+      volumeMounts:
+        # Mappings:
+        # assets/custom.css -> /web/dist/custom.css
+        - name: custom-assets-custom-css
+          mountPath: /web/dist/custom.css
+          subPath: custom.css
+          readOnly: true
+        # assets/flow_background.jpg -> /web/dist/assets/images/flow_background.jpg
+        - name: custom-assets-flow-background-jpg
+          mountPath: /web/dist/assets/images/flow_background.jpg
+          subPath: flow_background.jpg
+          readOnly: true
+        # assets/theme-dark.css -> /web/dist/theme-dark.css
+        - name: custom-assets-theme-dark-css
+          mountPath: /web/dist/theme-dark.css
+          subPath: theme-dark.css
+          readOnly: true
+
+      volumes:
+        - name: custom-assets-base-full-html
+          configMap:
+            name: authentik-assets-base-full-html
+        - name: custom-assets-custom-css
+          configMap:
+            name: authentik-assets-custom-css
+        - name: custom-assets-flow-background-jpg
+          configMap:
+            name: authentik-assets-flow-background-jpg
+        - name: custom-assets-montserrat-alt1-regular-ttf
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-ttf
+        - name: custom-assets-montserrat-alt1-regular-woff
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-woff
+        - name: custom-assets-montserrat-alt1-regular-woff2
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-woff2
+        - name: custom-assets-theme-dark-css
+          configMap:
+            name: authentik-assets-theme-dark-css
+
+    authentik:
+      error_reporting:
+        enabled: false
+        send_pii: false
+        environment: "nanabooboo"
+      email:
+        host: ${AUTHENTIK_EMAIL_HOST}
+        port: ${AUTHENTIK_EMAIL_PORT}
+        username: ${AUTHENTIK_EMAIL_USERNAME}
+        password: ${AUTHENTIK_EMAIL_PASSWORD}
+        use_tls: true
+        use_ssl: false
+        timeout: 30
+        from: ${AUTHENTIK_EMAIL_FROM}
+      postgresql:
+        enabled: true
+      secret_key: ${AUTHENTIK_SECRET_KEY}
+
+    server:
+      autoscaling:
+        enabled: true
+        minReplicas: 1
+        maxReplicas: 3
+        targetCPUUtilizationPercentage: 50
+      pdb:
+        enabled: true
+        minAvailable: 1
+        maxUnavailable: 1
+      ingress:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Networking
+          gethomepage.dev/name: Authentik
+          gethomepage.dev/icon: authentik.png
+          gethomepage.dev/pod-selector: app.kubernetes.io/name=authentik
+          gethomepage.dev/widget.type: authentik
+          gethomepage.dev/widget.url: http://authentik-server.networking.svc.cluster.local
+          gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_AUTHENTIK_TOKEN}}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        hosts: &hosts
+          - "auth.${SECRET_DOMAIN}"
+        tls:
+          - hosts: *hosts
+      startupProbe:
+        initialDelaySeconds: 120
+      resources:
+        requests:
+          cpu: 100m
+          memory: 1Gi
+        limits:
+          cpu: 500m
+          memory: 2Gi
+
+    worker:
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 4
+        targetCPUUtilizationPercentage: 50
+      pdb:
+        enabled: true
+        minAvailable: 1
+        maxUnavailable: 1
+      startupProbe:
+        initialDelaySeconds: 120
+      resources:
+        requests:
+          cpu: 500m
+          memory: 750Mi
+        limits:
+          cpu: 1000m
+          memory: 2Gi
+    postgresql:
+      enabled: true
+      auth:
+        existingSecret: "authentik-postgres-secrets"
+      primary:
+        persistence:
+          enabled: true
+          storageClass: "ceph-block-internal"
+          size: 8Gi
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+
+    redis:
+      enabled: true
+      master:
+        persistence:
+          enabled: true
+          storageClass: "ceph-block-internal"
+          size: 8Gi
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+
   valuesFrom:
-    - kind: ConfigMap
-      name: authentik-values
     - kind: Secret
       name: authentik-postgres-secrets
       valuesKey: password
