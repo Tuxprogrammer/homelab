@@ -60,6 +60,8 @@ authentik:
     from: "${AUTHENTIK_EMAIL_FROM}"
   postgresql:
     enabled: true
+  secret_key: "${AUTHENTIK_SECRET_KEY}"
+
 server:
   autoscaling:
     enabled: true

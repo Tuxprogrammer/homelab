@@ -39,10 +39,6 @@ spec:
     - kind: ConfigMap
       name: authentik-values
     - kind: Secret
-      name: authentik-secrets
-      valuesKey: AUTHENTIK_SECRET_KEY
-      targetPath: authentik.secret_key
-    - kind: Secret
       name: authentik-postgres-secrets
       valuesKey: password
       targetPath: authentik.postgresql.password
