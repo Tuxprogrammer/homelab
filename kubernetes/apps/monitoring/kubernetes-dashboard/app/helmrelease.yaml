@@ -44,7 +44,7 @@ spec:
           TZ: "${TIMEZONE}"
       ingress:
         enabled: true
-        className: nginx
+        ingressClassName: nginx
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
           external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
@@ -61,9 +61,7 @@ spec:
         hosts:
           - &host "kubernetes.${SECRET_DOMAIN}"
         tls:
-          - hosts:
-              - *host
-            secretName: kubernetes-dashboard-tls
+          enabled: true
 
     metricsScraper:
       enabled: true
