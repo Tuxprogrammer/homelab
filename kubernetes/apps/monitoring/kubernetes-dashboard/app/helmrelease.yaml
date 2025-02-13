@@ -29,19 +29,23 @@ spec:
     auth:
       containers:
         env:
-          TZ: "${TIMEZONE}"
+          - name: TZ
+            value: "${TIMEZONE}"
     api:
       containers:
         env:
-          TZ: "${TIMEZONE}"
+          - name: TZ
+            value: "${TIMEZONE}"
     web:
       containers:
         env:
-          TZ: "${TIMEZONE}"
+          - name: TZ
+            value: "${TIMEZONE}"
     app:
       containers:
         env:
-          TZ: "${TIMEZONE}"
+          - name: TZ
+            value: "${TIMEZONE}"
       ingress:
         enabled: true
         ingressClassName: nginx
@@ -67,6 +71,7 @@ spec:
       enabled: true
       containers:
         env:
-          TZ: "${TIMEZONE}"
+          - name: TZ
+            value: "${TIMEZONE}"
     serviceMonitor:
       enabled: false
