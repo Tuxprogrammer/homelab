@@ -111,11 +111,11 @@ spec:
           # disabled for 40x because it is used for the API
           nginx.ingress.kubernetes.io/custom-http-errors: 500,501,502,503,504,505,506,510
           external-dns.home.arpa/enabled: "true"
-          hajimari.io/enable: "true"
-          hajimari.io/group: Security
-          hajimari.io/icon: "simple-icons:vaultwarden"
-          hajimari.io/appName: Vaultwarden
-          hajimari.io/info: Password Manager
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: Bitwarden
+          gethomepage.dev/icon: bitwarden.png
+          gethomepage.dev/description: Bitwarden Password Manager
+          gethomepage.dev/group: Networking
         hosts:
           - host: &host "bitwarden.${SECRET_DOMAIN_2}"
             paths:
