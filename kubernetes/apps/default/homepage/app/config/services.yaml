@@ -93,3 +93,14 @@
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: seeker
+    - pbs:
+        href: https://node10.${SECRET_DOMAIN_2}:8007
+        target: _self
+        icon: proxmox
+        description: Backup Server for Proxmox datacenter
+        widget:
+          type: proxmoxbackupserver
+          url: https://node10.${SECRET_DOMAIN_2}:8007
+          username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
+          node: pbs
