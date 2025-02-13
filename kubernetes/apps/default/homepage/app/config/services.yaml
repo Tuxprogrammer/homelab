@@ -29,6 +29,7 @@
         widget:
           type: proxmox
           url: https://node10.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node10
@@ -40,6 +41,7 @@
         widget:
           type: proxmox
           url: https://node11.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node11
@@ -51,6 +53,7 @@
         widget:
           type: proxmox
           url: https://node12.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node12
@@ -62,6 +65,7 @@
         widget:
           type: proxmox
           url: https://node13.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node13
@@ -73,6 +77,7 @@
         widget:
           type: proxmox
           url: https://node14.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: node14
@@ -84,6 +89,7 @@
         widget:
           type: proxmox
           url: https://seeker.${SECRET_DOMAIN_2}:8006
+          fields: ["vms", "resources.cpu", "resources.mem"]
           username: "{{HOMEPAGE_VAR_PROXMOX_API_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_API_USER_KEY}}"
           node: seeker
