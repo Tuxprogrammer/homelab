@@ -96,12 +96,14 @@ worker:
     enabled: true
     minAvailable: 1
     maxUnavailable: 1
+  startupProbe:
+    initialDelaySeconds: 120
   resources:
     requests:
-      cpu: 50m
+      cpu: 500m
       memory: 750Mi
     limits:
-      cpu: 200m
+      cpu: 1000m
       memory: 2Gi
 postgresql:
   enabled: true
