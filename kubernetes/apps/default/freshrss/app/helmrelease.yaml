@@ -41,7 +41,8 @@ spec:
             runAsGroup: 1000
             fsGroup: 1000
             fsGroupChangePolicy: OnRootMismatch
-            seccompProfile: { type: RuntimeDefault }
+            seccompProfile:
+              type: RuntimeDefault
         containers:
           app:
             image:
@@ -76,7 +77,7 @@ spec:
                 enabled: false
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities:
                 drop:
                   - ALL
