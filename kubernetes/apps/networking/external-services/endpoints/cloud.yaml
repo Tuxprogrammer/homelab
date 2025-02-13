@@ -32,8 +32,14 @@ metadata:
       location /.well-known/caldav {
           return 301 $scheme://$host/remote.php/dav;
       }
-    external-dns.alpha.kubernetes.io/target: "${SECRET_DOMAIN_2}"
-    hajimari.io/icon: mdi:harddisk
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/name: Nextcloud
+    gethomepage.dev/icon: nextcloud.png
+    #gethomepage.dev/widget.type: nextcloud
+    #gethomepage.dev/widget.url: https://nextcloud.${SECRET_DOMAIN_2}
+    #gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_NEXTCLOUD_TOKEN}}"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app

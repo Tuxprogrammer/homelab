@@ -25,7 +25,10 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "archive.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     external-dns.alpha.kubernetes.io/target: "${SECRET_DOMAIN_2}"
-    hajimari.io/icon: mdi:harddisk
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/name: Collabora Office
+    gethomepage.dev/icon: nextcloud.png
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app

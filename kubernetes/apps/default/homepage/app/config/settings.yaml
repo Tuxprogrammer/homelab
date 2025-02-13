@@ -1,0 +1,56 @@
+---
+title: Dashboard
+favicon: https://w7.pngwing.com/pngs/848/762/png-transparent-computer-icons-home-house-home-angle-building-rectangle-thumbnail.png
+useEqualHeights: true
+theme: dark
+background:
+  #image: https://steamuserimages-a.akamaihd.net/ugc/2058741574591785827/2336691F8F4832C7E7C2BA1E8240DA78C07A9BCE/
+  image: https://i.etsystatic.com/40991675/r/il/b84f71/5798919251/il_fullxfull.5798919251_6ht1.jpg
+  opacity: 20
+color: slate
+headerStyle: boxed
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: true
+  showSearchSuggestions: true
+  hideVisitURL: true
+target: _self
+layout:
+  Network:
+    style: row
+    columns: 1
+    icon: mdi-network
+  Calendar:
+    style: column
+    icon: mdi-calendar
+  Video:
+    style: column
+    icon: mdi-play-circle
+  Books:
+    style: row
+    columns: 2
+    icon: mdi-book
+  Infrastructure:
+    style: row
+    columns: 2
+    icon: mdi-server
+  Observability:
+    style: row
+    columns: 2
+    icon: mdi-chart-line
+  Home:
+    style: row
+    columns: 3
+    icon: mdi-home-analytics
+  Downloads:
+    style: row
+    columns: 3
+    icon: mdi-download-circle
+  Services:
+    style: row
+    columns: 5
+    icon: mdi-tools
+  Media:
+    style: row
+    columns: 3
+    icon: mdi-television-play

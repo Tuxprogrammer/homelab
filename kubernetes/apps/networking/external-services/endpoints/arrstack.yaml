@@ -37,7 +37,7 @@ metadata:
       location = / {
         return 301 https://plex.${SECRET_DOMAIN_2}/web/index.html;
       }
-    hajimari.io/icon: mdi:pirate
+    gethomepage.dev/enabled: "false"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -68,7 +68,7 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-    hajimari.io/icon: mdi:play-box
+    gethomepage.dev/enabled: "false"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -106,7 +106,7 @@ metadata:
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
       error_page 405 =200 $uri;
-    hajimari.io/icon: mdi:monitor
+    gethomepage.dev/enabled: "false"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -142,7 +142,14 @@ metadata:
       location = / {
         return 301 https://plex.${SECRET_DOMAIN_2}/web/index.html;
       }
-    hajimari.io/icon: mdi:pirate
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/name: Plex
+    gethomepage.dev/icon: plex.png
+    gethomepage.dev/description: Plex Media Player
+    gethomepage.dev/widget.type: plex
+    gethomepage.dev/widget.url: http://plex.media:32400
+    gethomepage.dev/widget.key: "{{ `{{HOMEPAGE_VAR_PLEX_TOKEN}}` }}"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -173,7 +180,14 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
-    hajimari.io/icon: mdi:play-box
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/name: Overseerr
+    gethomepage.dev/icon: overseerr
+    gethomepage.dev/description: Media Request Management
+    gethomepage.dev/widget.type: overseerr
+    gethomepage.dev/widget.url: http://overseerr.media
+    gethomepage.dev/widget.key: "{{ `{{HOMEPAGE_VAR_OVERSEERR_API_KEY}}` }}"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
@@ -211,7 +225,11 @@ metadata:
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
       error_page 405 =200 $uri;
-    hajimari.io/icon: mdi:monitor
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Networking
+    gethomepage.dev/name: Guacamole
+    gethomepage.dev/icon: guacamole
+    gethomepage.dev/description: Remote Desktop Gateway
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
