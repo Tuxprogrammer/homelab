@@ -76,7 +76,7 @@ spec:
           - subPath: kubernetes.yaml
             path: /app/config/kubernetes.yaml
           - subPath: services.yaml
-            path: /app/config/services.yaml
+            path: /app/config/external-services.yaml
           - subPath: settings.yaml
             path: /app/config/settings.yaml
           - subPath: widgets.yaml
