@@ -35,6 +35,7 @@ spec:
               PORT: &port 5055
             probes:
               liveness: &probes
+                # TODO: FOR TESTING ONLY
                 enabled: false
                 custom: true
                 spec:
