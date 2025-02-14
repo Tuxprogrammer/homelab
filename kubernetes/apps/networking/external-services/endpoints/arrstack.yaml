@@ -15,10 +15,6 @@ spec:
       port: &plex 32400
       protocol: TCP
       targetPort: *plex
-    - name: overseerr
-      port: &overseerr 5055
-      protocol: TCP
-      targetPort: *overseerr
     - name: guacamole
       port: &guacamole 8086
       protocol: TCP
@@ -54,37 +50,6 @@ spec:
                 name: arrstack
                 port:
                   name: plex
-  tls:
-    - hosts:
-        - *host
-      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: &app arrstack-overseerr
-  namespace: networking
-  annotations:
-    nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-    gethomepage.dev/enabled: "false"
-  labels:
-    app.kubernetes.io/name: *app
-    app.kubernetes.io/instance: *app
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: &host "overseerr.${SECRET_DOMAIN}"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: arrstack
-                port:
-                  name: overseerr
   tls:
     - hosts:
         - *host
@@ -166,44 +131,6 @@ spec:
                 name: arrstack
                 port:
                   name: plex
-  tls:
-    - hosts:
-        - *host
-      secretName: "arrstack-${SECRET_DOMAIN_2/./-}-production-tls"
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: &app arrstack-overseerr-2
-  namespace: networking
-  annotations:
-    nginx.ingress.kubernetes.io/upstream-vhost: "overseerr.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
-    gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Media
-    gethomepage.dev/name: Overseerr
-    gethomepage.dev/icon: overseerr
-    gethomepage.dev/description: Media Request Management
-    gethomepage.dev/widget.type: overseerr
-    gethomepage.dev/widget.url: http://overseerr.${SECRET_DOMAIN_2}:5055
-    gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_OVERSEERR_API_KEY}}"
-  labels:
-    app.kubernetes.io/name: *app
-    app.kubernetes.io/instance: *app
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: &host "overseerr.${SECRET_DOMAIN_2}"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: arrstack
-                port:
-                  name: overseerr
   tls:
     - hosts:
         - *host
