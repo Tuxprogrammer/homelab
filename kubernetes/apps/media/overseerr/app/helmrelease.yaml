@@ -27,13 +27,14 @@ spec:
             image:
               repository: ghcr.io/sct/overseerr
               tag: develop@sha256:bcd1ef5c2501c3210b3a8bbaf124f9f3b241f23a3f55038f80412f20e625bd17
+            command: ["sleep", "infinity"]
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
               PORT: &port 5055
             probes:
               liveness: &probes
-                enabled: true
+                enabled: false
                 custom: true
                 spec:
                   httpGet:
