@@ -7,7 +7,7 @@ resources:
   - ./helmrelease.yaml
 labels:
   - pairs:
-      app.kubernetes.io/name: arrstack
-      app.kubernetes.io/instance: arrstack
+      app.kubernetes.io/name: overseerr
+      app.kubernetes.io/instance: overseerr
 generatorOptions:
   disableNameSuffixHash: true
