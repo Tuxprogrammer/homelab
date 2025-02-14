@@ -83,15 +83,15 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/group: Media
-          gethomepage.dev/name: Overseerr
-          gethomepage.dev/icon: overseerr
-          gethomepage.dev/description: Media Request Management
-          gethomepage.dev/widget.type: overseerr
-          gethomepage.dev/widget.url: http://overseerr.media.svc.cluster.local:5055
+          gethomepage.dev/group: "{{ .Release.namespace|capitalize }}"
+          gethomepage.dev/name: "{{ .Release.name|capitalize }}"
+          gethomepage.dev/icon: "{{ .Release.name }}"
+          gethomepage.dev/description: "Media Request Management"
+          gethomepage.dev/widget.type: "{{ .Release.name }}"
+          gethomepage.dev/widget.url: "http://{{ .Release.name }}.{{ .Release.namespace }}.svc.cluster.local:{{ .Values.service.{{ .Release.name }}.ports.http.port }}"
           gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_OVERSEERR_TOKEN }}` }}"
         hosts:
-          - host: "overseerr.${SECRET_DOMAIN}"
+          - host: "{{ .Release.name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
