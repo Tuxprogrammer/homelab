@@ -111,3 +111,9 @@ spec:
           *app :
             *app :
               - path: /app/config/logs
+      tmp:
+        type: emptyDir
+        advancedMounts:
+          *app :
+            *app :
+              - path: /tmp
