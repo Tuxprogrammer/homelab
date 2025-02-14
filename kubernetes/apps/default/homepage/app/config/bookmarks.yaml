@@ -69,3 +69,7 @@
         - icon: https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/brand-icons/product/png/outlook_96x1.png
           href: "https://portal.office365.us"
           target: _self
+    - prism:
+        - icon: https://companieslogo.com/img/orig/LDOS-9dbc97eb.png?t=1720244492
+          href: "https://prism.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
+          target: _self
