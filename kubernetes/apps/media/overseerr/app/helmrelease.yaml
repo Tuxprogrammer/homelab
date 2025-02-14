@@ -18,6 +18,7 @@ spec:
       namespace: rook-ceph
     - name: rook-ceph-cluster
       namespace: rook-ceph
+  interval: 15m
   values:
     controllers:
       *app :
