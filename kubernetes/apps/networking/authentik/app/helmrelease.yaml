@@ -127,7 +127,7 @@ spec:
           cpu: 100m
           memory: 1Gi
         limits:
-          cpu: 500m
+          cpu: 2000m
           memory: 2Gi
 
     worker:
@@ -147,7 +147,7 @@ spec:
           cpu: 500m
           memory: 750Mi
         limits:
-          cpu: 1000m
+          cpu: 2000m
           memory: 2Gi
     postgresql:
       enabled: true
