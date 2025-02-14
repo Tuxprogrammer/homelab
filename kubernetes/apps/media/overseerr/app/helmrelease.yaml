@@ -83,15 +83,15 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/group: "{{ title .Release.namespace }}"
-          gethomepage.dev/name: "{{ title .Release.name }}"
-          gethomepage.dev/icon: "{{ .Release.name }}"
+          gethomepage.dev/group: {{ title .Release.Namespace | quote}}
+          gethomepage.dev/name: {{ title .Release.Name | quote}}
+          gethomepage.dev/icon: {{ .Release.Name | quote}}
           gethomepage.dev/description: "Media Request Management"
-          gethomepage.dev/widget.type: "{{ .Release.name }}"
-          gethomepage.dev/widget.url: "http://{{ .Release.name }}.{{ .Release.namespace }}.svc.cluster.local:{{ .Values.service.{{ .Release.name }}.ports.http.port }}"
+          gethomepage.dev/widget.type: {{ .Release.Name | quote}}
+          gethomepage.dev/widget.url: http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values "service" .Release.Name "ports" "http" "port" }}
           gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_OVERSEERR_TOKEN }}` }}"
         hosts:
-          - host: "{{ .Release.name }}.${SECRET_DOMAIN}"
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
