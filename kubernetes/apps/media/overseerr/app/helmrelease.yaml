@@ -83,8 +83,8 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/group: "{{ .Release.namespace|capitalize }}"
-          gethomepage.dev/name: "{{ .Release.name|capitalize }}"
+          gethomepage.dev/group: "{{ title .Release.namespace }}"
+          gethomepage.dev/name: "{{ title .Release.name }}"
           gethomepage.dev/icon: "{{ .Release.name }}"
           gethomepage.dev/description: "Media Request Management"
           gethomepage.dev/widget.type: "{{ .Release.name }}"
