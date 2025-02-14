@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-store1
+  namespace: media
+spec:
+  storageClassName: media
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: node10.${SECRET_DOMAIN_2}
+    path: "/mnt/store1/linux"
+  mountOptions:
+    - nfsvers=4.1
+    - rsize=131072
+    - wsize=131072
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-archive0
+  namespace: media
+spec:
+  storageClassName: media
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: archive.${SECRET_DOMAIN_2}
+    path: "/mnt/archive0/linux"
+  mountOptions:
+    - nfsvers=3
+    - rsize=131072
+    - wsize=131072
