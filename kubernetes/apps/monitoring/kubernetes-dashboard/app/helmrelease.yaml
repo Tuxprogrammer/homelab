@@ -63,6 +63,9 @@ spec:
           gethomepage.dev/icon: kubernetes
         hosts:
           - &host "kubernetes.${SECRET_DOMAIN}"
+        issuer:
+          name: "letsencrypt-production"
+          scope: cluster
         tls:
           enabled: true
 
