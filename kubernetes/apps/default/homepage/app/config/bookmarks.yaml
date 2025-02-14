@@ -69,6 +69,10 @@
         - icon: https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/brand-icons/product/png/outlook_96x1.png
           href: "https://portal.office365.us"
           target: _self
+    - teams:
+        - icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/2203px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
+          href: "https://gov.teams.microsoft.us.mcas-gov.us/v2"
+          target: _self
     - prism:
         - icon: https://companieslogo.com/img/orig/LDOS-9dbc97eb.png?t=1720244492
           href: "https://prism.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
