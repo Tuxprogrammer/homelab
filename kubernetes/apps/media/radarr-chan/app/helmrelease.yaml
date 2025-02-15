@@ -109,8 +109,8 @@ spec:
           http:
             port: *port
             primary: true
-          metrics:
-            port: *metricsPort
+          # metrics:
+          #   port: *metricsPort
     ingress:
       *app :
         enabled: true
