@@ -53,7 +53,7 @@ spec:
           subPath: flow_background.jpg
           readOnly: true
         - name: custom-assets-icon-left-brand
-          mountPath: /web/dist/assets/images/icon_left_brand.svg
+          mountPath: /web/dist/assets/icons/icon_left_brand.svg
           subPath: icon_left_brand.svg
           readOnly: true
         # assets/theme-dark.css -> /web/dist/theme-dark.css
