@@ -10,12 +10,21 @@ configMapGenerator:
   - name: authentik-assets-flow-background-jpg
     files:
       - assets/flow_background.jpg
-  - name: authentik-assets-theme-dark-css
-    files:
-      - assets/theme-dark.css
   - name: authentik-assets-icon-left-brand
     files:
       - assets/icon_left_brand.svg
+  - name: authentik-assets-montserrat-alt1-regular-ttf
+    files:
+      - assets/MontserratAlt1-Regular.ttf
+  - name: authentik-assets-montserrat-alt1-regular-woff
+    files:
+      - assets/MontserratAlt1-Regular.woff
+  - name: authentik-assets-montserrat-alt1-regular-woff2
+    files:
+      - assets/MontserratAlt1-Regular.woff2
+  - name: authentik-assets-theme-dark-css
+    files:
+      - assets/theme-dark.css
 generatorOptions:
   disableNameSuffixHash: true
 resources:

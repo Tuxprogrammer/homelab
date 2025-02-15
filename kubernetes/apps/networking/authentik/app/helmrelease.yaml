@@ -52,9 +52,25 @@ spec:
           mountPath: /web/dist/assets/images/flow_background.jpg
           subPath: flow_background.jpg
           readOnly: true
+        # assets/icon_left_brand.svg -> /web/dist/assets/icons/icon_left_brand.svg
         - name: custom-assets-icon-left-brand
           mountPath: /web/dist/assets/icons/icon_left_brand.svg
           subPath: icon_left_brand.svg
+          readOnly: true
+        # MontserratAlt1-Regular.ttf -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.ttf
+        - name: custom-assets-montserrat-alt1-regular-ttf
+          mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.ttf
+          subPath: MontserratAlt1-Regular.ttf
+          readOnly: true
+        # MontserratAlt1-Regular.woff -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff
+        - name: custom-assets-montserrat-alt1-regular-woff
+          mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff
+          subPath: MontserratAlt1-Regular.woff
+          readOnly: true
+        # MontserratAlt1-Regular.woff2 -> /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff2
+        - name: custom-assets-montserrat-alt1-regular-woff2
+          mountPath: /web/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff2
+          subPath: MontserratAlt1-Regular.woff2
           readOnly: true
         # assets/theme-dark.css -> /web/dist/theme-dark.css
         - name: custom-assets-theme-dark-css
@@ -72,6 +88,15 @@ spec:
         - name: custom-assets-icon-left-brand
           configMap:
             name: authentik-assets-icon-left-brand
+        - name: custom-assets-montserrat-alt1-regular-ttf
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-ttf
+        - name: custom-assets-montserrat-alt1-regular-woff
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-woff
+        - name: custom-assets-montserrat-alt1-regular-woff2
+          configMap:
+            name: authentik-assets-montserrat-alt1-regular-woff2
         - name: custom-assets-theme-dark-css
           configMap:
             name: authentik-assets-theme-dark-css
