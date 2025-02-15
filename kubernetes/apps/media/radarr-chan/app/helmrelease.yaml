@@ -44,7 +44,7 @@ spec:
               RADARR__UPDATE__BRANCH: develop
             probes:
               liveness: &probes
-                enabled: false
+                enabled: true
                 custom: true
                 spec:
                   httpGet:
@@ -69,31 +69,31 @@ spec:
                 memory: 350Mi
               limits:
                 memory: 2Gi
-          # exporter:
-          #   image:
-          #     repository: ghcr.io/onedr0p/exportarr
-          #     tag: v2.0.1
-          #   args:
-          #     - radarr
-          #     - --enable-additional-metrics
-          #   env:
-          #     - name: URL
-          #       value: "http://localhost"
-          #     - name: CONFIG
-          #       value: "/config/config.xml"
-          #     - name: PORT
-          #       value: &metricsPort 9707
-          #   securityContext:
-          #     allowPrivilegeEscalation: false
-          #     readOnlyRootFilesystem: true
-          #     capabilities:
-          #       drop:
-          #         - ALL
-          #   resources:
-          #     requests:
-          #       cpu: 10m
-          #     limits:
-          #       memory: 128Mi
+          exporter:
+            image:
+              repository: ghcr.io/onedr0p/exportarr
+              tag: v2.0.1
+            args:
+              - radarr
+              - --enable-additional-metrics
+            env:
+              - name: URL
+                value: "http://localhost"
+              - name: CONFIG
+                value: "/config/config.xml"
+              - name: PORT
+                value: &metricsPort 9707
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 128Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -109,8 +109,8 @@ spec:
           http:
             port: *port
             primary: true
-          # metrics:
-          #   port: *metricsPort
+          metrics:
+            port: *metricsPort
     ingress:
       *app :
         enabled: true
@@ -168,13 +168,13 @@ spec:
           *app :
             *app :
               - path: /tmp
-    # serviceMonitor:
-    #   metrics:
-    #     enabled: true
-    #     serviceName: *app
-    #     endpoints:
-    #       - port: metrics
-    #         scheme: http
-    #         path: /metrics
-    #         interval: 10m
-    #         scrapeTimeout: 10s
+    serviceMonitor:
+      metrics:
+        enabled: true
+        serviceName: *app
+        endpoints:
+          - port: metrics
+            scheme: http
+            path: /metrics
+            interval: 10m
+            scrapeTimeout: 10s
