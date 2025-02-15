@@ -52,6 +52,10 @@ spec:
           mountPath: /web/dist/assets/images/flow_background.jpg
           subPath: flow_background.jpg
           readOnly: true
+        - name: custom-assets-icon-left-brand
+          mountPath: /web/dist/assets/images/icon_left_brand.svg
+          subPath: icon_left_brand.svg
+          readOnly: true
         # assets/theme-dark.css -> /web/dist/theme-dark.css
         - name: custom-assets-theme-dark-css
           mountPath: /web/dist/theme-dark.css
@@ -59,24 +63,15 @@ spec:
           readOnly: true
 
       volumes:
-        - name: custom-assets-base-full-html
-          configMap:
-            name: authentik-assets-base-full-html
         - name: custom-assets-custom-css
           configMap:
             name: authentik-assets-custom-css
         - name: custom-assets-flow-background-jpg
           configMap:
             name: authentik-assets-flow-background-jpg
-        - name: custom-assets-montserrat-alt1-regular-ttf
+        - name: custom-assets-icon-left-brand
           configMap:
-            name: authentik-assets-montserrat-alt1-regular-ttf
-        - name: custom-assets-montserrat-alt1-regular-woff
-          configMap:
-            name: authentik-assets-montserrat-alt1-regular-woff
-        - name: custom-assets-montserrat-alt1-regular-woff2
-          configMap:
-            name: authentik-assets-montserrat-alt1-regular-woff2
+            name: authentik-assets-icon-left-brand
         - name: custom-assets-theme-dark-css
           configMap:
             name: authentik-assets-theme-dark-css

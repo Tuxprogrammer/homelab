@@ -13,6 +13,9 @@ configMapGenerator:
   - name: authentik-assets-theme-dark-css
     files:
       - assets/theme-dark.css
+  - name: icon-left-brand
+    files:
+      - assets/icon_left_brand.svg
 generatorOptions:
   disableNameSuffixHash: true
 resources:
