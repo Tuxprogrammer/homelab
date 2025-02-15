@@ -21,15 +21,15 @@ layout:
     icon: mdi-update
   Services:
     style: column
-    columns: 4
     icon: mdi-tools
     iconsOnly: true
-  Media:
-    style: column
-    icon: mdi-television-play
   Monitoring:
     style: column
     icon: mdi-monitor-dashboard
+  Media:
+    style: row
+    columns: 4
+    icon: mdi-television-play
   Network:
     style: row
     columns: 1
