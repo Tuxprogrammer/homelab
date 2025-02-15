@@ -141,7 +141,7 @@ spec:
     persistence:
       config:
         accessMode: ReadWriteOnce
-        size: 1Gi
+        size: 10Gi
         storageClass: ceph-block-internal
         advancedMounts:
           *app :
