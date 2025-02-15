@@ -69,6 +69,7 @@ spec:
             image:
               repository: ghcr.io/onedr0p/exportarr
               tag: v2.0.1
+            command: ["sleep", "infinity"]
             args:
               - sonarr
               - --enable-additional-metrics

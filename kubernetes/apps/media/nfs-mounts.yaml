@@ -15,9 +15,23 @@ spec:
     server: node10.${SECRET_DOMAIN_2}
     path: "/mnt/store1/linux"
   mountOptions:
-    - nfsvers=4.1
+    - nfsvers=4.2
     - rsize=131072
     - wsize=131072
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-store1
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: media
+  volumeName: media-store1
+  resources:
+    requests:
+      storage: 1Mi
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -35,6 +49,20 @@ spec:
     server: archive.${SECRET_DOMAIN_2}
     path: "/mnt/archive0/linux"
   mountOptions:
-    - nfsvers=3
+    - nfsvers=4.2
     - rsize=131072
     - wsize=131072
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-archive0
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: media
+  volumeName: media-archive0
+  resources:
+    requests:
+      storage: 1Mi
