@@ -125,7 +125,7 @@ spec:
           gethomepage.dev/group: "{{ title .Release.Namespace }}"
           gethomepage.dev/name: "{{ title .Release.Name}}"
           gethomepage.dev/icon: *app
-          gethomepage.dev/description: "Media Request Management"
+          gethomepage.dev/description: "Anime Series Request Management"
           gethomepage.dev/widget.type: *app
           gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"sonarr\" \"ports\" \"http\" \"port\" }}"
           gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_SONARR_CHAN_TOKEN}}`}}"
