@@ -30,7 +30,6 @@ spec:
             image:
               repository: ghcr.io/onedr0p/radarr
               tag: 5.17.2.9580@sha256:32d0e8d46f5619069d88445936670ffbca5a3aab7ed2e94e77a834ed85df81bb
-            command: ["sleep", "infinity"]
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
