@@ -70,9 +70,9 @@ spec:
               repository: ghcr.io/onedr0p/exportarr
               tag: v2.0.1
             command: ["sleep", "infinity"]
-            args:
-              - sonarr
-              - --enable-additional-metrics
+            #args:
+            #  - sonarr
+            # - --enable-additional-metrics
             env:
               - name: URL
                 value: "http://localhost"
