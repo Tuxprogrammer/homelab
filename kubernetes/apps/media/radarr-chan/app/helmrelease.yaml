@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sonarr-chan
+  name: radarr-chan
   namespace: media
 spec:
   chart:
@@ -21,28 +21,30 @@ spec:
   interval: 15m
   values:
     controllers:
-      &app "sonarr":
+      &app "radarr":
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
           *app :
             image:
-              repository: ghcr.io/onedr0p/sonarr-develop
-              tag: 4.0.13.2931@sha256:593a0fd5e941d7486e74b349a584dfea076f1e38ae170e0460ed7d2bad417670
+              repository: ghcr.io/onedr0p/radarr
+              tag: 5.17.2.9580@sha256:32d0e8d46f5619069d88445936670ffbca5a3aab7ed2e94e77a834ed85df81bb
+            command: ["sleep", "infinity"]
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
-              SONARR__INSTANCE_NAME: Sonarr-chan
-              SONARR__AUTH__METHOD: External
-              SONARR__AUTH__REQUIRED: DisabledForLocalAddresses
-              SONARR__LOG__DBENABLED: "False"
-              SONARR__LOG__LEVEL: info
-              SONARR__SERVER__PORT: &port 8989
-              SONARR__UPDATE__BRANCH: develop
+              RADARR__INSTANCE_NAME: Radarr-chan
+              RADARR__SERVER__PORT: &port 7878
+              RADARR__APPLICATION_URL: https://radarr-chan.${SECRET_DOMAIN}
+              RADARR__AUTH__METHOD: External
+              RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
+              RADARR__LOG__DBENABLED: "False"
+              RADARR__LOG__LEVEL: info
+              RADARR__UPDATE__BRANCH: develop
             probes:
               liveness: &probes
-                enabled: true
+                enabled: false
                 custom: true
                 spec:
                   httpGet:
@@ -67,31 +69,31 @@ spec:
                 memory: 350Mi
               limits:
                 memory: 2Gi
-          exporter:
-            image:
-              repository: ghcr.io/onedr0p/exportarr
-              tag: v2.0.1
-            args:
-              - sonarr
-              - --enable-additional-metrics
-            env:
-              - name: URL
-                value: "http://localhost"
-              - name: CONFIG
-                value: "/config/config.xml"
-              - name: PORT
-                value: &metricsPort 9707
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities:
-                drop:
-                  - ALL
-            resources:
-              requests:
-                cpu: 10m
-              limits:
-                memory: 128Mi
+          # exporter:
+          #   image:
+          #     repository: ghcr.io/onedr0p/exportarr
+          #     tag: v2.0.1
+          #   args:
+          #     - radarr
+          #     - --enable-additional-metrics
+          #   env:
+          #     - name: URL
+          #       value: "http://localhost"
+          #     - name: CONFIG
+          #       value: "/config/config.xml"
+          #     - name: PORT
+          #       value: &metricsPort 9707
+          #   securityContext:
+          #     allowPrivilegeEscalation: false
+          #     readOnlyRootFilesystem: true
+          #     capabilities:
+          #       drop:
+          #         - ALL
+          #   resources:
+          #     requests:
+          #       cpu: 10m
+          #     limits:
+          #       memory: 128Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -127,8 +129,8 @@ spec:
           gethomepage.dev/icon: *app
           gethomepage.dev/description: "Media Request Management"
           gethomepage.dev/widget.type: *app
-          gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"sonarr\" \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_SONARR_CHAN_API_KEY }}` }}"
+          gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"radarr\" \"ports\" \"http\" \"port\" }}"
+          gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_RADARR_CHAN_API_KEY }}` }}"
           gethomepage.dev/widget.enableQueue: "true"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
@@ -155,7 +157,7 @@ spec:
           *app :
             *app :
               - path: /video
-                subPath: plex/media/TV
+                subPath: plex/media/Movies
               - path: /deluge
                 subPath: plex/deluge
               - path: /nzbget
@@ -166,13 +168,13 @@ spec:
           *app :
             *app :
               - path: /tmp
-    serviceMonitor:
-      metrics:
-        enabled: true
-        serviceName: *app
-        endpoints:
-          - port: metrics
-            scheme: http
-            path: /metrics
-            interval: 10m
-            scrapeTimeout: 10s
+    # serviceMonitor:
+    #   metrics:
+    #     enabled: true
+    #     serviceName: *app
+    #     endpoints:
+    #       - port: metrics
+    #         scheme: http
+    #         path: /metrics
+    #         interval: 10m
+    #         scrapeTimeout: 10s
