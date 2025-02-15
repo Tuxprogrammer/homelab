@@ -129,7 +129,7 @@ spec:
           gethomepage.dev/description: "Media Request Management"
           gethomepage.dev/widget.type: *app
           gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"radarr\" \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_RADARR_CHAN_API_KEY }}` }}"
+          gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_RADARR_CHAN_TOKEN}}`}}"
           gethomepage.dev/widget.enableQueue: "true"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"

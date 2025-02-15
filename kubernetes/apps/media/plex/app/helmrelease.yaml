@@ -97,7 +97,7 @@ spec:
           gethomepage.dev/description: "Media Request Management"
           gethomepage.dev/widget.type: "{{ .Release.Name }}"
           gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.key: "{{ `{{ HOMEPAGE_VAR_PLEX_API_KEY }}` }}"
+          gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_PLEX_TOKEN}}`}}"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
