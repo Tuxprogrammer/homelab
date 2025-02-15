@@ -5,3 +5,6 @@
          url('/static/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
          url('/static/dist/assets/fonts/montserratalt1/MontserratAlt1-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
+.ak-brand {
+    font-family: 'Montserrat-Alt1', sans-serif;
+}
