@@ -10,7 +10,7 @@ spec:
     - name: cluster-apps-ingress-nginx
     - name: cluster-apps-ingress-nginx-certificates
     - name: cluster-apps-cert-manager-issuers
-  path: ./kubernetes/apps/media/sonarr
+  path: ./kubernetes/apps/media/sonarr/app
   prune: true
   sourceRef:
     kind: GitRepository
