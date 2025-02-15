@@ -30,7 +30,6 @@ spec:
             image:
               repository: ghcr.io/onedr0p/sonarr-develop
               tag: 4.0.13.2931@sha256:593a0fd5e941d7486e74b349a584dfea076f1e38ae170e0460ed7d2bad417670
-            command: ["sleep", "infinity"]
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
@@ -43,7 +42,7 @@ spec:
               SONARR__UPDATE__BRANCH: develop
             probes:
               liveness: &probes
-                enabled: false
+                enabled: true
                 custom: true
                 spec:
                   httpGet:
@@ -68,31 +67,31 @@ spec:
                 memory: 350Mi
               limits:
                 memory: 2Gi
-          # exporter:
-          #   image:
-          #     repository: ghcr.io/onedr0p/exportarr
-          #     tag: v2.0.1
-          #   args:
-          #     - sonarr
-          #     - --enable-additional-metrics
-          #   env:
-          #     - name: URL
-          #       value: "http://localhost"
-          #     - name: CONFIG
-          #       value: "/config/config.xml"
-          #     - name: PORT
-          #       value: &metricsPort 9707
-          #   securityContext:
-          #     allowPrivilegeEscalation: false
-          #     readOnlyRootFilesystem: true
-          #     capabilities:
-          #       drop:
-          #         - ALL
-          #   resources:
-          #     requests:
-          #       cpu: 10m
-          #     limits:
-          #       memory: 128Mi
+          exporter:
+            image:
+              repository: ghcr.io/onedr0p/exportarr
+              tag: v2.0.1
+            args:
+              - sonarr
+              - --enable-additional-metrics
+            env:
+              - name: URL
+                value: "http://localhost"
+              - name: CONFIG
+                value: "/config/config.xml"
+              - name: PORT
+                value: &metricsPort 9707
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 128Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -108,8 +107,8 @@ spec:
           http:
             port: *port
             primary: true
-          # metrics:
-          #   port: *metricsPort
+          metrics:
+            port: *metricsPort
     ingress:
       *app :
         enabled: true
