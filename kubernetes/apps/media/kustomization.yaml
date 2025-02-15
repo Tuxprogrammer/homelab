@@ -5,4 +5,4 @@ resources:
   - ./namespace.yaml
   - ./nfs-mounts.yaml
   # Arrstack
-  #- ./overseerr/ks.yaml
+  - ./overseerr/ks.yaml
