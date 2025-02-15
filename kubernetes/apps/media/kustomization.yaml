@@ -11,3 +11,4 @@ resources:
   - ./sonarr-chan/ks.yaml
   - ./radarr/ks.yaml
   - ./radarr-chan/ks.yaml
+  # - ./plex/ks.yaml
