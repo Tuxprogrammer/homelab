@@ -9,3 +9,5 @@ resources:
   - ./overseerr/ks.yaml
   - ./sonarr/ks.yaml
   - ./sonarr-chan/ks.yaml
+  - ./radarr/ks.yaml
+  - ./radarr-chan/ks.yaml
