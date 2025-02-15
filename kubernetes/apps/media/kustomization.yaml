@@ -8,3 +8,4 @@ resources:
   # Arrstack
   - ./overseerr/ks.yaml
   - ./sonarr/ks.yaml
+  - ./sonarr-chan/ks.yaml

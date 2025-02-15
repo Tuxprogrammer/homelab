@@ -7,5 +7,5 @@ resources:
   - ./helmrelease.yaml
 labels:
   - pairs:
-      app.kubernetes.io/name: sonarr
-      app.kubernetes.io/instance: sonarr
+      app.kubernetes.io/name: sonarr-chan
+      app.kubernetes.io/instance: sonarr-chan
