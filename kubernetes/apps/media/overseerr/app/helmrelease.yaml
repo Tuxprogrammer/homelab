@@ -31,10 +31,9 @@ spec:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
               PORT: &port 5055
-            command: ["sleep", "infinity"]
             probes:
               liveness: &probes
-                enabled: false
+                enabled: true
                 custom: true
                 spec:
                   httpGet:
