@@ -136,7 +136,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: *app
+                  name: "{{ .Release.Name }}"
                   port: *port
     persistence:
       config:
