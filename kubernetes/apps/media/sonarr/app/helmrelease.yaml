@@ -153,7 +153,12 @@ spec:
         advancedMounts:
           *app :
             *app :
-              - path: /media
+              - path: /video
+                subPath: plex/media/TV
+              - path: /deluge
+                subPath: plex/deluge
+              - path: /nzbget
+                subPath: plex/nzbget
       tmp:
         type: emptyDir
         advancedMounts:
