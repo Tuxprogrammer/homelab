@@ -68,7 +68,15 @@ spec:
           scope: cluster
         tls:
           enabled: true
-
+    kong:
+      admin:
+        tls:
+          servicePort: 8448
+          contianerPort: 8448
+      proxy:
+        tls:
+          servicePort: 443
+          contianerPort: 8449
     metricsScraper:
       enabled: true
       containers:
@@ -76,4 +84,4 @@ spec:
           - name: TZ
             value: "${TIMEZONE}"
     serviceMonitor:
-      enabled: false
+      enabled: true
