@@ -75,10 +75,13 @@ spec:
             env:
               - name: URL
                 value: "http://localhost"
-              - name: CONFIG
-                value: "/config/config/config.xml"
               - name: PORT
                 value: &metricsPort 9707
+              - name: APIKEY
+                valueFrom:
+                  secretKeyRef:
+                    name: bazarr-secret
+                    key: BAZARR_API_KEY
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -144,8 +147,6 @@ spec:
         advancedMounts:
           *app :
             *app :
-              - path: /config
-            exporter:
               - path: /config
       media:
         existingClaim: media-archive0
