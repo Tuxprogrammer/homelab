@@ -76,7 +76,7 @@ spec:
               - name: URL
                 value: "http://localhost"
               - name: CONFIG
-                value: "/config/config.xml"
+                value: "/config/config/config.xml"
               - name: PORT
                 value: &metricsPort 9707
             securityContext:
