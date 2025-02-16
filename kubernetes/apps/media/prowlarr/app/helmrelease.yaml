@@ -38,7 +38,7 @@ spec:
               PROWLARR__AUTH__METHOD: External
               PROWLARR__AUTH__REQUIRED: DisabledForLocalAddresses
               PROWLARR__PORT: &port 9696
-              PROWLARR__APPLICATION_URL: "https://prowlarr.${INTERNAL_DOMAIN}"
+              PROWLARR__APPLICATION_URL: "https://prowlarr.${SECRET_DOMAIN}"
               PROWLARR__LOG_LEVEL: info
             command: ["sleep", "infinity"]
             probes:
