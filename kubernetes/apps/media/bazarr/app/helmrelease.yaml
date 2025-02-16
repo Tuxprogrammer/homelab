@@ -25,6 +25,17 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          chown-app:
+            image:
+              repository: docker.io/library/alpine
+              tag: "3.21"
+            command:
+              - /bin/sh
+              - -c
+            args:
+              - |
+                 chown 1000:1000 -R /config
         containers:
           *app :
             image:
