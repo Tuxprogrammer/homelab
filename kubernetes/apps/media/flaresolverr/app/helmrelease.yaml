@@ -58,7 +58,7 @@ spec:
                 memory: 150Mi
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities:
                 drop:
                   - ALL
@@ -85,9 +85,3 @@ spec:
             path: /metrics
             interval: 1m
             scrapeTimeout: 10s
-    persistence:
-      tmp:
-        type: emptyDir
-        globalMounts:
-          - path: /tmp
-          - path: /app/.local
