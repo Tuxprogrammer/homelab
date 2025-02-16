@@ -160,6 +160,8 @@ spec:
               - path: /config
             exporter:
               - path: /config
+            chown-app:
+              - path: /config
     serviceMonitor:
       metrics:
         enabled: true

@@ -159,6 +159,8 @@ spec:
           *app :
             *app :
               - path: /config
+            chown-app:
+              - path: /config
       media:
         existingClaim: media-archive0
         advancedMounts:
