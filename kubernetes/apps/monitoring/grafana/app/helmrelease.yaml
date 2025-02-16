@@ -23,7 +23,8 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    deploymentStrategy: Recreate
+    deploymentStrategy:
+      type: Recreate
     ingress:
       enabled: true
       annotations:
