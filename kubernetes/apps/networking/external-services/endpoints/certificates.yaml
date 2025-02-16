@@ -13,10 +13,10 @@ spec:
   dnsNames:
     - "media-services.${SECRET_DOMAIN_2}"
     - "plex.${SECRET_DOMAIN_2}"
-    - "overseerr.${SECRET_DOMAIN_2}"
+    - "jellyseerr.${SECRET_DOMAIN_2}"
     - "desktop.${SECRET_DOMAIN_2}"
     - "plex.${SECRET_DOMAIN}"
-    - "overseerr.${SECRET_DOMAIN}"
+    - "jellyseerr.${SECRET_DOMAIN}"
     - "desktop.${SECRET_DOMAIN}"
 ---
 apiVersion: cert-manager.io/v1

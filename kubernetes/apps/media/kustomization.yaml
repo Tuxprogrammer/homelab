@@ -8,6 +8,7 @@ resources:
   # Arrstack
   - ./bazarr/ks.yaml
   - ./overseerr/ks.yaml
+  - ./jellyseerr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
   - ./radarr-chan/ks.yaml
