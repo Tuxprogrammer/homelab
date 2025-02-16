@@ -35,9 +35,9 @@ spec:
               repository: ghcr.io/flaresolverr/flaresolverr
               tag: v3.3.21@sha256:f104ee51e5124d83cf3be9b37480649355d223f7d8f9e453d0d5ef06c6e3b31b
             env:
+              TZ: ${TIMEZONE}
               PORT: &port 8191
               PROMETHEUS_ENABLED: true
-              TZ: America/Los_Angeles
             probes:
               liveness: &probes
                 enabled: true
