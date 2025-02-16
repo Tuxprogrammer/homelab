@@ -7,7 +7,6 @@ resources:
   - ./nfs-mounts.yaml
   # Arrstack
   - ./bazarr/ks.yaml
-  - ./overseerr/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
