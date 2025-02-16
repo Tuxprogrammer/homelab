@@ -201,8 +201,8 @@ spec:
           revision: 2
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
-    dashboardsConfigMaps:
-      default: "custom-dashboards"
+    # dashboardsConfigMaps:
+    #   default: "custom-dashboards"
     grafana.ini:
       analytics:
         check_for_updates: false
