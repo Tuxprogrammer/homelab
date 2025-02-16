@@ -30,6 +30,10 @@ spec:
     keepHistory: false
   values:
     deploymentMode: SingleBinary
+    global:
+      clusterDomain: "cluster.local"
+      dnsService: "rke2-coredns-rke2-coredns"
+      dnsNamespace: "kube-system"
     loki:
       auth_enabled: false
       analytics:
