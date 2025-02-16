@@ -98,12 +98,6 @@ spec:
                   name: *app
                   port: *port
     persistence:
-      oldconfig:
-        existingClaim: overseerr-config
-        advancedMounts:
-          *app :
-            *app :
-              - path: /app/oldconfig
       config:
         accessMode: ReadWriteOnce
         size: 1Gi
