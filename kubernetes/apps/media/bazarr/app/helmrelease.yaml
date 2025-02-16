@@ -80,7 +80,7 @@ spec:
               - name: APIKEY
                 valueFrom:
                   secretKeyRef:
-                    name: bazarr-secret
+                    name: bazarr-secrets
                     key: BAZARR_API_KEY
             securityContext:
               allowPrivilegeEscalation: false
