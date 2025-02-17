@@ -209,11 +209,17 @@ spec:
         check_for_updates: false
         check_for_plugin_updates: false
         reporting_enabled: false
-      auth.anonymous:
+      auth:
+        signout_redirect_url: https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/sign_out
+      auth.proxy:
         enabled: true
-        org_id: 1
-        org_name: Main Org.
-        org_role: Viewer
+        header_name: X-authentik-username
+        header_property: username
+        auto_sign_up: true
+        sync_ttl: 60
+        whitelist: 127.0.0.1
+        headers: Name:X-authentik-name Groups:X-authentik-groups Email:X-authentik-email
+        enable_login_token: false
       news:
         news_feed_enabled: false
     sidecar:
