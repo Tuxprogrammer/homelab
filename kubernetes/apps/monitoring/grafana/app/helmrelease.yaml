@@ -230,6 +230,10 @@ spec:
         provider:
           disableDelete: true
           foldersFromFilesStructure: true
+    persistence:
+      enabled: true
+      storageClassName: rook-ceph-block
+      size: 1Gi
     imageRenderer:
       serviceMonitor:
         enabled: true
