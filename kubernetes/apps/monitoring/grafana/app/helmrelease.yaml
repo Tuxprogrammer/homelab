@@ -217,7 +217,7 @@ spec:
         header_property: username
         auto_sign_up: true
         sync_ttl: 60
-        whitelist: 127.0.0.1
+        #whitelist: 127.0.0.1
         headers: Name:X-authentik-name Groups:X-authentik-groups Email:X-authentik-email
         enable_login_token: false
       news:
