@@ -142,6 +142,10 @@ spec:
                 service:
                   name: "{{ .Release.Name }}"
                   port: *port
+        tls:
+          - hosts:
+              - *host
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
     persistence:
       config:
         accessMode: ReadWriteOnce
