@@ -101,6 +101,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN_2/./-}-production-tls"
     persistence:
       config:
         accessMode: ReadWriteOnce
