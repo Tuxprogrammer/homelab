@@ -95,9 +95,10 @@ spec:
           gethomepage.dev/icon: *app
           gethomepage.dev/description: "Book Library Management"
           gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.type: "calibre-web"
+          gethomepage.dev/widget.type: "calibreweb"
           gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_SONARR_CHAN_TOKEN}}`}}"
+          gethomepage.dev/widget.username: "{{`{{HOMEPAGE_VAR_CALIBREWEB_USERNAME}}`}}"
+          gethomepage.dev/widget.password: "{{`{{HOMEPAGE_VAR_CALIBREWEB_PASSWORD}}`}}"
           gethomepage.dev/widget.enableQueue: "true"
         hosts:
           - host: &host "calibre-web.${SECRET_DOMAIN}"
