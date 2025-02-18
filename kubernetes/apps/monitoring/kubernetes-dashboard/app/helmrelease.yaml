@@ -61,6 +61,7 @@ spec:
           gethomepage.dev/group: Monitoring
           gethomepage.dev/name: Kubernetes Dashboard
           gethomepage.dev/icon: kubernetes
+          gethomepage.dev/siteMonitor: "http://kubernetes-dashboard-web.monitoring.svc.cluster.local:8000"
         hosts:
           - &host "kubernetes.${SECRET_DOMAIN}"
         issuer:

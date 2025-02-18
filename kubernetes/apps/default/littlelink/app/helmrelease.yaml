@@ -125,6 +125,7 @@ spec:
           gethomepage.dev/group: Services
           gethomepage.dev/icon: littlelink-custom
           gethomepage.dev/name: Littlelink
+          gethomepage.dev/siteMonitor: "http://littlelink.default.svc.cluster.local:3000"
         hosts:
           - host: &host "${SECRET_DOMAIN}"
             paths:

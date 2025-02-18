@@ -61,6 +61,7 @@ spec:
           gethomepage.dev/pod-selector: app.kubernetes.io/name=alertmanager
           gethomepage.dev/group: Monitoring
           gethomepage.dev/description: Prometheus Alert Manager
+          gethomepage.dev/siteMonitor: "http://alertmanager-operated.monitoring.svc.cluster.local:9093"
         hosts:
           - &host "alert-manager.${SECRET_DOMAIN}"
         tls:
@@ -123,6 +124,7 @@ spec:
           gethomepage.dev/pod-selector: app.kubernetes.io/name=prometheus
           gethomepage.dev/group: Monitoring
           gethomepage.dev/description: Monitoring Scrape Service
+          gethomepage.dev/siteMonitor: "http://prometheus-operated.monitoring.svc.cluster.local:9090"
           gethomepage.dev/widget.type: prometheus
           gethomepage.dev/widget.url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
         hosts:

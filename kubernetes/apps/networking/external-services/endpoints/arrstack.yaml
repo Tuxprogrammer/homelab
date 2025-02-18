@@ -112,8 +112,9 @@ metadata:
     gethomepage.dev/name: Plex
     gethomepage.dev/icon: plex.png
     gethomepage.dev/description: Plex Media Player
+    gethomepage.dev/siteMonitor: "http://plex.${SECRET_DOMAIN_2}:32400"
     gethomepage.dev/widget.type: plex
-    gethomepage.dev/widget.url: http://plex.${SECRET_DOMAIN_2}:32400
+    gethomepage.dev/widget.url: "http://plex.${SECRET_DOMAIN_2}:32400"
     gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
   labels:
     app.kubernetes.io/name: *app
@@ -157,6 +158,8 @@ metadata:
     gethomepage.dev/name: Guacamole
     gethomepage.dev/icon: guacamole
     gethomepage.dev/description: Remote Desktop Gateway
+    gethomepage.dev/siteMonitor: "http://desktop.${SECRET_DOMAIN_2}"
+
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app

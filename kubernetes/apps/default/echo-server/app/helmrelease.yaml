@@ -91,6 +91,7 @@ spec:
           gethomepage.dev/group: Networking
           gethomepage.dev/icon: mdi-web
           gethomepage.dev/name: Echo Server
+          gethomepage.dev/siteMonitor: "http://echo-server.default.svc.cluster.local:8080"
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:

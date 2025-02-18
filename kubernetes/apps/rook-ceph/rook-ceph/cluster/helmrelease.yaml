@@ -43,7 +43,7 @@ spec:
           gethomepage.dev/name: Ceph
           gethomepage.dev/icon: si-ceph
           gethomepage.dev/description: Ceph Dashboard
-          gethomepage.dev/siteMonitor: http://rook-ceph-mgr-dashboard.rook-ceph:7000
+          gethomepage.dev/siteMonitor: "http://rook-ceph-mgr-dashboard.rook-ceph.svc.cluster.local:7000"
           gethomepage.dev/pod-selector: >-
             app.kubernetes.io/name in (ceph-mgr)
         host:

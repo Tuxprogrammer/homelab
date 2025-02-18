@@ -116,6 +116,7 @@ spec:
           gethomepage.dev/icon: bitwarden.png
           gethomepage.dev/description: Bitwarden Password Manager
           gethomepage.dev/group: Services
+          gethomepage.dev/siteMonitor: "http://vaultwarden.default.svc.cluster.local:80"
         hosts:
           - host: &host "bitwarden.${SECRET_DOMAIN_2}"
             paths:
