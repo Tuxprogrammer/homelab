@@ -92,7 +92,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: "{{ title .Release.Namespace }}"
           gethomepage.dev/name: "{{ title .Release.Name}}"
-          gethomepage.dev/icon: "calibreweb"
+          gethomepage.dev/icon: "calibre-web"
           gethomepage.dev/description: "Book Library Management"
           gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
           gethomepage.dev/widget.type: "calibreweb"
