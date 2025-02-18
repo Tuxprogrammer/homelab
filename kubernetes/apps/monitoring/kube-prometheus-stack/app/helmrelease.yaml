@@ -66,6 +66,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "alert-manager-${SECRET_DOMAIN/./-}-production-tls"
         pathType: Prefix
         externalUrl: https://alert-manager.${SECRET_DOMAIN}
         storage:
@@ -129,6 +130,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "prometheus-${SECRET_DOMAIN/./-}-production-tls"
         pathType: Prefix
       prometheusSpec:
         podMonitorSelectorNilUsesHelmValues: false

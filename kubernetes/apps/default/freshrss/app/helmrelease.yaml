@@ -106,6 +106,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
     persistence:
       data:
         enabled: true
