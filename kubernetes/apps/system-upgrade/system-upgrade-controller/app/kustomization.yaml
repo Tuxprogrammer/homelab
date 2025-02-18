@@ -1,0 +1,19 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Pre Flux-Kustomizations
+  - https://github.com/rancher/system-upgrade-controller/releases/latest/download/crd.yaml
+  - https://github.com/rancher/system-upgrade-controller/releases/latest/download/system-upgrade-controller.yaml
+  - ./server-plan.yaml
+  - ./agent-plan.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: system-upgrade-controller
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/securityContext
+        value:
+          privileged: true
