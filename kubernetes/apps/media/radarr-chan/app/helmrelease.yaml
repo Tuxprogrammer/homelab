@@ -129,7 +129,7 @@ spec:
           gethomepage.dev/name: "{{ title .Release.Name}}"
           gethomepage.dev/icon: *app
           gethomepage.dev/description: "Anime Movies Request Management"
-          gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+          gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"radarr\" \"ports\" \"http\" \"port\" }}"
           gethomepage.dev/widget.type: *app
           gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"radarr\" \"ports\" \"http\" \"port\" }}"
           gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_RADARR_CHAN_TOKEN}}`}}"
