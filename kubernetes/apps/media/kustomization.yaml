@@ -6,6 +6,7 @@ resources:
   - ./namespace.yaml
   - ./nfs-mounts.yaml
   # Arrstack
+  - ./calibre-web-automated/ks.yaml
   - ./bazarr/ks.yaml
   - ./flaresolverr/ks.yaml
   - ./jellyseerr/ks.yaml
