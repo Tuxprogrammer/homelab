@@ -1,0 +1,18 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ceph-filesystem-ext-external
+provisioner: rook-ceph.cephfs.csi.ceph.com
+parameters:
+  clusterID: ${CLUSTER_ID_CEPHFS}
+  fsName: ${CEPHFS_FS_NAME}
+  pool: ${CEPHFS_POOL_NAME}
+  csi.storage.k8s.io/provisioner-secret-name: "rook-${CSI_CEPHFS_PROVISIONER_SECRET_NAME}-external"
+  csi.storage.k8s.io/provisioner-secret-namespace: ${NAMESPACE}
+  csi.storage.k8s.io/controller-expand-secret-name: "rook-${CSI_CEPHFS_PROVISIONER_SECRET_NAME}-external"
+  csi.storage.k8s.io/controller-expand-secret-namespace: ${NAMESPACE}
+  csi.storage.k8s.io/node-stage-secret-name: "rook-${CSI_CEPHFS_NODE_SECRET_NAME}-external"
+  csi.storage.k8s.io/node-stage-secret-namespace: ${NAMESPACE}
+allowVolumeExpansion: true
+reclaimPolicy: Delete

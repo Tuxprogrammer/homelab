@@ -6,6 +6,16 @@ namespace: rook-ceph
 resources:
   - ./helmrelease.yaml
   - ./reweight-job.yaml
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/reloader.stakater.com~1auto
+        value: "true"
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: rook-ceph-tools
 labels:
   - pairs:
       app.kubernetes.io/name: rook-ceph-cluster
