@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: rook-ceph
+resources:
+  - configs/rook-ceph-mon-endpoints.yaml
+  - secrets/rook-ceph-mon.yaml
+  - secrets/rook-csi-rbd-node.yaml
+  - secrets/rook-csi-rbd-provisioner.yaml
+  - secrets/rook-csi-cephfs-node.yaml
+  - secrets/rook-csi-cephfs-provisioner.yaml
+  - secrets/rgw-admin-ops-user.yaml
+  - storageclasses/ceph-filesystem-ext.yaml
+  - ./helmrelease.yaml
+configurations:
+  - kustomizeconfig.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/name: rook-ceph-cluster-external
+      app.kubernetes.io/instance: rook-ceph-cluster-external
+      app.kubernetes.io/part-of: rook-ceph-external

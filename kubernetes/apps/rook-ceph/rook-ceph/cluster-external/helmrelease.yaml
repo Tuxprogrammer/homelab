@@ -1,0 +1,118 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rook-ceph-cluster-external
+  namespace: rook-ceph
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: rook-ceph-cluster
+      version: v1.16.3
+      sourceRef:
+        kind: HelmRepository
+        name: rook-ceph
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+    timeout: 60m
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+    timeout: 60m
+  uninstall:
+    keepHistory: false
+    timeout: 5m
+  values:
+    # Create an external cluster
+    cephClusterSpec:
+      # Need an empty key here so that it doesn't try to specify a cluster version to check against or
+      # block pools will fail.
+      cephVersion: {}
+      dataDirHostPath: /var/lib/rook-external
+      external:
+        enable: true
+      crashCollector:
+        disable: true
+      healthCheck:
+        daemonHealth:
+          mon:
+            disabled: false
+            interval: 45s
+
+    # Turn on monitoring
+    monitoring:
+      enabled: true
+      externalMgrEndpoints:
+        - ip: "${MONITORING_ENDPOINT_MGR_1}"
+        - ip: "${MONITORING_ENDPOINT_MGR_2}"
+      externalMgrPrometheusPort: 9283
+
+    # Run the ceph-toolbox pod
+    toolbox:
+      enabled: true
+
+    # Create a ceph-block-external storageclass and CephBlock object
+    cephBlockPools:
+      - name: ceph-shared
+        spec:
+          failureDomain: host
+          replicated:
+            size: 3
+        storageClass:
+          enabled: true
+          name: ceph-block-ext
+          isDefault: false
+          reclaimPolicy: Delete
+          allowVolumeExpansion: true
+          parameters:
+            imageFormat: "2"
+            imageFeatures: layering
+            csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/provisioner-secret-namespace: ${NAMESPACE}
+            csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/controller-expand-secret-namespace: ${NAMESPACE}
+            csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+            csi.storage.k8s.io/node-stage-secret-namespace: ${NAMESPACE}
+            csi.storage.k8s.io/fstype: ext4
+
+    cephFileSystems: []
+    ### CANNOT ADD ANY CEPHFILESYSTEMS IN THIS HELM CHART. STORAGE CLASS WILL BE ADDED INSTEAD. ###
+
+    cephObjectStores: []
+      # - name: ceph-objectstore-ext
+      #   storageClass:
+      #     enabled: true
+      #     name: ceph-bucket-ext
+      #     reclaimPolicy: Delete
+      #     parameters:
+      #       region: us-east-1
+      #   spec:
+      #     metadataPool:
+      #       failureDomain: host
+      #       replicated:
+      #         size: 3
+      #     dataPool:
+      #       failureDomain: host
+      #       erasureCoded:
+      #         dataChunks: 2
+      #         codingChunks: 1
+      #     preservePoolsOnDelete: true
+      #     gateway:
+      #       port: 80
+      #       resources:
+      #         limits:
+      #           cpu: "2000m"
+      #           memory: "2Gi"
+      #         requests:
+      #           cpu: "1000m"
+      #           memory: "1Gi"
+      #       # securePort: 443
+      #       # sslCertificateRef:
+      #       instances: 1
+      #       priorityClassName: system-cluster-critical
