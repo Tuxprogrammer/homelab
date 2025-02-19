@@ -5,13 +5,13 @@ kind: Kustomization
 namespace: rook-ceph-external
 resources:
   - configmap/rook-ceph-mon-endpoints.yaml
-  - secret/rook-ceph-mon.yaml
-  # - secret/rook-csi-rbd-node.yaml
-  # - secret/rook-csi-rbd-provisioner.yaml
-  # - secret/rook-csi-cephfs-node.yaml
-  # - secret/rook-csi-cephfs-provisioner.yaml
-  # - secret/rgw-admin-ops-user.yaml
-  # - storageclass/ceph-filesystem-ext.yaml
+  - secret/rook-ceph-mon.sops.yaml
+  # - secret/rook-csi-rbd-node.sops.yaml
+  # - secret/rook-csi-rbd-provisioner.sops.yaml
+  # - secret/rook-csi-cephfs-node.sops.yaml
+  # - secret/rook-csi-cephfs-provisioner.sops.yaml
+  # - secret/rgw-admin-ops-user.sops.yaml
+  # - storageclass/ceph-filesystem-ext.sops.yaml
   - ./helmrelease.yaml
 labels:
   - pairs:
