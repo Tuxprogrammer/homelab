@@ -11,7 +11,7 @@ spec:
   force: true
   dependsOn:
     - name: cluster-apps-rook-ceph
-  path: ./kubernetes/apps/rook-ceph/rook-ceph/cluster-external
+  path: ./kubernetes/apps/rook-ceph-external/rook-ceph-external/cluster-external
   prune: true
   sourceRef:
     kind: GitRepository
