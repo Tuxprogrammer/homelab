@@ -49,8 +49,6 @@ kind: Kustomization
 metadata:
   name: cluster-apps-rook-ceph-cluster-external
   namespace: flux-system
-  labels:
-    kustomize.toolkit.fluxcd.io/substitute: disabled
 spec:
   # This is needed because we are updating a storageclass object
   force: true
