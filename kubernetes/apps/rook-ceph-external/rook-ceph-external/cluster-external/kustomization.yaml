@@ -11,9 +11,9 @@ resources:
   - secret/rook-csi-cephfs-node.sops.yaml
   - secret/rook-csi-cephfs-provisioner.sops.yaml
   #- secret/rgw-admin-ops-user.sops.yaml
-  - storageclass/rook-ceph-block-external.yaml
-  - storageclass/rook-ceph-bucket-external.yaml
-  - storageclass/rook-cephfs-external.yaml
+  - storageclass/ceph-block-external.yaml
+  - storageclass/ceph-bucket-external.yaml
+  - storageclass/cephfs-external.yaml
   - ./helmrelease.yaml
 patches:
   - patch: |-
