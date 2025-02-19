@@ -15,7 +15,6 @@ resources:
   - ./helmrelease.yaml
 labels:
   - pairs:
-      kustomize.toolkit.fluxcd.io/substitute: disabled
       app.kubernetes.io/name: rook-ceph-cluster-external
       app.kubernetes.io/instance: rook-ceph-cluster-external
       app.kubernetes.io/part-of: rook-ceph-external
