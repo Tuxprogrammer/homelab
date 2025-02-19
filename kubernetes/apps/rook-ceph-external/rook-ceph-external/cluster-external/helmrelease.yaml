@@ -56,6 +56,8 @@ spec:
     # Run the ceph-toolbox pod
     toolbox:
       enabled: true
+      annotations:
+        reloader.stakater.com/auto: "true"
 
     cephBlockPools: []
     ### CANNOT ADD ANY CEPHBLOCKPOOLS IN THIS HELM CHART. STORAGE CLASS WILL BE ADDED INSTEAD. ###
