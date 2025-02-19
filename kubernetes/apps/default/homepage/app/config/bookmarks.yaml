@@ -77,3 +77,7 @@
         - icon: https://companieslogo.com/img/orig/LDOS-9dbc97eb.png?t=1720244492
           href: "https://prism.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
           target: _self
+    - desktop:
+        - icon: https://static-00.iconduck.com/assets.00/citrix-receiver-icon-2048x2045-6si6dssr.png
+          href: "https://desktop.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
+          target: _self
