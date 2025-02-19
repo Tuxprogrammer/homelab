@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rook-ceph-mon-endpoints
+  namespace: rook-ceph-external
+data:
+  data: ${ROOK_CEPH_MON_ENDPOINTS_DATA}
+  mapping: "{}"
+  maxMonId: "2"
