@@ -27,4 +27,4 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: rook-vars
+        name: rook-ceph-external-vars
