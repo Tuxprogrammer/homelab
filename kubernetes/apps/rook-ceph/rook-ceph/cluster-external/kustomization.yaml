@@ -13,8 +13,6 @@ resources:
   - secrets/rgw-admin-ops-user.yaml
   - storageclasses/ceph-filesystem-ext.yaml
   - ./helmrelease.yaml
-configurations:
-  - kustomizeconfig.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: rook-ceph-cluster-external
