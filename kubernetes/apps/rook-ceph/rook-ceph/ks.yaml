@@ -49,8 +49,8 @@ kind: Kustomization
 metadata:
   name: cluster-apps-rook-ceph-cluster-external
   namespace: flux-system
-labels:
-  substitution.flux.home.arpa/disabled: "true"
+  labels:
+    substitution.flux.home.arpa/disabled: "true"
 spec:
   # This is needed because we are updating a storageclass object
   force: true
