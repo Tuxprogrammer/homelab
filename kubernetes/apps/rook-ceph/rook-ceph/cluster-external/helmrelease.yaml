@@ -58,7 +58,7 @@ spec:
       enabled: true
 
     # Create a ceph-block-external storageclass and CephBlock object
-    cephBlockPools:
+    cephBlockPools: []
       # - name: ceph-shared
       #   spec:
       #     failureDomain: host
