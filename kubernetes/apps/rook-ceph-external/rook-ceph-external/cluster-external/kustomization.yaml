@@ -4,7 +4,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: rook-ceph-external
 resources:
-  - config/rook-ceph-mon-endpoints.yaml
+  - configmap/rook-ceph-mon-endpoints.yaml
   - secret/rook-ceph-mon.yaml
   # - secret/rook-csi-rbd-node.yaml
   # - secret/rook-csi-rbd-provisioner.yaml
