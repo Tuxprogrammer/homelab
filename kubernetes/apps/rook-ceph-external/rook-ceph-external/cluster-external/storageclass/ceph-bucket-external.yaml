@@ -1,0 +1,23 @@
+---
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStore
+metadata:
+  name: ceph-objectstore
+  namespace: rook-ceph-external
+spec:
+  gateway:
+    port: 7480
+    externalRgwEndpoints:
+      - ip: ${RGW_ENDPOINT_1}
+      - ip: ${RGW_ENDPOINT_2}
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ceph-bucket-external
+provisioner: rook-ceph.ceph.rook.io/bucket
+parameters:
+  objectStoreName: ceph-objectstore
+  objectStoreNamespace: rook-ceph-external
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
