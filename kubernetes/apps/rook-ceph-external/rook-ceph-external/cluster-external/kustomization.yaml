@@ -13,7 +13,7 @@ resources:
   #- secret/rgw-admin-ops-user.sops.yaml
   - storageclass/ceph-block-external.yaml
   - storageclass/ceph-bucket-external.yaml
-  - storageclass/cephfs-external.yaml
+  - storageclass/ceph-filesystem-external.yaml
   - ./helmrelease.yaml
 patches:
   - patch: |-
