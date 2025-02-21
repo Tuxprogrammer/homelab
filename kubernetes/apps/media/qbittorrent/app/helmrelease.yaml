@@ -1,0 +1,204 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app qbittorrent
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 3.7.1
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: bjw-s
+  dependsOn:
+    - name: rook-ceph-operator
+      namespace: rook-ceph
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
+  interval: 15m
+  values:
+    controllers:
+      *app :
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          gluetun:
+            image:
+              repository: qmcgaw/gluetun
+              tag: v3.40.0@sha256:2b42bfa046757145a5155acece417b65b4443c8033fb88661a8e9dcf7fda5a00
+              pullPolicy: IfNotPresent
+            restartPolicy: Always
+            env:
+              HEALTH_VPN_DURATION_INITIAL: 120s
+              HEALTH_SUCCESS_WAIT_DURATION: 120s
+              FIREWALL_INPUT_PORTS: "8080"
+              DOT: "off"
+              DNS_ADDRESS: 10.0.0.243
+              VPN_SERVICE_PROVIDER: custom
+              VPN_TYPE: wireguard
+            envFrom:
+              - secretRef:
+                  name: qbittorrent-secrets
+            resources:
+              requests:
+                squat.ai/tun: 1
+              limits:
+                squat.ai/tun: 1
+            securityContext:
+              capabilities:
+                add:
+                  - NET_ADMIN
+                  - SYS_MODULE
+            probes:
+              liveness: &probe
+                enabled: true
+                custom: true
+                spec:
+                  exec: &exec
+                    command: [/gluetun-entrypoint, healthcheck]
+                  periodSeconds: 60
+              startup:
+                <<: *probe
+                spec:
+                  exec: *exec
+                  periodSeconds: 5
+        containers:
+          *app :
+            image:
+              repository: ghcr.io/onedr0p/qbittorrent
+              tag: 5.0.4@sha256:3b7e6671b4e6b8ab1366ca8a038776638c77cc8110dc74c257eb14568d43c614
+              pullPolicy: IfNotPresent
+            env:
+              TZ: ${TIMEZONE}
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+      &app2 "vuetorrent":
+        strategy: RollingUpdate
+        containers:
+          *app2 :
+            image:
+              repository: ghcr.io/vuetorrent/vuetorrent-lsio-mod
+              tag: 2.22.0@sha256:87d54ef0e4081b38a10434874400f7b14c3bbdd31c3ebca62c74f987f3e99a2b
+              pullPolicy: IfNotPresent
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        advancedMounts:
+          *app :
+            *app :
+              - path: /config
+      media:
+        existingClaim: media-archive0
+        advancedMounts:
+          *app :
+            *app :
+              - path: /downloads
+                subPath: plex/qbittorrent
+      tmp:
+        enabled: true
+        type: emptyDir
+        globalMounts:
+          - path: /tmp
+        advancedMounts:
+          *app2 :
+            *app2 :
+              - path: /var/cache/nginx
+                subPath: nginx/cache
+              - path: /var/run
+                subPath: nginx/run
+    service:
+      *app :
+        controller: *app
+        ports:
+          http:
+            port: 8080
+      *app2 :
+        controller: *app2
+        ports:
+          http:
+            port: 80
+    ingress:
+      *app :
+        enabled: true
+        annotations: &annotations
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          nginx.ingress.kubernetes.io/auth-url: http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
+          nginx.ingress.kubernetes.io/auth-response-headers: |-
+            Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
+          nginx.ingress.kubernetes.io/auth-snippet: |
+            proxy_set_header X-Forwarded-Host $http_host;
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: "{{ title .Release.Namespace }}"
+          gethomepage.dev/name: "{{ title .Release.Name }}"
+          gethomepage.dev/icon: "{{ .Release.Name }}"
+          gethomepage.dev/description: "Bittorrent Download Agent"
+          gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+        hosts:
+          - host: qbittorrent.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                service:
+                  identifier: *app
+                  port: http
+        tls:
+          - hosts:
+              - qbittorrent.${SECRET_DOMAIN}
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
+      *app2 :
+        enabled: true
+        annotations:
+          <<: *annotations
+          gethomepage.dev/name: "vuetorrent"
+          gethomepage.dev/description: "Vuetorrent frontend for qbittorrent"
+          gethomepage.dev/siteMonitor: "http://vuetorrent.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"vuetorrent\" \"ports\" \"http\" \"port\" }}"
+        hosts:
+          - host: vuetorrent.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                service:
+                  identifier: *app2
+                  port: http
+              - path: /api
+                service:
+                  identifier: *app
+                  port: http
+        tls:
+          - hosts:
+              - vuetorrent.${SECRET_DOMAIN}
+            secretName: "vuetorrent-${SECRET_DOMAIN/./-}-production-tls"

@@ -125,7 +125,7 @@ spec:
             proxy_set_header X-Forwarded-Host $http_host;
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: "{{ title .Release.Namespace }}"
-          gethomepage.dev/name: "{{ title .Release.Name}}"
+          gethomepage.dev/name: "{{ title .Release.Name }}"
           gethomepage.dev/icon: *app
           gethomepage.dev/description: "Anime Series Request Management"
           gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" \"sonarr\" \"ports\" \"http\" \"port\" }}"

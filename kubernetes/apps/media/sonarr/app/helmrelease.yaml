@@ -125,8 +125,8 @@ spec:
             proxy_set_header X-Forwarded-Host $http_host;
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: "{{ title .Release.Namespace }}"
-          gethomepage.dev/name: "{{ title .Release.Name}}"
-          gethomepage.dev/icon: "{{ .Release.Name}}"
+          gethomepage.dev/name: "{{ title .Release.Name }}"
+          gethomepage.dev/icon: "{{ .Release.Name }}"
           gethomepage.dev/description: "Series Request Management"
           gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
           gethomepage.dev/widget.type: "{{ .Release.Name }}"
