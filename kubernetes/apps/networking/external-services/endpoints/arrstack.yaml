@@ -159,7 +159,6 @@ metadata:
     gethomepage.dev/icon: guacamole
     gethomepage.dev/description: Remote Desktop Gateway
     gethomepage.dev/siteMonitor: "http://desktop.${SECRET_DOMAIN_2}"
-
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
