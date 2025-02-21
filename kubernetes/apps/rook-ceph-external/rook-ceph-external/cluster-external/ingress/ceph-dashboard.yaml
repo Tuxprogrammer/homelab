@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
 spec:
-  type: ExternalName
+  type: ClusterIP
   ports:
     - name: http
       port: &port 8080
