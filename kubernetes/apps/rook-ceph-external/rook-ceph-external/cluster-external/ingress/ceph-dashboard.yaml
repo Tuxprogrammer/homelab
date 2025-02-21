@@ -1,4 +1,21 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.2/endpoints.json
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: &app rook-ceph-dashboard-external
+  namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+subsets:
+  - addresses:
+      - ip: ${MONITORING_ENDPOINT_MGR_1}
+      - ip: ${MONITORING_ENDPOINT_MGR_2}
+    ports:
+      - port: 8080
+        protocol: TCP
+---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.2/service.json
 apiVersion: v1
 kind: Service
@@ -15,9 +32,6 @@ spec:
       port: &port 8080
       protocol: TCP
       targetPort: *port
-  externalIPs:
-    - ${MONITORING_ENDPOINT_MGR_1}
-    - ${MONITORING_ENDPOINT_MGR_2}
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.2/ingress.json
 apiVersion: networking.k8s.io/v1
