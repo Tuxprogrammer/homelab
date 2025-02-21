@@ -5,6 +5,8 @@ kind: Kustomization
 namespace: rook-ceph-external
 resources:
   - configmap/rook-ceph-mon-endpoints.yaml
+  - ingress/ceph-dashboard.yaml
+  - ingress/rgw-gateway.yaml
   - secret/rook-ceph-mon.sops.yaml
   - secret/rook-csi-rbd-node.sops.yaml
   - secret/rook-csi-rbd-provisioner.sops.yaml

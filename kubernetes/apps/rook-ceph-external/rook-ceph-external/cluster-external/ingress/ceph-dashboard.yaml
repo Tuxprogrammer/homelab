@@ -1,0 +1,60 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.2/service.json
+apiVersion: v1
+kind: Service
+metadata:
+  name: &app rook-ceph-dashboard-external
+  namespace: rook-ceph-external
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  type: ExternalName
+  ports:
+    - name: http
+      port: &port 8080
+      protocol: TCP
+      targetPort: *port
+  externalIPs:
+    - ${MONITORING_ENDPOINT_MGR_1}
+    - ${MONITORING_ENDPOINT_MGR_2}
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.2/ingress.json
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &app rook-ceph-dashboard-external
+  namespace: rook-ceph-external
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/whitelist-source-range: |
+            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Infrastructure
+    gethomepage.dev/name: Ceph
+    gethomepage.dev/icon: ceph
+    gethomepage.dev/description: Ceph Store2 Dashboard
+    gethomepage.dev/siteMonitor: "http://rook-ceph-dashboard-external.rook-ceph-external.svc.cluster.local:8080"
+    gethomepage.dev/pod-selector: >-
+      app.kubernetes.io/name in (ceph-mgr-external)
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: &host rook.${SECRET_DOMAIN_2}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: *app
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - *host
+      secretName: "rook-${SECRET_DOMAIN_2/./-}-production-tls"
