@@ -55,11 +55,9 @@ spec:
                 squat.ai/tun: "1"
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
               capabilities:
                 add:
                   - NET_ADMIN
-                  - SYS_MODULE
             probes:
               liveness: &probe
                 enabled: true
