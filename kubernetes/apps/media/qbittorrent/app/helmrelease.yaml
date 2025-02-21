@@ -36,7 +36,8 @@ spec:
             env:
               HEALTH_VPN_DURATION_INITIAL: 120s
               HEALTH_SUCCESS_WAIT_DURATION: 120s
-              FIREWALL_INPUT_PORTS: "8080"
+              HEALTH_SERVER_ADDRESS: :9999
+              FIREWALL_INPUT_PORTS: 8080,9999
               DOT: "off"
               DNS_ADDRESS: 10.0.0.243
               VPN_SERVICE_PROVIDER: custom
@@ -54,7 +55,8 @@ spec:
                 memory: 512Mi
                 squat.ai/tun: "1"
             securityContext:
-              allowPrivilegeEscalation: false
+              runAsUser: 0
+              runAsGroup: 0
               capabilities:
                 add:
                   - NET_ADMIN
