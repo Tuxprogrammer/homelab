@@ -73,7 +73,7 @@ spec:
                 <<: *probe
                 spec:
                   exec: *exec
-                  periodSeconds: 5
+                  periodSeconds: 30
         containers:
           *app :
             image:
