@@ -44,9 +44,11 @@ spec:
                   name: qbittorrent-secrets
             resources:
               requests:
-                squat.ai/tun: 1
+                cpu: 10m
+                memory: 128Mi
               limits:
-                squat.ai/tun: 1
+                cpu: 200m
+                memory: 512Mi
             securityContext:
               capabilities:
                 add:
@@ -83,6 +85,12 @@ spec:
                 enabled: true
               readiness:
                 enabled: true
+            resources:
+              requests:
+                cpu: 100m
+                memory: 256Mi
+              limits:
+                memory: 2048Mi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -97,6 +105,13 @@ spec:
               repository: ghcr.io/vuetorrent/vuetorrent-lsio-mod
               tag: 2.22.0@sha256:87d54ef0e4081b38a10434874400f7b14c3bbdd31c3ebca62c74f987f3e99a2b
               pullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: 10m
+                memory: 32Mi
+              limits:
+                cpu: 100m
+                memory: 128Mi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
