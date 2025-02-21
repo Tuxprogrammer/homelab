@@ -222,8 +222,6 @@ spec:
           enabled: true
           name: ceph-bucket-internal
           reclaimPolicy: Delete
-          parameters:
-            region: us-east-1
         ingress:
           enabled: true
           ingressClassName: nginx
