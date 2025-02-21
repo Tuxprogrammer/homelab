@@ -43,6 +43,11 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     # Ceph Mgr is configured to generate a 503 error if it is on standby
     nginx.ingress.kubernetes.io/proxy-next-upstream: error timeout http_502 http_503
+    nginx.ingress.kubernetes.io/proxy-next-upstream-tries: "1"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "0"
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/session-cookie-expires: '172800'
+    nginx.ingress.kubernetes.io/session-cookie-max-age: '172800'
     nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
     cert-manager.io/cluster-issuer: letsencrypt-production
