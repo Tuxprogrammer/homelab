@@ -43,9 +43,6 @@ spec:
               DNS_ADDRESS: 10.0.0.243
               VPN_SERVICE_PROVIDER: custom
               VPN_TYPE: wireguard
-            envFrom:
-              - secretRef:
-                  name: qbittorrent-secrets
             resources:
               requests:
                 cpu: 10m
@@ -136,6 +133,15 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /tmp
+      wireguard:
+        enabled: true
+        type: secret
+        name: qbittorrent-secrets
+        advancedMounts:
+          *app :
+            gluetun:
+              - path: /gluetun/wireguard/wg0.conf
+                subPath: wg0.conf
     service:
       *app :
         controller: *app
