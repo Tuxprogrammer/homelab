@@ -112,6 +112,26 @@ spec:
               capabilities:
                 drop:
                   - ALL
+          vuetorrent:
+            dependsOn: *app
+            image:
+              repository: registry.k8s.io/git-sync/git-sync
+              tag: v4.4.0@sha256:0330739a707a2969d617e859f096659ab6d149212658ac0ad7e550b59482ebf0
+            args:
+              - --repo=https://github.com/WDaan/VueTorrent
+              - --ref=latest-release
+              - --period=86400s
+              - --root=/addons
+            resources:
+              requests:
+                cpu: 10m
+                memory: 25Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
     defaultPodOptions:
       securityContext:
         runAsUser: 1000
@@ -145,6 +165,10 @@ spec:
             *app :
               - path: /downloads
                 subPath: plex/qbittorrent
+      addons:
+        type: emptyDir
+        globalMounts:
+          - path: /addons
       tmp:
         enabled: true
         type: emptyDir
