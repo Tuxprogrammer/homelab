@@ -99,8 +99,8 @@ spec:
                     port: &port 8080
                   initialDelaySeconds: 0
                   timeoutSeconds: 10
-                  periodSeconds: 5
-                  failureThreshold: 5
+                  periodSeconds: 10
+                  failureThreshold: 6
               readiness: *probes
             resources:
               requests:
