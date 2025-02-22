@@ -89,17 +89,19 @@ spec:
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
-              DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:2.22.0@sha256:87d54ef0e4081b38a10434874400f7b14c3bbdd31c3ebca62c74f987f3e99a2b
             probes:
-              startup:
+              liveness: &probes
                 enabled: true
+                custom: true
                 spec:
-                  failureThreshold: 30
+                  httpGet:
+                    path: /api/v2/app/version
+                    port: &port 8080
+                  initialDelaySeconds: 0
+                  timeoutSeconds: 10
                   periodSeconds: 5
-              liveness:
-                enabled: true
-              readiness:
-                enabled: true
+                  failureThreshold: 5
+              readiness: *probes
             resources:
               requests:
                 cpu: 100m
@@ -179,7 +181,7 @@ spec:
         controller: *app
         ports:
           http:
-            port: 8080
+            port: *port
     ingress:
       *app :
         enabled: true
