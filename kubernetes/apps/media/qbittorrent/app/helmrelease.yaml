@@ -57,6 +57,8 @@ spec:
                 squat.ai/tun: "1"
             securityContext:
               privileged: true
+              runAsUser: 0
+              runAsGroup: 0
               capabilities:
                 add:
                   - NET_RAW
