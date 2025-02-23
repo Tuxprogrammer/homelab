@@ -15,3 +15,7 @@ resources:
   - ./centraldashboard/ks.yaml
   - ./admission-webhook/ks.yaml
   - ./notebooks/ks.yaml
+  - ./pvcviewer-controller/ks.yaml
+  - ./profiles/ks.yaml
+  - ./volumes-web-app/ks.yaml
+  - ./tensorboard/ks.yaml
