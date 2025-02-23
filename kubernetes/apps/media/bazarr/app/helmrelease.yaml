@@ -35,7 +35,6 @@ spec:
               TZ: ${TIMEZONE}
               BAZARR__APP__INSTANCENAME: Bazarr
               BAZARR__PORT: &port 6767
-              BAZARR__SERVER__URLBASE: https://bazarr.${SECRET_DOMAIN}
               BAZARR__AUTH__METHOD: External
               BAZARR__AUTH__REQUIRED: DisabledForLocalAddresses
               BAZARR__LOG__LEVEL: info
