@@ -5,14 +5,14 @@ kind: Kustomization
 resources:
   - https://github.com/Tuxprogrammer/kubeflow-manifests.git/common/user-namespace/base/?ref=v1.9.1-branch
 configMapGenerator:
-  - name: default-install-config
+  - name: scallicott-config
     env: params.env
     behavior: merge
 replacements:
   - source:
       fieldPath: data.user
       kind: ConfigMap
-      name: default-install-config
+      name: scallicott-config
       version: v1
     targets:
       - fieldPaths:
@@ -25,7 +25,7 @@ replacements:
   - source:
       fieldPath: data.profile-name
       kind: ConfigMap
-      name: default-install-config
+      name: scallicott-config
       version: v1
     targets:
       - fieldPaths:
