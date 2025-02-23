@@ -1,0 +1,57 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-kserve
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-istio
+  path: ./contrib/kserve/kserve
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kserve-controller-manager
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-kserve-models-web-app
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-istio
+    - name: kubeflow-kserve
+  path: ./contrib/kserve/models-web-app/overlays/kubeflow
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kserve-models-web-app
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
