@@ -2,8 +2,8 @@
 apiVersion: kubeflow.org/v1beta1
 kind: Profile
 metadata:
-  name: $(profile-name)
+  name: kubeflow-scallicott-tuxhpc-net
 spec:
   owner:
     kind: User
-    name: $(user)
+    name: scallicott@tuxhpc.net
