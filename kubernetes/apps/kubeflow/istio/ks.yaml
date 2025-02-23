@@ -86,3 +86,31 @@ spec:
   interval: 20m
   retryInterval: 1m
   timeout: 3m
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-gateway
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-istio
+  path: ./common/istio-1-22/kubeflow-istio-resources/base
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: networking.istio.io/v1alpha3
+      kind: Gateway
+      name: kubeflow-gateway
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
