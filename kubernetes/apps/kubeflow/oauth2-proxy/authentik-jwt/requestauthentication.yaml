@@ -10,7 +10,7 @@ spec:
       fromHeaders:
         - name: Authorization
           prefix: 'Bearer '
-      issuer: https://auth.${SECRET_DOMAIN}/application/o/kubeflow/
+      issuer: http://authentik-server.networking.svc.cluster.local:80/application/o/kubeflow/
       outputClaimToHeaders:
         - claim: email
           header: kubeflow-userid
