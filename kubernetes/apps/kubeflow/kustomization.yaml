@@ -11,3 +11,4 @@ resources:
   - ./roles/ks.yaml
   - ./pipelines/ks.yaml
   - ./kserve/ks.yaml
+  - ./katib/ks.yaml
