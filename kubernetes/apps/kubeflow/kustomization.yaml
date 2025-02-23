@@ -12,3 +12,6 @@ resources:
   - ./pipelines/ks.yaml
   - ./kserve/ks.yaml
   - ./katib/ks.yaml
+  - ./centraldashboard/ks.yaml
+  - ./admission-webhook/ks.yaml
+  - ./notebooks/ks.yaml

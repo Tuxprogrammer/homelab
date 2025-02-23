@@ -1,0 +1,60 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-notebook-controller
+  namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/disabled: "true"
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-oauth2-proxy
+  path: ./apps/jupyter/notebook-controller/upstream/overlays/kubeflow
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: notebook-controller-deployment
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-jupyter-web-app
+  namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/disabled: "true"
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-oauth2-proxy
+  path: ./apps/jupyter/jupyter-web-app/upstream/overlays/istio
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: jupyter-web-app-deployment
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
