@@ -5,3 +5,5 @@ metadata:
   name: kubeflow
   labels:
     kustomize.toolkit.fluxcd.io/prune: disabled
+    control-plane: kubeflow
+    istio-injection: enabled
