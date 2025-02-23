@@ -151,6 +151,14 @@ spec:
           *app :
             *app :
               - path: /config
+      downloads:
+        accessMode: ReadWriteOnce
+        size: 500Gi
+        storageClass: ceph-block-internal
+        advancedMounts:
+          *app :
+            *app :
+              - path: /downloads/intermediate
       media:
         existingClaim: media-archive0
         advancedMounts:
