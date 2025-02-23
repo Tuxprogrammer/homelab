@@ -34,9 +34,9 @@ spec:
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
-              RADARR__INSTANCE_NAME: Radarr-chan
+              RADARR__APP__INSTANCENAME: Radarr-chan
               RADARR__SERVER__PORT: &port 7878
-              RADARR__APPLICATION_URL: https://radarr-chan.${SECRET_DOMAIN}
+              RADARR__SERVER__URLBASE: https://radarr-chan.${SECRET_DOMAIN}
               RADARR__AUTH__METHOD: External
               RADARR__AUTH__REQUIRED: DisabledForLocalAddresses
               RADARR__LOG__DBENABLED: "False"
