@@ -32,7 +32,7 @@ spec:
         path: "/spec/template/spec/containers/0/env/0"
         value:
           name: LOGOUT_URL
-          value: /oauth2/sign_out?rd=https%3A%2F%2Fauth.tuxprogrammer.net%2Fapplication%2Fo%2Fkubeflow%2Fend-session%2F
+          value: /oauth2/sign_out?rd=https%3A%2F%2Fauth.${SECRET_DOMAIN}%2Fapplication%2Fo%2Fkubeflow%2Fend-session%2F
       target:
         kind: Deployment
         name: centraldashboard
