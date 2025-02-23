@@ -20,3 +20,4 @@ resources:
   - ./volumes-web-app/ks.yaml
   - ./tensorboard/ks.yaml
   - ./training-operator/ks.yaml
+  - ./user-namespace/ks.yaml
