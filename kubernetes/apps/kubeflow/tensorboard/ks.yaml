@@ -46,7 +46,7 @@ spec:
     - name: cluster-apps-rook-ceph-cluster
     - name: kubeflow-oauth2-proxy
     - name: kubeflow-tensorboards-web-app
-  path: ./apps/tensorboard/tensorboards-web-app/upstream/overlays/istio
+  path: ./apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow
   prune: true
   sourceRef:
     kind: GitRepository
