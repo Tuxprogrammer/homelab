@@ -1,6 +1,0 @@
----
-# yaml-language-server: $schema=https://json.schemastore.org/kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - https://github.com/Tuxprogrammer/kubeflow-manifests.git/common/user-namespace/base/?ref=v1.9.1-branch
