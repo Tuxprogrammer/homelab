@@ -21,3 +21,4 @@ resources:
   - ./tensorboard/ks.yaml
   - ./training-operator/ks.yaml
   - ./user-namespace/ks.yaml
+  - ./ingress.yaml

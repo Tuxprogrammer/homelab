@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubeflow-ingress
+  namespace: kubeflow
+  annotations:
+    #external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/whitelist-source-range: |
+      10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+spec:
+  rules:
+    - host: kubeflow.${SECRET_DOMAIN}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: istio-ingressgateway
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - kubeflow.${SECRET_DOMAIN}
+      secretName: kubeflow-${SECRET_DOMAIN/./-}-production-tls
