@@ -1,0 +1,104 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-knative-serving-gateways
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-oauth2-proxy
+  path: ./common/knative/knative-serving/overlays/gateways
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: activator
+      namespace: knative-serving
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: autoscaler
+      namespace: knative-serving
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: controller
+      namespace: knative-serving
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: webhook
+      namespace: knative-serving
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-cluster-local-gateway
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-oauth2-proxy
+  path: ./common/istio-1-22/cluster-local-gateway/base
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cluster-local-gateway
+      namespace: istio-system
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-knative-eventing
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-oauth2-proxy
+  path: ./common/knative/knative-eventing/base
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: eventing-controller
+      namespace: knative-eventing
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: pingsource-mt-adapter
+      namespace: knative-eventing
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: eventing-webhook
+      namespace: knative-eventing
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m

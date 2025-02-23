@@ -6,3 +6,4 @@ resources:
   - ./namespace.yaml
   - ./istio/ks.yaml
   - ./oauth2-proxy/ks.yaml
+  - ./knative/ks.yaml
