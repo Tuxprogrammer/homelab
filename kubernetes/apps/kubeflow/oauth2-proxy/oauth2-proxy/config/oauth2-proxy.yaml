@@ -52,5 +52,6 @@ data:
     code_challenge_method = "S256"
     # ---
     redirect_url = "https://kubeflow.${SECRET_DOMAIN}/oauth2/callback"
-    relative_redirect_url = true
+    #relative_redirect_url = true
+    whitelist_domains = "*.${SECRET_DOMAIN}"
 binaryData: {}
