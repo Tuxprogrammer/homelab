@@ -166,6 +166,8 @@ spec:
                 subPath: plex/media/Movies
               - path: /deluge
                 subPath: plex/deluge
+              - path: /qbittorrent
+                subPath: plex/qbittorrent
               - path: /nzbget
                 subPath: plex/nzbget
       tmp:
