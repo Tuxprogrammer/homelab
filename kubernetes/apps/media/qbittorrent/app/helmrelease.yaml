@@ -160,22 +160,13 @@ spec:
           *app :
             gluetun:
               - path: /gluetun
-      # media:
-      #   existingClaim: media-archive0
-      #   advancedMounts:
-      #     *app :
-      #       *app :
-      #         - path: /downloads
-      #           subPath: plex/qbittorrent
       media:
-        enabled: true
-        retain: true
-        accessMode: ReadWriteOnce
-        size: 100Gi
+        existingClaim: media-archive0
         advancedMounts:
           *app :
             *app :
               - path: /downloads
+                subPath: plex/qbittorrent
       addons:
         type: emptyDir
         globalMounts:
