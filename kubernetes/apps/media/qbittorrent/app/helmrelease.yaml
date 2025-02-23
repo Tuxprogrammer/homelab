@@ -41,10 +41,10 @@ spec:
               FIREWALL_OUTBOUND_SUBNETS: ${CLUSTER_CIDR},${SERVICE_CIDR}
               DOT: "off"
               DNS_ADDRESS: 10.0.0.243
-              PORT_FORWARD_ONLY: "true"
               VPN_SERVICE_PROVIDER: custom
               VPN_TYPE: wireguard
               #VPN_SERVICE_PROVIDER: "private internet access"
+              #PORT_FORWARD_ONLY: "true"
               #OPENVPN_PROTOCOL: udp
               VPN_PORT_FORWARDING: "on"
               VPN_PORT_FORWARDING_STATUS_FILE: /gluetun/forwarded_port
