@@ -7,7 +7,6 @@ resources:
 configMapGenerator:
   - name: scallicott-config
     env: params.env
-    behavior: merge
 replacements:
   - source:
       fieldPath: data.user
