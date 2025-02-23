@@ -7,7 +7,7 @@ metadata:
 data:
   oauth2_proxy.cfg: |
     provider = "oidc"
-    oidc_issuer_url = "http://dex.auth.svc.cluster.local:5556/dex"
+    oidc_issuer_url = "http://authentik-server.networking.svc.cluster.local:80/application/o/kubeflow/"
     scope = "profile email groups openid"
     upstreams = "static://200"
     email_domains = [ "*" ]
@@ -21,9 +21,9 @@ data:
     # Browser. If you have a setup where dex has it's url as other than the
     # in-cluster service, this is optional.
     skip_oidc_discovery = true
-    login_url = "/dex/auth"
-    redeem_url = "http://dex.auth.svc.cluster.local:5556/dex/token"
-    oidc_jwks_url = "http://dex.auth.svc.cluster.local:5556/dex/keys"
+    login_url = "https://auth.${SECRET_DOMAIN}/application/o/kubeflow/.well-known/openid-configuration"
+    redeem_url = "http://authentik-server.networking.svc.cluster.local:80/application/o/token/"
+    oidc_jwks_url = "http://authentik-server.networking.svc.cluster.local:80/application/o/kubeflow/jwks/"
     # ---
     # Go to dex login page directly instead of showing the oauth2-proxy login
     # page.
