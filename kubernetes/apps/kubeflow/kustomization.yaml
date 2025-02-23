@@ -10,3 +10,4 @@ resources:
   - ./networkpolicies/ks.yaml
   - ./roles/ks.yaml
   - ./pipelines/ks.yaml
+  - ./kserve/ks.yaml
