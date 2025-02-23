@@ -8,3 +8,4 @@ resources:
   - ./oauth2-proxy/ks.yaml
   - ./knative/ks.yaml
   - ./networkpolicies/ks.yaml
+  - ./roles/ks.yaml
