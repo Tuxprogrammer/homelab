@@ -9,3 +9,4 @@ resources:
   - ./knative/ks.yaml
   - ./networkpolicies/ks.yaml
   - ./roles/ks.yaml
+  - ./pipelines/ks.yaml

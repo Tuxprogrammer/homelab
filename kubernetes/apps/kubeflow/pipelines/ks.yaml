@@ -1,0 +1,82 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubeflow-pipelines
+  namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/disabled: "true"
+spec:
+  dependsOn:
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager-issuers
+    - name: cluster-apps-rook-ceph
+    - name: cluster-apps-rook-ceph-cluster
+    - name: kubeflow-istio
+  path: ./apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: kubeflow-manifests
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cache-server
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kubeflow-pipelines-profile-controller
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: metadata-envoy-deployment
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: metadata-grpc-deployment
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: metadata-writer
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: minio
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline-persistenceagent
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline-scheduledworkflow
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline-ui
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline-viewer-crd
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: ml-pipeline-visualizationserver
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mysql
+      namespace: kubeflow
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: workflow-controller
+      namespace: kubeflow
+  interval: 20m
+  retryInterval: 1m
+  timeout: 3m
