@@ -58,6 +58,8 @@ kind: Kustomization
 metadata:
   name: kubeflow-istio
   namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/disabled: "true"
 spec:
   dependsOn:
     - name: cluster-apps-ingress-nginx
