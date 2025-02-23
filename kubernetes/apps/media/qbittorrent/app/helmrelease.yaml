@@ -42,6 +42,7 @@ spec:
               DOT: "off"
               DNS_ADDRESS: 10.0.0.243
               PORT_FORWARD_ONLY: "true"
+              OPENVPN_PROTOCOL: tcp
               VPN_SERVICE_PROVIDER: "private internet access"
               VPN_PORT_FORWARDING: "on"
               VPN_PORT_FORWARDING_STATUS_FILE: /gluetun/forwarded_port
