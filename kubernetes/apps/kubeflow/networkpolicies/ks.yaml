@@ -5,8 +5,6 @@ kind: Kustomization
 metadata:
   name: kubeflow-networkpolicies
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/disabled: "true"
 spec:
   dependsOn:
     - name: cluster-apps-ingress-nginx
