@@ -37,16 +37,16 @@ spawnerFormDefaults:
   ################################################################
   image:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/jupyter-scipy:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-scipy:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-pytorch-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-pytorch-cuda-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-pytorch-gaudi-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-tensorflow-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/jupyter-tensorflow-cuda-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-cuda-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-gaudi-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-cuda-full:v1.9.2-customized
 
   ################################################################
   # VSCode-like Container Images (Group 1)
@@ -61,11 +61,11 @@ spawnerFormDefaults:
   ################################################################
   imageGroupOne:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/codeserver-python:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/codeserver-python:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized
 
   ################################################################
   # RStudio-like Container Images (Group 2)
@@ -82,11 +82,11 @@ spawnerFormDefaults:
   ################################################################
   imageGroupTwo:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/rstudio-tidyverse:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/rstudio-tidyverse:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized
 
   ################################################################
   # CPU Resources
