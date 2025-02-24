@@ -3,27 +3,26 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: kubeflow-pvcviewer-controller
+  name: kubeflow-volumes-web-app
   namespace: flux-system
   labels:
     substitution.flux.home.arpa/disabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-cert-manager
+    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-nginx-certificates
     - name: cluster-apps-cert-manager-issuers
-    - name: cluster-apps-rook-ceph
-    - name: cluster-apps-rook-ceph-cluster
     - name: kubeflow-oauth2-proxy
-  path: ./apps/pvcviewer-controller/upstream/default
+  path: ./kubernetes/apps/kubeflow/ingress/kubeflow
   prune: true
   sourceRef:
     kind: GitRepository
-    name: kubeflow-manifests
+    name: home-kubernetes
   healthChecks:
     - apiVersion: apps/v1
-      kind: Deployment
-      name: pvcviewer-controller-manager
-      namespace: kubeflow
+      kind: Ingress
+      name: kubeflow-ingress
+      namespace: instio-system
   interval: 20m
   retryInterval: 1m
   timeout: 3m

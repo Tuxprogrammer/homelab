@@ -7,11 +7,6 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-ingress-nginx
-    - name: cluster-apps-ingress-nginx-certificates
-    - name: cluster-apps-cert-manager-issuers
-    - name: cluster-apps-rook-ceph
-    - name: cluster-apps-rook-ceph-cluster
     - name: kubeflow-oauth2-proxy
   path: ./common/kubeflow-roles/base
   prune: true

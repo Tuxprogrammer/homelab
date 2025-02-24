@@ -35,8 +35,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-ingress-nginx
-    - name: cluster-apps-ingress-nginx-certificates
+    - name: cluster-apps-cert-manager
     - name: cluster-apps-cert-manager-issuers
     - name: cluster-apps-rook-ceph
     - name: cluster-apps-rook-ceph-cluster
