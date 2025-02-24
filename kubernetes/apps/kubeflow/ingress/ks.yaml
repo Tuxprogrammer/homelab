@@ -20,7 +20,7 @@ spec:
     - apiVersion: apps/v1
       kind: Ingress
       name: kubeflow-ingress
-      namespace: instio-system
+      namespace: istio-system
   interval: 20m
   retryInterval: 1m
   timeout: 3m
