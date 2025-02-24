@@ -5,9 +5,6 @@ kind: Kustomization
 resources:
   - https://github.com/Tuxprogrammer/kubeflow-manifests.git/apps/jupyter/jupyter-web-app/upstream/overlays/istio?ref=v1.9.1-branch
 configMapGenerator:
-  - envs:
-      - params.env
-    name: parameters
   - files:
       - config/spawner_ui_config.yaml
     name: config
