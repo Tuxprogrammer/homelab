@@ -35,8 +35,6 @@ kind: Kustomization
 metadata:
   name: kubeflow-jupyter-web-app
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/disabled: "true"
 spec:
   dependsOn:
     - name: cluster-apps-ingress-nginx
