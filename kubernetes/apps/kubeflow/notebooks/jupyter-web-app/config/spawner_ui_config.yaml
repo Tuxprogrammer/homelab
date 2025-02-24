@@ -37,16 +37,16 @@ spawnerFormDefaults:
   ################################################################
   image:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized@sha256:2605cabab8484bceb0da84e4599f39cb5988073670bcc3051a3e1123b6b2cec2
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-cuda-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-gaudi-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-full:v1.9.2-customized
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-cuda-full:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-scipy:v1.9.2-customized@sha256:2605cabab8484bceb0da84e4599f39cb5988073670bcc3051a3e1123b6b2cec2
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-full:v1.9.2-customized@sha256:c2d67f6985251b4355a712d4ab1bff0032916e6d578f07052e8af3b88fdd65ed
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-cuda-full:v1.9.2-customized@sha256:6eab05a1c7bb697d557f7755a2565b4e9b417ae08f5dc733d99787930cef2087
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-pytorch-gaudi-full:v1.9.2-customized@sha256:928c6bbe1176a5d30957915d6fa7161c8cffac17de451b14a0780479ec55fdc6
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-full:v1.9.2-customized@sha256:ef0b03cf187de0cca7a8405567644dfbed3bfd42c594eef83856c79115861f6f
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/jupyter-tensorflow-cuda-full:v1.9.2-customized@sha256:f6481267f41439a75e0eff3e3cd2dd079dfa03b12cc8ef211fe9329efaf37268
 
   ################################################################
   # VSCode-like Container Images (Group 1)
@@ -61,11 +61,11 @@ spawnerFormDefaults:
   ################################################################
   imageGroupOne:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized@sha256:afb50416da813f6403cd26f4ee63497d09a400df24d6e044dc847be7bda6eafa
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/codeserver-python:v1.9.2-customized@sha256:afb50416da813f6403cd26f4ee63497d09a400df24d6e044dc847be7bda6eafa
 
   ################################################################
   # RStudio-like Container Images (Group 2)
@@ -82,11 +82,11 @@ spawnerFormDefaults:
   ################################################################
   imageGroupTwo:
     # the default container image
-    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized
+    value: archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized@sha256:3ac4daeb35a8752656b9cfdf03fa2a5cd278ab5dee3205937a17e75296a46ebd
 
     # the list of available container images in the dropdown
     options:
-      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized
+      - archive.${SECRET_DOMAIN_2}:30095/kubeflow/rstudio-tidyverse:v1.9.2-customized@sha256:3ac4daeb35a8752656b9cfdf03fa2a5cd278ab5dee3205937a17e75296a46ebd
 
   ################################################################
   # CPU Resources
