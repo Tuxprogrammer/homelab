@@ -1,0 +1,9 @@
+---
+apiVersion: kubeflow.org/v1beta1
+kind: Profile
+metadata:
+  name: kubeflow-rbrown-tuxhpc-net
+spec:
+  owner:
+    kind: User
+    name: rbrown@tuxhpc.net
