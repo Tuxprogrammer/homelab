@@ -47,12 +47,14 @@ spec:
 
     # Turn on monitoring
     monitoring:
-      enabled: true
-      createPrometheusRules: false
-      externalMgrEndpoints:
-        - ip: "${MONITORING_ENDPOINT_MGR_1}"
-        - ip: "${MONITORING_ENDPOINT_MGR_2}"
-      externalMgrPrometheusPort: 9283
+      # TODO: Rook can't monitor multiple cluster instances.
+      # TODO: See: https://github.com/rook/rook/issues/13575
+      enabled: false
+      # createPrometheusRules: false
+      # externalMgrEndpoints:
+      #   - ip: "${MONITORING_ENDPOINT_MGR_1}"
+      #   - ip: "${MONITORING_ENDPOINT_MGR_2}"
+      # externalMgrPrometheusPort: 9283
 
     # Run the ceph-toolbox pod
     toolbox:
