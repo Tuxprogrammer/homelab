@@ -22,4 +22,4 @@ spec:
       namespace: networking
   interval: 20m
   retryInterval: 1m
-  timeout: 5m
+  timeout: 1h
