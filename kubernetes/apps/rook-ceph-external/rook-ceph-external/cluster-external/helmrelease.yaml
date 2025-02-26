@@ -48,6 +48,8 @@ spec:
     # Turn on monitoring
     monitoring:
       enabled: true
+      createPrometheusRules: true
+      rulesNamespaceOverride: monitoring
       externalMgrEndpoints:
         - ip: "${MONITORING_ENDPOINT_MGR_1}"
         - ip: "${MONITORING_ENDPOINT_MGR_2}"
