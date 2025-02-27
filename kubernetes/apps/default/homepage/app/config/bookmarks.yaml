@@ -12,6 +12,18 @@
         - icon: google-calendar.png
           href: "https://calendar.google.com"
           target: _self
+    - Gemini:
+        - icon: google-gemini.png
+          href: "https://gemini.google.com/app"
+          target: _self
+    - Google Drive:
+        - icon: google-drive.png
+          href: "https://drive.google.com"
+          target: _self
+    - Google Photos:
+        - icon: google-photos.png
+          href: "https://photos.google.com"
+          target: _self
 - Media:
     - YouTube:
         - icon: youtube.png
@@ -70,7 +82,7 @@
           href: "https://portal.office365.us"
           target: _self
     - teams:
-        - icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/2203px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
+        - icon: https://play-lh.googleusercontent.com/jKU64njy8urP89V1O63eJxMtvWjDGETPlHVIhDv9WZAYzsSxRWyWZkUlBJZj_HbkHA=w240-h480-rw
           href: "https://gov.teams.microsoft.us.mcas-gov.us/v2"
           target: _self
     - prism:
@@ -78,6 +90,23 @@
           href: "https://prism.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
           target: _self
     - desktop:
-        - icon: https://static-00.iconduck.com/assets.00/citrix-receiver-icon-2048x2045-6si6dssr.png
+        - icon: https://play-lh.googleusercontent.com/sasPZu1DPo4_Msn0wakoc6kmifxIz_43PYYSf8y70FNFsbIxa-71R2jmdvdFvnga5Q
           href: "https://desktop.{{HOMEPAGE_VAR_WORK_DOMAIN}}"
+          target: _self
+- Shopping:
+    - eBay:
+        - icon: ebay.png
+          href: "https://ebay.com"
+          target: _self
+    - Amazon:
+        - icon: amazon.png
+          href: "https://amazon.com"
+          target: _self
+    - Newegg:
+        - icon: https://play-lh.googleusercontent.com/9o9By3LgW-2uNCk8lAeGCHFFBrJIFOGW13ULPgDqf7lHX9aLYgG4oAwUeaLwdSokGgEC
+          href: "https://newegg.com"
+          target: _self
+    - Walmart:
+        - icon: https://play-lh.googleusercontent.com/NjfJVcXryyqXkYWyv9RbXquLxvsbZO_mKZiHgqWUqx8Gr9wqd7dr8ekzXXs_MxygYQ
+          href: "https://walmart.com"
           target: _self
