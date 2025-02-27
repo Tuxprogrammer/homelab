@@ -10,4 +10,5 @@ resources:
   - ./freshrss/ks.yaml
   - ./homepage/ks.yaml
   # Web Apps
+  - ./home-assistant/ks.yaml
   - ./vaultwarden/ks.yaml
