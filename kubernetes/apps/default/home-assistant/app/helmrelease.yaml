@@ -92,12 +92,16 @@ spec:
           nginx.ingress.kubernetes.io/auth-snippet: |
             proxy_set_header X-Forwarded-Host $http_host;
         hosts:
-          - host: home-assistant.${SECRET_DOMAIN}
+          - host: &host home-assistant.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
                   identifier: *app
                   port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
       code-server:
         className: nginx
         annotations:
@@ -110,12 +114,16 @@ spec:
           nginx.ingress.kubernetes.io/auth-snippet: |
             proxy_set_header X-Forwarded-Host $http_host;
         hosts:
-          - host: home-assistant-code.${SECRET_DOMAIN}
+          - host: &host2 home-assistant-code.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
                   identifier: *app
                   port: code-server
+        tls:
+          - hosts:
+              - *host2
+            secretName: "{{ .Release.Name }}-code-${SECRET_DOMAIN/./-}-production-tls"
     persistence:
       config:
         accessMode: ReadWriteOnce
