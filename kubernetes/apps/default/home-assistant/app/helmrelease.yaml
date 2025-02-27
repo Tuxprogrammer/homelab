@@ -73,6 +73,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
+      hostNetwork: true
     service:
       *app :
         controller: home-assistant
