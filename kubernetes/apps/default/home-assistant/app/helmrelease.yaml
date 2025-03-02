@@ -80,6 +80,8 @@ spec:
         ports:
           http:
             port: 8123
+          frigate:
+            port: 5000
           code-server:
             port: 12321
     ingress:
