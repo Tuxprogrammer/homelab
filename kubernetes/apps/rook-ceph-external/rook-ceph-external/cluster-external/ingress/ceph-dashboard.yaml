@@ -53,9 +53,9 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-production
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Infrastructure
-    gethomepage.dev/name: Ceph
+    gethomepage.dev/name: Rook Ceph Mgr External
     gethomepage.dev/icon: ceph
-    gethomepage.dev/description: Ceph Store2 Dashboard
+    gethomepage.dev/description: Rook Ceph Store2 (external) Dashboard
     gethomepage.dev/siteMonitor: "http://rook-ceph-dashboard-external.rook-ceph-external.svc.cluster.local:8080"
     gethomepage.dev/pod-selector: >-
       app.kubernetes.io/name in (ceph-mgr-external)

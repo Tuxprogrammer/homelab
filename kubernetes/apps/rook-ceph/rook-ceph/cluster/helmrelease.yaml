@@ -42,9 +42,9 @@ spec:
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: Infrastructure
-          gethomepage.dev/name: Ceph
+          gethomepage.dev/name: Rook Ceph Mgr
           gethomepage.dev/icon: ceph
-          gethomepage.dev/description: Ceph Dashboard
+          gethomepage.dev/description: Rook Ceph Internal Dashboard
           gethomepage.dev/siteMonitor: "http://rook-ceph-mgr-dashboard.rook-ceph.svc.cluster.local:7000"
           gethomepage.dev/pod-selector: >-
             app.kubernetes.io/name in (ceph-mgr)
