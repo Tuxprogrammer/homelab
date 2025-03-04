@@ -238,7 +238,6 @@ spec:
             csi.storage.k8s.io/fstype: ext4
       - name: ceph-filesystem-fast
         spec:
-          deviceClass: ssd
           metadataPool:
             replicated:
               size: 3
@@ -246,7 +245,8 @@ spec:
             - failureDomain: host
               replicated:
                 size: 3
-              name: data1
+              name: data0
+              deviceClass: ssd
           metadataServer:
             activeCount: 1
             activeStandby: true
