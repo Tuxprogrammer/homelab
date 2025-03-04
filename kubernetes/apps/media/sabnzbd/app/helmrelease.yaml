@@ -172,6 +172,15 @@ spec:
           *app :
             *app :
               - path: /tmp
+      intermediate:
+        retain: false
+        accessMode: ReadWriteOnce
+        storageClass: rook-ceph-internal-fast
+        size: 400Gi
+        advancedMounts:
+          *app :
+            *app :
+              - path: /downloads/intermediate
     serviceMonitor:
       metrics:
         enabled: true
