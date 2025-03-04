@@ -88,6 +88,7 @@ spec:
         useAllDevices: false
         config:
           osdsPerDevice: "1"
+          deviceClass: "hdd"
         nodes:
           - name: k8s-w1
             devices:
@@ -99,6 +100,9 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QQRX
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PND7
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R3M5
+              - name: /dev/disk/by-id/scsi-SHITACHI_HUSMM148_CLAR800_0RY63UTA
+                config:
+                  deviceClass: "ssd"
           - name: k8s-w2
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7GLGYJX
@@ -109,6 +113,9 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q1ZH
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2BZ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0QWYA
+              - name: /dev/disk/by-id/scsi-SHITACHI_HUSMM148_CLAR800_0RY27B4A
+                config:
+                  deviceClass: "ssd"
           - name: k8s-w3
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9KVBG
@@ -119,6 +126,9 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q0YW
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q22S
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M17DG2
+              - name: /dev/disk/by-id/scsi-SHITACHI_HUSMM148_CLAR800_0RVH3N8A
+                config:
+                  deviceClass: "ssd"
           - name: k8s-w4
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_W7J9JR2G
@@ -129,6 +139,9 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZGJ
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0Q2VT
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0R2WK
+              - name: /dev/disk/by-id/scsi-SHITACHI_HUSMM148_CLAR800_0RVP470A
+                config:
+                  deviceClass: "ssd"
           - name: k8s-w5
             devices:
               - name: /dev/disk/by-id/scsi-SHITACHI_DKR5D-J600SS_KWHEYAPN
@@ -139,12 +152,16 @@ spec:
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M0PZTA
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M174JB
               - name: /dev/disk/by-id/scsi-SSEAGATE_ST600MM0006_S0M4MQ3J
+              - name: /dev/disk/by-id/scsi-SHITACHI_HUSMM148_CLAR800_0RY6512A
+                config:
+                  deviceClass: "ssd"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
           failureDomain: host
           replicated:
             size: 3
+          deviceClass: hdd
         storageClass:
           enabled: true
           name: ceph-block-internal
@@ -161,9 +178,32 @@ spec:
             csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
+      - name: ceph-blockpool-fast
+        spec:
+          failureDomain: host
+          replicated:
+            size: 3
+          deviceClass: ssd
+        storageClass:
+          enabled: true
+          name: ceph-block-internal-fast
+          isDefault: true
+          reclaimPolicy: Delete
+          allowVolumeExpansion: true
+          parameters:
+            imageFormat: "2"
+            imageFeatures: layering
+            csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+            csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
+            csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+            csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
+            csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+            csi.storage.k8s.io/fstype: ext4
     cephFileSystems:
       - name: ceph-filesystem
         spec:
+          deviceClass: hdd
           metadataPool:
             replicated:
               size: 3
@@ -196,9 +236,45 @@ spec:
             csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
+      - name: ceph-filesystem-fast
+        spec:
+          deviceClass: ssd
+          metadataPool:
+            replicated:
+              size: 3
+          dataPools:
+            - failureDomain: host
+              replicated:
+                size: 3
+              name: data1
+          metadataServer:
+            activeCount: 1
+            activeStandby: true
+            resources:
+              requests:
+                cpu: 1000m
+                memory: 4Gi
+              limits:
+                memory: 4Gi
+        storageClass:
+          enabled: true
+          isDefault: false
+          name: ceph-filesystem-internal-fast
+          pool: data1
+          reclaimPolicy: Delete
+          allowVolumeExpansion: true
+          parameters:
+            csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+            csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+            csi.storage.k8s.io/controller-expand-secret-name: rook-csi-cephfs-provisioner
+            csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+            csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+            csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
+            csi.storage.k8s.io/fstype: ext4
     cephObjectStores:
       - name: ceph-objectstore
         spec:
+          deviceClass: hdd
           metadataPool:
             failureDomain: host
             replicated:
