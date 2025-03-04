@@ -175,7 +175,7 @@ spec:
       intermediate:
         retain: false
         accessMode: ReadWriteOnce
-        storageClass: rook-ceph-internal-fast
+        storageClass: ceph-block-internal-fast
         size: 400Gi
         advancedMounts:
           *app :
