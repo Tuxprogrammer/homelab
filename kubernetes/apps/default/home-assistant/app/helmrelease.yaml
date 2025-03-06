@@ -33,7 +33,7 @@ spec:
               repository: ghcr.io/onedr0p/home-assistant
               tag: 2025.3.0@sha256:5b2d594d5d7fdf961b1245b8cfc6185690a4538ad961747dca808e2191176c9c
             env:
-              TZ: America/Chicago
+              TZ: ${TIMEZONE}
             envFrom:
               - secretRef:
                   name: home-assistant-secrets
@@ -76,7 +76,7 @@ spec:
       hostNetwork: true
     service:
       *app :
-        controller: home-assistant
+        controller: *app
         ports:
           http:
             port: 8123
