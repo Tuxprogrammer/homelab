@@ -10,7 +10,7 @@ auth:
 tls:
   enabled: false
 
-# mqtt:
+mqtt:
 #   host: emqx.database.svc.cluster.local
 #   topic_prefix: frigate
 #   user: "{FRIGATE_MQTT_USERNAME}"
