@@ -89,10 +89,7 @@ spec:
           gethomepage.dev/group: Services
           gethomepage.dev/icon: frigate.png
           gethomepage.dev/href: https://frigate.${SECRET_DOMAIN}
-          gethomepage.dev/pod-selector: >-
-            app in (
-              frigate
-            )
+          gethomepage.dev/pod-selector: app.kubernetes.io/name=frigate
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:

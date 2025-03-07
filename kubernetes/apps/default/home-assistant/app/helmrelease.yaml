@@ -102,10 +102,7 @@ spec:
           gethomepage.dev/group: Services
           gethomepage.dev/icon: home-assistant.png
           gethomepage.dev/href: https://home-assistant.${SECRET_DOMAIN}
-          gethomepage.dev/pod-selector: >-
-            app in (
-              home-assistant
-            )
+          gethomepage.dev/pod-selector: app.kubernetes.io/name=home-assistant
         hosts:
           - host: &host home-assistant.${SECRET_DOMAIN}
             paths:
