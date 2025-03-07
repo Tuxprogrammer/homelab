@@ -51,31 +51,31 @@ objects:
 
 go2rtc:
   streams:
-    cam-1: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=0
-    cam-1-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=1
-    cam-gazebo: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=0
-    cam-gazebo-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=1
-    cam-3: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=0
-    cam-3-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=1
-    cam-garbage-can: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=0
-    cam-garbage-can-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=1
-    cam-front-door: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=0
-    cam-front-door-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=1
-    cam-back-gate: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=0
-    cam-back-gate-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=1
-    cam-driveway: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=0
-    cam-driveway-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=1
-    cam-back-door: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=0
-    cam-back-door-sub: ffmpeg:rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=1
+    cam-1: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=0
+    cam-1-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=1
+    cam-gazebo: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=0
+    cam-gazebo-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=1
+    cam-3: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=0
+    cam-3-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=1
+    cam-garbage-can: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=0
+    cam-garbage-can-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=1
+    cam-front-door: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=0
+    cam-front-door-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=1
+    cam-back-gate: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=0
+    cam-back-gate-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=1
+    cam-driveway: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=0
+    cam-driveway-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=1
+    cam-back-door: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=0
+    cam-back-door-sub: ffmpeg:rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=1
 
 cameras:
   cam-1:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=1&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -85,10 +85,10 @@ cameras:
   cam-gazebo:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=2&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -98,10 +98,10 @@ cameras:
   cam-3:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=3&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -111,10 +111,10 @@ cameras:
   cam-garbage-can:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=4&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -124,10 +124,10 @@ cameras:
   cam-front-door:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=5&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -137,10 +137,10 @@ cameras:
   cam-back-gate:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=6&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -150,10 +150,10 @@ cameras:
   cam-driveway:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=7&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
@@ -163,10 +163,10 @@ cameras:
   cam-back-door:
     ffmpeg:
       inputs:
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=0
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=0
           input_args: preset-rtsp-restream
           roles: [record]
-        - path: rtsp://{LOREX_USERNAME}:{LOREX_PASSWORD}@{LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=1
+        - path: rtsp://{FRIGATE_LOREX_USERNAME}:{FRIGATE_LOREX_PASSWORD}@{FRIGATE_LOREX_HOSTNAME}:554/cam/realmonitor?channel=8&subtype=1
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
