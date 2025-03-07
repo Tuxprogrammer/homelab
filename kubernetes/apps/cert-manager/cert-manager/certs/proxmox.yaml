@@ -5,10 +5,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "node10-${SECRET_DOMAIN/./-}-production-tls"
+  name: "node10-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "node10-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "node10-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
@@ -29,10 +29,10 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "node11-${SECRET_DOMAIN/./-}-production-tls"
+  name: "node11-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "node11-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "node11-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
@@ -51,10 +51,10 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "node12-${SECRET_DOMAIN/./-}-production-tls"
+  name: "node12-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "node12-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "node12-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
@@ -73,10 +73,10 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "node13-${SECRET_DOMAIN/./-}-production-tls"
+  name: "node13-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "node13-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "node13-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
@@ -95,10 +95,10 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "node14-${SECRET_DOMAIN/./-}-production-tls"
+  name: "node14-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "node14-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "node14-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
@@ -117,10 +117,10 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "seeker-${SECRET_DOMAIN/./-}-production-tls"
+  name: "seeker-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "seeker-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "seeker-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer

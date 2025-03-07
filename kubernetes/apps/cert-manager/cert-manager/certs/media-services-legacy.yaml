@@ -2,10 +2,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "media-services-${SECRET_DOMAIN/./-}-production-tls"
+  name: "media-services-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "media-services-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "media-services-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer

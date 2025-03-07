@@ -5,10 +5,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "store-${SECRET_DOMAIN/./-}-production-tls"
+  name: "store-${SECRET_DOMAIN_2/./-}-production-tls"
   namespace: default
 spec:
-  secretName: "store-${SECRET_DOMAIN/./-}-production-tls"
+  secretName: "store-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
     name: internal-ca
     kind: ClusterIssuer
