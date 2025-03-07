@@ -96,6 +96,16 @@ spec:
             Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
           nginx.ingress.kubernetes.io/auth-snippet: |
             proxy_set_header X-Forwarded-Host $http_host;
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: Home Assistant
+          gethomepage.dev/description: Home automation platform
+          gethomepage.dev/group: Services
+          gethomepage.dev/icon: home-assistant.png
+          gethomepage.dev/href: https://home-assistant.${SECRET_DOMAIN}
+          gethomepage.dev/pod-selector: >-
+            app in (
+              home-assistant
+            )
         hosts:
           - host: &host home-assistant.${SECRET_DOMAIN}
             paths:
