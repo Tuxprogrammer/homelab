@@ -1,0 +1,134 @@
+---
+# CN = node10
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node10-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node10-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node10
+  dnsNames:
+    - node10.${SECRET_DOMAIN_2}
+    - pbs.${SECRET_DOMAIN_2}
+    - pve.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.10
+---
+# CN = node11
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node11-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node11-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node11
+  dnsNames:
+    - node11.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.11
+---
+# CN = node12
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node12-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node12-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node12
+  dnsNames:
+    - node12.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.12
+---
+# CN = node13
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node13-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node13-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node13
+  dnsNames:
+    - node13.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.13
+---
+# CN = node14
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node14-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node14-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node14
+  dnsNames:
+    - node14.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.14
+---
+# CN = seeker
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "seeker-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "seeker-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: seeker
+  dnsNames:
+    - seeker.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.2.1

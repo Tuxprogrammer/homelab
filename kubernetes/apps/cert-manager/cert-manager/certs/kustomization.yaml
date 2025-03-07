@@ -4,4 +4,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./archive.yaml
+  - ./ipmi.yaml
   - ./media-services-legacy.yaml
+  - ./proxmox.yaml
+  - ./store.yaml

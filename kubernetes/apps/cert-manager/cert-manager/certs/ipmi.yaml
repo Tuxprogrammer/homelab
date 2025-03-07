@@ -1,0 +1,242 @@
+---
+# CN = gw-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "gw-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "gw-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: gw-idrac
+  dnsNames:
+    - gw-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.20
+---
+# CN = node05-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node05-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node05-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node05-idrac
+  dnsNames:
+    - node05-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.30
+---
+# CN = node06-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node06-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node06-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node06-idrac
+  dnsNames:
+    - node06-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.31
+---
+# CN = node07-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node07-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node07-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node07-idrac
+  dnsNames:
+    - node07-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.32
+---
+# CN = node08-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node08-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node08-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node08-idrac
+  dnsNames:
+    - node08-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.33
+---
+# CN = node09-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node09-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node09-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node09-idrac
+  dnsNames:
+    - node09-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.34
+---
+# CN = node10-idrac
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node10-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node10-idrac-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node10-idrac
+  dnsNames:
+    - node10-idrac.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.35
+---
+# CN = node11-ipmi
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node11-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node11-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node11-ipmi
+  dnsNames:
+    - node11-ipmi.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.40
+---
+# CN = node12-ipmi
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node12-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node12-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node12-ipmi
+  dnsNames:
+    - node12-ipmi.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.41
+---
+# CN = node13-ipmi
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node13-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node13-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node13-ipmi
+  dnsNames:
+    - node13-ipmi.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.42
+---
+# CN = node14-ipmi
+# DNS:127.0.0.1
+# DNS:localhost
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "node14-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "node14-ipmi-${SECRET_DOMAIN/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: node14-ipmi
+  dnsNames:
+    - node14-ipmi.${SECRET_DOMAIN_2}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.1.0.43
