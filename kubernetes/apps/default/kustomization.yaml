@@ -11,4 +11,5 @@ resources:
   - ./homepage/ks.yaml
   # Web Apps
   - ./home-assistant/ks.yaml
+  - ./frigate/ks.yaml
   - ./vaultwarden/ks.yaml
