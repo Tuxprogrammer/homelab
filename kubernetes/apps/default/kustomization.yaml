@@ -9,6 +9,8 @@ resources:
   - ./littlelink/ks.yaml
   - ./freshrss/ks.yaml
   - ./homepage/ks.yaml
+  # Databases
+  - ./mosquitto/ks.yaml
   # Web Apps
   - ./home-assistant/ks.yaml
   - ./frigate/ks.yaml
