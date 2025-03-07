@@ -81,7 +81,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-gazebo:
     ffmpeg:
       inputs:
@@ -94,7 +94,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-3:
     ffmpeg:
       inputs:
@@ -107,7 +107,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-garbage-can:
     ffmpeg:
       inputs:
@@ -120,7 +120,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-front-door:
     ffmpeg:
       inputs:
@@ -133,7 +133,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-back-gate:
     ffmpeg:
       inputs:
@@ -146,7 +146,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-driveway:
     ffmpeg:
       inputs:
@@ -159,7 +159,7 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
   cam-back-door:
     ffmpeg:
       inputs:
@@ -172,4 +172,4 @@ cameras:
     detect:
       width: 704
       height: 480
-      fps: 7
+      fps: 5
