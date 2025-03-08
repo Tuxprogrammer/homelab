@@ -78,7 +78,7 @@
               "webhook": "*Gained the achievement **{ACHIEVEMENT}**!\n{DESCRIPTION}*"
             },
             "serverStart": ":white_check_mark: **Server has started!**",
-            "serverStop": ":octagonal_sign **Server has stopped!**",
+            "serverStop": ":octagonal_sign: **Server has stopped!**",
             "serverCrash": ":warning: **Server crash detected!**"
           }
         },
