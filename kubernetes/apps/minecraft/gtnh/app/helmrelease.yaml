@@ -23,11 +23,9 @@ spec:
   timeout: 15m
   maxHistory: 3
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
-    cleanupOnFail: true
     remediation:
       retries: 3
   values:
