@@ -107,6 +107,14 @@ spec:
                     rsync -r -t -v "/data/World_ramdisk" "/data/World"
                     sleep 300
                 done
+            # This part is critical, as it ensures that the world is saved before the pod is terminated
+            lifecycle:
+              preStop:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - rsync -r -t -v "/data/World_ramdisk/" "/data/World/"
             securityContext:
               runAsNonRoot: true
               runAsUser: 1000
