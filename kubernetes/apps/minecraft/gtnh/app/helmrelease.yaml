@@ -205,7 +205,7 @@ spec:
                 pathType: Prefix
                 service:
                   identifier: *app
-                  port: map-port
+                  port: map
         tls:
           - hosts:
               - *host
