@@ -70,7 +70,7 @@ spec:
               GENERIC_PACKS_SUFFIX: .zip
               GENERIC_PACKS_PREFIX: https://downloads.gtnewhorizons.com/ServerPacks/
               LEVEL: "World_ramdisk"
-              MODS: https://edge.forgecdn.net/files/3147/365/DiscordIntegrationUnoffical-mc1.7.10-3.1.1_3.8.3_464.jar,https://github.com/GTNewHorizons/GTNH-Web-Map/releases/download/0.3.38/gtnh-web-map-0.3.38.jar
+              MODS: https://edge.forgecdn.net/files/3147/365/DiscordIntegrationUnoffical-mc1.7.10-3.1.1_3.8.3_464.jar,https://github.com/GTNewHorizons/GTNH-Web-Map/releases/download/0.3.38/gtnh-web-map-0.3.38.jar,https://github.com/GTNewHorizons/worldedit-gtnh/releases/download/v0.0.7/worldedit-v0.0.7.jar
               # if this isn't true, then the container tries to download the modpack every run
               SKIP_GENERIC_PACK_UPDATE_CHECK: "true"
               STOP_SERVER_ANNOUNCE_DELAY: 15
