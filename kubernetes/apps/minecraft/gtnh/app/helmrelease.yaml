@@ -43,7 +43,7 @@ spec:
             command:
               - /bin/sh
               - -c
-              - rsync -r -t -v -O "/data/World/" "/data/World_ramdisk/"
+              - rsync -r -t -v -h -O "/data/World/" "/data/World_ramdisk/"
             securityContext:
               runAsNonRoot: true
               runAsUser: 1000
@@ -116,7 +116,7 @@ spec:
               - |
                 while true
                 do
-                    rsync -r -t -v "/data/World_ramdisk/" "/data/World/"
+                    rsync -r -t -v -h "/data/World_ramdisk/" "/data/World/"
                     sleep 300 || break
                 done
             # This part is critical, as it ensures that the world is saved before the pod is terminated
@@ -126,7 +126,7 @@ spec:
                   command:
                     - /bin/sh
                     - -c
-                    - rsync -r -t -v "/data/World_ramdisk/" "/data/World/"
+                    - rsync -r -t -v -h "/data/World_ramdisk/" "/data/World/"
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -187,6 +187,8 @@ spec:
             port: 25585
           code-server:
             port: 25595
+          aurora:
+            port: 48574
     ingress:
       gtnh-map:
         enabled: true
