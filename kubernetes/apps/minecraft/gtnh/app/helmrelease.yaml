@@ -132,7 +132,7 @@ spec:
         globalMounts:
           - path: /world_ramdisk
       backups:
-        existingClaim: media-store0
+        existingClaim: minecraft-store0
         advancedMounts:
           *app :
             *app :

@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: media-store0
+  name: minecraft-store0
   namespace: minecraft
 spec:
-  storageClassName: media
+  storageClassName: minecraft
   capacity:
     storage: 1Mi
   accessModes:
@@ -22,13 +22,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: media-store0
+  name: minecraft-store0
   namespace: minecraft
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: media
-  volumeName: media-store0
+  storageClassName: minecraft
+  volumeName: minecraft-store0
   resources:
     requests:
       storage: 1Mi
@@ -36,10 +36,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: media-archive0
+  name: minecraft-archive0
   namespace: minecraft
 spec:
-  storageClassName: media
+  storageClassName: minecraft
   capacity:
     storage: 1Mi
   accessModes:
@@ -56,13 +56,13 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: media-archive0
+  name: minecraft-archive0
   namespace: minecraft
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: media
-  volumeName: media-archive0
+  storageClassName: minecraft
+  volumeName: minecraft-archive0
   resources:
     requests:
       storage: 1Mi
