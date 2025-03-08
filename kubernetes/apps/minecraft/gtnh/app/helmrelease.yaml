@@ -137,7 +137,7 @@ spec:
               "--user-data-dir", "/data/.vscode",
               "--extensions-dir", "/data/.vscode",
               "--port", "25595",
-              "/config"
+              "/data"
             ]
             securityContext:
               allowPrivilegeEscalation: false
