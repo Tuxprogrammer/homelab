@@ -34,7 +34,7 @@ spec:
             command:
               - /bin/sh
               - -c
-              - rsync -r -t -v "/data/World/" "/data/World_ramdisk/"
+              - rsync -r -t -v -O "/data/World/" "/data/World_ramdisk/"
             securityContext:
               runAsNonRoot: true
               runAsUser: 1000
