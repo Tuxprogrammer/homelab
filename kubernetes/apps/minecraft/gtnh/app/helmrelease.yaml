@@ -26,6 +26,27 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
+        initContainers:
+          load-world:
+            image:
+              repository: eeacms/rsync
+              tag: 2.6@sha256:07244cc157ee915ee4095734cd6b68b33bbb807fe59c19a9cd78aa3a1fa3d972
+            command:
+              - /bin/sh
+              - -c
+              - rsync -r -t -v "/data/World" "/data/World_ramdisk"
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 1000
+              runAsGroup: 1000
+              fsGroup: 1000
+              fsGroupChangePolicy: OnRootMismatch
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                memory: 256Mi
         containers:
           *app :
             image:
@@ -35,6 +56,7 @@ spec:
               TZ: ${TIMEZONE}
               EULA: "TRUE"
               TYPE: CUSTOM
+              DISABLE_HEALTHCHECK: "false"
               GENERIC_PACKS: GT_New_Horizons_2.7.3_Server_Java_17-21
               GENERIC_PACKS_SUFFIX: .zip
               GENERIC_PACKS_PREFIX: https://downloads.gtnewhorizons.com/ServerPacks/
@@ -67,10 +89,35 @@ spec:
                   - ALL
             resources:
               requests:
-                cpu: 2000m
+                cpu: 4000m
                 memory: 8Gi
               limits:
                 memory: 64Gi
+          save-world:
+            image:
+              repository: eeacms/rsync
+              tag: 2.6@sha256:07244cc157ee915ee4095734cd6b68b33bbb807fe59c19a9cd78aa3a1fa3d972
+            command:
+              - /bin/sh
+              - -c
+              - |
+                while true
+                do
+                    rsync -r -t -v "/data/World_ramdisk" "/data/World"
+                    sleep 300
+                done
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 1000
+              runAsGroup: 1000
+              fsGroup: 1000
+              fsGroupChangePolicy: OnRootMismatch
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                memory: 256Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -129,8 +176,9 @@ spec:
       world:
         type: emptyDir
         medium: Memory
+        sizeLimit: 56Gi
         globalMounts:
-          - path: /world_ramdisk
+          - path: /data/World_ramdisk
       backups:
         existingClaim: minecraft-store0
         advancedMounts:
