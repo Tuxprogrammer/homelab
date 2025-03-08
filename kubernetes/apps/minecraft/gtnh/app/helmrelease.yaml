@@ -238,11 +238,9 @@ spec:
           - path: /data/World_ramdisk
       backups:
         existingClaim: minecraft-store0
-        advancedMounts:
-          *app :
-            *app :
-              - path: /backups
-                subPath: minecraft/gtnh
+        globalMounts:
+          - path: /backups
+            subPath: minecraft/gtnh
     serviceMonitor:
       metrics:
         enabled: true
