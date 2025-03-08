@@ -231,6 +231,13 @@ spec:
         storageClass: ceph-block-internal-fast
         globalMounts:
           - path: /data
+      discordintegration-config:
+        type: configMap
+        name: gtnh-discordintegration-json
+        globalMounts:
+          - path: /data/config/Chikachi/discordintegration.json
+            subPath: discordIntegration.json
+            readOnly: true
       world:
         type: emptyDir
         medium: Memory

@@ -5,6 +5,12 @@ kind: Kustomization
 namespace: minecraft
 resources:
   - ./helmrelease.yaml
+configMapGenerator:
+  - name: gtnh-discordintegration-json
+    files:
+      - config/discordintegration.json
+generatorOptions:
+  disableNameSuffixHash: true
 labels:
   - pairs:
       app.kubernetes.io/name: gtnh
