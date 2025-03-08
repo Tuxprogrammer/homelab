@@ -73,7 +73,7 @@ spec:
               MODS: https://edge.forgecdn.net/files/3147/365/DiscordIntegrationUnoffical-mc1.7.10-3.1.1_3.8.3_464.jar,https://github.com/GTNewHorizons/GTNH-Web-Map/releases/download/0.3.38/gtnh-web-map-0.3.38.jar
               # if this isn't true, then the container tries to download the modpack every run
               SKIP_GENERIC_PACK_UPDATE_CHECK: "true"
-              STOP_SERVER_ANNOUNCE_DELAY: 120
+              STOP_SERVER_ANNOUNCE_DELAY: 15
               MEMORY: 8G
               # Make sure that this matches what is in your pack's startserver bash file
               JVM_OPTS: -Dfml.readTimeout=180 @java9args.txt
