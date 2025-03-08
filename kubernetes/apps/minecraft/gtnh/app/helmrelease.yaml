@@ -105,7 +105,7 @@ spec:
               - |
                 while true
                 do
-                    rsync -r -t -v "/data/World_ramdisk" "/data/World"
+                    rsync -r -t -v "/data/World_ramdisk/" "/data/World/"
                     sleep 300 || break
                 done
             # This part is critical, as it ensures that the world is saved before the pod is terminated
@@ -141,7 +141,7 @@ spec:
             ]
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: false
               capabilities:
                 drop:
                   - ALL
