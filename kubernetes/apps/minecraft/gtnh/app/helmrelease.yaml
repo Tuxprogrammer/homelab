@@ -131,6 +131,13 @@ spec:
         medium: Memory
         globalMounts:
           - path: /world_ramdisk
+      backups:
+        existingClaim: media-store0
+        advancedMounts:
+          *app :
+            *app :
+              - path: /backups
+                subPath: minecraft/gtnh
     serviceMonitor:
       metrics:
         enabled: true
