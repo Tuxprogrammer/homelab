@@ -54,7 +54,7 @@
           "relayCommands": [${DISCORD_GTNH_ADMIN_CHANNEL_ID}],
           "messages": {
             "chatMessage": {
-              "normal": "**[{USER}]** {MESSAGE}",
+              "normal": "**<{USER}>** {MESSAGE}",
               "webhook": "{MESSAGE}"
             },
             "command": {
