@@ -60,6 +60,7 @@ spec:
               GENERIC_PACKS: GT_New_Horizons_2.7.3_Server_Java_17-21
               GENERIC_PACKS_SUFFIX: .zip
               GENERIC_PACKS_PREFIX: https://downloads.gtnewhorizons.com/ServerPacks/
+              LEVEL: "World_ramdisk"
               # if this isn't true, then the container tries to download the modpack every run
               SKIP_GENERIC_PACK_UPDATE_CHECK: "true"
               MEMORY: 8G
