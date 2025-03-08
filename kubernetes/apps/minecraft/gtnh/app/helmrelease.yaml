@@ -84,7 +84,7 @@ spec:
         controller: *app
         type: LoadBalancer
         annotations:
-          metallb.universe.tf/loadBalancerIPs: "${METALLB_GTNH_ADDR}"
+          metallb.io/loadBalancerIPs: "${METALLB_GTNH_ADDR}"
         ports:
           java:
             port: 25565
