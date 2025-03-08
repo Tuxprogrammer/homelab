@@ -33,27 +33,25 @@
       "dimensions": {
         "generic": {
           "ignoreFakePlayerChat": true,
-          "relaySayCommand": true,
-          "relayMeCommand": true,
           "canMentionEveryone": false,
           "canMentionHere": false,
           "messageIgnoreRegex": [],
           "commandIgnoreRegex": [],
-          "relayServerStart": true,
-          "relayServerStop": true,
-          "relayServerCrash": true,
           "chatPrefix": "",
           "canMentionUsers": true,
           "canMentionRoles": true,
-          "discordChannel": [
-            ${DISCORD_GTNH_CHANNEL_ID}
-          ],
-          "relayAchievements": true,
-          "relayChat": true,
-          "relayCommands": true,
-          "relayPlayerJoin": true,
-          "relayPlayerLeave": true,
-          "relayPlayerDeath": true,
+          "discordChannel": [],
+          "relayAchievements": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relaySayCommand": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayMeCommand": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayServerStart": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayServerStop": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayServerCrash": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayChat": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayPlayerJoin": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayPlayerLeave": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayPlayerDeath": [${DISCORD_GTNH_CHANNEL_ID}],
+          "relayCommands": [${DISCORD_GTNH_ADMIN_CHANNEL_ID}],
           "messages": {
             "chatMessage": {
               "normal": "**[{USER}]** {MESSAGE}",
@@ -79,9 +77,9 @@
               "normal": "**{USER}** just gained the achievement **{ACHIEVEMENT}**!\n*{DESCRIPTION}*",
               "webhook": "*Gained the achievement **{ACHIEVEMENT}**!\n{DESCRIPTION}*"
             },
-            "serverStart": "Server started!",
-            "serverStop": "Server stopped!",
-            "serverCrash": "Server crash detected!"
+            "serverStart": ":white_check_mark: **Server has started!**",
+            "serverStop": ":octagonal_sign **Server has stopped!**",
+            "serverCrash": ":warning: **Server crash detected!**"
           }
         },
         "dimensions": {}
