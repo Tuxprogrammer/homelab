@@ -46,7 +46,7 @@
           "canMentionUsers": true,
           "canMentionRoles": true,
           "discordChannel": [
-            "${DISCORD_GTNH_CHANNEL_ID}"
+            ${DISCORD_GTNH_CHANNEL_ID}
           ],
           "relayAchievements": true,
           "relayChat": true,
