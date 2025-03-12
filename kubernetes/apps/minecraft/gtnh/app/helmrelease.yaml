@@ -35,6 +35,7 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
+          backup.velero.io/backup-volumes-excludes: minecraft-archive0,minecraft-store0
         initContainers:
           load-world:
             image:
