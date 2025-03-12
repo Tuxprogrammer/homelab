@@ -20,7 +20,17 @@
         widget:
           type: truenas
           url: https://archive.${SECRET_DOMAIN_2}
-          key: "{{HOMEPAGE_VAR_TRUENAS_APIKEY}}"
+          key: "{{HOMEPAGE_VAR_TRUENAS_ARCHIVE_APIKEY}}"
+          enablePools: true
+    - Store:
+        href: https://store.${SECRET_DOMAIN_2}
+        target: _self
+        icon: truenas.png
+        description: TrueNAS Scale
+        widget:
+          type: truenas
+          url: https://store.${SECRET_DOMAIN_2}
+          key: "{{HOMEPAGE_VAR_TRUENAS_STORE_APIKEY}}"
           enablePools: true
     - node10:
         href: https://node10.${SECRET_DOMAIN_2}:8006
