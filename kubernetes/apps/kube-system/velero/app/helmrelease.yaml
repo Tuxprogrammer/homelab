@@ -80,7 +80,7 @@ spec:
         template:
           includedNamespaces:
             - "*"
-          ttl: 72h # 3 days
+          ttl: 24h # 1 days
           defaultVolumesToFsBackup: false # don't backup pod filesystems for the hourly schedule
   valuesFrom:
     - targetPath: configuration.backupStorageLocation[0].caCert
