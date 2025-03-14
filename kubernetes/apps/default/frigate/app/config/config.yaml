@@ -39,8 +39,11 @@ record:
   enabled: true
   sync_recordings: true
   retain:
-    days: 7
-    mode: all
+    days: 0
+  alerts:
+    retain:
+      days: 30
+      mode: motion
 
 objects:
   track: [person]
