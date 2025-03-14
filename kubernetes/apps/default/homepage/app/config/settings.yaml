@@ -16,6 +16,9 @@ quicklaunch:
   hideVisitURL: true
 target: _self
 layout:
+  Calendar:
+    style: column
+    icon: mdi-calendar
   Updates:
     style: column
     icon: mdi-update
@@ -34,9 +37,6 @@ layout:
     style: row
     columns: 1
     icon: mdi-lan
-  Calendar:
-    style: column
-    icon: mdi-calendar
   Video:
     style: column
     icon: mdi-play-circle

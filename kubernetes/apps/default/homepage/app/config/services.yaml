@@ -133,7 +133,7 @@
                 unmonitored: true
             - type: sonarr
               service_group: Media
-              service_name: Sonarr-chan
+              service_name: Sonarr-Chan
               color: teal
               params:
                 unmonitored: true
@@ -145,7 +145,7 @@
                 unmonitored: true
             - type: radarr
               service_group: Media
-              service_name: Radarr-chan
+              service_name: Radarr-Chan
               color: purple
               params:
                 unmonitored: true
