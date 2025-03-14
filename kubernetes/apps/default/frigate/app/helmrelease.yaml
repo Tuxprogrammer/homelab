@@ -102,7 +102,7 @@ spec:
               - *host
             secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
     persistence:
-      config:
+      config-data:
         accessMode: ReadWriteOnce
         size: 10Gi
         storageClass: ceph-block-internal
@@ -115,6 +115,11 @@ spec:
           - path: /config/config.yml
             subPath: config.yaml
             readOnly: true
+      recordings:
+        existingClaim: media-archive0
+        globalMounts:
+          - path: /media/frigate/recordings
+            subPath: plex/media/NVR
       cache:
         type: emptyDir
         medium: Memory
