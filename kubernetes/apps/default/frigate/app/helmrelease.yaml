@@ -116,7 +116,7 @@ spec:
             subPath: config.yaml
             readOnly: true
       recordings:
-        existingClaim: media-archive0
+        existingClaim: default-archive0
         globalMounts:
           - path: /media/frigate/recordings
             subPath: plex/media/NVR
