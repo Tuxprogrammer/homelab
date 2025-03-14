@@ -83,6 +83,16 @@ spec:
             Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
           nginx.ingress.kubernetes.io/auth-snippet: |
             proxy_set_header X-Forwarded-Host $http_host;
+          nginx.org/websocket-services: "frigate"
+          nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+          nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+          nginx.ingress.kubernetes.io/proxy-http_version: "1.1"
+          nginx.ingress.kubernetes.io/proxy-set-header: |
+            Upgrade $http_upgrade
+            Connection "Upgrade"
+            Sec-WebSocket-Key $http_sec_websocket_key
+            Sec-WebSocket-Version $http_sec_websocket_version
+            Sec-WebSocket-Protocol $http_sec_websocket_protocol
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: Frigate
           gethomepage.dev/description: NVR with realtime local object detection for IP cameras
