@@ -72,7 +72,7 @@ spec:
               - sabnzbd
             env:
               - name: URL
-                value: "http://localhost"
+                value: "http://localhost:8080"
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
