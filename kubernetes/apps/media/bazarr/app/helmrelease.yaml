@@ -19,6 +19,10 @@ spec:
       namespace: rook-ceph
     - name: rook-ceph-cluster
       namespace: rook-ceph
+    - name: radarr
+      namespace: media
+    - name: sonarr
+      namespace: media
   interval: 15m
   values:
     controllers:

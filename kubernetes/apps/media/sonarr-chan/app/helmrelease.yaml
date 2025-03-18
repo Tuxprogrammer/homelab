@@ -19,6 +19,10 @@ spec:
       namespace: rook-ceph
     - name: rook-ceph-cluster
       namespace: rook-ceph
+    - name: qbittorrent
+      namespace: media
+    - name: sabnzbd
+      namespace: media
   interval: 15m
   values:
     controllers:
