@@ -1,0 +1,90 @@
+---
+# Configuration specific to Radarr.
+radarr:
+  movies:
+    # Set the URL/API Key to your actual instance
+    base_url: http://radarr-chan.svc.media.cluster.local:7878
+    api_key: ${RADARR_CHAN_TOKEN}
+
+    # Which quality definition in the guide to sync to Radarr. Only choice right now is 'movie'
+    quality_definition:
+      type: movie
+
+    # Set to 'true' to automatically remove custom formats from Radarr when they are removed from
+    # the guide or your configuration. This will NEVER delete custom formats you manually created!
+    delete_old_custom_formats: false
+
+    custom_formats:
+      # A list of custom formats to sync to Radarr.
+      # Use `recyclarr list custom-formats radarr` for values you can put here.
+      # https://trash-guides.info/Radarr/Radarr-collection-of-custom-formats/
+
+      # Globals
+      - trash_ids:
+          # Good Releases
+          - fb3ccc5d5cc8f77c9055d4cb4561dded # Anime BD Tier 01 (Top SeaDex Muxers) (1400)
+          - 66926c8fa9312bc74ab71bf69aae4f4a # Anime BD Tier 02 (SeaDex Muxers) (1300)
+          - fa857662bad28d5ff21a6e611869a0ff # Anime BD Tier 03 (SeaDex Muxers) (1200)
+          - f262f1299d99b1a2263375e8fa2ddbb3 # Anime BD Tier 04 (SeaDex Muxers) (1100)
+          - ca864ed93c7b431150cc6748dc34875d # Anime BD Tier 05 (Remuxes) (1000)
+          - 9dce189b960fddf47891b7484ee886ca # Anime BD Tier 06 (FanSubs) (900)
+          - 1ef101b3a82646b40e0cab7fc92cd896 # Anime BD Tier 07 (P2P/Scene) (800)
+          - 6115ccd6640b978234cc47f2c1f2cadc # Anime BD Tier 08 (Mini Encodes) (700)
+          - 8167cffba4febfb9a6988ef24f274e7e # Anime Web Tier 01 (Muxers) (600)
+          - 8526c54e36b4962d340fce52ef030e76 # Anime Web Tier 02 (Top FanSubs) (500)
+          - de41e72708d2c856fa261094c85e965d # Anime Web Tier 03 (Official Subs) (400)
+          - 9edaeee9ea3bcd585da9b7c0ac3fc54f # Anime Web Tier 04 (Official Subs) (300)
+          - 22d953bbe897857b517928f3652b8dd3 # Anime Web Tier 05 (FanSubs) (200)
+          - a786fbc0eae05afe3bb51aee3c83a9d4 # Anime Web Tier 06 (FanSubs) (100)
+          - 3a3ff47579026e76d6504ebea39390de # Remux Tier 01 (1050)
+          - 9f98181fe5a3fbeb0cc29340da2a468a # Remux Tier 02 (1000)
+          - 06b6542a47037d1e33b15aa3677c2365 # Anime Raws (-10000)
+          - b0fdc5897f68c9a68c70c25169f77447 # Anime LQ Groups (-10000)
+          - c259005cbaeb5ab44c06eddb4751e70c # v0 (-51)
+          - 5f400539421b8fcf71d51e6384434573 # v1 (1)
+          - 3df5e6dfef4b09bb6002f732bed5b774 # v2 (2)
+          - db92c27ba606996b146b57fbe6d09186 # v3 (3)
+          - d4e5e842fad129a3c097bdb2d20d31a0 # v4 (4)
+          - 60f6d50cbd3cfc3e9a8c00e3a30c3114 # VRV (10)
+          # HDR
+          - a5d148168c4506b55cf53984107c396e # 10bit (0)
+          # Audio Settings
+          - 9172b2f683f6223e3a1846427b417a3d # VOSTFR (-10000)
+        quality_profiles:
+          - name: Spencer Home
+          - name: "!Spencer and Friends Setups"
+
+      - trash_ids:
+          - 4b900e171accbfb172729b63323ea8ca # Multi Audio French (0)
+        quality_profiles:
+          - name: Spencer Home
+            score: -10000
+          - name: "!Spencer and Friends Setups"
+            score: -10000
+
+      - trash_ids:
+          - 064af5f084a0a24458cc8ecd3220f93f # Uncensored (0)
+          - 4a3b087eea2ce012fcc1ce319259a3be # Anime Dual Audio (2000)
+        quality_profiles:
+          - name: Spencer Home
+            score: 101
+          - name: "!Spencer and Friends Setups"
+            score: 101
+
+      # Prefer Dubbed and Dual Audio
+      - trash_ids:
+          - b23eae459cc960816f2d6ba84af45055 # Dubs Only (-10000)
+        quality_profiles:
+          - name: Spencer Home
+            score: 2000
+          - name: "!Spencer and Friends Setups"
+            score: 2000
+
+        # Uncomment the below properties to specify one or more quality profiles that should be
+        # updated with scores from the guide for each custom format. Without this, custom formats
+        # are synced to Radarr but no scores are set in any quality profiles.
+        #quality_profiles:
+        #  - name: Quality Profile 1
+        #  - name: Quality Profile 2
+        #    #score: -9999 # Optional score to assign to all CFs. Overrides scores in the guide.
+        #    #reset_unmatched_scores: true # Optionally set other scores to 0 if they are not listed in 'names' above.

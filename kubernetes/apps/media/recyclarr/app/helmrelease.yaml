@@ -1,0 +1,86 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app recyclarr
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 3.7.2
+      interval: 15m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    controllers:
+      *app :
+        annotations:
+          reloader.stakater.com/auto: "true"
+          backup.velero.io/backup-volumes-excludes: media-archive0,media-store0
+        containers:
+          *app :
+            image:
+              repository: ghcr.io/recyclarr/recyclarr
+              tag: 7.4.1@sha256:759540877f95453eca8a26c1a93593e783a7a824c324fbd57523deffb67f48e1
+            args:
+              - sync
+            env:
+              RECYCLARR_CREATE_CONFIG: true
+            resources:
+              requests:
+                cpu: 5m
+                memory: 36M
+              limits:
+                memory: 128M
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
+    persistence:
+      config:
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClass: ceph-block-internal
+        advancedMounts:
+          *app :
+            *app :
+              - path: /config
+      static-configs:
+        type: configMap
+        name: recyclarr-configs
+        globalMounts:
+          - path: /config/configs/radarr.yaml
+            subPath: radarr.yaml
+            readOnly: true
+          - path: /config/configs/radarr-chan.yaml
+            subPath: radarr-chan.yaml
+            readOnly: true
+          - path: /config/configs/sonarr.yaml
+            subPath: sonarr.yaml
+            readOnly: true
+          - path: /config/configs/sonarr-chan.yaml
+            subPath: sonarr-chan.yaml
+            readOnly: true

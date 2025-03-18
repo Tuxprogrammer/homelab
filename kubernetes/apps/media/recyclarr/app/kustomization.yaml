@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./helmrelease.yaml
+configMapGenerator:
+  - name: recyclarr-configs
+    files:
+      - radarr.yaml=./config/radarr.yaml
+      - radarr-chan.yaml=./config/radarr-chan.yaml
+      - sonarr.yaml=./config/sonarr.yaml
+      - sonarr-chan.yaml=./config/sonarr-chan.yaml
+generatorOptions:
+  disableNameSuffixHash: true
