@@ -16,8 +16,6 @@ spec:
     path: "/mnt/store0/linux"
   mountOptions:
     - nfsvers=4.2
-    - rsize=131072
-    - wsize=131072
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -50,8 +48,6 @@ spec:
     path: "/mnt/archive0/linux"
   mountOptions:
     - nfsvers=4.2
-    - rsize=131072
-    - wsize=131072
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

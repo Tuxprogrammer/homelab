@@ -168,8 +168,8 @@ spec:
       downloads:
         retain: false
         accessMode: ReadWriteOnce
-        storageClass: ceph-block-internal-fast
         size: 400Gi
+        storageClass: ceph-block-internal-fast
         advancedMounts:
           *app :
             *app :
