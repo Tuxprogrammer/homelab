@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./nfs-mounts.yaml
+  - ./recyclarr-pre-secret.yaml
   # Arrstack
   - ./calibre-web-automated/ks.yaml
   - ./bazarr/ks.yaml
