@@ -1,9 +1,9 @@
 ---
 # Configuration specific to Sonarr
 sonarr:
-  sonarr-chan:
+  sonarr-chan-${SECRET_DOMAIN/./-}:
     # Set the URL/API Key to your actual instance
-    base_url: http://sonarr-chan.svc.media.cluster.local:8989
+    base_url: http://sonarr-chan.media.svc.cluster.local:8989
     api_key: ${SONARR_CHAN_TOKEN}
 
     # Quality definitions from the guide to sync to Sonarr. Choices: series, anime
