@@ -1,7 +1,7 @@
 ---
 # Configuration specific to Sonarr
 sonarr:
-  series:
+  sonarr:
     # Set the URL/API Key to your actual instance
     base_url: http://sonarr.svc.media.cluster.local:8989
     api_key: ${SONARR_TOKEN}

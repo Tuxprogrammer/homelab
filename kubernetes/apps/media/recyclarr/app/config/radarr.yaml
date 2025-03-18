@@ -1,7 +1,7 @@
 ---
 # Configuration specific to Radarr.
 radarr:
-  movies:
+  radarr:
     # Set the URL/API Key to your actual instance
     base_url: http://radarr.svc.media.cluster.local:7878
     api_key: ${RADARR_TOKEN}
