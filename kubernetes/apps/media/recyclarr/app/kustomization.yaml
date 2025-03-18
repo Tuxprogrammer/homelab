@@ -14,3 +14,7 @@ configMapGenerator:
       - sonarr-chan.yaml=./config/sonarr-chan.yaml
 generatorOptions:
   disableNameSuffixHash: true
+labels:
+  - pairs:
+      app.kubernetes.io/name: recyclarr
+      app.kubernetes.io/instance: recyclarr
