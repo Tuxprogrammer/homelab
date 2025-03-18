@@ -33,7 +33,7 @@ spec:
               repository: ghcr.io/joryirving/tautulli
               tag: 2.15.1@sha256:288551344f170412d26821c38a51a90e81a4c2af65598c25d231a1283626abbe
             env:
-              TZ: ${TZ}
+              TZ: ${TIMEZONE}
               TAUTULLI__PORT: &port 80
             probes:
               liveness: &probes
