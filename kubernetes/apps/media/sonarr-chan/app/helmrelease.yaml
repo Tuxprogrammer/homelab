@@ -67,8 +67,6 @@ spec:
               requests:
                 cpu: 5m
                 memory: 350Mi
-              limits:
-                memory: 2Gi
           exporter:
             image:
               repository: ghcr.io/onedr0p/exportarr
