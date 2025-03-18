@@ -1,0 +1,139 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app tautulli
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 3.7.2
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  dependsOn:
+    - name: rook-ceph-operator
+      namespace: rook-ceph
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
+  interval: 15m
+  values:
+    controllers:
+      *app :
+        type: statefulset
+        annotations:
+          reloader.stakater.com/auto: "true"
+          backup.velero.io/backup-volumes-excludes: media-archive0,media-store0
+        containers:
+          *app :
+            image:
+              repository: ghcr.io/joryirving/tautulli
+              tag: 2.15.1@sha256:288551344f170412d26821c38a51a90e81a4c2af65598c25d231a1283626abbe
+            env:
+              TZ: ${TZ}
+              TAUTULLI__PORT: &port 80
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /status
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 1Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
+    service:
+      *app :
+        controller: *app
+        ports:
+          http:
+            port: *port
+    ingress:
+      *app :
+        enabled: true
+        className: nginx
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          nginx.ingress.kubernetes.io/auth-url: http://ak-outpost-authentik-embedded-outpost.networking.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$scheme://$http_host$escaped_request_uri
+          nginx.ingress.kubernetes.io/auth-response-headers: |-
+            Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-entitlements,X-authentik-email,X-authentik-name,X-authentik-uid
+          nginx.ingress.kubernetes.io/auth-snippet: |
+            proxy_set_header X-Forwarded-Host $http_host;
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: "{{ title .Release.Namespace }}"
+          gethomepage.dev/name: "{{ title .Release.Name }}"
+          gethomepage.dev/icon: "{{ .Release.Name }}"
+          gethomepage.dev/description: "Plex Stream Monitoring"
+          gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+          gethomepage.dev/widget.type: "{{ .Release.Name }}"
+          gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+          gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_TAUTULLI_TOKEN}}`}}"
+          gethomepage.dev/widget.enableQueue: "true"
+        hosts:
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  name: *app
+                  port: *port
+        tls:
+          - hosts:
+              - *host
+            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN/./-}-production-tls"
+    persistence:
+      config:
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClass: ceph-block-internal
+        advancedMounts:
+          *app :
+            *app :
+              - path: /config
+      logs:
+        type: emptyDir
+        advancedMounts:
+          *app :
+            *app :
+              - path: /config/logs
+      tmp:
+        type: emptyDir
+        advancedMounts:
+          *app :
+            *app :
+              - path: /tmp
+    serviceMonitor:
+      metrics:
+        enabled: true
+        serviceName: *app
+        endpoints:
+          - port: metrics
+            scheme: http
+            path: /metrics
+            interval: 10m
+            scrapeTimeout: 10s

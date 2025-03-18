@@ -17,4 +17,5 @@ resources:
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./sonarr-chan/ks.yaml
+  - ./tautulli/ks.yaml
   # - ./plex/ks.yaml
