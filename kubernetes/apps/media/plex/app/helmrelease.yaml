@@ -111,33 +111,33 @@ spec:
           dlna-tcp:
             port: 32469
             protocol: TCP
-    ingress:
-      *app :
-        enabled: true
-        className: nginx
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/group: "{{ title .Release.Namespace }}"
-          gethomepage.dev/name: "{{ title .Release.Name }}"
-          gethomepage.dev/icon: "{{ .Release.Name }}"
-          gethomepage.dev/description: "Media Hosting Service"
-          gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.type: "{{ .Release.Name }}"
-          gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
-          gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_PLEX_TOKEN}}`}}"
-        hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN_2}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  name: *app
-                  port: *port
-        tls:
-          - hosts:
-              - *host
-            secretName: "{{ .Release.Name }}-${SECRET_DOMAIN_2/./-}-production-tls"
+    # ingress:
+    #   *app :
+    #     enabled: true
+    #     className: nginx
+    #     annotations:
+    #       external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
+    #       gethomepage.dev/enabled: "true"
+    #       gethomepage.dev/group: "{{ title .Release.Namespace }}"
+    #       gethomepage.dev/name: "{{ title .Release.Name }}"
+    #       gethomepage.dev/icon: "{{ .Release.Name }}"
+    #       gethomepage.dev/description: "Media Hosting Service"
+    #       gethomepage.dev/siteMonitor: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+    #       gethomepage.dev/widget.type: "{{ .Release.Name }}"
+    #       gethomepage.dev/widget.url: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ index .Values \"service\" .Release.Name \"ports\" \"http\" \"port\" }}"
+    #       gethomepage.dev/widget.key: "{{`{{HOMEPAGE_VAR_PLEX_TOKEN}}`}}"
+    #     hosts:
+    #       - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN_2}"
+    #         paths:
+    #           - path: /
+    #             pathType: Prefix
+    #             service:
+    #               name: *app
+    #               port: *port
+    #     tls:
+    #       - hosts:
+    #           - *host
+    #         secretName: "{{ .Release.Name }}-${SECRET_DOMAIN_2/./-}-production-tls"
     persistence:
       config:
         accessMode: ReadWriteOnce
