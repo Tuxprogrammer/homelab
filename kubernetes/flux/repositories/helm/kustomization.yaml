@@ -18,6 +18,7 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./minio.yaml
+  - ./node-feature-discovery.yaml
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml

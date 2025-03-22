@@ -6,6 +6,7 @@ resources:
   - ./namespace.yaml
   - ./generic-device-plugin/ks.yaml
   - ./intel-device-plugin/ks.yaml
+  - ./node-feature-discovery.yaml
   - ./local-path-provisioner/ks.yaml
   - ./reloader/ks.yaml
   - ./velero/ks.yaml
