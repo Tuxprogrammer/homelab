@@ -94,7 +94,7 @@ spec:
           plex-for-roku:
             port: 8324
             protocol: TCP
-          plex-media-server:
+          http:
             port: 32400
           gdm-discovery-10:
             port: 32410
