@@ -35,9 +35,6 @@ spec:
             image:
               repository: ghcr.io/onedr0p/plex
               tag: 1.41.4.9463-630c9f557@sha256:7e169d17670c8f34bcb1f40500747b1b689c1c2ef7b80e604b968b5375e62022
-            command:
-              - sleep
-              - infinity
             env:
               TZ: ${TIMEZONE}
               PORT: &port 32400
