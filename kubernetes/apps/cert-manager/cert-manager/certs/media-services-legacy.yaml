@@ -16,7 +16,7 @@ spec:
     - desktop.${SECRET_DOMAIN_2}
     - lidarr.${SECRET_DOMAIN_2}
     - overseerr.${SECRET_DOMAIN_2}
-    - plex.${SECRET_DOMAIN_2}
+    # - plex.${SECRET_DOMAIN_2}
     - prowlarr.${SECRET_DOMAIN_2}
     - radarr-chan.${SECRET_DOMAIN_2}
     - radarr.${SECRET_DOMAIN_2}
