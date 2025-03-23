@@ -70,6 +70,7 @@ spec:
               requests:
                 cpu: 5m
                 memory: 350Mi
+                gpu.intel.com/i915: 1
               limits:
                 gpu.intel.com/i915: 1
     defaultPodOptions:
