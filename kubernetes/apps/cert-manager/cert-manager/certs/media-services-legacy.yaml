@@ -12,18 +12,9 @@ spec:
   duration: 17520h
   commonName: media-services
   dnsNames:
-    - bazarr.${SECRET_DOMAIN_2}
     - desktop.${SECRET_DOMAIN_2}
     - lidarr.${SECRET_DOMAIN_2}
     - overseerr.${SECRET_DOMAIN_2}
-    # - plex.${SECRET_DOMAIN_2}
-    - prowlarr.${SECRET_DOMAIN_2}
-    - radarr-chan.${SECRET_DOMAIN_2}
-    - radarr.${SECRET_DOMAIN_2}
-    - readarr.${SECRET_DOMAIN_2}
-    - solverr.${SECRET_DOMAIN_2}
-    - sonarr-chan.${SECRET_DOMAIN_2}
-    - sonarr.${SECRET_DOMAIN_2}
     - tdarr.${SECRET_DOMAIN_2}
     - ytaudio.${SECRET_DOMAIN_2}
     - ytvideo.${SECRET_DOMAIN_2}
