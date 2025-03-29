@@ -51,3 +51,4 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "pbs-${SECRET_DOMAIN_2/./-}-production-tls"

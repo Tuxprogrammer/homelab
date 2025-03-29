@@ -52,3 +52,4 @@ spec:
   tls:
     - hosts:
         - *host
+      secretName: "pve-${SECRET_DOMAIN_2/./-}-production-tls"
