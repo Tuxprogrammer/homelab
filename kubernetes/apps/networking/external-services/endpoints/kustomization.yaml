@@ -10,3 +10,4 @@ resources:
   - ./office.yaml
   - ./pve.yaml
   - ./pbs.yaml
+  - ./romm.yaml
