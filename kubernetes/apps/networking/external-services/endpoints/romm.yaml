@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: store.${SECRET_DOMAIN}
+  externalName: store.${SECRET_DOMAIN_2}
   ports:
     - name: http
       port: 8080
