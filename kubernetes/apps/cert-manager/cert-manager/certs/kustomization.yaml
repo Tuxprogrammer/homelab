@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ./archive.yaml
   - ./ipmi.yaml
+  - ./mail.yaml
   - ./media-services-legacy.yaml
   - ./proxmox.yaml
   - ./store.yaml

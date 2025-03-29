@@ -1,0 +1,21 @@
+---
+# CN = mail
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "mail-${SECRET_DOMAIN_2/./-}-production-tls"
+  namespace: default
+spec:
+  secretName: "mail-${SECRET_DOMAIN_2/./-}-production-tls"
+  issuerRef:
+    name: internal-ca
+    kind: ClusterIssuer
+  duration: 17520h
+  commonName: mail
+  dnsNames:
+    - mail.${SECRET_DOMAIN_2}
+    - mail.${SECRET_DOMAIN}
+    - localhost
+  ipAddresses:
+    - 127.0.0.1
+    - 10.2.0.3
