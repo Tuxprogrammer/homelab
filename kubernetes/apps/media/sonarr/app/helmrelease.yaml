@@ -30,7 +30,7 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: media-archive0,media-store0
+          backup.velero.io/backup-volumes-excludes: media-archive0,media-store1
         containers:
           *app :
             image:

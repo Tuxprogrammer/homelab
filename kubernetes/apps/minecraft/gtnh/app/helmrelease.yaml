@@ -35,7 +35,7 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: minecraft-archive0,minecraft-store0
+          backup.velero.io/backup-volumes-excludes: minecraft-archive0,minecraft-store1
         initContainers:
           load-world:
             image:
@@ -258,7 +258,7 @@ spec:
         globalMounts:
           - path: /data/World_ramdisk
       backups:
-        existingClaim: minecraft-store0
+        existingClaim: minecraft-store1
         globalMounts:
           - path: /backups
             subPath: minecraft/gtnh

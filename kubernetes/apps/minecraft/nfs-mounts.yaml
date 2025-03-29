@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: minecraft-store0
+  name: minecraft-store1
   namespace: minecraft
 spec:
   storageClassName: minecraft
@@ -13,20 +13,20 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: store.${SECRET_DOMAIN_2}
-    path: "/mnt/store0/linux"
+    path: "/mnt/store1/linux"
   mountOptions:
     - nfsvers=4.2
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: minecraft-store0
+  name: minecraft-store1
   namespace: minecraft
 spec:
   accessModes:
     - ReadWriteMany
   storageClassName: minecraft
-  volumeName: minecraft-store0
+  volumeName: minecraft-store1
   resources:
     requests:
       storage: 1Mi
