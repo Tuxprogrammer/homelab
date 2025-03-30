@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: archive.${SECRET_DOMAIN_2}
+  externalName: store.${SECRET_DOMAIN_2}
   ports:
     - name: http
       port: &port 9001
@@ -22,7 +22,7 @@ metadata:
   name: &app nextcloud-webui
   namespace: networking
   annotations:
-    nginx.ingress.kubernetes.io/upstream-vhost: "archive.${SECRET_DOMAIN_2}"
+    nginx.ingress.kubernetes.io/upstream-vhost: "store.${SECRET_DOMAIN_2}"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/server-snippet: |
       location /.well-known/carddav {
