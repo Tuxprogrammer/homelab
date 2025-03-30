@@ -33,6 +33,7 @@ metadata:
           return 301 $scheme://$host/remote.php/dav;
       }
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
+    cert-manager.io/cluster-issuer: letsencrypt-production
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Media
     gethomepage.dev/name: Nextcloud
