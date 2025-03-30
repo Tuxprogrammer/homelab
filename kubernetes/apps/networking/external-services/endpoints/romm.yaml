@@ -38,7 +38,7 @@ metadata:
     gethomepage.dev/icon: romm.png
     gethomepage.dev/description: "Web-based video game library"
     gethomepage.dev/widget.type: "romm"
-    gethomepage.dev/widget.url: "https://romm.networking.svc.cluster.local:30061/"
+    gethomepage.dev/widget.url: "http://romm.networking.svc.cluster.local:30061/"
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
