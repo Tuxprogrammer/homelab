@@ -23,14 +23,16 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "store.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/backend-protocol: "TCP"
     nginx.ingress.kubernetes.io/server-snippet: |
       location /.well-known/carddav {
           return 301 $scheme://$host/remote.php/dav;
       }
-
       location /.well-known/caldav {
           return 301 $scheme://$host/remote.php/dav;
+      }
+      location ^~ /.well-known {
+          return 301 $scheme://$host/index.php$uri;
       }
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"
     cert-manager.io/cluster-issuer: letsencrypt-production

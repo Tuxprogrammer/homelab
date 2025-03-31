@@ -23,7 +23,7 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/upstream-vhost: "store.${SECRET_DOMAIN_2}"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "TCP"
     external-dns.alpha.kubernetes.io/target: "${SECRET_DOMAIN_2}"
     cert-manager.io/cluster-issuer: letsencrypt-production
     gethomepage.dev/enabled: "true"
