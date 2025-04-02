@@ -30,6 +30,7 @@ spec:
       *app :
         annotations:
           reloader.stakater.com/auto: "true"
+          backup.velero.io/backup-volumes-excludes: recordings,cache
         pod:
           nodeSelector:
             google.feature.node.kubernetes.io/coral: "true"
