@@ -44,6 +44,10 @@ spec:
         - secretRef:
             name: authentik-env-secrets
       volumeMounts:
+        - name: internal-ca-cert
+          mountPath: /etc/ssl/certs/internal-ca-cert.crt
+          subPath: tls.crt
+          readOnly: true
         # Mappings:
         # assets/custom.css -> /web/dist/custom.css
         - name: custom-assets-custom-css
@@ -80,8 +84,11 @@ spec:
           mountPath: /web/dist/theme-dark.css
           subPath: theme-dark.css
           readOnly: true
-
       volumes:
+        - name: internal-ca-cert
+          secret:
+            secretName: internal-ca-cert
+            namespace: cert-manager
         - name: custom-assets-custom-css
           configMap:
             name: authentik-assets-custom-css
@@ -103,7 +110,6 @@ spec:
         - name: custom-assets-theme-dark-css
           configMap:
             name: authentik-assets-theme-dark-css
-
     authentik:
       error_reporting:
         enabled: false
@@ -156,7 +162,6 @@ spec:
         limits:
           cpu: 2000m
           memory: 2Gi
-
     worker:
       autoscaling:
         enabled: true
@@ -189,7 +194,6 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
-
     redis:
       enabled: true
       master:
@@ -201,7 +205,6 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
-
   valuesFrom:
     - targetPath: authentik.postgresql.password
       kind: Secret
