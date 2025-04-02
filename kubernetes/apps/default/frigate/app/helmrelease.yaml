@@ -28,10 +28,10 @@ spec:
   values:
     controllers:
       *app :
-        annotations:
-          reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: recordings,cache
         pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
+            backup.velero.io/backup-volumes-excludes: recordings,cache
           nodeSelector:
             google.feature.node.kubernetes.io/coral: "true"
             intel.feature.node.kubernetes.io/gpu: "true"

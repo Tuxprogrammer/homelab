@@ -32,8 +32,9 @@ spec:
     controllers:
       *app :
         type: statefulset
-        annotations:
-          reloader.stakater.com/auto: "true"
+        pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
         containers:
           *app :
             image:

@@ -24,9 +24,10 @@ spec:
     controllers:
       *app :
         type: statefulset
-        annotations:
-          reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: media,inprogress,addons,tmp
+        pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
+            backup.velero.io/backup-volumes-excludes: media,inprogress,addons,tmp
         initContainers:
           gluetun:
             image:

@@ -33,9 +33,10 @@ spec:
     controllers:
       *app :
         type: statefulset
-        annotations:
-          reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: world,backups
+        pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
+            backup.velero.io/backup-volumes-excludes: world,backups
         initContainers:
           load-world:
             image:

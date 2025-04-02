@@ -24,10 +24,10 @@ spec:
     controllers:
       *app :
         type: statefulset
-        annotations:
-          reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: transcode,media,tmp
         pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
+            backup.velero.io/backup-volumes-excludes: transcode,media,tmp
           nodeSelector:
             intel.feature.node.kubernetes.io/gpu: "true"
         containers:

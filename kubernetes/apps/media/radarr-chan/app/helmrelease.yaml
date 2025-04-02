@@ -28,9 +28,10 @@ spec:
     controllers:
       &app "radarr":
         type: statefulset
-        annotations:
-          reloader.stakater.com/auto: "true"
-          backup.velero.io/backup-volumes-excludes: media,tmp
+        pod:
+          annotations:
+            reloader.stakater.com/auto: "true"
+            backup.velero.io/backup-volumes-excludes: media,tmp
         containers:
           *app :
             image:
