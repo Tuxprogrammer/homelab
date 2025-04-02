@@ -8,7 +8,7 @@ metadata:
 spec:
   secretName: "mail-${SECRET_DOMAIN_2/./-}-production-tls"
   issuerRef:
-    name: internal-ca
+    name: letsencrypt-production
     kind: ClusterIssuer
   duration: 17520h
   commonName: mail
