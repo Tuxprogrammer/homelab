@@ -63,7 +63,6 @@ spec:
         runAsNonRoot: false
         privileged: true
     schedules:
-      TODO: fixme this
       weekly:
         schedule: "0 3 * * 0"
         template:
