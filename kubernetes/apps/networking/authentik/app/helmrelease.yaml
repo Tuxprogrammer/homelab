@@ -46,7 +46,7 @@ spec:
       volumeMounts:
         - name: internal-ca-cert
           mountPath: /etc/ssl/certs/internal-ca-cert.crt
-          subPath: tls.crt
+          subPath: internal-ca-cert.crt
           readOnly: true
         # Mappings:
         # assets/custom.css -> /web/dist/custom.css
@@ -87,8 +87,7 @@ spec:
       volumes:
         - name: internal-ca-cert
           secret:
-            secretName: internal-ca-cert
-            namespace: cert-manager
+            secretName: authentik-sub-secrets
         - name: custom-assets-custom-css
           configMap:
             name: authentik-assets-custom-css
