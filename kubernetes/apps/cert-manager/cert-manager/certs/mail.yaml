@@ -1,5 +1,5 @@
 ---
-# CN = mail
+# CN = mail.${SECRET_DOMAIN_2}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -15,7 +15,3 @@ spec:
   dnsNames:
     - mail.${SECRET_DOMAIN_2}
     - mail.${SECRET_DOMAIN}
-    - localhost
-  ipAddresses:
-    - 127.0.0.1
-    - 10.2.0.3
