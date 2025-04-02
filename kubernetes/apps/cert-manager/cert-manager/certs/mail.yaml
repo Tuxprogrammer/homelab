@@ -11,7 +11,7 @@ spec:
     name: letsencrypt-production
     kind: ClusterIssuer
   duration: 17520h
-  commonName: mail
+  commonName: mail.${SECRET_DOMAIN_2}
   dnsNames:
     - mail.${SECRET_DOMAIN_2}
     - mail.${SECRET_DOMAIN}
