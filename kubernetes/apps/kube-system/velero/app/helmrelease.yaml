@@ -46,7 +46,7 @@ spec:
           caCert: ""
           config:
             region: minio
-            s3Url: https://archive.tuxhpc.net:9000
+            s3Url: https://store.tuxhpc.net:9000
             s3ForcePathStyle: true
             insecureSkipTLSVerify: true
       extraEnvVars:
@@ -54,9 +54,7 @@ spec:
       defaultVolumesToFsBackup: true
     credentials:
       existingSecret: velero-secrets
-    # TODO: fixme this
-    # backupsEnabled: true
-    backupsEnabled: false
+    backupsEnabled: true
     snapshotsEnabled: false
     deployNodeAgent: true
     nodeAgent:
@@ -65,26 +63,26 @@ spec:
         runAsNonRoot: false
         privileged: true
     schedules:
-      # TODO: fixme this
-      # weekly:
-      #   schedule: "0 3 * * 0"
-      #   template:
-      #     includedNamespaces:
-      #       - "*"
-      #     ttl: 720h # 30 days
-      # daily:
-      #   schedule: "0 3 * * 1-6"
-      #   template:
-      #     includedNamespaces:
-      #       - "*"
-      #     ttl: 180h # 7 days
-      # hourly:
-      #   schedule: "0 0-2,4-23 * * *"
-      #   template:
-      #     includedNamespaces:
-      #       - "*"
-      #     ttl: 24h # 1 days
-      #     defaultVolumesToFsBackup: false # don't backup pod filesystems for the hourly schedule
+      TODO: fixme this
+      weekly:
+        schedule: "0 3 * * 0"
+        template:
+          includedNamespaces:
+            - "*"
+          ttl: 720h # 30 days
+      daily:
+        schedule: "0 3 * * 1-6"
+        template:
+          includedNamespaces:
+            - "*"
+          ttl: 180h # 7 days
+      hourly:
+        schedule: "0 0-2,4-23 * * *"
+        template:
+          includedNamespaces:
+            - "*"
+          ttl: 24h # 1 days
+          defaultVolumesToFsBackup: false # don't backup pod filesystems for the hourly schedule
   valuesFrom:
     - targetPath: configuration.backupStorageLocation[0].caCert
       kind: Secret
