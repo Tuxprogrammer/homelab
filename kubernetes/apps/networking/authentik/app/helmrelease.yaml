@@ -48,6 +48,10 @@ spec:
           mountPath: /etc/ssl/certs/internal-ca-cert.crt
           subPath: internal-ca-cert.crt
           readOnly: true
+        - name: root-ca-cert
+          mountPath: /etc/ssl/certs/root-ca-cert.crt
+          subPath: root-ca-cert.crt
+          readOnly: true
         # Mappings:
         # assets/custom.css -> /web/dist/custom.css
         - name: custom-assets-custom-css
@@ -86,6 +90,9 @@ spec:
           readOnly: true
       volumes:
         - name: internal-ca-cert
+          secret:
+            secretName: authentik-sub-secrets
+        - name: root-ca-cert
           secret:
             secretName: authentik-sub-secrets
         - name: custom-assets-custom-css
