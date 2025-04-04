@@ -219,8 +219,6 @@ spec:
               requests:
                 cpu: 1000m
                 memory: 4Gi
-              limits:
-                memory: 4Gi
         storageClass:
           enabled: true
           isDefault: false

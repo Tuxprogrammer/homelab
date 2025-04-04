@@ -68,7 +68,6 @@ spec:
                 memory: 1024Mi
                 gpu.intel.com/i915: 1
               limits:
-                memory: 8192Mi
                 gpu.intel.com/i915: 1
     service:
       *app :
