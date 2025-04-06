@@ -167,7 +167,7 @@ spec:
       downloads:
         retain: false
         accessMode: ReadWriteOnce
-        size: 400Gi
+        size: 200Gi
         storageClass: ceph-block-internal-fast
         advancedMounts:
           *app :
