@@ -14,8 +14,29 @@
         "digest"
       ],
       "matchPackagePatterns": [
+        "crocodilestick",
+        "docker.io/jmalloc",
+        "eeacms",
+        "freshrss",
         "ghcr.io/bjw-s",
-        "ghcr.io/onedr0p"
+        "ghcr.io/blakeblackshear",
+        "ghcr.io/coder",
+        "ghcr.io/fallenbagel",
+        "ghcr.io/gethomepage",
+        "ghcr.io/home-operations",
+        "ghcr.io/itzg",
+        "ghcr.io/joryirving",
+        "ghcr.io/kiwigrid",
+        "ghcr.io/onedr0p",
+        "ghcr.io/qdm12",
+        "ghcr.io/recyclarr",
+        "ghcr.io/squat",
+        "ghcr.io/tarampampam",
+        "ghcr.io/techno-tim",
+        "public.ecr.aws/docker/library",
+        "registry.k8s.io/git-sync",
+        "ubuntu",
+        "vaultwarden"
       ]
     },
     {
