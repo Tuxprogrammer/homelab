@@ -36,7 +36,7 @@ spec:
           *app :
             image:
               repository: ghcr.io/home-operations/radarr
-              tag: 5.23.0.9907@sha256:b42c8221dd2ebd01694f47616fe4b27e6df868ce893548081818711036ea601e
+              tag: 5.24.0.10006@sha256:3c28f896612a35dde6473cd0a8c7f39a6acc07de5f3df6e4854bbe456b75d4ae
             env:
               LOG_LEVEL: info
               TZ: ${TIMEZONE}
