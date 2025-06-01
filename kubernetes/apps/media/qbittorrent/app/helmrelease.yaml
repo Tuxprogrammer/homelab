@@ -87,7 +87,7 @@ spec:
           *app :
             image:
               repository: ghcr.io/home-operations/qbittorrent
-              tag: 5.1.0@sha256:1cd84c74d3c7ccb7d2edb43fec4cdd2306f6ca30b7e85efd762fa476e1470fba
+              tag: 5.1.0@sha256:37aefd713ba31d51255995261616f1144378887bc5f21665a0ebf851fb85f69a
               pullPolicy: IfNotPresent
             env:
               TZ: ${TIMEZONE}
