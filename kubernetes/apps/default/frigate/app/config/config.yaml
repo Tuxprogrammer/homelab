@@ -19,6 +19,9 @@ mqtt:
 database:
   path: /data/frigate.db
 
+detect:
+  enabled: true
+
 detectors:
   coral:
     type: edgetpu
