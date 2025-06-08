@@ -19,9 +19,6 @@ mqtt:
 database:
   path: /data/frigate.db
 
-detect:
-  enabled: true
-
 detectors:
   coral:
     type: edgetpu
@@ -86,6 +83,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -99,6 +97,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -112,6 +111,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -125,6 +125,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -138,6 +139,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -151,6 +153,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -164,6 +167,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
@@ -177,6 +181,7 @@ cameras:
           input_args: preset-rtsp-restream
           roles: [detect]
     detect:
+      enabled: true
       width: 704
       height: 480
       fps: 5
