@@ -3,22 +3,22 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ./namespace.yaml
-  - ./istio/ks.yaml
-  - ./oauth2-proxy/ks.yaml
-  - ./knative/ks.yaml
-  - ./networkpolicies/ks.yaml
-  - ./roles/ks.yaml
-  - ./pipelines/ks.yaml
-  - ./kserve/ks.yaml
-  - ./katib/ks.yaml
-  - ./centraldashboard/ks.yaml
-  - ./admission-webhook/ks.yaml
-  - ./notebooks/ks.yaml
-  - ./pvcviewer-controller/ks.yaml
-  - ./profiles/ks.yaml
-  - ./volumes-web-app/ks.yaml
-  - ./tensorboard/ks.yaml
-  - ./training-operator/ks.yaml
-  - ./user-namespace/ks.yaml
-  - ./ingress/ks.yaml
+  # - ./namespace.yaml
+  # - ./istio/ks.yaml
+  # - ./oauth2-proxy/ks.yaml
+  # - ./knative/ks.yaml
+  # - ./networkpolicies/ks.yaml
+  # - ./roles/ks.yaml
+  # - ./pipelines/ks.yaml
+  # - ./kserve/ks.yaml
+  # - ./katib/ks.yaml
+  # - ./centraldashboard/ks.yaml
+  # - ./admission-webhook/ks.yaml
+  # - ./notebooks/ks.yaml
+  # - ./pvcviewer-controller/ks.yaml
+  # - ./profiles/ks.yaml
+  # - ./volumes-web-app/ks.yaml
+  # - ./tensorboard/ks.yaml
+  # - ./training-operator/ks.yaml
+  # - ./user-namespace/ks.yaml
+  # - ./ingress/ks.yaml
