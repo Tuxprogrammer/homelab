@@ -76,7 +76,7 @@ spec:
             - "*"
           ttl: 180h # 7 days
       hourly:
-        schedule: "0 0-2,4-23 * * *"
+        schedule: "0 */6 * * *"
         template:
           includedNamespaces:
             - "*"
