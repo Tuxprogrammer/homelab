@@ -130,9 +130,9 @@ spec:
 
     server:
       autoscaling:
-        enabled: false
+        enabled: true
         minReplicas: 1
-        maxReplicas: 3
+        maxReplicas: 1
         targetCPUUtilizationPercentage: 50
       pdb:
         enabled: true
@@ -170,9 +170,9 @@ spec:
           memory: 2Gi
     worker:
       autoscaling:
-        enabled: false
+        enabled: true
         minReplicas: 2
-        maxReplicas: 4
+        maxReplicas: 3
         targetCPUUtilizationPercentage: 50
       pdb:
         enabled: true
