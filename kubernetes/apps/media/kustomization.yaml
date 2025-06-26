@@ -9,6 +9,7 @@ resources:
   # Arrstack
   - ./calibre-web-automated/ks.yaml
   - ./bazarr/ks.yaml
+  - ./flaresolverr/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
