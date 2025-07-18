@@ -30,6 +30,7 @@ spec:
             backup.velero.io/backup-volumes-excludes: transcode,media,tmp
           nodeSelector:
             intel.feature.node.kubernetes.io/gpu: "true"
+            good-for-plex: "true"
         containers:
           *app :
             image:
