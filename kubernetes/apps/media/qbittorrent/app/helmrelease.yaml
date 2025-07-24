@@ -42,7 +42,7 @@ spec:
               FIREWALL_INPUT_PORTS: 8080,9999,62257
               FIREWALL_OUTBOUND_SUBNETS: ${CLUSTER_CIDR},${SERVICE_CIDR}
               DOT: "off"
-              DNS_ADDRESS: fd7d:76ee:e68f:a993::1
+              DNS_ADDRESS: 10.128.0.1
               VPN_SERVICE_PROVIDER: "airvpn"
               VPN_TYPE: "wireguard"
             envFrom:
