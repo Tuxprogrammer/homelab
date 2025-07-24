@@ -43,7 +43,6 @@ spec:
               FIREWALL_OUTBOUND_SUBNETS: ${CLUSTER_CIDR},${SERVICE_CIDR}
               DOT: "off"
               DNS_ADDRESS: 10.128.0.1
-              PORT_FORWARD_ONLY: "true"
               VPN_SERVICE_PROVIDER: "airvpn"
               VPN_TYPE: "wireguard"
               VPN_PORT_FORWARDING: "on"
