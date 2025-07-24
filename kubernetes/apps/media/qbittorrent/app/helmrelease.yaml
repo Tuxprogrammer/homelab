@@ -65,6 +65,13 @@ spec:
                   - NET_RAW
                   - NET_ADMIN
                   - SYS_MODULE
+              sysctls:
+                - name: net.ipv6.conf.all.disable_ipv6
+                  value: "1"
+                - name: net.ipv6.conf.default.disable_ipv6
+                  value: "1"
+                - name: net.ipv6.conf.lo.disable_ipv6
+                  value: "1"
             probes:
               liveness: &probe
                 enabled: true
