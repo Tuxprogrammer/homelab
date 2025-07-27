@@ -161,6 +161,7 @@ spec:
             *app :
               - path: /config
       transcode:
+        medium: Memory
         type: emptyDir
         sizeLimit: 100Gi
         advancedMounts:
@@ -175,6 +176,7 @@ spec:
               - path: /media
                 subPath: plex/media
       tmp:
+        medium: Memory
         type: emptyDir
         advancedMounts:
           *app :
