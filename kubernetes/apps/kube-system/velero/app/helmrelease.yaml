@@ -46,7 +46,7 @@ spec:
           caCert: ""
           config:
             region: minio
-            s3Url: https://store.tuxhpc.net:9000
+            s3Url: https://store.${SECRET_DOMAIN_2}:9000
             s3ForcePathStyle: true
             insecureSkipTLSVerify: true
       extraEnvVars:
