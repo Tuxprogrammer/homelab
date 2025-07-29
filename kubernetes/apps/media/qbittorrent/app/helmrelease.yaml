@@ -138,6 +138,38 @@ spec:
               capabilities:
                 drop:
                   - ALL
+      vpn-shuffle:
+        type: cronjob
+        annotations:
+          reloader.stakater.com/auto: "true"
+        cronjob:
+          concurrencyPolicy: Forbid
+          schedule: "@daily"
+          backoffLimit: 2
+          activeDeadlineSeconds: 600
+        containers:
+          *app :
+            image:
+              repository: bitnami/kubectl
+              tag: 1.33@sha256:cd354d5b25562b195b277125439c23e4046902d7f1abc0dc3c75aad04d298c17
+            command:
+              - bash
+              - -c
+              - >-
+                kubectl rollout restart statefulset/qbittorrent &&
+                kubectl rollout status statefulset/qbittorrent
+            resources:
+              requests:
+                cpu: 5m
+                memory: 36M
+              limits:
+                memory: 128M
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
     defaultPodOptions:
       securityContext:
         runAsUser: 1000
