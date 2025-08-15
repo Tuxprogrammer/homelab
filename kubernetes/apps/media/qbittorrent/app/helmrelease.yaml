@@ -151,7 +151,7 @@ spec:
           *app :
             image:
               repository: bitnami/kubectl
-              tag: 1.33@sha256:36ebb623be601ff879da36e1057a7e91a1acb42c83256f9d867d774ef103391e
+              tag: 1.33@sha256:ed0b31a0508da84ee655c5c6e01bd3897fc56ad6cf69debb27fa1893a06d2246
             command:
               - bash
               - -c
