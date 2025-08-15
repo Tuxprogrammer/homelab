@@ -194,15 +194,6 @@ spec:
             *app :
               - path: /downloads
                 subPath: plex/qbittorrent
-      inprogress:
-        retain: false
-        accessMode: ReadWriteOnce
-        storageClass: ceph-block-internal-fast
-        size: 200Gi
-        advancedMounts:
-          *app :
-            *app :
-              - path: /downloads/InProgress
       addons:
         type: emptyDir
         globalMounts:
