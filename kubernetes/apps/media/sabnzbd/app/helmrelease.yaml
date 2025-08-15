@@ -88,8 +88,6 @@ spec:
             resources:
               requests:
                 cpu: 10m
-              limits:
-                memory: 128Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -164,15 +162,6 @@ spec:
           *app :
             *app :
               - path: /tmp
-      downloads:
-        retain: false
-        accessMode: ReadWriteOnce
-        size: 200Gi
-        storageClass: ceph-block-internal-fast
-        advancedMounts:
-          *app :
-            *app :
-              - path: /downloads/intermediate
     serviceMonitor:
       metrics:
         enabled: true

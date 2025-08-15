@@ -58,8 +58,6 @@ spec:
               readiness:
                 enabled: true
             resources:
-              limits:
-                memory: 300Mi
               requests:
                 cpu: 10m
                 memory: 100Mi

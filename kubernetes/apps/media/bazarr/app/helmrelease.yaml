@@ -69,8 +69,6 @@ spec:
               requests:
                 cpu: 5m
                 memory: 350Mi
-              limits:
-                memory: 2Gi
           exporter:
             image:
               repository: ghcr.io/onedr0p/exportarr
@@ -97,8 +95,6 @@ spec:
             resources:
               requests:
                 cpu: 10m
-              limits:
-                memory: 128Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true

@@ -56,7 +56,6 @@ spec:
                 memory: 128Mi
                 squat.ai/tun: "1"
               limits:
-                memory: 512Mi
                 squat.ai/tun: "1"
             securityContext:
               privileged: true
@@ -162,8 +161,6 @@ spec:
               requests:
                 cpu: 5m
                 memory: 36M
-              limits:
-                memory: 128M
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

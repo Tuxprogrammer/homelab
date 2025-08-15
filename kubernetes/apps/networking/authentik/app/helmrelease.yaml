@@ -165,9 +165,6 @@ spec:
         requests:
           cpu: 100m
           memory: 1Gi
-        limits:
-          cpu: 2000m
-          memory: 2Gi
     worker:
       autoscaling:
         enabled: true
@@ -184,9 +181,6 @@ spec:
         requests:
           cpu: 500m
           memory: 750Mi
-        limits:
-          cpu: 2000m
-          memory: 2Gi
     postgresql:
       enabled: true
       auth:

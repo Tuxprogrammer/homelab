@@ -100,8 +100,6 @@ spec:
             resources:
               requests:
                 memory: 64M
-              limits:
-                memory: 95M
             securityContext:
               allowPrivilegeEscalation: false
               capabilities:
