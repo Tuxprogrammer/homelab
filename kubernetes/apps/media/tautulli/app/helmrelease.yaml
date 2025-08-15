@@ -32,7 +32,7 @@ spec:
           *app :
             image:
               repository: ghcr.io/joryirving/tautulli
-              tag: 2.15.3@sha256:b8016046205019991be2f55a306440aa05263e95580d873073e29b95205c2cc9
+              tag: 2.15.3@sha256:99bb6251f51ed985abe1587dd92b9529488889577ea66d5a153e47b1d0bc5e39
             env:
               TZ: ${TIMEZONE}
               TAUTULLI__PORT: &port 80
