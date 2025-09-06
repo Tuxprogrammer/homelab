@@ -160,6 +160,12 @@ spec:
               - path: /config
             exporter:
               - path: /config
+      tmp:
+        type: emptyDir
+        advancedMounts:
+          *app :
+            *app :
+              - path: /tmp
     serviceMonitor:
       metrics:
         enabled: true
