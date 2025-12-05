@@ -41,7 +41,7 @@ spec:
           load-world:
             image:
               repository: eeacms/rsync
-              tag: 2.7@sha256:ba7a1ca92a9b8969997d34b5084fc8f452f98a15a3144daabec21fb279a96f96
+              tag: 3.0@sha256:e1e17256d41c99b4a7508a53b05086c872adc2b005dd99413bc08c0dbfb2ded0
             command:
               - /bin/sh
               - -c
@@ -106,7 +106,7 @@ spec:
           save-world:
             image:
               repository: eeacms/rsync
-              tag: 2.7@sha256:ba7a1ca92a9b8969997d34b5084fc8f452f98a15a3144daabec21fb279a96f96
+              tag: 3.0@sha256:e1e17256d41c99b4a7508a53b05086c872adc2b005dd99413bc08c0dbfb2ded0
             # The break allows kubernetes to terminate the pod while it is sleeping
             command:
               - /bin/sh
