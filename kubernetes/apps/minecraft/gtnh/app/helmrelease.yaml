@@ -60,7 +60,7 @@ spec:
           *app :
             image:
               repository: ghcr.io/itzg/minecraft-server
-              tag: java21@sha256:5b8cfa408615fae1e4f62a8f5b4639e12aa697a7d56b3a9a1371f44b8bbe20c0
+              tag: java21@sha256:d7b0d209006ef57782a0e4eb6280af89a61eee73bc01c61779f0ad971589a124
             env:
               TZ: ${TIMEZONE}
               EULA: "TRUE"
